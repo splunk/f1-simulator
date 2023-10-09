@@ -1,0 +1,7 @@
+site
+.DS_Store
+acc-collector/acc_ingest_settings.ini
+*.pyc
+acc-collector/acc_ingest_settings.ini
+*.sqlite
+venv

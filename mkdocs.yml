@@ -1,0 +1,65 @@
+site_name: Data Drivers
+repo_name: splunk/datadrivers
+repo_url: https://github.com/splunk/f1-simualtor
+edit_uri: edit/main/docs
+theme:
+  name: material 
+  palette:
+    scheme: slate
+    primary: orange
+    accent: amber
+  icon:
+    logo: simple/splunk 
+  favicon: favicon.ico
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - toc.integrate
+  custom_dir: material/overrides
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true 
+
+nav:
+  - Home: index.md
+#  - Event Guide:
+#    - Introduction: event_guide/index.md
+#    - Event Support: event_guide/event_support.md
+#    - Pre-Work: event_guide/prework.md
+#    - Game Configuration (Solo): event_guide/solo.md
+#    - Game Configuration (LAN): event_guide/lan.md
+#    - Host Laptop: event_guide/host_laptop.md
+  - F1 2023 Simulator:
+    - Requirements: f1_2023/requirements.md
+    - Initial Setup: f1_2023/setup.md
+    - Ingest Settings: f1_2023/ingest.md
+    - Starting UDP Listener(s): f1_2023/listener.md
+ 
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/splunk
+    - icon: fontawesome/brands/github
+      link: https://github.com/splunk
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/splunk/
+    - icon: fontawesome/brands/twitch
+      link: https://www.twitch.tv/splunkinc
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/splunkvideos
+
+
+  generator: false
+
+extra_css:
+  - stylesheets/custom.css
+
+copyright: Copyright &copy; 2022 - Splunk Inc.
