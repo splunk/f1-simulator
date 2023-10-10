@@ -1,6 +1,6 @@
 site_name: Splunk Data Drivers - F1 Simulator
 repo_name: splunk/f1-simulator
-repo_url: https://github.com/splunk/f1-simualtor
+repo_url: https://github.com/splunk/f1-simulator
 edit_uri: edit/main/docs
 theme:
   name: material 
