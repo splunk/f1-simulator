@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../setup/">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +20,7 @@
     
     
       
-        <title>For LOCAL-LAN Game Play as Host (Work in progress) - Splunk Data Drivers - F1 Simulator</title>
+        <title>Pre-requisites - Splunk Data Drivers - F1 Simulator</title>
       
     
     
@@ -71,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#for-local-lan-game-play-as-host-work-in-progress" class="md-skip">
+        <a href="#pre-requisites" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              For LOCAL-LAN Game Play as Host (Work in progress)
+              Pre-requisites
             
           </span>
         </div>
@@ -216,11 +220,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../f1_2023/pre-reqs/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   F1 2023
@@ -301,6 +307,8 @@
       
   
   
+    
+  
   
     
     
@@ -310,12 +318,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -329,7 +337,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             F1 2023
@@ -340,9 +348,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../f1_2023/pre-reqs/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Pre-requisites
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -351,6 +379,40 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-environments" class="md-nav__link">
+    Recommended environment(s)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker" class="md-nav__link">
+    Install Docker
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -362,7 +424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2023/setup/" class="md-nav__link">
+      <a href="../setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -382,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2023/ui/" class="md-nav__link">
+      <a href="../ui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -402,7 +464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2023/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -422,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2023/game/" class="md-nav__link">
+      <a href="../game/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,102 +523,43 @@
   
 
 
-<h1 id="for-local-lan-game-play-as-host-work-in-progress">For LOCAL-LAN Game Play as Host (Work in progress)</h1>
-<ol>
-<li>Go to Multiplayer tab on main menu bar (using paddle shifter or F6 key)</li>
-<li>Select "LAN GAME" box (using dpad on steering wheel or arrow keys on keyboard)</li>
-<li>Select "Host LAN Game"</li>
-<li>Go to Settings, Press Enter</li>
-<li>Select "Lobby Options"<ol>
-<li>Car Category: F1 2021</li>
-</ol>
+<h1 id="pre-requisites">Pre-requisites</h1>
+<h2 id="recommended-environments">Recommended environment(s)</h2>
+<ul>
+<li>Apple MacBook (Apple Silicon M1/M2)</li>
+<li>AWS/EC2 (Ubuntu 22.04 or above)<ul>
+<li>t2.large (2 vCPU, 8GB RAM)</li>
+<li>External IP address</li>
+<li>Inbound access on ports <code>8501/tcp</code> and <code>20777-20784/udp</code></li>
+</ul>
 </li>
-<li>Press Escape to return to the LAN Settings menu</li>
-<li>Go to "TRACK SELECT"</li>
-<li>With the BAHRAIN Track highlighted arrow over to CANADA track (6 right arrow clicks)</li>
-<li>Press Escape to return to the LAN Settings menu</li>
-<li>Select over to Rules and Flags Chiclet and press Enter<ol>
-<li>Rules and Flags: Off</li>
-<li>Parc Fermé Rules: Off</li>
-<li>Formation Lap: Off</li>
-</ol>
-</li>
-<li>Press Escape to return to the LAN Settings menu</li>
-<li>Select the Simulation Settings button<ol>
-<li>Surface Type: Realistic</li>
-<li>Recovery Mode: Auto Reset to Track</li>
-<li>Car Damage: Off</li>
-<li>Low Fuel Mode: Easy</li>
-<li>Race Starts: Assisted</li>
-<li>Collisions: On</li>
-<li>Ghosting: On</li>
-<li>Unsafe Pit Release: On</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings menu</li>
-<li>Select Weekend Structure<ol>
-<li>Practice Format: Off</li>
-<li>Qualifying Format: Off</li>
-<li>Session Length: Short</li>
-<li>Starting Grid: Random</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings menu</li>
-<li>Select the Assists Restrictions Menu<ol>
-<li>Steering assist: Off</li>
-<li>Braking Assist: medium</li>
-<li>Anti-Lock Brakes: Off</li>
-<li>Traction Control: Full</li>
-<li>Dynamic Racing Line: Full</li>
-<li>Gearbox: Automatic</li>
-<li>Pit Assist: On</li>
-<li>Pit Release Assist: On</li>
-<li>ERS Assist: On</li>
-<li>DRS Assist: On</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings menu</li>
-<li>Select the Assists Menu<ol>
-<li>Steering assist: Off</li>
-<li>Braking assist: Medium</li>
-<li>Traction Control : Full</li>
-<li>Dynamic Racing Line: Full</li>
-<li>Dynamic Racing Line Type: 3D</li>
-<li>Gearbox: Automatic</li>
-<li>Pit Assist: On</li>
-<li>Pit Release Assist: On</li>
-<li>ERS Assist: On</li>
-<li>DRS Assist: On</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings Menu</li>
-<li>Select the Weather and Time of Day Menu<ol>
-<li>Quick Weather: Light Cloud (Dry)</li>
-<li>Session Start Time: Midday</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings Menu</li>
-<li>Press ESC to return to the Lobby</li>
-<li>Press F6 or paddle shift right to Select Team and Driver<ol>
-<li>Select your Driver. Prioritize McLaren first, then other teams</li>
-</ol>
-</li>
-<li>Press F5 or paddle shift left to go back to lobby and wait for other sim_rigs to join</li>
-<li>When everyone is ready to race, press "X" on the steering wheel to "Ready Up". The Race will advance when there is a majority of racers who have pressed "Ready Up".</li>
-</ol>
-<h2 id="for-local-lan-game-play-as-sim_rig_2-4-work-in-progress">For LOCAL-LAN Game Play as Sim_Rig_2-4 (Work in progress)</h2>
-<ol>
-<li>Go to Multiplayer tab on main menu bar (using paddle shifter or F6 key)</li>
-<li>Select "LAN GAME" box (using dpad on steering wheel or arrow keys on keyboard)</li>
-<li>Select "Find game on subnet"</li>
-<li>After the search completes, select the game that appears.</li>
-<li>Press F6 or paddle shift right to Select Team and Driver<ol>
-<li>Select your Driver. Prioritize McLaren first, then other teams</li>
-</ol>
-</li>
-<li>Press F5 or paddle shift left to go back to lobby and wait for other sim_rigs to join</li>
-<li>When everyone is ready to race, press "X" on the steering wheel to "Ready Up". The Race will advance when there is a majority of racers who have pressed "Ready Up".</li>
-</ol>
+</ul>
+<h2 id="install-docker">Install Docker</h2>
+<p>Docker is required to run the F1 2023 UDP listener and UI. The UDP listener will take the UDP stream from F1 2023 and transform the stream into metric payload for Splunk Observability Cloud and Splunk Enterprise/Cloud. The UI is used to configure where to send the metrics, start/stop the UDP listener(s) and change the name of the current driver.</p>
+<p>The following instructions will install Docker on your laptop or EC2 instance:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Mac OS</label><label for="__tabbed_1_2">Ubuntu</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a href="https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&amp;utm_medium=webreferral&amp;utm_campaign=docs-driven-download-mac-arm64">Download Docker Desktop for Mac with Apple Silicon</a></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>docker<span class="w"> </span>docker-engine<span class="w"> </span>docker.io<span class="w"> </span>containerd<span class="w"> </span>runc
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ca-certificates<span class="w"> </span>curl<span class="w"> </span>gnupg<span class="w"> </span>-y
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/docker.gpg
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.gpg
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">echo</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s2">&quot;deb [arch=&quot;</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2">&quot; signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s2">&quot;</span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VERSION_CODENAME</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot; stable&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/docker.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin<span class="w"> </span>-y
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
 
