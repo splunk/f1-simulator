@@ -39,7 +39,7 @@ nav:
 #    - Game Configuration (LAN): event_guide/lan.md
 #    - Host Laptop: event_guide/host_laptop.md
 
-    - Pre-requisites: f1_2023/pre-reqs.md
+    - Pre-requisites: f1_2023/index.md
     - Setup: f1_2023/setup.md
     - Accessing the Web Interface: f1_2023/ui.md
     - Configuration: f1_2023/configuration.md
