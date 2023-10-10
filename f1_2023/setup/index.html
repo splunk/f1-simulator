@@ -481,13 +481,13 @@
 
 <h1 id="running-the-f1-2023-container">Running the F1 2023 container</h1>
 <p>For both Mac OS and Ubuntu the following Docker command will run the F1 2023 container:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>f1_2023<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501/tcp<span class="w"> </span>-p<span class="w"> </span><span class="m">20777</span>:20777/udp<span class="w"> </span>rcastley895/f1_2023
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>f1_2023<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501/tcp<span class="w"> </span>-p<span class="w"> </span><span class="m">20777</span>:20777/udp<span class="w"> </span>ghcr.io/splunk/f1_2023:latest
 </code></pre></div>
 <p>The above will run the F1 2023 container in the background and expose port <code>8501</code> for the UI and port <code>20777</code> for the UDP listener.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are using more than one simulator you can expose up to 8 UDP ports, for example, if you have 4 simulators running you would start the container by running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>f1_2023<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501/tcp<span class="w"> </span>-p<span class="w"> </span><span class="m">20777</span>:20777/udp<span class="w"> </span>-p<span class="w"> </span><span class="m">20778</span>:20778/udp<span class="w"> </span>-p<span class="w"> </span><span class="m">20779</span>:20779/udp<span class="w"> </span>-p<span class="w"> </span><span class="m">20780</span>:20780/udp<span class="w"> </span>rcastley895/f1_2023
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>f1_2023<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501/tcp<span class="w"> </span>-p<span class="w"> </span><span class="m">20777</span>:20777/udp<span class="w"> </span>-p<span class="w"> </span><span class="m">20778</span>:20778/udp<span class="w"> </span>-p<span class="w"> </span><span class="m">20779</span>:20779/udp<span class="w"> </span>-p<span class="w"> </span><span class="m">20780</span>:20780/udp<span class="w"> </span>ghcr.io/splunk/f1_2023:latest
 </code></pre></div>
 </div>
 <p>To validate the container is running correctly you can run the following command:</p>
