@@ -1,4 +1,4 @@
-# Windows Laptop Collector Configuration
+# Macbook Laptop Collector Configuration
 
 1. Laptop must be a Windows based PC with an ethernet connection and a wifi connection.
     1. 1 ethernet connection with outside internet connectivity will suffice too

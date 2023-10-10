@@ -1,6 +1,6 @@
 # Overview
 
-Thanks for hosting a local Data Drivers event in your geo! We are extremely excited to bring Splunk Racing Insights to your customers. This document will guide you on:
+This site will guide you on:
 
 - How to initiate a request for the appropriate support from the Observability Solutions Strategists for your event
 - Familiarize you on how to setup the local Data Drivers racing simulators to expose data
