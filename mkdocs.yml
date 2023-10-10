@@ -1,5 +1,5 @@
-site_name: Data Drivers
-repo_name: splunk/datadrivers
+site_name: Splunk Data Drivers - F1 Simulator
+repo_name: splunk/f1-simulator
 repo_url: https://github.com/splunk/f1-simualtor
 edit_uri: edit/main/docs
 theme:
@@ -30,18 +30,23 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - F1 2023:
 #  - Event Guide:
-#    - Introduction: event_guide/index.md
+#    - Overview: event_guide/index.md
 #    - Event Support: event_guide/event_support.md
 #    - Pre-Work: event_guide/prework.md
 #    - Game Configuration (Solo): event_guide/solo.md
 #    - Game Configuration (LAN): event_guide/lan.md
 #    - Host Laptop: event_guide/host_laptop.md
-  - F1 2023 Simulator:
-    - Requirements: f1_2023/requirements.md
-    - Initial Setup: f1_2023/setup.md
-    - Ingest Settings: f1_2023/ingest.md
-    - Starting UDP Listener(s): f1_2023/listener.md
+
+    - Pre-requisites: f1_2023/pre-reqs.md
+    - Setup: f1_2023/setup.md
+    - Accessing the Web Interface: f1_2023/ui.md
+    - Configuration: f1_2023/configuration.md
+    - Game Configuration: f1_2023/game.md
+#    - Splunk Observability Cloud: f1_2023/observability.md
+#    - Splunk Enterprise/Cloud: f1_2023/splunk.md
+
  
 extra:
   social:
@@ -56,10 +61,9 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/user/splunkvideos
 
-
   generator: false
 
 extra_css:
   - stylesheets/custom.css
 
-copyright: Copyright &copy; 2022 - Splunk Inc.
+copyright: Copyright &copy; 2023 - Splunk Inc.

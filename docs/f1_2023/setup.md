@@ -1,59 +1,32 @@
-# Mac OS Initial setup
+# Running the F1 2023 container
 
-Open iTerm2 and change into your **Documents** directory
+For both Mac OS and Ubuntu the following Docker command will run the F1 2023 container:
 
 ```bash
-cd ~/Documents
+docker run --name f1_2023 -d -p 8501:8501/tcp -p 20777:20777/udp rcastley895/f1_2023
 ```
 
-## Clone the Data Driver GitHub repository
+The above will run the F1 2023 container in the background and expose port `8501` for the UI and port `20777` for the UDP listener.
 
-Inside this directory clone the Data Driver GitHub repository.
+!!! note
 
-```git
-git clone https://github.com/splunk/datadrivers
-```
-
-!!! info
-    If the above `git` command can not be found you will have to install Xcode Command Line tools for Mac OS. This can be done by running the following:
+    If you are using more than one simulator you can expose up to 8 UDP ports, for example, if you have 4 simulators running you would start the container by running:
 
     ```bash
-    xcode-select –install
+    docker run --name f1_2023 -d -p 8501:8501/tcp -p 20777:20777/udp -p 20778:20778/udp -p 20779:20779/udp -p 20780:20780/udp rcastley895/f1_2023
     ```
 
-Next, change into the `f1_2023` directory:
+To validate the container is running correctly you can run the following command:
 
-```bash
-cd datadrivers/f1-2023
-```
-
-## Create Python Virtual Environment
-
-We now need to create a virtual Python environment and install the required Python modules:
-
-```bash
-python3 -m venv venv
-. venv/bin/activate
-pip3 install -r requirements.txt --upgrade
-```
-
-!!! info
-    If you are using a Mac with an M1 chip you will need to install the following Python modules:
+=== "Command"
 
     ```bash
-    pip3 install --upgrade --force --no-dependencies --no-cache-dir --no-binary :all: --compile numpy
-    pip3 install --upgrade --force --no-dependencies --no-cache-dir --no-binary :all: --compile pandas
+    docker port f1_2023
     ```
 
-    You can then install the remaining Python modules:
+=== "Output"
 
     ```bash
-    pip3 install -r requirements.txt --upgrade
+    8501/tcp -> 0.0.0.0:8501
+    20777/udp -> 0.0.0.0:20777
     ```
-
-## Start the Streamlit Web UI
-
-```bash
-```bash
-streamlit run stream.py
-```

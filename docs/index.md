@@ -1,6 +1,4 @@
 ---
 template: home.html
-title: Splunk - Data Drivers
+title: Home
 ---
-
-Welcome to Data Drivers!
