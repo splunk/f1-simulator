@@ -31,22 +31,12 @@ markdown_extensions:
 nav:
   - Home: index.md
   - F1 2023:
-#  - Event Guide:
-#    - Overview: event_guide/index.md
-#    - Event Support: event_guide/event_support.md
-#    - Pre-Work: event_guide/prework.md
-#    - Game Configuration (Solo): event_guide/solo.md
-#    - Game Configuration (LAN): event_guide/lan.md
-#    - Host Laptop: event_guide/host_laptop.md
-
     - Pre-requisites: f1_2023/index.md
     - Setup: f1_2023/setup.md
     - Accessing the Web Interface: f1_2023/ui.md
     - Configuration: f1_2023/configuration.md
     - Game Configuration: f1_2023/game.md
-#    - Splunk Observability Cloud: f1_2023/observability.md
-#    - Splunk Enterprise/Cloud: f1_2023/splunk.md
-
+    - Dashboards: f1_2023/dashboards.md
  
 extra:
   social:

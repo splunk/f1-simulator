@@ -15,4 +15,4 @@ Here you will need to set the following:
 
 If you are running multiple simulators, you will need to repeat the above for each remebering to change the UDP Port for each simulator.
 
-![F1 2023 Telemetry Settings](/assets/screenshots/f1_2023_telemetry_settings.png)
+![F1 2023 Telemetry Settings](../assets/screenshots/f1_2023_telemetry_settings.png)

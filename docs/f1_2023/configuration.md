@@ -12,7 +12,7 @@ Realm name for the Observability Cloud realm you want to send data to e.g. `us1`
 
 ### Access Token
 
-Observability Cloud access token (must have `ingest` capability).
+Observability Cloud access token (must have `ingest` capability). This can be done by following the instructions [here](https://docs.splunk.com/Observability/admin/authentication-tokens/org-tokens.html#ingest-tokens).
 
 ## Splunk Cloud/Enterprise
 
