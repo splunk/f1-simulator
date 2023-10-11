@@ -1,3 +1,8 @@
 [data-md-color-primary=orange] {
-    --md-primary-fg-color: #ff8000
+    --md-primary-fg-color: #ff8000;
+}
+
+.md-main {
+    flex-grow: 1;
+    background-color: #2e303d;
 }
