@@ -56,9 +56,7 @@ extra:
 
   generator: false
 
-plugins:
-  - search:
-      enabled: false
+plugins: []
 
 extra_css:
   - stylesheets/custom.css
