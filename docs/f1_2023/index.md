@@ -1,6 +1,14 @@
-# Pre-requisites
+# Overview
 
-## Recommended environment(s)
+This site will guide you on:
+
+- Familiarize you on how to setup the local Data Drivers racing simulators to expose data
+- Get data into Splunk for the simulators
+- Access the Splunk Dashboards
+
+Please reach out Slack on [#datadrivers-inh](https://splunk.slack.com/archives/C03M3BSPLN7) if you have any emergencies arise. Please email [datadrivers@splunk.com](mailto:datadrivers@splunk.com) for any feedback or feature requests.
+
+## Pre-requisites
 
 - Apple MacBook (Apple Silicon M1/M2)
 - AWS/EC2 (Ubuntu 22.04 or above)
@@ -8,7 +16,7 @@
     - External IP address
     - Inbound access on ports `8501/tcp` and `20777-20784/udp`
 
-## Install Docker
+### Install Docker
 
 Docker is required to run the F1 2023 UDP listener and UI. The UDP listener will take the UDP stream from F1 2023 and transform the stream into metric payload for Splunk Observability Cloud and Splunk Enterprise/Cloud. The UI is used to configure where to send the metrics, start/stop the UDP listener(s) and change the name of the current driver.
 

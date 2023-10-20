@@ -38,7 +38,6 @@ nav:
     - Game Configuration: f1_2023/game.md
     - Dashboards: f1_2023/dashboards.md
   - Event Guide:
-    - Introduction: event_guide/index.md
     - Game Configuration: event_guide/solo.md
  
 extra:
