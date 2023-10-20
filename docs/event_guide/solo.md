@@ -4,11 +4,11 @@
 2. Select "GRAND PRIX" box (using dpad on steering wheel or arrow keys on keyboard)
 3. Select "Start new Grand Prix"
 4. Accept the "Are you sure you want to proceed?" prompt
-5. Select the F1 2021 car option
+5. Select the F1 2023 car option
 6. With the BAHRAIN Track highlighted arrow over to CANADA track (6 right arrow clicks)
 7. Press Enter to advance to car selection screen
-8. Select the McLaren car (duh). This is 2 right arrow clicks
-9. Select your favorite McLaren driver. (Lando obviously (poor danny) ), and press enter
+8. Select the McLaren car
+9. Select your favorite McLaren driver. (Lando obviously (poor Oscar) ), and press enter
 10. You are now at the Grand Prix Settings Screen
 11. Highlight the assists option and press Enter
     1. Steering assist: Off

@@ -30,6 +30,9 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Event Guide:
+    - Introduction: event_guide/index.md
+    - Game Configuration: event_guide/solo.md
   - F1 2023:
     - Pre-requisites: f1_2023/index.md
     - Setup: f1_2023/setup.md
