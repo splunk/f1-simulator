@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pre-requisites" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -207,7 +207,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../event_guide/" class="md-tabs__link">
+        <a href="../event_guide/solo/" class="md-tabs__link">
           
   
   Event Guide
@@ -377,16 +377,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recommended-environments" class="md-nav__link">
-    Recommended environment(s)
+  <a href="#pre-requisites" class="md-nav__link">
+    Pre-requisites
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Pre-requisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#install-docker" class="md-nav__link">
     Install Docker
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -551,26 +557,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../event_guide/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Introduction
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../event_guide/solo/" class="md-nav__link">
         
   
@@ -610,8 +596,15 @@
   
 
 
-<h1 id="pre-requisites">Pre-requisites</h1>
-<h2 id="recommended-environments">Recommended environment(s)</h2>
+<h1 id="overview">Overview</h1>
+<p>This site will guide you on:</p>
+<ul>
+<li>Familiarize you on how to setup the local Data Drivers racing simulators to expose data</li>
+<li>Get data into Splunk for the simulators</li>
+<li>Access the Splunk Dashboards</li>
+</ul>
+<p>Please reach out Slack on <a href="https://splunk.slack.com/archives/C03M3BSPLN7">#datadrivers-inh</a> if you have any emergencies arise. Please email <a href="mailto:datadrivers@splunk.com">datadrivers@splunk.com</a> for any feedback or feature requests.</p>
+<h2 id="pre-requisites">Pre-requisites</h2>
 <ul>
 <li>Apple MacBook (Apple Silicon M1/M2)</li>
 <li>AWS/EC2 (Ubuntu 22.04 or above)<ul>
@@ -621,7 +614,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="install-docker">Install Docker</h2>
+<h3 id="install-docker">Install Docker</h3>
 <p>Docker is required to run the F1 2023 UDP listener and UI. The UDP listener will take the UDP stream from F1 2023 and transform the stream into metric payload for Splunk Observability Cloud and Splunk Enterprise/Cloud. The UI is used to configure where to send the metrics, start/stop the UDP listener(s) and change the name of the current driver.</p>
 <p>The following instructions will install Docker on your laptop or EC2 instance:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Mac OS</label><label for="__tabbed_1_2">Ubuntu</label></div>
