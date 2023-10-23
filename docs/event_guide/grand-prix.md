@@ -1,4 +1,4 @@
-# Game Configuration (Solo Play)
+# Game Configuration
 
 1. From the main menu select **F1® WORLD**. If this is the first time playing the game, skip through the tutorials.
 2. Click **PLAY**

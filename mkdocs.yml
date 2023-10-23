@@ -1,4 +1,4 @@
-site_name: Splunk Data Drivers - F1 Simulator
+site_name: Splunk Data Drivers - F1 2023 Event Guide
 repo_name: splunk/f1-simulator
 repo_url: https://github.com/splunk/f1-simulator
 edit_uri: edit/main/docs
@@ -16,6 +16,8 @@ theme:
     - navigation.tabs
     - toc.integrate
   custom_dir: material/overrides
+  font:
+    code: Roboto Mono
 markdown_extensions:
   - admonition
   - pymdownx.highlight:
@@ -30,16 +32,17 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - F1 2023:
+  - F1 2023 Collector:
     - Pre-requisites: f1_2023/index.md
     - Setup: f1_2023/setup.md
     - Accessing the Web Interface: f1_2023/ui.md
     - Configuration: f1_2023/configuration.md
     - Game Configuration: f1_2023/game.md
     - Dashboards: f1_2023/dashboards.md
-  - Event Guide:
+  - F1 2023 Event Guide:
     - Game Configuration:
-        - Start Grand Prix: event_guide/index.md
+        - Telemetry: event_guide/telemetry.md
+        - Start Grand Prix: event_guide/grand-prix.md
         - Assists: event_guide/assists.md
         - Rules & Flags: event_guide/rules.md
         - Weekend Structure: event_guide/structure.md
