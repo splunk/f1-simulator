@@ -37,7 +37,7 @@ nav:
     - Setup: f1_2023/setup.md
     - Accessing the Web Interface: f1_2023/ui.md
     - Configuration: f1_2023/configuration.md
-    - Game Configuration: f1_2023/game.md
+    #- Game Configuration: f1_2023/game.md
     - Dashboards: f1_2023/dashboards.md
   - F1 2023 Event Guide:
     - Game Configuration:
