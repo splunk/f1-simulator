@@ -6,23 +6,15 @@ Usually this will be 1, but in some cases at large events multiple rigs will be 
 
 ## Observability Cloud
 
-### Realm
+**Realm:** Realm name for the Observability Cloud realm you want to send data to e.g. `us1`, `eu0` etc.
 
-Realm name for the Observability Cloud realm you want to send data to e.g. `us1`, `eu0` etc.
-
-### Access Token
-
-Observability Cloud access token (must have `ingest` capability). This can be done by following the instructions [here](https://docs.splunk.com/Observability/admin/authentication-tokens/org-tokens.html#ingest-tokens).
+**Access Token:** Observability Cloud access token (must have `ingest` capability). This can be done by following the instructions [here](https://docs.splunk.com/Observability/admin/authentication-tokens/org-tokens.html#ingest-tokens).
 
 ## Splunk Cloud/Enterprise
 
-### HEC URL
+**HEC URL:** HEC URL for Splunk Cloud/Enterprise e.g. `https://simulator.prod.splunkcloud.com:8088`.
 
-HEC URL for Splunk Cloud/Enterprise e.g. `https://simulator.prod.splunkcloud.com:8088`.
-
-### HEC Token
-
-HEC Token for Splunk Cloud/Enterprise.
+**HEC Token:** HEC Token for Splunk Cloud/Enterprise.
 
 ## Enable sending metrics
 
