@@ -38,8 +38,14 @@ nav:
     - Game Configuration: f1_2023/game.md
     - Dashboards: f1_2023/dashboards.md
   - Event Guide:
-    - Game Configuration: event_guide/solo.md
- 
+    - Game Configuration:
+        - Start Grand Prix: event_guide/index.md
+        - Assists: event_guide/assists.md
+        - Rules & Flags: event_guide/rules.md
+        - Weekend Structure: event_guide/structure.md
+        - Simulation Settings: event_guide/simulation-settings.md
+        - Weather and Time of Day: event_guide/weather.md
+        - Go Racing: event_guide/go-racing.md
 extra:
   social:
     - icon: fontawesome/brands/twitter
@@ -55,7 +61,8 @@ extra:
 
   generator: false
 
-plugins: []
+plugins:
+  - mkdocs-video
 
 extra_css:
   - stylesheets/custom.css

@@ -1,9 +1,13 @@
-# Overview
+# Game Configuration (Solo Play)
 
-This site will guide you on:
+1. From the main menu select **F1® WORLD**. If this is the first time playing the game, skip through the tutorials.
+2. Click **PLAY**
+3. Select **GRAND PRIX™**
+4. Select **Start new Grand Prix™**
+5. Accept the "**START NEW GRAMD PRIX™**" prompt
+6. Select the **F1® 2023** option
+7. Select the desired track. A good suggestion is to use the track for the next Grand Prix
+8. Select the McLaren team
+9. Select Lando Norris for the driver
 
-- Familiarize you on how to setup the local Data Drivers racing simulators to expose data
-- Get data into Splunk for the simulators
-- Access the Splunk Dashboards
-
-Please reach out Slack on [#datadrivers-inh](https://splunk.slack.com/archives/C03M3BSPLN7) if you have any emergencies arise. Please email [datadrivers@splunk.com](mailto:datadrivers@splunk.com) for any feedback or feature requests.
+![type:video](../assets/screenshots/f1_2023.mp4)
