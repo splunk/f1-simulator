@@ -206,14 +206,23 @@
   
     
     
+      
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
-        <a href="../../event_guide/solo/" class="md-tabs__link">
+        <a href="../../event_guide/" class="md-tabs__link">
           
   
   Event Guide
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -557,16 +566,180 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../event_guide/solo/" class="md-nav__link">
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
     Game Configuration
   </span>
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Game Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Start Grand Prix
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event_guide/assists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event_guide/rules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rules & Flags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event_guide/structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Weekend Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event_guide/simulation-settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simulation Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event_guide/weather/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Weather and Time of Day
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event_guide/go-racing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go Racing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -597,7 +770,7 @@
   
 
 
-<h1 id="running-the-f1-2023-container">Running the F1 2023 container</h1>
+<div><h1 id="running-the-f1-2023-container">Running the F1 2023 container</h1>
 <h2 id="mac-os">Mac OS</h2>
 <p>The following Docker command will run the F1 2023 container on Mac OS:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>f1_2023<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8501</span>:8501/tcp<span class="w"> </span>-p<span class="w"> </span><span class="m">20777</span>:20777/udp<span class="w"> </span>ghcr.io/splunk/f1_2023:latest
@@ -616,7 +789,7 @@
 <p>The same instructions to expose additional UDP ports apply to Ubuntu as well as was described in the Mac OS section.</p>
 <h2 id="validation">Validation</h2>
 <p>To validate the container is running correctly you can run the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Command</label><label for="__tabbed_1_2">Output</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Command</label><label for="__tabbed_1_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>port<span class="w"> </span>f1_2023
@@ -628,7 +801,7 @@
 </code></pre></div>
 </div>
 </div>
-</div>
+</div></div>
 
 
 

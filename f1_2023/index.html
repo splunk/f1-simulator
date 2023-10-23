@@ -206,14 +206,23 @@
   
     
     
+      
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
-        <a href="../event_guide/solo/" class="md-tabs__link">
+        <a href="../event_guide/" class="md-tabs__link">
           
   
   Event Guide
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -556,16 +565,180 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../event_guide/solo/" class="md-nav__link">
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
     Game Configuration
   </span>
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Game Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Start Grand Prix
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event_guide/assists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event_guide/rules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rules & Flags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event_guide/structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Weekend Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event_guide/simulation-settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simulation Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event_guide/weather/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Weather and Time of Day
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event_guide/go-racing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go Racing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -596,7 +769,7 @@
   
 
 
-<h1 id="overview">Overview</h1>
+<div><h1 id="overview">Overview</h1>
 <p>This site will guide you on:</p>
 <ul>
 <li>Familiarize you on how to setup the local Data Drivers racing simulators to expose data</li>
@@ -617,7 +790,7 @@
 <h3 id="install-docker">Install Docker</h3>
 <p>Docker is required to run the F1 2023 UDP listener and UI. The UDP listener will take the UDP stream from F1 2023 and transform the stream into metric payload for Splunk Observability Cloud and Splunk Enterprise/Cloud. The UI is used to configure where to send the metrics, start/stop the UDP listener(s) and change the name of the current driver.</p>
 <p>The following instructions will install Docker on your laptop or EC2 instance:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Mac OS</label><label for="__tabbed_1_2">Ubuntu</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Mac OS</label><label for="__tabbed_1_2">Ubuntu</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a href="https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&amp;utm_medium=webreferral&amp;utm_campaign=docs-driven-download-mac-arm64">Download Docker Desktop for Mac with Apple Silicon</a></p>
@@ -630,8 +803,8 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/docker.gpg
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.gpg
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">echo</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s2">&quot;deb [arch=&quot;</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2">&quot; signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s2">&quot;</span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VERSION_CODENAME</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot; stable&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s2">"deb [arch="</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2">" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s2">"</span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$VERSION_CODENAME</span><span class="s2">"</span><span class="k">)</span><span class="s2">" stable"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/docker.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin<span class="w"> </span>-y
@@ -639,7 +812,7 @@
 </code></pre></div>
 </div>
 </div>
-</div>
+</div></div>
 
 
 
