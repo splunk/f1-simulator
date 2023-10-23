@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../../f1_2023/dashboards/">
       
       
-      <link rel="icon" href="/favicon.ico">
+        <link rel="next" href="../grand-prix/">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
     
     
       
-        <title>Splunk Data Drivers - F1 2023 Event Guide</title>
+        <title>Telemetry - Splunk Data Drivers - F1 2023 Event Guide</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.bd3936ea.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bd3936ea.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -42,16 +46,16 @@
       
     
     
-      <link rel="stylesheet" href="/stylesheets/custom.css">
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-  <link rel="stylesheet" href="/assets/stylesheets/main.7073df5a.min.css">
+  <link rel="stylesheet" href="../../assets/stylesheets/main.7073df5a.min.css">
 
   </head>
   
@@ -69,6 +73,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#telemetry" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -96,7 +105,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Splunk Data Drivers - F1 2023 Event Guide" class="md-header__button md-logo" aria-label="Splunk Data Drivers - F1 2023 Event Guide" data-md-component="logo">
+    <a href="../.." title="Splunk Data Drivers - F1 2023 Event Guide" class="md-header__button md-logo" aria-label="Splunk Data Drivers - F1 2023 Event Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.348 11.911-2.241-1.091v-.65L24 11.621v.593l-2.893 1.438v-.636zm-5.397 1.841h-.961v-5.31h.961v3.116h.102l1.28-1.481.723.31-1.23 1.316 1.453 1.809-.888.311-1.44-1.996zm-2.577-.002v-2.068a2.685 2.685 0 0 0-.026-.42.791.791 0 0 0-.09-.26c-.113-.202-.308-.304-.59-.304a.888.888 0 0 0-.461.113.673.673 0 0 0-.286.33 1.012 1.012 0 0 0-.07.263c-.012.13-.019.262-.017.395v1.95h-.961v-3.614h.961l.002.485c.185-.2.373-.348.566-.437.192-.089.418-.134.673-.134.286 0 .527.058.721.177a1.016 1.016 0 0 1 .475.665 1.972 1.972 0 0 1 .054.448c.002.1.004.22.004.358v2.053zm-4.115.002-.002-.485a1.783 1.783 0 0 1-.565.437 1.597 1.597 0 0 1-.674.135c-.285 0-.524-.057-.72-.17a.972.972 0 0 1-.425-.504.75.75 0 0 1-.054-.167 1.918 1.918 0 0 1-.033-.199 2.033 2.033 0 0 1-.017-.258 15.516 15.516 0 0 1-.005-.355V10.13h.956v2.07c-.003.141.006.282.026.42.015.092.045.18.09.26.113.204.308.306.59.306.36 0 .606-.15.74-.449.035-.082.06-.168.074-.257.017-.134.024-.269.022-.403v-1.95h.955v3.624zM7.184 8.44h.955v5.31h-.955zM5.759 11.9c0-.396-.08-.708-.24-.937a.759.759 0 0 0-.657-.345.804.804 0 0 0-.693.366c-.171.245-.256.574-.253.99 0 .405.084.723.25.957a.796.796 0 0 0 .69.347.685.685 0 0 0 .433-.135.985.985 0 0 0 .277-.34c.071-.14.121-.292.147-.448.03-.151.043-.3.046-.455m1.01-.036c.003.266-.04.532-.129.786-.082.23-.204.441-.364.626-.31.361-.764.567-1.24.563a1.67 1.67 0 0 1-.313-.028 1.041 1.041 0 0 1-.275-.098 1.33 1.33 0 0 1-.257-.178 2.379 2.379 0 0 1-.265-.268v2.293h-.929v-5.425h.93l.004.529c.169-.212.353-.368.55-.468.197-.1.426-.15.688-.147a1.509 1.509 0 0 1 1.156.507c.148.166.259.361.33.571.08.236.12.485.115.737m-4.21.89a.946.946 0 0 1-.102.441 1.007 1.007 0 0 1-.282.345c-.13.1-.275.173-.43.22a1.8 1.8 0 0 1-.546.08 1.985 1.985 0 0 1-.637-.097 1.964 1.964 0 0 1-.563-.32l.312-.505c.15.126.284.217.405.275.115.057.24.087.368.087a.557.557 0 0 0 .373-.12.396.396 0 0 0 .14-.322.475.475 0 0 0-.12-.318 1.306 1.306 0 0 0-.187-.173 9.231 9.231 0 0 0-.308-.232 6.787 6.787 0 0 1-.281-.21 2.11 2.11 0 0 1-.252-.232 1.039 1.039 0 0 1-.18-.275.826.826 0 0 1-.069-.347.893.893 0 0 1 .094-.409.935.935 0 0 1 .255-.314 1.22 1.22 0 0 1 .39-.203c.16-.05.327-.074.494-.072.184 0 .368.026.545.076.174.05.338.123.488.219l-.282.454a1.05 1.05 0 0 0-.608-.201.504.504 0 0 0-.323.102.307.307 0 0 0-.126.253c0 .098.041.193.113.26.074.078.203.186.385.325.185.136.336.253.457.355.104.085.202.182.286.286.065.08.115.173.145.273a.808.808 0 0 1 .046.299Z"/></svg>
@@ -116,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Telemetry
             
           </span>
         </div>
@@ -159,7 +168,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -178,7 +187,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/f1_2023/" class="md-tabs__link">
+        <a href="../../f1_2023/" class="md-tabs__link">
           
   
   F1 2023 Collector
@@ -192,17 +201,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/event_guide/telemetry/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   F1 2023 Event Guide
@@ -240,7 +253,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Splunk Data Drivers - F1 2023 Event Guide" class="md-nav__button md-logo" aria-label="Splunk Data Drivers - F1 2023 Event Guide" data-md-component="logo">
+    <a href="../.." title="Splunk Data Drivers - F1 2023 Event Guide" class="md-nav__button md-logo" aria-label="Splunk Data Drivers - F1 2023 Event Guide" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.348 11.911-2.241-1.091v-.65L24 11.621v.593l-2.893 1.438v-.636zm-5.397 1.841h-.961v-5.31h.961v3.116h.102l1.28-1.481.723.31-1.23 1.316 1.453 1.809-.888.311-1.44-1.996zm-2.577-.002v-2.068a2.685 2.685 0 0 0-.026-.42.791.791 0 0 0-.09-.26c-.113-.202-.308-.304-.59-.304a.888.888 0 0 0-.461.113.673.673 0 0 0-.286.33 1.012 1.012 0 0 0-.07.263c-.012.13-.019.262-.017.395v1.95h-.961v-3.614h.961l.002.485c.185-.2.373-.348.566-.437.192-.089.418-.134.673-.134.286 0 .527.058.721.177a1.016 1.016 0 0 1 .475.665 1.972 1.972 0 0 1 .054.448c.002.1.004.22.004.358v2.053zm-4.115.002-.002-.485a1.783 1.783 0 0 1-.565.437 1.597 1.597 0 0 1-.674.135c-.285 0-.524-.057-.72-.17a.972.972 0 0 1-.425-.504.75.75 0 0 1-.054-.167 1.918 1.918 0 0 1-.033-.199 2.033 2.033 0 0 1-.017-.258 15.516 15.516 0 0 1-.005-.355V10.13h.956v2.07c-.003.141.006.282.026.42.015.092.045.18.09.26.113.204.308.306.59.306.36 0 .606-.15.74-.449.035-.082.06-.168.074-.257.017-.134.024-.269.022-.403v-1.95h.955v3.624zM7.184 8.44h.955v5.31h-.955zM5.759 11.9c0-.396-.08-.708-.24-.937a.759.759 0 0 0-.657-.345.804.804 0 0 0-.693.366c-.171.245-.256.574-.253.99 0 .405.084.723.25.957a.796.796 0 0 0 .69.347.685.685 0 0 0 .433-.135.985.985 0 0 0 .277-.34c.071-.14.121-.292.147-.448.03-.151.043-.3.046-.455m1.01-.036c.003.266-.04.532-.129.786-.082.23-.204.441-.364.626-.31.361-.764.567-1.24.563a1.67 1.67 0 0 1-.313-.028 1.041 1.041 0 0 1-.275-.098 1.33 1.33 0 0 1-.257-.178 2.379 2.379 0 0 1-.265-.268v2.293h-.929v-5.425h.93l.004.529c.169-.212.353-.368.55-.468.197-.1.426-.15.688-.147a1.509 1.509 0 0 1 1.156.507c.148.166.259.361.33.571.08.236.12.485.115.737m-4.21.89a.946.946 0 0 1-.102.441 1.007 1.007 0 0 1-.282.345c-.13.1-.275.173-.43.22a1.8 1.8 0 0 1-.546.08 1.985 1.985 0 0 1-.637-.097 1.964 1.964 0 0 1-.563-.32l.312-.505c.15.126.284.217.405.275.115.057.24.087.368.087a.557.557 0 0 0 .373-.12.396.396 0 0 0 .14-.322.475.475 0 0 0-.12-.318 1.306 1.306 0 0 0-.187-.173 9.231 9.231 0 0 0-.308-.232 6.787 6.787 0 0 1-.281-.21 2.11 2.11 0 0 1-.252-.232 1.039 1.039 0 0 1-.18-.275.826.826 0 0 1-.069-.347.893.893 0 0 1 .094-.409.935.935 0 0 1 .255-.314 1.22 1.22 0 0 1 .39-.203c.16-.05.327-.074.494-.072.184 0 .368.026.545.076.174.05.338.123.488.219l-.282.454a1.05 1.05 0 0 0-.608-.201.504.504 0 0 0-.323.102.307.307 0 0 0-.126.253c0 .098.041.193.113.26.074.078.203.186.385.325.185.136.336.253.457.355.104.085.202.182.286.286.065.08.115.173.145.273a.808.808 0 0 1 .046.299Z"/></svg>
@@ -269,7 +282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -327,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/f1_2023/" class="md-nav__link">
+      <a href="../../f1_2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -347,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/f1_2023/setup/" class="md-nav__link">
+      <a href="../../f1_2023/setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -367,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/f1_2023/ui/" class="md-nav__link">
+      <a href="../../f1_2023/ui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -387,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/f1_2023/configuration/" class="md-nav__link">
+      <a href="../../f1_2023/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -407,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/f1_2023/dashboards/" class="md-nav__link">
+      <a href="../../f1_2023/dashboards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,6 +445,8 @@
       
   
   
+    
+  
   
     
     
@@ -441,12 +456,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -460,7 +475,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             F1 2023 Event Guide
@@ -471,18 +486,20 @@
                 
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -496,7 +513,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Game Configuration
@@ -507,9 +524,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/event_guide/telemetry/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -518,6 +544,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -529,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/event_guide/grand-prix/" class="md-nav__link">
+      <a href="../grand-prix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/event_guide/assists/" class="md-nav__link">
+      <a href="../assists/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -569,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/event_guide/rules/" class="md-nav__link">
+      <a href="../rules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -589,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/event_guide/structure/" class="md-nav__link">
+      <a href="../structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -609,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/event_guide/simulation-settings/" class="md-nav__link">
+      <a href="../simulation-settings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -629,7 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/event_guide/weather/" class="md-nav__link">
+      <a href="../weather/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -649,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/event_guide/go-racing/" class="md-nav__link">
+      <a href="../go-racing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -690,8 +717,48 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<div><h1 id="telemetry">Telemetry</h1>
+<ol>
+<li>From the main menu select <strong>OPTIONS</strong></li>
+</ol>
+<p><img alt="Options" src="../../assets/screenshots/f1_2023_options.jpg"></p>
+<ol>
+<li>Select <strong>TELEMETRY</strong></li>
+</ol>
+<p><img alt="Telemetry" src="../../assets/screenshots/f1_2023_select_telemetry.jpg"></p>
+<ol>
+<li>Select <strong>Settings</strong></li>
+</ol>
+<p><img alt="Telemetry Settings" src="../../assets/screenshots/f1_2023_select_settings.jpg"></p>
+<ol>
+<li>
+<p>Configure the telemetry settings:</p>
+<p></p><pre>
+UDP Telemetry: <strong>On</strong>
+UDP Broadcast Mode: <strong>Off</strong>
+UDP IP Address: <strong>IP address of the laptop/EC2 instance running the container</strong>
+UDP Port: <strong>20777</strong>
+UDP Send Rate: <strong>10Hz</strong>
+UDP Format: <strong>2023</strong>
+</pre>
+</li>
+<li>
+<p>Return to the <strong>Grand Prix™ Settings</strong> screen</p>
+</li>
+</ol>
+<p><img alt="Structure" src="../../assets/screenshots/f1_2023_telemetry_settings.jpg"></p></div>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -782,14 +849,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.instant", "navigation.tabs", "toc.integrate"], "search": "/assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
   
-      <script src="/assets/javascripts/bundle.94c44541.min.js"></script>
+      <script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
       
     
-  <script src="/assets/javascripts/bundle.d665d539.min.js"></script>
+  <script src="../../assets/javascripts/bundle.d665d539.min.js"></script>
 
   </body>
 </html>
