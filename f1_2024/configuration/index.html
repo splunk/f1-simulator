@@ -9,23 +9,25 @@
       
       
       
+        <link rel="prev" href="../ui/">
       
-        <link rel="next" href="f1_2023/">
+      
+        <link rel="next" href="../dashboards/">
       
       
-      <link rel="icon" href="favicon.ico">
+      <link rel="icon" href="../../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
-        <title>Home - Splunk Data Drivers</title>
+        <title>Configuration - Splunk Data Drivers</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,16 +46,16 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/custom.css">
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-  <link rel="stylesheet" href="assets/stylesheets/main.7073df5a.min.css">
+  <link rel="stylesheet" href="../../assets/stylesheets/main.7073df5a.min.css">
 
   </head>
   
@@ -70,6 +72,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#configuration" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -97,7 +104,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Splunk Data Drivers" class="md-header__button md-logo" aria-label="Splunk Data Drivers" data-md-component="logo">
+    <a href="../.." title="Splunk Data Drivers" class="md-header__button md-logo" aria-label="Splunk Data Drivers" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.348 11.911-2.241-1.091v-.65L24 11.621v.593l-2.893 1.438v-.636zm-5.397 1.841h-.961v-5.31h.961v3.116h.102l1.28-1.481.723.31-1.23 1.316 1.453 1.809-.888.311-1.44-1.996zm-2.577-.002v-2.068a3 3 0 0 0-.026-.42.8.8 0 0 0-.09-.26q-.168-.303-.59-.304a.9.9 0 0 0-.461.113.67.67 0 0 0-.286.33 1 1 0 0 0-.07.263q-.019.195-.017.395v1.95h-.961v-3.614h.961l.002.485q.277-.302.566-.437.29-.134.673-.134.43 0 .721.177a1.02 1.02 0 0 1 .475.665 2 2 0 0 1 .054.448q.003.15.004.358v2.053zm-4.115.002-.002-.485a1.8 1.8 0 0 1-.565.437 1.6 1.6 0 0 1-.674.135q-.427 0-.72-.17a.97.97 0 0 1-.425-.504.8.8 0 0 1-.054-.167 2 2 0 0 1-.033-.199 2 2 0 0 1-.017-.258 16 16 0 0 1-.005-.355V10.13h.956v2.07q-.004.212.026.42.023.139.09.26.168.306.59.306.54 0 .74-.449.053-.123.074-.257.025-.201.022-.403v-1.95h.955v3.624zM7.184 8.44h.955v5.31h-.955zM5.759 11.9q0-.594-.24-.937a.76.76 0 0 0-.657-.345.8.8 0 0 0-.693.366q-.257.367-.253.99 0 .607.25.957a.8.8 0 0 0 .69.347.7.7 0 0 0 .433-.135 1 1 0 0 0 .277-.34c.071-.14.121-.292.147-.448q.043-.224.046-.455m1.01-.036c.003.266-.04.532-.129.786q-.123.347-.364.626c-.31.361-.764.567-1.24.563a1.7 1.7 0 0 1-.313-.028 1 1 0 0 1-.275-.098 1.3 1.3 0 0 1-.257-.178 2.4 2.4 0 0 1-.265-.268v2.293h-.929v-5.425h.93l.004.529q.254-.318.55-.468.295-.15.688-.147a1.5 1.5 0 0 1 1.156.507c.148.166.259.361.33.571.08.236.12.485.115.737m-4.21.89a.95.95 0 0 1-.102.441 1 1 0 0 1-.282.345q-.196.15-.43.22a1.8 1.8 0 0 1-.546.08 2 2 0 0 1-.637-.097 2 2 0 0 1-.563-.32l.312-.505q.224.189.405.275.174.086.368.087a.56.56 0 0 0 .373-.12.4.4 0 0 0 .14-.322.48.48 0 0 0-.12-.318 1.3 1.3 0 0 0-.187-.173 9 9 0 0 0-.308-.232 7 7 0 0 1-.281-.21 2 2 0 0 1-.252-.232 1 1 0 0 1-.18-.275.8.8 0 0 1-.069-.347.9.9 0 0 1 .094-.409.9.9 0 0 1 .255-.314 1.2 1.2 0 0 1 .39-.203q.242-.075.494-.072.278 0 .545.076.262.075.488.219l-.282.454a1.05 1.05 0 0 0-.608-.201.5.5 0 0 0-.323.102.3.3 0 0 0-.126.253c0 .098.041.193.113.26q.112.117.385.325.277.203.457.355c.104.085.202.182.286.286q.099.122.145.273a.8.8 0 0 1 .046.299"/></svg>
@@ -117,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Configuration
             
           </span>
         </div>
@@ -149,7 +156,6 @@
     <div class="md-container" data-md-component="container">
       
       
-  
         
           
             
@@ -160,11 +166,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -183,7 +187,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="f1_2023/" class="md-tabs__link">
+        <a href="../../f1_2023/" class="md-tabs__link">
           
   
   F1 2023 Collector
@@ -197,11 +201,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="f1_2024/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   F1 2024 Collector
@@ -225,7 +231,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="event_guide/telemetry/" class="md-tabs__link">
+        <a href="../../event_guide/telemetry/" class="md-tabs__link">
           
   
   F1 2023 Event Guide
@@ -245,29 +251,6 @@
           
         
       
-  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
-  <section class="mdx-container">
-    <div class="md-grid md-typeset">
-      <div class="mdx-hero">
-        <div class="mdx-hero__image">
-          <img src="assets/images/illustration.png" alt="" width="1659" height="1200" draggable="false">
-        </div>
-        <div class="mdx-hero__content">
-          <h1>Data Drivers: Hands-on The Wheel and The Data</h1>
-          <p>Get set up in under 5 minutes.</p>
-          <a href="f1_2023/" title="Pre-requisites" class="md-button md-button--primary">
-            Quick start
-          </a>
-          <!--
-          <a href="insiders/" title="Material for MkDocs Insiders" class="md-button">
-            Get Insiders
-          </a>
-          -->
-        </div>
-      </div>
-    </div>
-  </section>
-
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
@@ -284,7 +267,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Splunk Data Drivers" class="md-nav__button md-logo" aria-label="Splunk Data Drivers" data-md-component="logo">
+    <a href="../.." title="Splunk Data Drivers" class="md-nav__button md-logo" aria-label="Splunk Data Drivers" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.348 11.911-2.241-1.091v-.65L24 11.621v.593l-2.893 1.438v-.636zm-5.397 1.841h-.961v-5.31h.961v3.116h.102l1.28-1.481.723.31-1.23 1.316 1.453 1.809-.888.311-1.44-1.996zm-2.577-.002v-2.068a3 3 0 0 0-.026-.42.8.8 0 0 0-.09-.26q-.168-.303-.59-.304a.9.9 0 0 0-.461.113.67.67 0 0 0-.286.33 1 1 0 0 0-.07.263q-.019.195-.017.395v1.95h-.961v-3.614h.961l.002.485q.277-.302.566-.437.29-.134.673-.134.43 0 .721.177a1.02 1.02 0 0 1 .475.665 2 2 0 0 1 .054.448q.003.15.004.358v2.053zm-4.115.002-.002-.485a1.8 1.8 0 0 1-.565.437 1.6 1.6 0 0 1-.674.135q-.427 0-.72-.17a.97.97 0 0 1-.425-.504.8.8 0 0 1-.054-.167 2 2 0 0 1-.033-.199 2 2 0 0 1-.017-.258 16 16 0 0 1-.005-.355V10.13h.956v2.07q-.004.212.026.42.023.139.09.26.168.306.59.306.54 0 .74-.449.053-.123.074-.257.025-.201.022-.403v-1.95h.955v3.624zM7.184 8.44h.955v5.31h-.955zM5.759 11.9q0-.594-.24-.937a.76.76 0 0 0-.657-.345.8.8 0 0 0-.693.366q-.257.367-.253.99 0 .607.25.957a.8.8 0 0 0 .69.347.7.7 0 0 0 .433-.135 1 1 0 0 0 .277-.34c.071-.14.121-.292.147-.448q.043-.224.046-.455m1.01-.036c.003.266-.04.532-.129.786q-.123.347-.364.626c-.31.361-.764.567-1.24.563a1.7 1.7 0 0 1-.313-.028 1 1 0 0 1-.275-.098 1.3 1.3 0 0 1-.257-.178 2.4 2.4 0 0 1-.265-.268v2.293h-.929v-5.425h.93l.004.529q.254-.318.55-.468.295-.15.688-.147a1.5 1.5 0 0 1 1.156.507c.148.166.259.361.33.571.08.236.12.485.115.737m-4.21.89a.95.95 0 0 1-.102.441 1 1 0 0 1-.282.345q-.196.15-.43.22a1.8 1.8 0 0 1-.546.08 2 2 0 0 1-.637-.097 2 2 0 0 1-.563-.32l.312-.505q.224.189.405.275.174.086.368.087a.56.56 0 0 0 .373-.12.4.4 0 0 0 .14-.322.48.48 0 0 0-.12-.318 1.3 1.3 0 0 0-.187-.173 9 9 0 0 0-.308-.232 7 7 0 0 1-.281-.21 2 2 0 0 1-.252-.232 1 1 0 0 1-.18-.275.8.8 0 0 1-.069-.347.9.9 0 0 1 .094-.409.9.9 0 0 1 .255-.314 1.2 1.2 0 0 1 .39-.203q.242-.075.494-.072.278 0 .545.076.262.075.488.219l-.282.454a1.05 1.05 0 0 0-.608-.201.5.5 0 0 0-.323.102.3.3 0 0 0-.126.253c0 .098.041.193.113.26q.112.117.385.325.277.203.457.355c.104.085.202.182.286.286q.099.122.145.273a.8.8 0 0 1 .046.299"/></svg>
@@ -311,17 +294,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -330,7 +306,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -380,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="f1_2023/" class="md-nav__link">
+      <a href="../../f1_2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -401,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="f1_2023/setup/" class="md-nav__link">
+      <a href="../../f1_2023/setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -422,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="f1_2023/ui/" class="md-nav__link">
+      <a href="../../f1_2023/ui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -443,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="f1_2023/configuration/" class="md-nav__link">
+      <a href="../../f1_2023/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -464,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="f1_2023/dashboards/" class="md-nav__link">
+      <a href="../../f1_2023/dashboards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -489,23 +464,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -516,7 +496,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             F1 2024 Collector
@@ -530,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="f1_2024/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -551,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="f1_2024/setup/" class="md-nav__link">
+      <a href="../setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="f1_2024/ui/" class="md-nav__link">
+      <a href="../ui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -590,10 +570,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="f1_2024/configuration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -602,6 +602,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#number-of-rigs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of Rigs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Cloud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splunk-cloudenterprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splunk Cloud/Enterprise
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-sending-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable sending metrics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -614,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="f1_2024/dashboards/" class="md-nav__link">
+      <a href="../dashboards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -718,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="event_guide/telemetry/" class="md-nav__link">
+      <a href="../../event_guide/telemetry/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -739,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="event_guide/grand-prix/" class="md-nav__link">
+      <a href="../../event_guide/grand-prix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="event_guide/assists/" class="md-nav__link">
+      <a href="../../event_guide/assists/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -781,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="event_guide/rules/" class="md-nav__link">
+      <a href="../../event_guide/rules/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -802,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="event_guide/structure/" class="md-nav__link">
+      <a href="../../event_guide/structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -823,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="event_guide/simulation-settings/" class="md-nav__link">
+      <a href="../../event_guide/simulation-settings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -844,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="event_guide/weather/" class="md-nav__link">
+      <a href="../../event_guide/weather/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="event_guide/go-racing/" class="md-nav__link">
+      <a href="../../event_guide/go-racing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -911,6 +967,52 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#number-of-rigs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of Rigs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Cloud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splunk-cloudenterprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splunk Cloud/Enterprise
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-sending-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable sending metrics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -922,6 +1024,41 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
+                  
+
+  
+  
+
+
+<div><h1 id="configuration">Configuration</h1>
+<h2 id="number-of-rigs">Number of Rigs</h2>
+<p>Usually this will be 1, but in some cases at large events multiple rigs will be used. In this case you can specify the number of rigs here.</p>
+<h2 id="observability-cloud">Observability Cloud</h2>
+<p><strong>Realm:</strong> Realm name for the Observability Cloud realm you want to send data to e.g. <code>us1</code>, <code>eu0</code> etc.</p>
+<p><strong>Access Token:</strong> Observability Cloud access token (must have <code>ingest</code> capability). This can be done by following the instructions <a href="https://docs.splunk.com/Observability/admin/authentication-tokens/org-tokens.html#ingest-tokens">here</a>.</p>
+<h2 id="splunk-cloudenterprise">Splunk Cloud/Enterprise</h2>
+<p><strong>HEC URL:</strong> HEC URL for Splunk Cloud/Enterprise e.g. <code>https://simulator.prod.splunkcloud.com:8088</code>.</p>
+<p><strong>HEC Token:</strong> HEC Token for Splunk Cloud/Enterprise.</p>
+<h2 id="enable-sending-metrics">Enable sending metrics</h2>
+<p>You are able to send the metrics to both Observability Cloud and Splunk Cloud/Enterprise. To enable either or both just tick the relevant boxes.</p>
+<ul>
+<li>Tick <strong>Enable Observability Cloud</strong> to enable sending data to O11y Cloud.</li>
+<li>Tick <strong>Enable Splunk Cloud</strong> to enable sending data to Splunk Cloud.</li>
+</ul>
+<p>Finally click <strong>Save Configuration</strong></p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -931,20 +1068,96 @@
         
       </main>
       
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - Splunk Inc.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/splunk" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/splunk" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/splunk/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.twitch.tv/splunkinc" target="_blank" rel="noopener" title="www.twitch.tv" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M391.17 103.47h-38.63v109.7h38.63ZM285 103h-38.63v109.75H285ZM120.83 0 24.31 91.42v329.16h115.83V512l96.53-91.42h77.25L487.69 256V0Zm328.24 237.75-77.22 73.12h-77.24l-67.6 64v-64h-86.87V36.58h308.93Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/user/splunkvideos" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
   
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
-  <script src="assets/javascripts/bundle.d665d539.min.js"></script>
+  <script src="../../assets/javascripts/bundle.d665d539.min.js"></script>
 
   </body>
 </html>
