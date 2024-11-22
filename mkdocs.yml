@@ -1,4 +1,4 @@
-site_name: Splunk Data Drivers - F1 2023
+site_name: Splunk Data Drivers
 repo_name: splunk/f1-simulator
 repo_url: https://github.com/splunk/f1-simulator
 edit_uri: edit/main/docs
@@ -14,7 +14,7 @@ theme:
   features:
     - navigation.instant
     - navigation.tabs
-    - toc.integrate
+    #- toc.integrate
   custom_dir: material/overrides
   font:
     code: Roboto Mono
@@ -39,6 +39,12 @@ nav:
     - Configuration: f1_2023/configuration.md
     #- Game Configuration: f1_2023/game.md
     - Dashboards: f1_2023/dashboards.md
+  - F1 2024 Collector:
+    - Pre-requisites: f1_2024/index.md
+    - Setup: f1_2024/setup.md
+    - Accessing the Web Interface: f1_2024/ui.md
+    - Configuration: f1_2024/configuration.md
+    - Dashboards: f1_2024/dashboards.md
   - F1 2023 Event Guide:
     - Game Configuration:
         - Telemetry: event_guide/telemetry.md
@@ -70,4 +76,4 @@ plugins:
 extra_css:
   - stylesheets/custom.css
 
-copyright: Copyright &copy; 2023 - Splunk Inc.
+copyright: Copyright &copy; 2024 - Splunk Inc.
