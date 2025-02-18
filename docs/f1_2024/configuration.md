@@ -23,4 +23,4 @@ You are able to send the metrics to both Observability Cloud and Splunk Cloud/En
 * Tick **Enable Observability Cloud** to enable sending data to O11y Cloud.
 * Tick **Enable Splunk Cloud** to enable sending data to Splunk Cloud.
 
-Finally click **Save Configuration**
+Finally, click **Save Configuration**

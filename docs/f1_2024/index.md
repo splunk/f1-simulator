@@ -2,11 +2,11 @@
 
 This site will guide you on:
 
-- Familiarize you on how to setup the local Data Drivers racing simulators to expose data
+- Familiarize you on how to set up the local Data Drivers racing simulators to expose data
 - Get data into Splunk for the simulators
 - Access the Splunk Dashboards
 
-Please reach out Slack on [#datadrivers-inh](https://splunk.slack.com/archives/C03M3BSPLN7) if you have any emergencies arise. Please email [datadrivers@splunk.com](mailto:datadrivers@splunk.com) for any feedback or feature requests.
+Please reach out Slack on [**#datadrivers-inh**](https://splunk.slack.com/archives/C03M3BSPLN7) if you have any emergencies arise.
 
 ## Pre-requisites
 
@@ -22,9 +22,9 @@ Docker is required to run the F1 2024 Collector and UI. The Collector will take 
 
 The following instructions will install Docker on your laptop or EC2 instance:
 
-=== "Mac OS"
+=== "macOS"
   
-    [Download Docker Desktop for Mac with Apple Silicon](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-arm64)
+    [**Download Docker Desktop for Mac with Apple Silicon**](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-arm64)
 
 === "Ubuntu"
 

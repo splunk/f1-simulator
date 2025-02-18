@@ -2,8 +2,8 @@
 
 ## Splunk Observability Cloud
 
-You can import the following dashboard into your Observability Cloud Organization. You will need an existing dashboard group to import the dashboard into. If you don't have one, you can create one by following the instructions [here](https://docs.splunk.com/observability/en/data-visualization/dashboards/dashboard-group.html#dashboard-group).
+You can import the following dashboard group into your Observability Cloud Organization.
 
-Download the JSON file [here](https://github.com/splunk/f1-simulator/blob/main/observability/dashboard_F1%202024%20-%20Current%20Player.json).
+Download the JSON file [**here**](https://github.com/splunk/f1-simulator/blob/main/observability/dashboard_group_F1_2024.json).
 
 ## Splunk Enterprise/Cloud
