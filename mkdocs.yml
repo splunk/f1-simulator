@@ -32,20 +32,20 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - F1 2023 Collector:
-    - Pre-requisites: f1_2023/index.md
-    - Setup: f1_2023/setup.md
-    - Accessing the Web Interface: f1_2023/ui.md
-    - Configuration: f1_2023/configuration.md
+  # - F1 2023 Collector:
+  #   - Pre-requisites: f1_2023/index.md
+  #   - Setup: f1_2023/setup.md
+  #   - Accessing the Web Interface: f1_2023/ui.md
+  #   - Configuration: f1_2023/configuration.md
     #- Game Configuration: f1_2023/game.md
-    - Dashboards: f1_2023/dashboards.md
+  # - Dashboards: f1_2023/dashboards.md
   - F1 2024 Collector:
     - Pre-requisites: f1_2024/index.md
     - Setup: f1_2024/setup.md
     - Accessing the Web Interface: f1_2024/ui.md
     - Configuration: f1_2024/configuration.md
     - Dashboards: f1_2024/dashboards.md
-  - F1 2023 Event Guide:
+  - F1 2024 Event Guide:
     - Game Configuration:
         - Telemetry: event_guide/telemetry.md
         - Start Grand Prix: event_guide/grand-prix.md
