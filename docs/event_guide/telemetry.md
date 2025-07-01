@@ -20,7 +20,9 @@
     UDP IP Address: **IP address of the laptop/EC2 instance running the container**
     UDP Port: **20777**
     UDP Send Rate: **10Hz**
-    UDP Format: **2023**
+    UDP Format: **2024**
+    Your Telemetry: **Restricted**
+    Show Online IDS: **Off**
     </pre>
 
 5. Return to the **Grand Prix™ Settings** screen
