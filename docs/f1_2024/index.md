@@ -11,10 +11,9 @@ Please reach out Slack on [**#datadrivers-inh**](https://splunk.slack.com/archiv
 ## Pre-requisites
 
 - Apple MacBook (Apple Silicon M1/M2)
-- AWS/EC2 (Ubuntu 22.04 or above)
-  - t2.large (2 vCPU, 8GB RAM)
-  - External IP address
-  - Inbound access on ports `8501/tcp` and `20777-20784/udp`
+- AWS/EC2 `t2.large` (Ubuntu 22.04 or above)
+    - External IP address
+    - Inbound access on ports `8501/tcp` and `20777-20784/udp`
 
 ### Install Docker
 
