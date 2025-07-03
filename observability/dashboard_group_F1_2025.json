@@ -1,0 +1,2537 @@
+{
+  "chartExports": [
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAE",
+        "importOf": "F3gZ1RPAAAY",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Engine Temperature",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 170,
+              "gte": null,
+              "lt": null,
+              "lte": 200,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 150,
+              "gte": null,
+              "lt": null,
+              "lte": 170,
+              "paletteIndex": 5
+            },
+            {
+              "gt": null,
+              "gte": 125,
+              "lt": null,
+              "lte": 150,
+              "paletteIndex": 18
+            },
+            {
+              "gt": 50,
+              "gte": null,
+              "lt": 125,
+              "lte": null,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": 0,
+              "lt": null,
+              "lte": 50,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": null,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.engine_temperature - Top 1",
+              "label": "A",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "Radial",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.engine_temperature').top(count=1).publish(label='A')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAI",
+        "importOf": "F3gZ1RPAAAo",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Brake (%)",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 80,
+              "gte": null,
+              "lt": null,
+              "lte": 100,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 60,
+              "gte": null,
+              "lt": null,
+              "lte": 80,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 40,
+              "gte": null,
+              "lt": null,
+              "lte": 60,
+              "paletteIndex": 18
+            },
+            {
+              "gt": 20,
+              "gte": null,
+              "lt": null,
+              "lte": 40,
+              "paletteIndex": 19
+            },
+            {
+              "gt": null,
+              "gte": 0,
+              "lt": null,
+              "lte": 20,
+              "paletteIndex": 20
+            }
+          ],
+          "maximumPrecision": null,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.brake - Top 1",
+              "label": "A",
+              "paletteIndex": 8,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "%",
+              "valueUnit": null,
+              "yAxis": 0
+            },
+            {
+              "displayName": "A*100",
+              "label": "B",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "%",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "Linear",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.brake', rollup='average').top(count=1).publish(label='A', enable=False)\nB = (A*100).publish(label='B')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAM",
+        "importOf": "F3gZ1RPAABY",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "RR Brake Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 1000,
+              "gte": null,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 900,
+              "gte": null,
+              "lt": null,
+              "lte": 1000,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 700,
+              "gte": null,
+              "lt": null,
+              "lte": 900,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 100,
+              "gte": null,
+              "lt": null,
+              "lte": 700,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 100,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.brakes_temperature2 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.brakes_temperature2').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAQ",
+        "importOf": "F3gZ1RPAABA",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Current Lap",
+        "options": {
+          "colorBy": "Dimension",
+          "colorScale": null,
+          "colorScale2": null,
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.current_lap_num - Top 1",
+              "label": "A",
+              "paletteIndex": 1,
+              "plotType": null,
+              "valuePrefix": "",
+              "valueSuffix": "",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 5000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 900000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.current_lap_num').top(count=1).publish(label='A')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAU",
+        "importOf": "F3gZ1RPAAAw",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Gear",
+        "options": {
+          "colorBy": "Dimension",
+          "colorScale": null,
+          "colorScale2": null,
+          "maximumPrecision": null,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.gear - Top 1",
+              "label": "A",
+              "paletteIndex": 2,
+              "plotType": null,
+              "valuePrefix": "",
+              "valueSuffix": "",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 900000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.gear').top(count=1).publish(label='A')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAY",
+        "importOf": "F3gZ1RPAABs",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "FR Tire Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": null,
+              "gte": 130,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 120,
+              "gte": null,
+              "lt": 130,
+              "lte": null,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 110,
+              "gte": null,
+              "lt": null,
+              "lte": 120,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 60,
+              "gte": null,
+              "lt": null,
+              "lte": 110,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 60,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.tyres_inner_temperature4 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.tyres_inner_temperature4').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAc",
+        "importOf": "F3gZ1RPAABQ",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": " ",
+        "options": {
+          "markdown": "<table width=\"100%\" height=\"50%\" rules=\"none\">\n<tr><td valign=\"middle\" align=\"center\" bgcolor=\"#4682B4\">\n<font size=\"5\" color=\"white\">Tyres Inner Temperature</font>\n<tr></td>\n</table>",
+          "type": "Text"
+        },
+        "packageSpecifications": "",
+        "programText": "",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAg",
+        "importOf": "F3gZ1RPAAAk",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "FL Brake Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 1000,
+              "gte": null,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 900,
+              "gte": null,
+              "lt": null,
+              "lte": 1000,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 700,
+              "gte": null,
+              "lt": null,
+              "lte": 900,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 100,
+              "gte": null,
+              "lt": null,
+              "lte": 700,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 100,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.brakes_temperature3 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.brakes_temperature3', rollup='latest', extrapolation='last_value').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAk",
+        "importOf": "F3gZ1RPAAA8",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "RPM",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 13000,
+              "gte": null,
+              "lt": null,
+              "lte": 15000,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 11500,
+              "gte": null,
+              "lt": null,
+              "lte": 13000,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 9000,
+              "gte": null,
+              "lt": null,
+              "lte": 11500,
+              "paletteIndex": 18
+            },
+            {
+              "gt": null,
+              "gte": 0,
+              "lt": null,
+              "lte": 9000,
+              "paletteIndex": 20
+            }
+          ],
+          "maximumPrecision": null,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.engine_rpm - Maximum",
+              "label": "A",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "rpm",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "Radial",
+          "showSparkLine": false,
+          "time": {
+            "range": 180000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.engine_rpm').max().publish(label='A')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAo",
+        "importOf": "F3gZ1RPAABc",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Speed (kph) / Brake",
+        "options": {
+          "areaChartOptions": {
+            "showDataMarkers": false
+          },
+          "axes": [
+            {
+              "highWatermark": null,
+              "highWatermarkLabel": null,
+              "label": "Speed (kph)",
+              "lowWatermark": null,
+              "lowWatermarkLabel": null,
+              "max": null,
+              "min": null
+            },
+            {
+              "highWatermark": null,
+              "highWatermarkLabel": null,
+              "label": "Brake %",
+              "lowWatermark": null,
+              "lowWatermarkLabel": null,
+              "max": null,
+              "min": null
+            }
+          ],
+          "axisPrecision": null,
+          "colorBy": "Dimension",
+          "defaultPlotType": "LineChart",
+          "eventPublishLabelOptions": [],
+          "histogramChartOptions": {
+            "colorThemeIndex": 16
+          },
+          "includeZero": false,
+          "legendOptions": {
+            "fields": null
+          },
+          "lineChartOptions": {
+            "showDataMarkers": false
+          },
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "onChartLegendOptions": {
+            "dimensionInLegend": "sf_metric",
+            "showLegend": false
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.speed",
+              "label": "A",
+              "paletteIndex": 14,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": null,
+              "valueUnit": null,
+              "yAxis": 0
+            },
+            {
+              "displayName": "f1.brake - Scale:100",
+              "label": "B",
+              "paletteIndex": 8,
+              "plotType": "ColumnChart",
+              "valuePrefix": null,
+              "valueSuffix": null,
+              "valueUnit": null,
+              "yAxis": 1
+            }
+          ],
+          "showEventLines": true,
+          "stacked": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "type": "TimeSeriesChart",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.speed', rollup='average', extrapolation='zero').publish(label='A')\nB = data('f1.brake').scale(100).publish(label='B')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAs",
+        "importOf": "F3gZ1RPAAAI",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "FL Tire Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": null,
+              "gte": 130,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 120,
+              "gte": null,
+              "lt": 130,
+              "lte": null,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 110,
+              "gte": null,
+              "lt": null,
+              "lte": 120,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 60,
+              "gte": null,
+              "lt": null,
+              "lte": 110,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 60,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.tyres_inner_temperature3 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.tyres_inner_temperature3').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIAw",
+        "importOf": "F3gZ1RPAAAA",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "RL Tire Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": null,
+              "gte": 130,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 120,
+              "gte": null,
+              "lt": 130,
+              "lte": null,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 110,
+              "gte": null,
+              "lt": null,
+              "lte": 120,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 60,
+              "gte": null,
+              "lt": null,
+              "lte": 110,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 60,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.tyres_inner_temperature1 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.tyres_inner_temperature1').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIA0",
+        "importOf": "F3gZ1RPAAAg",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "FR Tire Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 130,
+              "gte": null,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 125,
+              "gte": null,
+              "lt": null,
+              "lte": 130,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 120,
+              "gte": null,
+              "lt": null,
+              "lte": 125,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 80,
+              "gte": null,
+              "lt": null,
+              "lte": 120,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 80,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.tyres_surface_temperature4 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.tyres_surface_temperature4').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIA4",
+        "importOf": "F3gZ1RPAABU",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "RL Tire Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 130,
+              "gte": null,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 125,
+              "gte": null,
+              "lt": null,
+              "lte": 130,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 120,
+              "gte": null,
+              "lt": null,
+              "lte": 125,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 80,
+              "gte": null,
+              "lt": null,
+              "lte": 120,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 80,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.tyres_surface_temperature1 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.tyres_surface_temperature1').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIA8",
+        "importOf": "F3gZ1RPAAAc",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": " ",
+        "options": {
+          "markdown": "<table width=\"100%\" height=\"50%\" rules=\"none\">\n<tr><td valign=\"middle\" align=\"center\" bgcolor=\"#4682B4\">\n<font size=\"5\" color=\"white\">Brake Temperatures</font>\n<tr></td>\n</table>",
+          "type": "Text"
+        },
+        "packageSpecifications": "",
+        "programText": "",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIBA",
+        "importOf": "F3gZ1RPAABE",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Current Lap Time",
+        "options": {
+          "colorBy": "Dimension",
+          "colorScale": null,
+          "colorScale2": null,
+          "maximumPrecision": 5,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.current_lap_time_in_ms - Top 1",
+              "label": "A",
+              "paletteIndex": 14,
+              "plotType": null,
+              "valuePrefix": "",
+              "valueSuffix": "seconds",
+              "valueUnit": null,
+              "yAxis": 0
+            },
+            {
+              "displayName": "A/1000",
+              "label": "B",
+              "paletteIndex": 14,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "seconds",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 900000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.current_lap_time_in_ms').top(count=1).publish(label='A', enable=False)\nB = (A/1000).publish(label='B')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIBE",
+        "importOf": "F3gZ1RPAABI",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Throttle %",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 75,
+              "gte": null,
+              "lt": null,
+              "lte": 100,
+              "paletteIndex": 20
+            },
+            {
+              "gt": 50,
+              "gte": null,
+              "lt": null,
+              "lte": 75,
+              "paletteIndex": 18
+            },
+            {
+              "gt": 25,
+              "gte": null,
+              "lt": null,
+              "lte": 50,
+              "paletteIndex": 17
+            },
+            {
+              "gt": null,
+              "gte": 0,
+              "lt": null,
+              "lte": 25,
+              "paletteIndex": 16
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "B",
+              "label": "B",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "%",
+              "valueUnit": null,
+              "yAxis": 0
+            },
+            {
+              "displayName": "f1.throttle - Top 1",
+              "label": "A",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": null,
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "Linear",
+          "showSparkLine": false,
+          "time": {
+            "range": 180000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.throttle').top(count=1).publish(label='A', enable=False)\nB = (A*100).publish(label='B')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIBI",
+        "importOf": "F3gZ1RPAAA0",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "RPM / Speed (kph)",
+        "options": {
+          "areaChartOptions": {
+            "showDataMarkers": false
+          },
+          "axes": [
+            {
+              "highWatermark": null,
+              "highWatermarkLabel": null,
+              "label": "RPM",
+              "lowWatermark": null,
+              "lowWatermarkLabel": null,
+              "max": null,
+              "min": null
+            },
+            {
+              "highWatermark": null,
+              "highWatermarkLabel": null,
+              "label": "mph",
+              "lowWatermark": null,
+              "lowWatermarkLabel": null,
+              "max": null,
+              "min": null
+            }
+          ],
+          "axisPrecision": null,
+          "colorBy": "Dimension",
+          "defaultPlotType": "LineChart",
+          "eventPublishLabelOptions": [],
+          "histogramChartOptions": {
+            "colorThemeIndex": 16
+          },
+          "includeZero": false,
+          "legendOptions": {
+            "fields": null
+          },
+          "lineChartOptions": {
+            "showDataMarkers": false
+          },
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "onChartLegendOptions": {
+            "dimensionInLegend": null,
+            "showLegend": false
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.engine_rpm",
+              "label": "A",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": null,
+              "valueUnit": null,
+              "yAxis": 0
+            },
+            {
+              "displayName": "f1.speed",
+              "label": "B",
+              "paletteIndex": 6,
+              "plotType": "ColumnChart",
+              "valuePrefix": null,
+              "valueSuffix": null,
+              "valueUnit": null,
+              "yAxis": 1
+            }
+          ],
+          "showEventLines": false,
+          "stacked": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "type": "TimeSeriesChart",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.engine_rpm', rollup='average', extrapolation='zero').publish(label='A')\nB = data('f1.speed').publish(label='B')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIBM",
+        "importOf": "F3gZ1RPAAAE",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": " ",
+        "options": {
+          "markdown": "<table width=\"100%\" height=\"50%\" rules=\"none\">\n<tr><td valign=\"middle\" align=\"center\" bgcolor=\"#4682B4\">\n<font size=\"5\" color=\"white\">Tyres Surface Temperature</font>\n<tr></td>\n</table>",
+          "type": "Text"
+        },
+        "packageSpecifications": "",
+        "programText": "",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIBQ",
+        "importOf": "F3gZ1RPAAAM",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Speed (mph)",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 225,
+              "gte": null,
+              "lt": null,
+              "lte": 250,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 180,
+              "gte": null,
+              "lt": null,
+              "lte": 225,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 150,
+              "gte": null,
+              "lt": null,
+              "lte": 180,
+              "paletteIndex": 18
+            },
+            {
+              "gt": null,
+              "gte": 0,
+              "lt": null,
+              "lte": 150,
+              "paletteIndex": 20
+            }
+          ],
+          "maximumPrecision": null,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.speed - Maximum",
+              "label": "A",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": null,
+              "valueUnit": null,
+              "yAxis": 0
+            },
+            {
+              "displayName": "A*0.621371",
+              "label": "B",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "mph",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "Radial",
+          "showSparkLine": false,
+          "time": {
+            "range": 180000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.speed', rollup='average', extrapolation='last_value').max().publish(label='A', enable=False)\nB = (A*0.621371).publish(label='B')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIBU",
+        "importOf": "F3gZ1RPAABk",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "RL Brake Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 1000,
+              "gte": null,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 900,
+              "gte": null,
+              "lt": null,
+              "lte": 1000,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 700,
+              "gte": null,
+              "lt": null,
+              "lte": 900,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 100,
+              "gte": null,
+              "lt": null,
+              "lte": 700,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 100,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.brakes_temperature1 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.brakes_temperature1').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIBY",
+        "importOf": "F3gZ1RPAAAs",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "FL Tire Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 130,
+              "gte": null,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 125,
+              "gte": null,
+              "lt": null,
+              "lte": 130,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 120,
+              "gte": null,
+              "lt": null,
+              "lte": 125,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 80,
+              "gte": null,
+              "lt": null,
+              "lte": 120,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 80,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.tyres_surface_temperature3 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.tyres_surface_temperature3').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIBc",
+        "importOf": "F3gZ1RPAAAU",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Air Temp",
+        "options": {
+          "colorBy": "Dimension",
+          "colorScale": null,
+          "colorScale2": null,
+          "maximumPrecision": null,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.air_temperature",
+              "label": "A",
+              "paletteIndex": 3,
+              "plotType": null,
+              "valuePrefix": "",
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": null,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.air_temperature', rollup='average', extrapolation='last_value').publish(label='A')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J5AIBg",
+        "importOf": "F3gZ1RPAABg",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Sector",
+        "options": {
+          "colorBy": "Dimension",
+          "colorScale": null,
+          "colorScale2": null,
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.sector - Top 1",
+              "label": "A",
+              "paletteIndex": 1,
+              "plotType": null,
+              "valuePrefix": "",
+              "valueSuffix": "",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 180000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "A = data('f1.sector').top(count=1).publish(label='A')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1P4J9AEAA",
+        "importOf": "F3gZ1RPAABo",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "RR Tire Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": null,
+              "gte": 130,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 120,
+              "gte": null,
+              "lt": 130,
+              "lte": null,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 110,
+              "gte": null,
+              "lt": null,
+              "lte": 120,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 60,
+              "gte": null,
+              "lt": null,
+              "lte": 110,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 60,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.tyres_inner_temperature2 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.tyres_inner_temperature2').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1QEB4AAAE",
+        "importOf": "F3gZ1RPAAAQ",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "FR Brake Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": 1000,
+              "gte": null,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 900,
+              "gte": null,
+              "lt": null,
+              "lte": 1000,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 700,
+              "gte": null,
+              "lt": null,
+              "lte": 900,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 100,
+              "gte": null,
+              "lt": null,
+              "lte": 700,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 100,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.brakes_temperature4 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.brakes_temperature4').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1RHnuAIAA",
+        "importOf": "F3gZ1RPAAA4",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "RL Tire Temp",
+        "options": {
+          "colorBy": "Scale",
+          "colorScale": null,
+          "colorScale2": [
+            {
+              "gt": null,
+              "gte": 130,
+              "lt": null,
+              "lte": null,
+              "paletteIndex": 16
+            },
+            {
+              "gt": 125,
+              "gte": null,
+              "lt": 130,
+              "lte": null,
+              "paletteIndex": 5
+            },
+            {
+              "gt": 120,
+              "gte": null,
+              "lt": null,
+              "lte": 125,
+              "paletteIndex": 17
+            },
+            {
+              "gt": 80,
+              "gte": null,
+              "lt": null,
+              "lte": 120,
+              "paletteIndex": 20
+            },
+            {
+              "gt": null,
+              "gte": null,
+              "lt": null,
+              "lte": 80,
+              "paletteIndex": 1
+            }
+          ],
+          "maximumPrecision": 1,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.tyres_surface_temperature2 - Top 1",
+              "label": "D",
+              "paletteIndex": null,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": 1000,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "D = data('f1.tyres_surface_temperature2').top(count=1).publish(label='D')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    },
+    {
+      "chart": {
+        "autoDetectRelatedDetectorIds": [],
+        "created": 0,
+        "creator": null,
+        "customProperties": {},
+        "description": "",
+        "id": "Gc1RHnuAIAE",
+        "importOf": "F3gZ1RPAABM",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "name": "Track Temp",
+        "options": {
+          "colorBy": "Dimension",
+          "colorScale": null,
+          "colorScale2": null,
+          "maximumPrecision": null,
+          "noDataOptions": {
+            "linkText": null,
+            "linkUrl": null,
+            "noDataMessage": null
+          },
+          "programOptions": {
+            "disableSampling": false,
+            "maxDelay": null,
+            "minimumResolution": 0,
+            "timezone": null
+          },
+          "publishLabelOptions": [
+            {
+              "displayName": "f1.track_temperature - Mean",
+              "label": "B",
+              "paletteIndex": 3,
+              "plotType": null,
+              "valuePrefix": null,
+              "valueSuffix": "°C",
+              "valueUnit": null,
+              "yAxis": 0
+            }
+          ],
+          "refreshInterval": null,
+          "secondaryVisualization": "None",
+          "showSparkLine": false,
+          "time": {
+            "range": 60000,
+            "rangeEnd": 0,
+            "type": "relative"
+          },
+          "timestampHidden": true,
+          "type": "SingleValue",
+          "unitPrefix": "Metric"
+        },
+        "packageSpecifications": "",
+        "programText": "B = data('f1.track_temperature').mean().publish(label='B')",
+        "relatedDetectorIds": [],
+        "tags": []
+      }
+    }
+  ],
+  "crossLinkExports": [],
+  "dashboardExports": [
+    {
+      "dashboard": {
+        "authorizedWriters": null,
+        "chartDensity": "HIGHEST",
+        "charts": [
+          {
+            "chartId": "Gc1P4J5AIAU",
+            "column": 0,
+            "height": 1,
+            "row": 0,
+            "width": 1
+          },
+          {
+            "chartId": "Gc1P4J5AIBQ",
+            "column": 1,
+            "height": 1,
+            "row": 0,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIAk",
+            "column": 3,
+            "height": 1,
+            "row": 0,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIBE",
+            "column": 5,
+            "height": 1,
+            "row": 0,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIAI",
+            "column": 7,
+            "height": 1,
+            "row": 0,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIBA",
+            "column": 10,
+            "height": 1,
+            "row": 0,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIBg",
+            "column": 9,
+            "height": 1,
+            "row": 0,
+            "width": 1
+          },
+          {
+            "chartId": "Gc1P4J5AIBI",
+            "column": 0,
+            "height": 1,
+            "row": 1,
+            "width": 3
+          },
+          {
+            "chartId": "Gc1P4J5AIBc",
+            "column": 8,
+            "height": 1,
+            "row": 1,
+            "width": 1
+          },
+          {
+            "chartId": "Gc1RHnuAIAE",
+            "column": 7,
+            "height": 1,
+            "row": 1,
+            "width": 1
+          },
+          {
+            "chartId": "Gc1P4J5AIAE",
+            "column": 9,
+            "height": 1,
+            "row": 1,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIAQ",
+            "column": 11,
+            "height": 1,
+            "row": 1,
+            "width": 1
+          },
+          {
+            "chartId": "Gc1P4J5AIAo",
+            "column": 3,
+            "height": 1,
+            "row": 1,
+            "width": 4
+          },
+          {
+            "chartId": "Gc1P4J5AIA8",
+            "column": 4,
+            "height": 1,
+            "row": 2,
+            "width": 4
+          },
+          {
+            "chartId": "Gc1P4J5AIAc",
+            "column": 8,
+            "height": 1,
+            "row": 2,
+            "width": 4
+          },
+          {
+            "chartId": "Gc1P4J5AIBM",
+            "column": 0,
+            "height": 1,
+            "row": 2,
+            "width": 4
+          },
+          {
+            "chartId": "Gc1QEB4AAAE",
+            "column": 6,
+            "height": 1,
+            "row": 3,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIAg",
+            "column": 4,
+            "height": 1,
+            "row": 3,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIAY",
+            "column": 10,
+            "height": 1,
+            "row": 3,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIAs",
+            "column": 8,
+            "height": 1,
+            "row": 3,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIBY",
+            "column": 0,
+            "height": 1,
+            "row": 3,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIA0",
+            "column": 2,
+            "height": 1,
+            "row": 3,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIAM",
+            "column": 6,
+            "height": 1,
+            "row": 4,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIBU",
+            "column": 4,
+            "height": 1,
+            "row": 4,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIAw",
+            "column": 8,
+            "height": 1,
+            "row": 4,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J9AEAA",
+            "column": 10,
+            "height": 1,
+            "row": 4,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1RHnuAIAA",
+            "column": 2,
+            "height": 1,
+            "row": 4,
+            "width": 2
+          },
+          {
+            "chartId": "Gc1P4J5AIA4",
+            "column": 0,
+            "height": 1,
+            "row": 4,
+            "width": 2
+          }
+        ],
+        "created": 0,
+        "creator": null,
+        "customProperties": null,
+        "description": "",
+        "discoveryOptions": null,
+        "eventOverlays": null,
+        "filters": {
+          "sources": [],
+          "time": {
+            "end": "Now",
+            "start": "-1m"
+          },
+          "variables": [
+            {
+              "alias": "Game Version",
+              "applyIfExists": false,
+              "description": "",
+              "preferredSuggestions": [],
+              "property": "f1.gameVersion",
+              "propertyMappings": [
+                "f1.gameVersion"
+              ],
+              "replaceOnly": false,
+              "required": false,
+              "restricted": false,
+              "value": [
+                "2025"
+              ]
+            },
+            {
+              "alias": "f1.hostname",
+              "applyIfExists": false,
+              "description": "",
+              "preferredSuggestions": [],
+              "property": "f1.hostname",
+              "propertyMappings": [
+                "f1.hostname"
+              ],
+              "replaceOnly": false,
+              "required": false,
+              "restricted": false,
+              "value": [
+                "rig_1"
+              ]
+            }
+          ]
+        },
+        "groupId": "Gc1LgKwAIBA",
+        "groupName": "F1 2025",
+        "id": "Gc1RHnuAIAI",
+        "importOf": "F3gZ1RPAABw",
+        "lastUpdated": 0,
+        "lastUpdatedBy": null,
+        "maxDelayOverride": null,
+        "name": "F1 2025 - Current Player",
+        "permissions": null,
+        "selectedEventOverlays": [],
+        "tags": null
+      }
+    }
+  ],
+  "groupExport": {
+    "group": {
+      "authorizedWriters": null,
+      "created": 0,
+      "creator": null,
+      "dashboardConfigs": [
+        {
+          "configId": "Gc1RHnuAIAM",
+          "dashboardId": "Gc1RHnuAIAI",
+          "descriptionOverride": null,
+          "filtersOverride": null,
+          "nameOverride": null
+        }
+      ],
+      "dashboards": [
+        "Gc1RHnuAIAI"
+      ],
+      "description": "",
+      "email": null,
+      "id": "Gc1LgKwAIBA",
+      "lastUpdated": 0,
+      "lastUpdatedBy": null,
+      "name": "F1 2025",
+      "permissions": null,
+      "teams": null
+    }
+  },
+  "hashCode": -688104694,
+  "id": "Gc1LgKwAIBA",
+  "modelVersion": 1,
+  "packageType": "GROUP"
+}
