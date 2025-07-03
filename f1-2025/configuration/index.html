@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../ui/">
+      
+      
+        <link rel="next" href="../dashboards/">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +20,7 @@
     
     
       
-        <title>For LOCAL-LAN Game Play as Host (Work in progress) - Splunk Data Drivers</title>
+        <title>Configuration - Splunk Data Drivers</title>
       
     
     
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#for-local-lan-game-play-as-host-work-in-progress" class="md-skip">
+        <a href="#configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              For LOCAL-LAN Game Play as Host (Work in progress)
+              Configuration
             
           </span>
         </div>
@@ -182,11 +186,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../f1-2025/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -233,7 +239,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../telemetry/" class="md-tabs__link">
+        <a href="../../event_guide/telemetry/" class="md-tabs__link">
           
   
   
@@ -319,24 +325,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -349,7 +360,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             F1 2025 Collector
@@ -363,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -386,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/setup/" class="md-nav__link">
+      <a href="../setup/" class="md-nav__link">
         
   
   
@@ -409,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/ui/" class="md-nav__link">
+      <a href="../ui/" class="md-nav__link">
         
   
   
@@ -429,10 +440,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../f1-2025/configuration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -443,6 +476,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#number-of-rigs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of Rigs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Cloud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splunk-cloudenterprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splunk Cloud/Enterprise
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-sending-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable sending metrics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -455,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/dashboards/" class="md-nav__link">
+      <a href="../dashboards/" class="md-nav__link">
         
   
   
@@ -730,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../telemetry/" class="md-nav__link">
+      <a href="../../event_guide/telemetry/" class="md-nav__link">
         
   
   
@@ -753,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../grand-prix/" class="md-nav__link">
+      <a href="../../event_guide/grand-prix/" class="md-nav__link">
         
   
   
@@ -776,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../assists/" class="md-nav__link">
+      <a href="../../event_guide/assists/" class="md-nav__link">
         
   
   
@@ -799,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rules/" class="md-nav__link">
+      <a href="../../event_guide/rules/" class="md-nav__link">
         
   
   
@@ -822,7 +911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../structure/" class="md-nav__link">
+      <a href="../../event_guide/structure/" class="md-nav__link">
         
   
   
@@ -845,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../simulation-settings/" class="md-nav__link">
+      <a href="../../event_guide/simulation-settings/" class="md-nav__link">
         
   
   
@@ -868,7 +957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../weather/" class="md-nav__link">
+      <a href="../../event_guide/weather/" class="md-nav__link">
         
   
   
@@ -891,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../go-racing/" class="md-nav__link">
+      <a href="../../event_guide/go-racing/" class="md-nav__link">
         
   
   
@@ -949,9 +1038,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#for-local-lan-game-play-as-sim_rig_2-4-work-in-progress" class="md-nav__link">
+  <a href="#number-of-rigs" class="md-nav__link">
     <span class="md-ellipsis">
-      For LOCAL-LAN Game Play as Sim_Rig_2-4 (Work in progress)
+      Number of Rigs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Cloud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splunk-cloudenterprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splunk Cloud/Enterprise
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-sending-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable sending metrics
     </span>
   </a>
   
@@ -976,102 +1092,22 @@
   
 
 
-<div><h1 id="for-local-lan-game-play-as-host-work-in-progress">For LOCAL-LAN Game Play as Host (Work in progress)</h1>
-<ol>
-<li>Go to Multiplayer tab on main menu bar (using paddle shifter or F6 key)</li>
-<li>Select "LAN GAME" box (using dpad on steering wheel or arrow keys on keyboard)</li>
-<li>Select "Host LAN Game"</li>
-<li>Go to Settings, Press Enter</li>
-<li>Select "Lobby Options"<ol>
-<li>Car Category: F1 2021</li>
-</ol>
-</li>
-<li>Press Escape to return to the LAN Settings menu</li>
-<li>Go to "TRACK SELECT"</li>
-<li>With the BAHRAIN Track highlighted arrow over to CANADA track (6 right arrow clicks)</li>
-<li>Press Escape to return to the LAN Settings menu</li>
-<li>Select over to Rules and Flags Chiclet and press Enter<ol>
-<li>Rules and Flags: Off</li>
-<li>Parc Fermé Rules: Off</li>
-<li>Formation Lap: Off</li>
-</ol>
-</li>
-<li>Press Escape to return to the LAN Settings menu</li>
-<li>Select the Simulation Settings button<ol>
-<li>Surface Type: Realistic</li>
-<li>Recovery Mode: Auto Reset to Track</li>
-<li>Car Damage: Off</li>
-<li>Low Fuel Mode: Easy</li>
-<li>Race Starts: Assisted</li>
-<li>Collisions: On</li>
-<li>Ghosting: On</li>
-<li>Unsafe Pit Release: On</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings menu</li>
-<li>Select Weekend Structure<ol>
-<li>Practice Format: Off</li>
-<li>Qualifying Format: Off</li>
-<li>Session Length: Short</li>
-<li>Starting Grid: Random</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings menu</li>
-<li>Select the Assists Restrictions Menu<ol>
-<li>Steering assist: Off</li>
-<li>Braking Assist: medium</li>
-<li>Anti-Lock Brakes: Off</li>
-<li>Traction Control: Full</li>
-<li>Dynamic Racing Line: Full</li>
-<li>Gearbox: Automatic</li>
-<li>Pit Assist: On</li>
-<li>Pit Release Assist: On</li>
-<li>ERS Assist: On</li>
-<li>DRS Assist: On</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings menu</li>
-<li>Select the Assists Menu<ol>
-<li>Steering assist: Off</li>
-<li>Braking assist: Medium</li>
-<li>Traction Control : Full</li>
-<li>Dynamic Racing Line: Full</li>
-<li>Dynamic Racing Line Type: 3D</li>
-<li>Gearbox: Automatic</li>
-<li>Pit Assist: On</li>
-<li>Pit Release Assist: On</li>
-<li>ERS Assist: On</li>
-<li>DRS Assist: On</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings Menu</li>
-<li>Select the Weather and Time of Day Menu<ol>
-<li>Quick Weather: Light Cloud (Dry)</li>
-<li>Session Start Time: Midday</li>
-</ol>
-</li>
-<li>Press ESC to return to the LAN Settings Menu</li>
-<li>Press ESC to return to the Lobby</li>
-<li>Press F6 or paddle shift right to Select Team and Driver<ol>
-<li>Select your Driver. Prioritize McLaren first, then other teams</li>
-</ol>
-</li>
-<li>Press F5 or paddle shift left to go back to lobby and wait for other sim_rigs to join</li>
-<li>When everyone is ready to race, press "X" on the steering wheel to "Ready Up". The Race will advance when there is a majority of racers who have pressed "Ready Up".</li>
-</ol>
-<h2 id="for-local-lan-game-play-as-sim_rig_2-4-work-in-progress">For LOCAL-LAN Game Play as Sim_Rig_2-4 (Work in progress)</h2>
-<ol>
-<li>Go to Multiplayer tab on main menu bar (using paddle shifter or F6 key)</li>
-<li>Select "LAN GAME" box (using dpad on steering wheel or arrow keys on keyboard)</li>
-<li>Select "Find game on subnet"</li>
-<li>After the search completes, select the game that appears.</li>
-<li>Press F6 or paddle shift right to Select Team and Driver<ol>
-<li>Select your Driver. Prioritize McLaren first, then other teams</li>
-</ol>
-</li>
-<li>Press F5 or paddle shift left to go back to lobby and wait for other sim_rigs to join</li>
-<li>When everyone is ready to race, press "X" on the steering wheel to "Ready Up". The Race will advance when there is a majority of racers who have pressed "Ready Up".</li>
-</ol></div>
+<div><h1 id="configuration">Configuration</h1>
+<h2 id="number-of-rigs">Number of Rigs</h2>
+<p>Usually this will be 1, but in some cases at large events multiple rigs will be used. In this case you can specify the number of rigs here.</p>
+<h2 id="observability-cloud">Observability Cloud</h2>
+<p><strong>Realm:</strong> Realm name for the Observability Cloud realm you want to send data to e.g. <code>us1</code>, <code>eu0</code> etc.</p>
+<p><strong>Access Token:</strong> Observability Cloud access token (must have <code>ingest</code> capability). This can be done by following the instructions <a href="https://docs.splunk.com/Observability/admin/authentication-tokens/org-tokens.html#ingest-tokens">here</a>.</p>
+<h2 id="splunk-cloudenterprise">Splunk Cloud/Enterprise</h2>
+<p><strong>HEC URL:</strong> HEC URL for Splunk Cloud/Enterprise e.g. <code>https://simulator.prod.splunkcloud.com:8088</code>.</p>
+<p><strong>HEC Token:</strong> HEC Token for Splunk Cloud/Enterprise.</p>
+<h2 id="enable-sending-metrics">Enable sending metrics</h2>
+<p>You are able to send the metrics to both Observability Cloud and Splunk Cloud/Enterprise. To enable either or both just tick the relevant boxes.</p>
+<ul>
+<li>Tick <strong>Enable Observability Cloud</strong> to enable sending data to O11y Cloud.</li>
+<li>Tick <strong>Enable Splunk Cloud</strong> to enable sending data to Splunk Cloud.</li>
+</ul>
+<p>Finally, click <strong>Save Configuration</strong></p></div>
 
 
 
