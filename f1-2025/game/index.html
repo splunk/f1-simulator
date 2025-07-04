@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../dashboards/">
+      
+      
+        <link rel="next" href="../../f1-2024/">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +20,7 @@
     
     
       
-        <title>F1 2025 Telemetry Configuration - Splunk Data Drivers</title>
+        <title>Game Configuration - Splunk Data Drivers</title>
       
     
     
@@ -120,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              F1 2025 Telemetry Configuration
+              Game Configuration
             
           </span>
         </div>
@@ -182,10 +186,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
   
@@ -206,7 +212,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../f1_2024/" class="md-tabs__link">
+        <a href="../../f1-2024/" class="md-tabs__link">
           
   
   
@@ -237,7 +243,7 @@
           
   
   
-  F1 2024 Event Guide
+  F1 2025 Event Guide
 
         </a>
       </li>
@@ -319,24 +325,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -349,7 +360,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             F1 2025 Collector
@@ -471,6 +482,39 @@
 
               
             
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Configuration
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -526,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/" class="md-nav__link">
+      <a href="../../f1-2024/" class="md-nav__link">
         
   
   
@@ -549,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/setup/" class="md-nav__link">
+      <a href="../../f1-2024/setup/" class="md-nav__link">
         
   
   
@@ -572,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/ui/" class="md-nav__link">
+      <a href="../../f1-2024/ui/" class="md-nav__link">
         
   
   
@@ -595,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/configuration/" class="md-nav__link">
+      <a href="../../f1-2024/configuration/" class="md-nav__link">
         
   
   
@@ -618,12 +662,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/dashboards/" class="md-nav__link">
+      <a href="../../f1-2024/dashboards/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Dashboards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../f1-2024/game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Configuration
     
   </span>
   
@@ -667,7 +734,7 @@
   
   
   <span class="md-ellipsis">
-    F1 2024 Event Guide
+    F1 2025 Event Guide
     
   </span>
   
@@ -678,7 +745,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            F1 2024 Event Guide
+            F1 2025 Event Guide
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -969,7 +1036,7 @@
 <li>UDP IP Address: <strong>IP address of the laptop/EC2 instance running the container</strong></li>
 <li>UDP Port: <strong>20777</strong></li>
 <li>UDP Send Rate: <strong>10Hz</strong></li>
-<li>UDP Format: <strong>2024</strong></li>
+<li>UDP Format: <strong>2025</strong></li>
 </ul>
 <p>If you are running multiple simulators, you will need to repeat the above for each remebering to change the UDP Port for each simulator.</p>
 <p><img alt="F1 2024 Telemetry Settings" src="../../assets/screenshots/f1_2023_telemetry_settings.png"></p></div>

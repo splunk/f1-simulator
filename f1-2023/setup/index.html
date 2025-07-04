@@ -16,7 +16,7 @@
     
     
       
-        <title>F1 2023 Telemetry Configuration - Splunk Data Drivers</title>
+        <title>Running the F1 2023 container - Splunk Data Drivers</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#f1-2023-telemetry-configuration" class="md-skip">
+        <a href="#running-the-f1-2023-container" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              F1 2023 Telemetry Configuration
+              Running the F1 2023 container
             
           </span>
         </div>
@@ -206,7 +206,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../f1_2024/" class="md-tabs__link">
+        <a href="../../f1-2024/" class="md-tabs__link">
           
   
   
@@ -237,7 +237,7 @@
           
   
   
-  F1 2024 Event Guide
+  F1 2025 Event Guide
 
         </a>
       </li>
@@ -471,6 +471,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../f1-2025/game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -526,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/" class="md-nav__link">
+      <a href="../../f1-2024/" class="md-nav__link">
         
   
   
@@ -549,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/setup/" class="md-nav__link">
+      <a href="../../f1-2024/setup/" class="md-nav__link">
         
   
   
@@ -572,7 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/ui/" class="md-nav__link">
+      <a href="../../f1-2024/ui/" class="md-nav__link">
         
   
   
@@ -595,7 +618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/configuration/" class="md-nav__link">
+      <a href="../../f1-2024/configuration/" class="md-nav__link">
         
   
   
@@ -618,12 +641,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1_2024/dashboards/" class="md-nav__link">
+      <a href="../../f1-2024/dashboards/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Dashboards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../f1-2024/game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game Configuration
     
   </span>
   
@@ -667,7 +713,7 @@
   
   
   <span class="md-ellipsis">
-    F1 2024 Event Guide
+    F1 2025 Event Guide
     
   </span>
   
@@ -678,7 +724,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            F1 2024 Event Guide
+            F1 2025 Event Guide
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -942,6 +988,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -959,20 +1031,42 @@
   
 
 
-<div><h1 id="f1-2023-telemetry-configuration">F1 2023 Telemetry Configuration</h1>
-<p>In the F1 2023 you will need to configure the telemetry settings to send data to the F1 2023 container.</p>
-<p>On the main screen select <strong>Game Options</strong>, then click on <strong>Settings</strong> and then <strong>Telemetry Settings</strong>.</p>
-<p>Here you will need to set the following:</p>
-<ul>
-<li>UDP Telemetry: <strong>On</strong></li>
-<li>UDP Broadcast Mode: <strong>Off</strong></li>
-<li>UDP IP Address: <strong>IP address of the laptop/EC2 instance running the container</strong></li>
-<li>UDP Port: <strong>20777</strong></li>
-<li>UDP Send Rate: <strong>10Hz</strong></li>
-<li>UDP Format: <strong>2023</strong></li>
-</ul>
-<p>If you are running multiple simulators, you will need to repeat the above for each remebering to change the UDP Port for each simulator.</p>
-<p><img alt="F1 2023 Telemetry Settings" src="../../assets/screenshots/f1_2023_telemetry_settings.png"></p></div>
+<div><h1 id="running-the-f1-2023-container">Running the F1 2023 container</h1>
+<h2 id="docker">Docker</h2>
+<p>The following Docker command will run the F1 2023 container (support for <code>amd/64</code> and <code>arm/64</code> architectures) and expose the required ports for the UI and UDP listener(s):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>f1_2023<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-p<span class="w"> </span><span class="m">8501</span>:8501/tcp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-p<span class="w"> </span><span class="m">20777</span>:20777/udp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>rcastley895/f1_2023:latest
+</code></pre></div>
+<p>The above will run the F1 2023 container in the background and expose port <code>8501</code> for the UI and port <code>20777</code> for the UDP listener.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using more than one simulator you can expose up to <strong>8 UDP</strong> ports, for example, if you have 4 simulators running you would start the container by running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>f1_2023<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>-p<span class="w"> </span><span class="m">8501</span>:8501/tcp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>-p<span class="w"> </span><span class="m">20777</span>:20777/udp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>-p<span class="w"> </span><span class="m">20778</span>:20778/udp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>-p<span class="w"> </span><span class="m">20779</span>:20779/udp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>-p<span class="w"> </span><span class="m">20780</span>:20780/udp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>rcastley895/f1_2023:latest
+</code></pre></div>
+</div>
+<h2 id="validation">Validation</h2>
+<p>To validate the container is running correctly you can run the following command:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Command</label><label for="__tabbed_1_2">Output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>port<span class="w"> </span>f1_2023
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="m">8501</span>/tcp<span class="w"> </span>-&gt;<span class="w"> </span><span class="m">0</span>.0.0.0:8501
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="m">20777</span>/udp<span class="w"> </span>-&gt;<span class="w"> </span><span class="m">0</span>.0.0.0:20777
+</code></pre></div>
+</div>
+</div>
+</div></div>
 
 
 
