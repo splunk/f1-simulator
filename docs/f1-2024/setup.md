@@ -22,7 +22,7 @@ docker run -d \
 ghcr.io/splunk/f1-2024:latest
 ```
 
-The above will run the F1 2025 container in the background and expose port `8501` for the UI and ports`20777-27780` for the UDP listener.
+The above will run the F1 2024 container in the background and expose port `8501` for the UI and ports`20777-27780` for the UDP listener.
 
 ## Validation
 

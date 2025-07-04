@@ -11,7 +11,7 @@ Here you will need to set the following:
 * UDP IP Address: **IP address of the laptop/EC2 instance running the container**
 * UDP Port: **20777**
 * UDP Send Rate: **10Hz**
-* UDP Format: **2024**
+* UDP Format: **2025**
 
 If you are running multiple simulators, you will need to repeat the above for each remebering to change the UDP Port for each simulator.
 

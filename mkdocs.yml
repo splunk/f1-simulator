@@ -45,13 +45,15 @@ nav:
     - Accessing the Web Interface: f1-2025/ui.md
     - Configuration: f1-2025/configuration.md
     - Dashboards: f1-2025/dashboards.md
+    - Game Configuration: f1-2025/game.md
   - F1 2024 Collector:
-    - Pre-requisites: f1_2024/index.md
-    - Setup: f1_2024/setup.md
-    - Accessing the Web Interface: f1_2024/ui.md
-    - Configuration: f1_2024/configuration.md
-    - Dashboards: f1_2024/dashboards.md
-  - F1 2024 Event Guide:
+    - Pre-requisites: f1-2024/index.md
+    - Setup: f1-2024/setup.md
+    - Accessing the Web Interface: f1-2024/ui.md
+    - Configuration: f1-2024/configuration.md
+    - Dashboards: f1-2024/dashboards.md
+    - Game Configuration: f1-2024/game.md
+  - F1 2025 Event Guide:
     - Game Configuration:
         - Telemetry: event_guide/telemetry.md
         - Start Grand Prix: event_guide/grand-prix.md
