@@ -16,9 +16,9 @@ docker run -d \
 --restart always \
 -p 8501:8501/tcp \
 -p 20777:20777/udp \
--p 20777:20778/udp \
--p 20777:20779/udp \
--p 20777:20780/udp \
+-p 20778:20778/udp \
+-p 20779:20779/udp \
+-p 20780:20780/udp \
 ghcr.io/splunk/f1-2025:latest
 ```
 
