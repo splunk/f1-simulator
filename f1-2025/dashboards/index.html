@@ -1105,8 +1105,22 @@
 <div><h1 id="dashboards">Dashboards</h1>
 <h2 id="splunk-observability-cloud">Splunk Observability Cloud</h2>
 <p>You can import the following dashboard group into your Observability Cloud Organization.</p>
-<p>Download the JSON file <a href="https://github.com/splunk/f1-simulator/blob/main/observability/dashboard_group_F1_2024.json"><strong>here</strong></a>.</p>
-<h2 id="splunk-enterprisecloud">Splunk Enterprise/Cloud</h2></div>
+<p>Download the JSON file <a href="https://github.com/splunk/f1-simulator/blob/main/observability/dashboard_group_F1_2025.json"><strong>here</strong></a>.</p>
+<h2 id="splunk-enterprisecloud">Splunk Enterprise/Cloud</h2>
+<p>The source code for the Splunk dashboards is available in the <a href="https://github.com/splunk/datadrivers-app">DataDrivers App Repository</a>. You can install the app using the following instructions:</p>
+<ol>
+<li>Check out the <a href="https://github.com/splunk/datadrivers-app">DataDrivers App Repository</a></li>
+<li>
+<p>Create a <code>tar.gz</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar<span class="w"> </span>--disable-copyfile<span class="w"> </span>--exclude<span class="o">=</span><span class="s1">'.*'</span><span class="w"> </span>--exclude<span class="o">=</span><span class="s1">'._*'</span><span class="w"> </span>-cvzf<span class="w"> </span>datadrivers-app.tar.gz<span class="w"> </span>datadrivers-app
+</code></pre></div>
+</li>
+<li>
+<p>Goto <strong>Apps</strong> &gt; <strong>Manage Apps</strong> in your Splunk Enterprise/Cloud instance and click on <strong>Install app from file</strong>.</p>
+</li>
+<li>Browse for the <code>datadrivers-app.tar.gz</code> file and click <strong>Upload</strong>.</li>
+<li>Once the app is installed, you can access the dashboards by navigating to <strong>Apps</strong> &gt; <strong>DataDrivers F1 Racing</strong>.</li>
+</ol></div>
 
 
 

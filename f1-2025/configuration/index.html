@@ -502,6 +502,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#event-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#observability-cloud" class="md-nav__link">
     <span class="md-ellipsis">
       Observability Cloud
@@ -523,6 +532,24 @@
   <a href="#enable-sending-metrics" class="md-nav__link">
     <span class="md-ellipsis">
       Enable sending metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playback-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playback Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indicators
     </span>
   </a>
   
@@ -1093,6 +1120,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#event-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#observability-cloud" class="md-nav__link">
     <span class="md-ellipsis">
       Observability Cloud
@@ -1114,6 +1150,24 @@
   <a href="#enable-sending-metrics" class="md-nav__link">
     <span class="md-ellipsis">
       Enable sending metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playback-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playback Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indicators
     </span>
   </a>
   
@@ -1141,11 +1195,13 @@
 <div><h1 id="configuration">Configuration</h1>
 <h2 id="number-of-rigs">Number of Rigs</h2>
 <p>Usually this will be 1, but in some cases at large events multiple rigs will be used. In this case you can specify the number of rigs here.</p>
+<h2 id="event-name">Event Name</h2>
+<p>This is the name of the event you are running. It will be used to identify the data in Splunk and Observability Cloud. It is recommended to use a unique name for each event to avoid confusion. The Event Name is also used on some of the Splunk dashboards to identify the event.</p>
 <h2 id="observability-cloud">Observability Cloud</h2>
 <p><strong>Realm:</strong> Realm name for the Observability Cloud realm you want to send data to e.g. <code>us1</code>, <code>eu0</code> etc.</p>
 <p><strong>Access Token:</strong> Observability Cloud access token (must have <code>ingest</code> capability). This can be done by following the instructions <a href="https://docs.splunk.com/Observability/admin/authentication-tokens/org-tokens.html#ingest-tokens">here</a>.</p>
 <h2 id="splunk-cloudenterprise">Splunk Cloud/Enterprise</h2>
-<p><strong>HEC URL:</strong> HEC URL for Splunk Cloud/Enterprise e.g. <code>https://simulator.prod.splunkcloud.com:8088</code>.</p>
+<p><strong>HEC URL:Port:</strong> HEC URL and port for Splunk Cloud/Enterprise e.g. <code>https://simulator.prod.splunkcloud.com:8088</code>.</p>
 <p><strong>HEC Token:</strong> HEC Token for Splunk Cloud/Enterprise.</p>
 <h2 id="enable-sending-metrics">Enable sending metrics</h2>
 <p>You are able to send the metrics to both Observability Cloud and Splunk Cloud/Enterprise. To enable either or both just tick the relevant boxes.</p>
@@ -1153,7 +1209,11 @@
 <li>Tick <strong>Enable Observability Cloud</strong> to enable sending data to O11y Cloud.</li>
 <li>Tick <strong>Enable Splunk Cloud</strong> to enable sending data to Splunk Cloud.</li>
 </ul>
-<p>Finally, click <strong>Save Configuration</strong></p></div>
+<h2 id="playback-mode">Playback Mode</h2>
+<p>This defaults to <code>False</code>, meaning the container will listen for live data from the game. If set to <code>True</code>, then the container will replay pre-recorded data of 3 laps around Austria. This is useful for testing and development purposes, as it allows you to see how the container behaves with known data without needing to run the game.</p>
+<p>Finally, click <strong>Save Configuration</strong></p>
+<h2 id="indicators">Indicators</h2>
+<p>When the collector is running, the port number of each Rig will light up green once UDP data is received. If the port number is grey, then no UDP data has been received for that Rig.</p></div>
 
 
 
