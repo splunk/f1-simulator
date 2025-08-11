@@ -2,17 +2,11 @@
 
 1. From the main menu select **OPTIONS**
 
-   ![Options](../assets/screenshots/f1_2023_options.jpg)
+2. Select **TELEMETRY SETTINGS**
 
-2. Select **TELEMETRY**
+   ![Telemetry Settings](../assets/screenshots/telemetry.png)
 
-   ![Telemetry](../assets/screenshots/f1_2023_select_telemetry.jpg)
-
-3. Select **Settings**
-
-   ![Telemetry Settings](../assets/screenshots/f1_2023_select_settings.jpg)
-
-4. Configure the telemetry settings:
+3. Configure the telemetry settings:
 
     <pre>
     UDP Telemetry: **On**
@@ -20,11 +14,9 @@
     UDP IP Address: **IP address of the laptop/EC2 instance running the container**
     UDP Port: **20777**
     UDP Send Rate: **10Hz**
-    UDP Format: **2024**
+    UDP Format: **2025**
     Your Telemetry: **Restricted**
     Show Online IDS: **Off**
     </pre>
 
-5. Return to the **Grand Prix™ Settings** screen
-
-![Structure](../assets/screenshots/f1_2023_telemetry_settings.jpg)
+4. Return to the **Grand Prix™ Settings** screen

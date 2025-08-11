@@ -20,4 +20,4 @@
 
 3. Return to the **Grand Prix™ Settings** screen
 
-![Assists](../assets/screenshots/f1_2023_assists.png)
+![Assists](../assets/screenshots/assists.png)

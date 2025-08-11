@@ -8,10 +8,12 @@
     Surface Type: **Realistic**
     Low Fuel Mode: **Easy**
     Race Starts: **Assisted**
-    Car Damage: **Off**
+    Car Damage: **Standard**
+    Car Damate Rate: **Standard**
     Collisions: **On**
+    Off for First Lap Only: **Off**
     </pre>
 
 3. Return to the **Grand Prix™ Settings** screen
 
-![Simulation Settings](../assets/screenshots/f1_2023_simulation.png)
+![Simulation Settings](../assets/screenshots/simulation_settings.png)

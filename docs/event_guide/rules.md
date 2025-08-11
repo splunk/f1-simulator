@@ -11,4 +11,4 @@
 
 3. Return to the **Grand Prix™ Settings** screen
 
-![Rules](../assets/screenshots/f1_2023_rules.png)
+![Rules](../assets/screenshots/rules.png)
