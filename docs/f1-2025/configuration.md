@@ -1,38 +1,125 @@
-# Configuration
+# F1 2025 Data Collector - User Guide
 
-## Number of Rigs
+## Overview
 
-Usually this will be 1, but in some cases at large events multiple rigs will be used. In this case you can specify the number of rigs here.
+The F1 2025 Data Collector is a comprehensive telemetry collection system that captures real-time F1 game data and sends it to Splunk platforms for analysis and visualization. The system consists of a web-based control interface and background data collectors that capture UDP telemetry from F1 2025.
 
-## Event Name
+## Getting Started
 
-This is the name of the event you are running. It will be used to identify the data in Splunk and Observability Cloud. It is recommended to use a unique name for each event to avoid confusion. The Event Name is also used on some of the Splunk dashboards to identify the event.
+### 1. Initial Configuration
 
-## Observability Cloud
+1. **Set Collection Parameters**
+   - **Rigs**: Choose the number of F1 rigs to monitor (1-4)
+   - **Event Name**: Enter a custom event name for dashboard identification
 
-**Realm:** Realm name for the Observability Cloud realm you want to send data to e.g. `us1`, `eu0` etc.
+2. **Launch the Application**
+   - Run the main application to access the web interface
+   - The interface will display the F1 2025 Data Drivers dashboard
 
-**Access Token:** Observability Cloud access token (must have `ingest` capability). This can be done by following the instructions [here](https://docs.splunk.com/Observability/admin/authentication-tokens/org-tokens.html#ingest-tokens).
+3. **Configure Data Destinations**
+   Use the Configuration panel in the sidebar to set up your data endpoints:
 
-## Splunk Cloud/Enterprise
+   **Observability Cloud Settings:**
+   - Select your Splunk Observability Cloud realm (eu0, eu1, eu2, us0, us1, us2, au0, jp0, sg0)
+   - Enter your Access Token (this will be masked for security)
+   - Check "Enable Observability Cloud" to activate metric collection
 
-**HEC URL:Port:** HEC URL and port for Splunk Cloud/Enterprise e.g. `https://simulator.prod.splunkcloud.com:8088`.
+   **Splunk Enterprise Settings:**
+   - Enter your HEC URL and port (e.g., `https://your-splunk.com:8088`)
+   - Enter your HEC Token (this will be masked for security)
+   - Check "Enable Splunk Cloud" to activate event collection
 
-**HEC Token:** HEC Token for Splunk Cloud/Enterprise.
+4. **Set Collection Parameters**
+   - **Playback Mode**: Select "False" for live F1 games, "True" for demo/testing
 
-## Enable sending metrics
+5. **Save Configuration**
+   - Click "Save Configuration" to apply your settings
+   - The system will create the necessary database tables and initialize the collectors
 
-You are able to send the metrics to both Observability Cloud and Splunk Cloud/Enterprise. To enable either or both just tick the relevant boxes.
+### 2. Managing Data Collection
 
-* Tick **Enable Observability Cloud** to enable sending data to O11y Cloud.
-* Tick **Enable Splunk Cloud** to enable sending data to Splunk Cloud.
+#### Master Control
 
-## Playback Mode
+Use the **Master Control** toggle to start/stop all data collectors simultaneously:
 
-This defaults to `False`, meaning the container will listen for live data from the game. If set to `True`, then the container will replay pre-recorded data of 3 laps around Austria. This is useful for testing and development purposes, as it allows you to see how the container behaves with known data without needing to run the game.
+- **ON**: Starts collectors for all configured rigs
+- **OFF**: Stops all running collectors
 
-Finally, click **Save Configuration**
+#### Individual Rig Status
 
-## Indicators
+Each rig displays comprehensive status information:
 
-When the collector is running, the port number of each Rig will light up green once UDP data is received. If the port number is grey, then no UDP data has been received for that Rig.
+- **Rig Identifier**: Shows the rig hostname (e.g., RIG_1)
+- **UDP Port**: Displays the listening port number with connection status
+- **Collection Status**: Shows RUNNING (green) or STOPPED (red)
+- **Race Complete Flag**: Indicates when a race has finished
+- **Real-time Metrics**: When running, displays current speed, lap number, and track information
+
+### 3. Player Management
+
+#### Setting Player Names
+
+Each rig has a player name field that can be updated:
+
+1. **Enter Player Name**: Type the driver's name in the text field
+2. **Update**: Click the "Update" button to save the change
+
+#### Important Race Completion Rule
+
+🚨 **CRITICAL**: Player names can only be updated when the UI displays **RACE COMPLETE** for that rig.
+
+- The system tracks race completion status automatically
+- When a race finishes (FinalClassificationData packet received), the rig shows **RACE COMPLETE**
+- Only then can you update the player name for the next driver
+- This prevents data corruption during active races
+
+### 4. Monitoring System Health
+
+#### Connection Status Indicators
+
+The sidebar displays system health information:
+
+- **Redis Badge**: 
+  - Green ✓ = Redis database connected
+  - Red ✗ = Redis connection failed
+
+- **Collectors Status**:
+  - Shows "X/Y collectors running" (X active out of Y total)
+  - Green = All collectors running
+  - Orange = Some or no collectors running
+
+#### Real-time Data Verification
+
+When collectors are running and receiving data:
+
+- **Speed**: Current vehicle speed in mph
+- **Current Lap**: Live lap counter
+- **Track**: Current track name (e.g., "Silverstone", "Monaco")
+
+### 8. Best Practices
+
+#### Event Management
+
+- Set meaningful Event Names for easy identification in Splunk dashboards
+- Use consistent naming conventions across multiple events
+
+#### Performance Optimization
+
+- Monitor system resources when running multiple collectors
+- Consider network bandwidth when sending to multiple Splunk endpoints
+
+#### Race Operations
+
+- Always wait for "RACE COMPLETE" status before changing drivers
+- Use the Master Control for coordinated start/stop of all collectors
+- Monitor real-time metrics to verify data collection during races
+
+## Support and Maintenance
+
+### Log Files
+
+The system generates log files (`collector.log`) containing:
+
+- Collector startup and shutdown events
+- Data transmission statistics
+- Error messages and debugging information
