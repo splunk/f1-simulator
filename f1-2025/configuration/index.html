@@ -602,13 +602,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#8-best-practices" class="md-nav__link">
+  <a href="#5-best-practices" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Best Practices
+      5. Best Practices
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="8. Best Practices">
+    <nav class="md-nav" aria-label="5. Best Practices">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1169,13 +1169,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#8-best-practices" class="md-nav__link">
+  <a href="#5-best-practices" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Best Practices
+      5. Best Practices
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="8. Best Practices">
+    <nav class="md-nav" aria-label="5. Best Practices">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1281,16 +1281,22 @@
    Use the Configuration panel in the sidebar to set up your data endpoints:</p>
 </li>
 </ol>
-<p><strong>Observability Cloud Settings:</strong>
-   - Select your Splunk Observability Cloud realm (eu0, eu1, eu2, us0, us1, us2, au0, jp0, sg0)
-   - Enter your Access Token (this will be masked for security)
-   - Check "Enable Observability Cloud" to activate metric collection</p>
-<p><strong>Splunk Enterprise Settings:</strong>
-   - Enter your HEC URL and port (e.g., <code>https://your-splunk.com:8088</code>)
-   - Enter your HEC Token (this will be masked for security)
-   - Check "Enable Splunk Cloud" to activate event collection</p>
-<ol>
-<li><strong>Set Collection Parameters</strong></li>
+<p><strong>Observability Cloud Settings:</strong></p>
+<ul>
+<li>Select your Splunk Observability Cloud realm (eu0, eu1, eu2, us0, us1, us2, au0, jp0, sg0)</li>
+<li>Enter your Access Token (this will be masked for security)</li>
+<li>Check "Enable Observability Cloud" to activate metric collection</li>
+</ul>
+<p><strong>Splunk Enterprise Settings:</strong></p>
+<ul>
+<li>Enter your HEC URL and port (e.g., <code>https://your-splunk.com:8088</code>)</li>
+<li>Enter your HEC Token (this will be masked for security)</li>
+<li>
+<p>Check "Enable Splunk Cloud" to activate event collection</p>
+</li>
+<li>
+<p><strong>Set Collection Parameters</strong></p>
+</li>
 <li>
 <p><strong>Playback Mode</strong>: Select "False" for live F1 games, "True" for demo/testing</p>
 </li>
@@ -1299,7 +1305,7 @@
 </li>
 <li>Click "Save Configuration" to apply your settings</li>
 <li>The system will create the necessary database tables and initialize the collectors</li>
-</ol>
+</ul>
 <h3 id="2-managing-data-collection">2. Managing Data Collection</h3>
 <h4 id="master-control">Master Control</h4>
 <p>Use the <strong>Master Control</strong> toggle to start/stop all data collectors simultaneously:</p>
@@ -1335,7 +1341,7 @@
 <h4 id="connection-status-indicators">Connection Status Indicators</h4>
 <p>The sidebar displays system health information:</p>
 <ul>
-<li><strong>Redis Badge</strong>: </li>
+<li><strong>Redis Badge</strong>:</li>
 <li>Green ✓ = Redis database connected</li>
 <li>
 <p>Red ✗ = Redis connection failed</p>
@@ -1354,7 +1360,7 @@
 <li><strong>Current Lap</strong>: Live lap counter</li>
 <li><strong>Track</strong>: Current track name (e.g., "Silverstone", "Monaco")</li>
 </ul>
-<h3 id="8-best-practices">8. Best Practices</h3>
+<h3 id="5-best-practices">5. Best Practices</h3>
 <h4 id="event-management">Event Management</h4>
 <ul>
 <li>Set meaningful Event Names for easy identification in Splunk dashboards</li>
