@@ -20,11 +20,13 @@ The F1 2025 Data Collector is a comprehensive telemetry collection system that c
    Use the Configuration panel in the sidebar to set up your data endpoints:
 
    **Observability Cloud Settings:**
+
    - Select your Splunk Observability Cloud realm (eu0, eu1, eu2, us0, us1, us2, au0, jp0, sg0)
    - Enter your Access Token (this will be masked for security)
    - Check "Enable Observability Cloud" to activate metric collection
 
    **Splunk Enterprise Settings:**
+
    - Enter your HEC URL and port (e.g., `https://your-splunk.com:8088`)
    - Enter your HEC Token (this will be masked for security)
    - Check "Enable Splunk Cloud" to activate event collection
@@ -79,7 +81,7 @@ Each rig has a player name field that can be updated:
 
 The sidebar displays system health information:
 
-- **Redis Badge**: 
+- **Redis Badge**:
   - Green ✓ = Redis database connected
   - Red ✗ = Redis connection failed
 
@@ -96,7 +98,7 @@ When collectors are running and receiving data:
 - **Current Lap**: Live lap counter
 - **Track**: Current track name (e.g., "Silverstone", "Monaco")
 
-### 8. Best Practices
+### 5. Best Practices
 
 #### Event Management
 
