@@ -18,6 +18,6 @@
     DRS Assist: **On**
     </pre>
 
-3. Return to the **Grand Prix™ Settings** screen
+3. Return to the **Grand Prix™ Settings** screen by pressing **O**
 
 ![Assists](../assets/screenshots/assists.png)

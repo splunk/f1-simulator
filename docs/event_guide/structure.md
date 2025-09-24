@@ -10,6 +10,6 @@
     Session Length: **Quickfire**
     </pre>
 
-3. Return to the **Grand Prix™ Settings** screen
+3. Return to the **Grand Prix™ Settings** screen by pressing **O**
 
 ![Structure](../assets/screenshots/weekend.png)

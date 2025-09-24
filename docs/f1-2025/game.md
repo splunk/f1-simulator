@@ -1,6 +1,6 @@
 # F1 2025 Telemetry Configuration
 
-In the F1 2025 you will need to configure the telemetry settings to send data to the F1 2025 container.
+In the F1 2025 game you will need to configure the telemetry settings to send data to the F1 2025 collector.
 
 * On the main screen select **Game Options**, then click on **Settings** and then **Telemetry Settings**.
 

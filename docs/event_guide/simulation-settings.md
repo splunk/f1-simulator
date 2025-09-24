@@ -11,9 +11,8 @@
     Car Damage: **Standard**
     Car Damate Rate: **Standard**
     Collisions: **On**
-    Off for First Lap Only: **Off**
     </pre>
 
-3. Return to the **Grand Prix™ Settings** screen
+3. Return to the **Grand Prix™ Settings** screen by pressing **O**
 
 ![Simulation Settings](../assets/screenshots/simulation_settings.png)

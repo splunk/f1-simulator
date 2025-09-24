@@ -56,7 +56,7 @@ nav:
   #   - Game Configuration: f1-2024/game.md
   - F1 2025 Event Guide:
     - Game Configuration:
-        - Telemetry: event_guide/telemetry.md
+  #      - Telemetry: event_guide/telemetry.md
         - Start Grand Prix: event_guide/grand-prix.md
         - Assists: event_guide/assists.md
         - Rules & Flags: event_guide/rules.md

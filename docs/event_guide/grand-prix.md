@@ -14,6 +14,6 @@
     ![Select Team](../assets/screenshots/team.png)
 10. Select Lando Norris for the driver
     ![Select Driver](../assets/screenshots/driver.png)
-
+11. Press **X** to **Advance**
 
 <!--[type:video](../assets/screenshots/f1_2023.mp4)-->

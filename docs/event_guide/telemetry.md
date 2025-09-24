@@ -19,4 +19,4 @@
     Show Online IDS: **Off**
     </pre>
 
-4. Return to the **Grand Prix™ Settings** screen
+4. Return to the **Grand Prix™ Settings** screen by pressing **O**
