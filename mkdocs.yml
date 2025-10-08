@@ -33,30 +33,17 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  # - F1 2023 Collector:
-  #   - Pre-requisites: f1_2023/index.md
-  #   - Setup: f1_2023/setup.md
-  #   - Accessing the Web Interface: f1_2023/ui.md
-  #   - Configuration: f1_2023/configuration.md
-    #- Game Configuration: f1_2023/game.md
-  # - Dashboards: f1_2023/dashboards.md
   - F1 2025 Collector:
-    - Pre-requisites: f1-2025/index.md
-    - Setup: f1-2025/setup.md
-    - Accessing the Web Interface: f1-2025/ui.md
-    - Configuration: f1-2025/configuration.md
+    - Overview: f1-2025/index.md
+    - Docker Setup (Self-Hosted): f1-2025/docker-setup.md
+    - Using the Collector:
+      - Overview: f1-2025/configuration.md
+      - Controller Configuration: f1-2025/controller-config.md
+      - Managing Collectors: f1-2025/managing-collectors.md
+    - Game Telemetry Setup: f1-2025/telemetry.md
     - Dashboards: f1-2025/dashboards.md
-    - Game Configuration: f1-2025/game.md
-  # - F1 2024 Collector:
-  #   - Pre-requisites: f1-2024/index.md
-  #   - Setup: f1-2024/setup.md
-  #   - Accessing the Web Interface: f1-2024/ui.md
-  #   - Configuration: f1-2024/configuration.md
-  #   - Dashboards: f1-2024/dashboards.md
-  #   - Game Configuration: f1-2024/game.md
   - F1 2025 Event Guide:
     - Game Configuration:
-  #      - Telemetry: event_guide/telemetry.md
         - Start Grand Prix: event_guide/grand-prix.md
         - Assists: event_guide/assists.md
         - Rules & Flags: event_guide/rules.md

@@ -1,44 +1,23 @@
-# Overview
+# F1 2025 Data Collector
 
-This site will guide you on:
+The F1 2025 Data Collector captures real-time telemetry from F1 racing simulators and streams it to Splunk Enterprise and Splunk Observability Cloud for analysis and visualization.
 
-- Familiarize you on how to set up the local Data Drivers racing simulators to expose data
-- Get data into Splunk for the simulators
-- Access the Splunk Dashboards
+## Choose Your Setup Path
 
-Please reach out Slack on [**#datadrivers-inh**](https://splunk.slack.com/archives/C03M3BSPLN7) if you have any emergencies arise.
+### Option 1: Splunk Show
 
-## Pre-requisites
+**Recommended for Events:** Pre-configured instance with Splunk Enterprise 10.0.0 and the collector already installed. Zero/minimal setup required.
 
-- Apple MacBook (Apple Silicon M1/M2)
-- AWS/EC2 `t2.large` (Ubuntu 22.04 or above)
-    - External IP address
-    - Inbound access on ports `8501/tcp` and `20777-20784/udp`
+To access the UI open a browser and navigate to `http://<show_instance>.splunk.show:81`, here you can configure where the game data is going to be sent.
 
-### Install Docker
+**[→ Collector Configuration](configuration.md)**
 
-Docker is required to run the F1 2025 Collector and UI. The Collector will take the UDP stream from F1 2025 and transform the stream into a metric payload for Splunk Observability Cloud and Splunk Enterprise/Cloud. The UI is used to configure where to send the metrics, start/stop the Collector(s) and change the name of the current driver.
+### Option 2: Self-Hosted
 
-The following instructions will install Docker on your laptop or EC2 instance:
+Deploy the collector on your own laptop or cloud infrastructure using Docker.
 
-=== "macOS"
-  
-    [**Download Docker Desktop for Mac with Apple Silicon**](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-arm64)
+**[→ Docker Setup Guide](docker-setup.md)**
 
-=== "Ubuntu"
+## Need Help?
 
-    ```bash
-    sudo apt remove docker docker-engine docker.io containerd runc
-    sudo apt update
-    sudo apt install ca-certificates curl gnupg -y
-    sudo install -m 0755 -d /etc/apt/keyrings
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    sudo chmod a+r /etc/apt/keyrings/docker.gpg
-    echo \
-    "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-    "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt update
-    sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-    sudo usermod -aG docker $USER
-    ```
+Reach out on Slack: [**#datadrivers-inh**](https://splunk.slack.com/archives/C03M3BSPLN7)
