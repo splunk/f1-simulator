@@ -2,114 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://splunk.github.io/f1-simulator/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/event_guide/assists/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/event_guide/go-racing/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/event_guide/grand-prix/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/event_guide/lan/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/event_guide/rules/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/event_guide/simulation-settings/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/event_guide/structure/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/event_guide/telemetry/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/event_guide/weather/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2023/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2023/configuration/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2023/dashboards/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2023/game/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2023/setup/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2023/ui/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2024/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2024/configuration/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2024/dashboards/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2024/game/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2024/setup/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2024/ui/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2025/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2025/configuration/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
+    </url>
+    <url>
+         <loc>https://splunk.github.io/f1-simulator/f1-2025/controller-config/</loc>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
          <loc>https://splunk.github.io/f1-simulator/f1-2025/dashboards/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
-         <loc>https://splunk.github.io/f1-simulator/f1-2025/game/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <loc>https://splunk.github.io/f1-simulator/f1-2025/docker-setup/</loc>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
-         <loc>https://splunk.github.io/f1-simulator/f1-2025/setup/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <loc>https://splunk.github.io/f1-simulator/f1-2025/managing-collectors/</loc>
+         <lastmod>2025-10-08</lastmod>
     </url>
     <url>
-         <loc>https://splunk.github.io/f1-simulator/f1-2025/ui/</loc>
-         <lastmod>2025-09-24</lastmod>
+         <loc>https://splunk.github.io/f1-simulator/f1-2025/monitoring/</loc>
+         <lastmod>2025-10-08</lastmod>
+    </url>
+    <url>
+         <loc>https://splunk.github.io/f1-simulator/f1-2025/telemetry/</loc>
+         <lastmod>2025-10-08</lastmod>
     </url>
 </urlset>

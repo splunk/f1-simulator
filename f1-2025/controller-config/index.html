@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://splunk.github.io/f1-simulator/event_guide/go-racing/">
+        <link rel="canonical" href="https://splunk.github.io/f1-simulator/f1-2025/controller-config/">
       
       
-        <link rel="prev" href="../weather/">
+        <link rel="prev" href="../configuration/">
       
+      
+        <link rel="next" href="../managing-collectors/">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Go Racing - Splunk Data Drivers</title>
+        <title>Controller Configuration - Splunk Data Drivers</title>
       
     
     
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#go-racing" class="md-skip">
+        <a href="#controller-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Go Racing
+              Controller Configuration
             
           </span>
         </div>
@@ -186,11 +188,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../f1-2025/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -206,8 +210,6 @@
   
   
   
-    
-  
   
     
     
@@ -215,13 +217,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../grand-prix/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../event_guide/grand-prix/" class="md-tabs__link">
           
   
   
@@ -307,24 +307,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -337,7 +342,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             F1 2025 Collector
@@ -351,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -374,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/docker-setup/" class="md-nav__link">
+      <a href="../docker-setup/" class="md-nav__link">
         
   
   
@@ -394,6 +399,8 @@
                 
   
   
+    
+  
   
   
     
@@ -404,11 +411,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -424,7 +431,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             Using the Collector
@@ -438,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -458,10 +465,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../f1-2025/controller-config/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Controller Configuration
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -472,6 +501,236 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rigs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rigs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Name
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-cloud-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Cloud Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observability Cloud Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#realm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-observability-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Observability Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splunk-enterprise-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splunk Enterprise Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Splunk Enterprise Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hec-url-and-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      HEC URL and Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hec-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      HEC Token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-splunk-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Splunk Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#playback-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playback Mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving-your-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saving Your Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-production-event-with-both-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Production Event with Both Platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-demo-mode-with-observability-cloud-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Demo Mode with Observability Cloud Only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-testing-with-splunk-enterprise-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Testing with Splunk Enterprise Only
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -484,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/managing-collectors/" class="md-nav__link">
+      <a href="../managing-collectors/" class="md-nav__link">
         
   
   
@@ -515,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/telemetry/" class="md-nav__link">
+      <a href="../telemetry/" class="md-nav__link">
         
   
   
@@ -538,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/dashboards/" class="md-nav__link">
+      <a href="../dashboards/" class="md-nav__link">
         
   
   
@@ -565,29 +824,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -600,7 +854,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             F1 2025 Event Guide
@@ -611,8 +865,6 @@
                 
   
   
-    
-  
   
   
     
@@ -623,11 +875,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -643,7 +895,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Game Configuration
@@ -657,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../grand-prix/" class="md-nav__link">
+      <a href="../../event_guide/grand-prix/" class="md-nav__link">
         
   
   
@@ -680,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../assists/" class="md-nav__link">
+      <a href="../../event_guide/assists/" class="md-nav__link">
         
   
   
@@ -703,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rules/" class="md-nav__link">
+      <a href="../../event_guide/rules/" class="md-nav__link">
         
   
   
@@ -726,7 +978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../structure/" class="md-nav__link">
+      <a href="../../event_guide/structure/" class="md-nav__link">
         
   
   
@@ -749,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../simulation-settings/" class="md-nav__link">
+      <a href="../../event_guide/simulation-settings/" class="md-nav__link">
         
   
   
@@ -772,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../weather/" class="md-nav__link">
+      <a href="../../event_guide/weather/" class="md-nav__link">
         
   
   
@@ -792,19 +1044,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../event_guide/go-racing/" class="md-nav__link">
         
   
   
@@ -815,7 +1058,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -856,6 +1098,224 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rigs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rigs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Name
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-cloud-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability Cloud Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observability Cloud Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#realm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-observability-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Observability Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splunk-enterprise-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splunk Enterprise Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Splunk Enterprise Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hec-url-and-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      HEC URL and Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hec-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      HEC Token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-splunk-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Splunk Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#playback-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Playback Mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving-your-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saving Your Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-production-event-with-both-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Production Event with Both Platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-demo-mode-with-observability-cloud-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Demo Mode with Observability Cloud Only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-testing-with-splunk-enterprise-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Testing with Splunk Enterprise Only
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -873,18 +1333,120 @@
   
 
 
-<div><h1 id="go-racing">Go Racing</h1>
+<div><h1 id="controller-configuration">Controller Configuration</h1>
+<p>This guide covers the initial configuration of the F1 2025 Data Collector controller interface.</p>
+<p><img alt="Collector UI" src="../../assets/screenshots/f1-2025-ui.png"></p>
+<h4 id="configuration">Configuration</h4>
+<h5 id="rigs">Rigs</h5>
+<p>Choose the number of F1 racing rigs you'll be monitoring during your event. You can configure between 1 and 4 rigs.</p>
+<h5 id="event-name">Event Name</h5>
+<p>Enter a descriptive name for your event to identify the data stream in Splunk e.g. "Cisco Live", "Snow Testing", "Customer Demo Day"</p>
+<h4 id="observability-cloud-settings">Observability Cloud Settings</h4>
+<p>Configure the connection to Splunk Observability Cloud to send real-time metrics.</p>
+<h5 id="realm">Realm</h5>
+<p>Select your Splunk Observability Cloud realm from the dropdown.</p>
+<p><strong>Available Realms:</strong></p>
+<ul>
+<li><code>eu0</code>, <code>eu1</code>, <code>eu2</code> (Europe)</li>
+<li><code>us0</code>, <code>us1</code>, <code>us2</code> (United States)</li>
+<li><code>au0</code> (Australia)</li>
+<li><code>jp0</code> (Japan)</li>
+<li><code>sg0</code> (Singapore)</li>
+</ul>
+<h5 id="access-token">Access Token</h5>
+<p>Enter the Access Token for the Observability Cloud organization where you want to send metrics.</p>
+<h5 id="enable-observability-cloud">Enable Observability Cloud</h5>
+<p>Check this box to activate data streaming to Observability Cloud.</p>
+<ul>
+<li><strong>Enabled:</strong> Metrics will stream to Splunk Observability Cloud</li>
+<li><strong>Disabled:</strong> No data sent to Observability Cloud (use if only sending to Splunk Enterprise)</li>
+</ul>
+<h4 id="splunk-enterprise-settings">Splunk Enterprise Settings</h4>
+<p>Configure the connection to Splunk Enterprise or Splunk Cloud.</p>
+<div class="admonition note">
+<p class="admonition-title">If running a Splunk Show instance, all of the below is pre-configured.</p>
+</div>
+<h5 id="hec-url-and-port">HEC URL and Port</h5>
+<p>Enter your Splunk HTTP Event Collector (HEC) endpoint.</p>
+<ul>
+<li><strong>Format:</strong> <code>https://&lt;your-splunk-instance&gt;:8088</code></li>
+<li><strong>Example:</strong> <code>https://il-0cc8aef679649f2c.splunkcloud.com:8088</code></li>
+</ul>
+<h5 id="hec-token">HEC Token</h5>
+<p>Enter your HEC authentication token.</p>
+<h5 id="enable-splunk-cloud">Enable Splunk Cloud</h5>
+<p>Check this box to activate data streaming to Splunk Enterprise/Cloud.</p>
+<ul>
+<li><strong>Enabled:</strong> Events will stream to Splunk</li>
+<li><strong>Disabled:</strong> No data sent to Splunk (use if only sending to Observability Cloud)</li>
+</ul>
+<h4 id="advanced-options">Advanced Options</h4>
+<h5 id="playback-mode">Playback Mode</h5>
+<p>Playback mode allows demonstrations using pre-recorded data when physical rigs aren't available.</p>
+<p><strong>When to Use:</strong></p>
+<ul>
+<li><strong>False</strong> (default) - Live events with actual F1 2025 gameplay</li>
+<li><strong>True</strong> - Demonstrations without racing rigs using pre-recorded data</li>
+</ul>
+<p><strong>Use Cases for Playback Mode:</strong></p>
+<ul>
+<li>Showcasing Splunk dashboards to customers</li>
+<li>Testing dashboard configurations</li>
+<li>Training sessions without racing equipment</li>
+<li>Demo environments</li>
+</ul>
+<h4 id="debug-mode">Debug Mode</h4>
+<p>Enable additional diagnostic logging for troubleshooting.</p>
+<h4 id="saving-your-configuration">Saving Your Configuration</h4>
+<p>After configuring all settings:</p>
 <ol>
-<li>You are now ready to race, select <strong>START EVENT</strong>.</li>
-<li>You will have a lot of pre-roll, you can skip through all of this by pressing <strong>X</strong>. You should now be at the cockpit view of the car on the track. The car is stopped with people in front of it.</li>
+<li><strong>Review</strong> all fields to ensure accuracy</li>
+<li><strong>Click</strong> the <strong>"Save Configuration"</strong> button at the bottom of the Configuration panel</li>
 </ol>
-<p><img alt="Start Race" src="../../assets/screenshots/start_race.png"></p>
+<h4 id="configuration-examples">Configuration Examples</h4>
+<h5 id="example-1-production-event-with-both-platforms">Example 1: Production Event with Both Platforms</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Rigs: 4
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Event Name: Cisco Live 2025
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Observability Cloud:
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  - Realm: us1
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  - Access Token: ••••••••
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  - Enabled: ✓
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Splunk Enterprise:
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  - HEC URL: https://prd-splunk.company.com:8088
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  - HEC Token: ••••••••
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  - Enabled: ✓
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Playback Mode: False
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Debug Mode: False
+</code></pre></div>
+<h5 id="example-2-demo-mode-with-observability-cloud-only">Example 2: Demo Mode with Observability Cloud Only</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Rigs: 2
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Event Name: Customer Demo
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Observability Cloud:
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  - Realm: us0
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  - Access Token: ••••••••
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  - Enabled: ✓
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Splunk Enterprise:
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  - Enabled: ✗
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Playback Mode: True
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Debug Mode: False
+</code></pre></div>
+<h5 id="example-3-testing-with-splunk-enterprise-only">Example 3: Testing with Splunk Enterprise Only</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Rigs: 1
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Event Name: Testing Setup
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Observability Cloud:
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  - Enabled: ✗
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Splunk Enterprise:
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  - HEC URL: https://localhost:8088
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  - HEC Token: ••••••••
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  - Enabled: ✓
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Playback Mode: False
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>Debug Mode: True
+</code></pre></div>
+<h4 id="next-steps">Next Steps</h4>
+<p>After configuring the controller:</p>
 <ol>
-<li>Press <strong>X</strong> to <strong>Start Race</strong>.</li>
-<li>At the end of the race, advance to the post race leaderboard. You should see the word <strong>Advance</strong> at the top of the menu stack.</li>
-<li>Select <strong>Advance</strong>, to start the next Grand Prix.</li>
-<li><strong>X</strong> through the pre-roll until you are back in the cockpit view of the car on the track.</li>
-<li>You are now ready for the next participant.</li>
+<li><strong><a href="../telemetry/">Set up F1 2025 Game Telemetry</a></strong> - Configure UDP output in the game</li>
+<li><strong><a href="../managing-collectors/">Manage Collectors</a></strong> - Start data collection</li>
 </ol></div>
 
 

@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://splunk.github.io/f1-simulator/event_guide/go-racing/">
+        <link rel="canonical" href="https://splunk.github.io/f1-simulator/f1-2025/docker-setup/">
       
       
-        <link rel="prev" href="../weather/">
+        <link rel="prev" href="../">
       
+      
+        <link rel="next" href="../configuration/">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Go Racing - Splunk Data Drivers</title>
+        <title>Docker Setup (Self-Hosted) - Splunk Data Drivers</title>
       
     
     
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#go-racing" class="md-skip">
+        <a href="#docker-setup-for-self-hosted-deployment" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Go Racing
+              Docker Setup (Self-Hosted)
             
           </span>
         </div>
@@ -186,11 +188,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../f1-2025/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -206,8 +210,6 @@
   
   
   
-    
-  
   
     
     
@@ -215,13 +217,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../grand-prix/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../event_guide/grand-prix/" class="md-tabs__link">
           
   
   
@@ -307,24 +307,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -337,7 +342,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             F1 2025 Collector
@@ -351,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -371,10 +376,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../f1-2025/docker-setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Docker Setup (Self-Hosted)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -385,6 +412,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-startup-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Startup Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-ec2-security-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS EC2 Security Group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -438,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -461,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/controller-config/" class="md-nav__link">
+      <a href="../controller-config/" class="md-nav__link">
         
   
   
@@ -484,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/managing-collectors/" class="md-nav__link">
+      <a href="../managing-collectors/" class="md-nav__link">
         
   
   
@@ -515,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/telemetry/" class="md-nav__link">
+      <a href="../telemetry/" class="md-nav__link">
         
   
   
@@ -538,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/dashboards/" class="md-nav__link">
+      <a href="../dashboards/" class="md-nav__link">
         
   
   
@@ -565,29 +648,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -600,7 +678,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             F1 2025 Event Guide
@@ -611,8 +689,6 @@
                 
   
   
-    
-  
   
   
     
@@ -623,11 +699,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -643,7 +719,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Game Configuration
@@ -657,7 +733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../grand-prix/" class="md-nav__link">
+      <a href="../../event_guide/grand-prix/" class="md-nav__link">
         
   
   
@@ -680,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../assists/" class="md-nav__link">
+      <a href="../../event_guide/assists/" class="md-nav__link">
         
   
   
@@ -703,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rules/" class="md-nav__link">
+      <a href="../../event_guide/rules/" class="md-nav__link">
         
   
   
@@ -726,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../structure/" class="md-nav__link">
+      <a href="../../event_guide/structure/" class="md-nav__link">
         
   
   
@@ -749,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../simulation-settings/" class="md-nav__link">
+      <a href="../../event_guide/simulation-settings/" class="md-nav__link">
         
   
   
@@ -772,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../weather/" class="md-nav__link">
+      <a href="../../event_guide/weather/" class="md-nav__link">
         
   
   
@@ -792,19 +868,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../event_guide/go-racing/" class="md-nav__link">
         
   
   
@@ -815,7 +882,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -856,6 +922,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-startup-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Startup Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-ec2-security-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS EC2 Security Group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -873,18 +983,142 @@
   
 
 
-<div><h1 id="go-racing">Go Racing</h1>
+<div><h1 id="docker-setup-for-self-hosted-deployment">Docker Setup for Self-Hosted Deployment</h1>
+<p>This guide covers setting up the F1 2025 collector using Docker on your local laptop or cloud instance.</p>
+<div class="admonition info">
+<p class="admonition-title">Using Splunk Show?</p>
+<p>If you're using a Splunk Show instance, you don't need Docker setup. Go to the <a href="../configuration/">Using the Collector</a> instead.</p>
+</div>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Choose your hosting platform:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">macOS (Laptop)</label><label for="__tabbed_1_2">Ubuntu (Cloud)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Apple MacBook with Apple Silicon (M1/M2/M3)</li>
+<li>Administrator access</li>
+<li>Hardwired internet connection</li>
+</ul>
+<p><a href="https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&amp;utm_medium=webreferral&amp;utm_campaign=docs-driven-download-mac-arm64"><strong>Download Docker Desktop for Mac with Apple Silicon</strong></a></p>
+<p>After installation:</p>
 <ol>
-<li>You are now ready to race, select <strong>START EVENT</strong>.</li>
-<li>You will have a lot of pre-roll, you can skip through all of this by pressing <strong>X</strong>. You should now be at the cockpit view of the car on the track. The car is stopped with people in front of it.</li>
+<li>Open Docker Desktop</li>
+<li>Wait for Docker to start (whale icon in menu bar)</li>
+<li>Verify installation:</li>
 </ol>
-<p><img alt="Start Race" src="../../assets/screenshots/start_race.png"></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>--version
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>AWS EC2 <code>t2.large</code> or equivalent</li>
+<li>Ubuntu 22.04 or above</li>
+<li>External IP address</li>
+<li>Inbound access on ports <code>8501/tcp</code> and <code>20777-20784/udp</code></li>
+</ul>
+<p>Run the following commands to install Docker on Ubuntu:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>docker<span class="w"> </span>docker-engine<span class="w"> </span>docker.io<span class="w"> </span>containerd<span class="w"> </span>runc
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ca-certificates<span class="w"> </span>curl<span class="w"> </span>gnupg<span class="w"> </span>-y
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/docker.gpg
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.gpg
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">echo</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="s2">"deb [arch="</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2">" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="s2">"</span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$VERSION_CODENAME</span><span class="s2">"</span><span class="k">)</span><span class="s2">" stable"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/docker.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin<span class="w"> </span>-y
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span><span class="w">    </span><span class="sb">```</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>**Important:**<span class="w"> </span>Log<span class="w"> </span>out<span class="w"> </span>and<span class="w"> </span>log<span class="w"> </span>back<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>group<span class="w"> </span>membership<span class="w"> </span>to<span class="w"> </span>take<span class="w"> </span>effect.
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>Verify<span class="w"> </span>installation:
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="sb">```</span>bash
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>docker<span class="w"> </span>--version
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="create-startup-script">Create Startup Script</h2>
+<p>Create a startup script (<code>start-collector.sh</code>) to run the F1 2025 container:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>!<span class="w"> </span>-e<span class="w"> </span>~/players.sqlite<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span>touch<span class="w"> </span>~/players.sqlite
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">fi</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>-v<span class="w"> </span>~/players.sqlite:/app/players.sqlite<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>--name<span class="w"> </span>f1-2025<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>-p<span class="w"> </span><span class="m">8501</span>:8501/tcp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>-p<span class="w"> </span><span class="m">20777</span>:20777/udp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>-p<span class="w"> </span><span class="m">20778</span>:20778/udp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>-p<span class="w"> </span><span class="m">20779</span>:20779/udp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>-p<span class="w"> </span><span class="m">20780</span>:20780/udp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>ghcr.io/splunk/f1-2025:latest
+</code></pre></div>
+<p>This script will:</p>
+<ul>
+<li>Create a SQLite database for player data (if it doesn't exist)</li>
+<li>Run the F1 2025 container in detached mode</li>
+<li>Mount the player database</li>
+<li>Expose port <code>8501</code> for the web UI</li>
+<li>Expose UDP ports <code>20777-20780</code> for telemetry (supports up to 4 rigs)</li>
+<li>Automatically restart the container if it stops</li>
+</ul>
+<p>Make the script executable:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>start-collector.sh
+</code></pre></div>
+<p>Execute the startup script:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./start-collector.sh
+</code></pre></div>
+<p>Verify the container is running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>port<span class="w"> </span>f1-2025
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>8501/tcp -&gt; 0.0.0.0:8501
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>20777/udp -&gt; 0.0.0.0:20777
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>20778/udp -&gt; 0.0.0.0:20778
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>20779/udp -&gt; 0.0.0.0:20779
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>20780/udp -&gt; 0.0.0.0:20780
+</code></pre></div>
+<p>Check container status:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>ps
+</code></pre></div>
+<p>You should see the <code>f1-2025</code> container running.</p>
+<h2 id="aws-ec2-security-group">AWS EC2 Security Group</h2>
+<p>Configure your security group to allow:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Protocol</th>
+<th>Port Range</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Custom TCP</td>
+<td>TCP</td>
+<td>8501</td>
+<td>Your IP/CIDR</td>
+</tr>
+<tr>
+<td>Custom UDP</td>
+<td>UDP</td>
+<td>20777-20780</td>
+<td>Rig IPs/CIDR</td>
+</tr>
+</tbody>
+</table>
+<h2 id="next-steps">Next Steps</h2>
+<p>Once your Docker container is running:</p>
 <ol>
-<li>Press <strong>X</strong> to <strong>Start Race</strong>.</li>
-<li>At the end of the race, advance to the post race leaderboard. You should see the word <strong>Advance</strong> at the top of the menu stack.</li>
-<li>Select <strong>Advance</strong>, to start the next Grand Prix.</li>
-<li><strong>X</strong> through the pre-roll until you are back in the cockpit view of the car on the track.</li>
-<li>You are now ready for the next participant.</li>
+<li><a href="../configuration/">Configure the Web Interface</a></li>
+<li><a href="../telemetry/">Set up F1 2025 Game Telemetry</a></li>
 </ol></div>
 
 

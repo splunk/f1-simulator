@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://splunk.github.io/f1-simulator/f1-2023/game/">
+        <link rel="canonical" href="https://splunk.github.io/f1-simulator/f1-2025/monitoring/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>F1 2023 Telemetry Configuration - Splunk Data Drivers</title>
+        <title>Monitoring System Health - Splunk Data Drivers</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#f1-2023-telemetry-configuration" class="md-skip">
+        <a href="#monitoring-system-health" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              F1 2023 Telemetry Configuration
+              Monitoring System Health
             
           </span>
         </div>
@@ -188,7 +188,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../f1-2025/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -345,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -368,7 +368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/docker-setup/" class="md-nav__link">
+      <a href="../docker-setup/" class="md-nav__link">
         
   
   
@@ -432,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -455,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/controller-config/" class="md-nav__link">
+      <a href="../controller-config/" class="md-nav__link">
         
   
   
@@ -478,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/managing-collectors/" class="md-nav__link">
+      <a href="../managing-collectors/" class="md-nav__link">
         
   
   
@@ -509,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/telemetry/" class="md-nav__link">
+      <a href="../telemetry/" class="md-nav__link">
         
   
   
@@ -532,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../f1-2025/dashboards/" class="md-nav__link">
+      <a href="../dashboards/" class="md-nav__link">
         
   
   
@@ -833,6 +833,320 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#status-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status Indicators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Status Indicators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-connection-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis Connection Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collectors-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collectors Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-port-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP Port Status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-data-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-time Data Verification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-time Data Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-lap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Lap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track" class="md-nav__link">
+    <span class="md-ellipsis">
+      Track
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-flow-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Flow Status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-health-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Health Checklist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Health Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-event-health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Event Health Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#during-event-health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      During Event Health Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-event-health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-Event Health Check
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-interface-visible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keep Interface Visible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watch-the-udp-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Watch the UDP Ports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-memory-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitor Memory Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regular-status-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regular Status Checks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#udp-port-is-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP Port is Red
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-real-time-data-showing" class="md-nav__link">
+    <span class="md-ellipsis">
+      No Real-time Data Showing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collector-shows-stopped" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collector Shows STOPPED
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis-status-is-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis Status is Red
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-memory-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      High Memory Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-not-appearing-in-splunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Not Appearing in Splunk
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Log Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accessing-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-logs-contain" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Logs Contain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -850,20 +1164,426 @@
   
 
 
-<div><h1 id="f1-2023-telemetry-configuration">F1 2023 Telemetry Configuration</h1>
-<p>In the F1 2023 you will need to configure the telemetry settings to send data to the F1 2023 container.</p>
-<p>On the main screen select <strong>Game Options</strong>, then click on <strong>Settings</strong> and then <strong>Telemetry Settings</strong>.</p>
-<p>Here you will need to set the following:</p>
+<div><h1 id="monitoring-system-health">Monitoring System Health</h1>
+<p>This guide covers monitoring the F1 2025 Data Collector's health, verifying data flow, and troubleshooting common issues.</p>
+<h2 id="status-indicators">Status Indicators</h2>
+<p>The controller interface provides multiple status indicators to monitor system health.</p>
+<h3 id="redis-connection-status">Redis Connection Status</h3>
+<p>Located in the sidebar, the Redis badge shows the database connection status.</p>
+<p><strong>Indicators:</strong></p>
 <ul>
-<li>UDP Telemetry: <strong>On</strong></li>
-<li>UDP Broadcast Mode: <strong>Off</strong></li>
-<li>UDP IP Address: <strong>IP address of the laptop/EC2 instance running the container</strong></li>
-<li>UDP Port: <strong>20777</strong></li>
-<li>UDP Send Rate: <strong>10Hz</strong></li>
-<li>UDP Format: <strong>2023</strong></li>
+<li>🟢 <strong>Green ✓</strong> - Redis database connected and operational</li>
+<li>🔴 <strong>Red ✗</strong> - Redis connection failed or unavailable</li>
 </ul>
-<p>If you are running multiple simulators, you will need to repeat the above for each remebering to change the UDP Port for each simulator.</p>
-<p><img alt="F1 2023 Telemetry Settings" src="../../assets/screenshots/f1_2023_telemetry_settings.png"></p></div>
+<p><strong>What Redis Does:</strong></p>
+<ul>
+<li>Stores player/driver names</li>
+<li>Caches configuration settings</li>
+<li>Tracks race completion status</li>
+</ul>
+<p><strong>If Redis is Down:</strong></p>
+<ul>
+<li>Collector will continue to work</li>
+<li>Player names may not persist</li>
+<li>Race completion tracking may not function</li>
+<li>Configuration changes may not save</li>
+</ul>
+<p><strong>Troubleshooting Red Redis Status:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Check if Redis container is running</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>redis
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Restart Redis container (if using Docker Compose)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>docker-compose<span class="w"> </span>restart<span class="w"> </span>redis
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Check Redis logs</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>&lt;redis-container-name&gt;
+</code></pre></div>
+<h3 id="collectors-status">Collectors Status</h3>
+<p>Shows how many collectors are currently running out of the total configured.</p>
+<p><strong>Display Format:</strong> <code>X/Y collectors running</code></p>
+<ul>
+<li><strong>X</strong> = Number of active collectors</li>
+<li><strong>Y</strong> = Total number of configured collectors</li>
+</ul>
+<p><strong>Color Coding:</strong></p>
+<ul>
+<li>🟢 <strong>Green</strong> - All collectors running (X = Y)</li>
+<li>🟠 <strong>Orange</strong> - Some or no collectors running (X &lt; Y)</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><code>4/4 collectors running</code> (Green) - All good, all rigs active</li>
+<li><code>2/4 collectors running</code> (Orange) - Only 2 out of 4 configured rigs are running</li>
+<li><code>0/4 collectors running</code> (Orange) - Master Control is OFF or all collectors stopped</li>
+</ul>
+<h3 id="udp-port-status">UDP Port Status</h3>
+<p>Each rig displays a UDP port indicator showing whether data is being received.</p>
+<p><strong>Indicators:</strong></p>
+<ul>
+<li>🟢 <strong>Green Port</strong> - Actively receiving telemetry data from F1 2025</li>
+<li>🔴 <strong>Red Port</strong> - Not receiving data (no connection)</li>
+</ul>
+<p><strong>What This Tells You:</strong></p>
+<ul>
+<li>Green = F1 2025 game is sending telemetry to this collector</li>
+<li>Red = Game is not sending data, or network issue exists</li>
+</ul>
+<h2 id="real-time-data-verification">Real-time Data Verification</h2>
+<p>When collectors are running and receiving data from F1 2025, real-time metrics appear in the interface.</p>
+<h3 id="speed">Speed</h3>
+<ul>
+<li><strong>Display:</strong> Current vehicle speed in mph</li>
+<li><strong>Updates:</strong> Continuously during gameplay</li>
+<li><strong>Expected Behavior:</strong><ul>
+<li>0 mph when stationary (pits, menus)</li>
+<li>Fluctuating values during racing</li>
+<li>Max speeds vary by track (Monaco ~180 mph, Monza ~220 mph)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Troubleshooting:</strong></p>
+<ul>
+<li>No speed shown = no telemetry data being received</li>
+<li>Speed stuck at 0 = driver may be in menu/paused</li>
+<li>Speed frozen = possible network issue or game frozen</li>
+</ul>
+<h3 id="current-lap">Current Lap</h3>
+<ul>
+<li><strong>Display:</strong> Live lap counter</li>
+<li><strong>Updates:</strong> Increments as driver completes laps</li>
+<li><strong>Expected Behavior:</strong><ul>
+<li>Lap 0 during warm-up/out lap</li>
+<li>Lap 1 after crossing start/finish line</li>
+<li>Increments each lap thereafter</li>
+</ul>
+</li>
+</ul>
+<p><strong>Troubleshooting:</strong></p>
+<ul>
+<li>Lap not incrementing = driver may not be in race session</li>
+<li>Lap counter missing = no telemetry data</li>
+</ul>
+<h3 id="track">Track</h3>
+<ul>
+<li><strong>Display:</strong> Current track name</li>
+<li><strong>Examples:</strong> "Silverstone", "Monaco", "Spa-Francorchamps", "Suzuka"</li>
+<li><strong>Updates:</strong> When track loads in game</li>
+</ul>
+<p><strong>Troubleshooting:</strong></p>
+<ul>
+<li>No track name = telemetry not being received</li>
+<li>Wrong track name = data from different session/rig</li>
+</ul>
+<h3 id="data-flow-status">Data Flow Status</h3>
+<ul>
+<li><strong>RUNNING (Green):</strong> Collector is active and processing data</li>
+<li><strong>STOPPED (Red):</strong> Collector is not running</li>
+</ul>
+<h2 id="system-health-checklist">System Health Checklist</h2>
+<p>Use this checklist to verify system health before and during events.</p>
+<h3 id="pre-event-health-check">Pre-Event Health Check</h3>
+<ul>
+<li>[ ] Redis status shows green ✓</li>
+<li>[ ] Collectors status shows <code>X/X</code> (all running) in green</li>
+<li>[ ] All UDP ports configured for active rigs</li>
+<li>[ ] Configuration saved successfully</li>
+<li>[ ] Player names set for all active rigs</li>
+</ul>
+<h3 id="during-event-health-check">During Event Health Check</h3>
+<ul>
+<li>[ ] All active rig UDP ports are green</li>
+<li>[ ] Real-time speed values updating</li>
+<li>[ ] Lap counters incrementing as races progress</li>
+<li>[ ] Track names displaying correctly</li>
+<li>[ ] RUNNING status for all active collectors</li>
+<li>[ ] Memory usage within normal range (50-200 MB per collector)</li>
+</ul>
+<h3 id="post-event-health-check">Post-Event Health Check</h3>
+<ul>
+<li>[ ] RACE COMPLETE status appeared for all completed races</li>
+<li>[ ] All data visible in Splunk dashboards</li>
+<li>[ ] No error messages in logs</li>
+<li>[ ] Collectors stopped cleanly when Master Control disabled</li>
+</ul>
+<h2 id="monitoring-best-practices">Monitoring Best Practices</h2>
+<h3 id="keep-interface-visible">Keep Interface Visible</h3>
+<ul>
+<li>Display the controller interface on a monitor during events</li>
+<li>Allows quick identification of issues</li>
+<li>Real-time verification that data is flowing</li>
+</ul>
+<h3 id="watch-the-udp-ports">Watch the UDP Ports</h3>
+<ul>
+<li>UDP port status is the most critical indicator</li>
+<li>Green ports = data flowing</li>
+<li>Red ports = immediate attention needed</li>
+</ul>
+<h3 id="monitor-memory-usage">Monitor Memory Usage</h3>
+<p><strong>Normal Memory Usage:</strong></p>
+<ul>
+<li>50-150 MB per collector (typical)</li>
+<li>150-200 MB per collector (high load)</li>
+<li>Total system memory should be &lt;1 GB for 4 collectors</li>
+</ul>
+<p><strong>High Memory Usage:</strong></p>
+<ul>
+<li>&gt;300 MB per collector = potential issue</li>
+<li>May indicate data buildup or network problems</li>
+<li>Consider restarting affected collector</li>
+</ul>
+<p><strong>How to Check:</strong></p>
+<ul>
+<li>Memory usage displayed per rig in interface</li>
+<li>Can also check container stats:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>stats<span class="w"> </span>f1-2025
+</code></pre></div>
+<h3 id="regular-status-checks">Regular Status Checks</h3>
+<p>During long events, check status every 15-30 minutes:</p>
+<ul>
+<li>All ports still green?</li>
+<li>Real-time data still updating?</li>
+<li>Memory usage normal?</li>
+<li>Any error messages?</li>
+</ul>
+<h2 id="troubleshooting-guide">Troubleshooting Guide</h2>
+<h3 id="udp-port-is-red">UDP Port is Red</h3>
+<p><strong>Problem:</strong> Port indicator is red, not receiving data.</p>
+<p><strong>Possible Causes &amp; Solutions:</strong></p>
+<ol>
+<li><strong>F1 2025 not running on rig</strong></li>
+<li>Start the game</li>
+<li>
+<p>Verify telemetry is enabled in game settings</p>
+</li>
+<li>
+<p><strong>Wrong IP address in game telemetry settings</strong></p>
+</li>
+<li>Check External IP at bottom of controller</li>
+<li>
+<p>Update game telemetry settings with correct IP</p>
+</li>
+<li>
+<p><strong>Network connectivity issue</strong></p>
+</li>
+<li>Ping controller IP from rig PC</li>
+<li>Check firewall rules</li>
+<li>
+<p>Verify UDP port not blocked</p>
+</li>
+<li>
+<p><strong>Wrong UDP port configured</strong></p>
+</li>
+<li>Verify game is sending to correct port (20777, 20778, etc.)</li>
+<li>
+<p>Each rig needs unique port number</p>
+</li>
+<li>
+<p><strong>Game in menu/paused</strong></p>
+</li>
+<li>Driver must be in session (practice, qualifying, race)</li>
+<li>Telemetry doesn't stream from menus</li>
+</ol>
+<p><strong>Verification Steps:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># From the rig PC, test network connectivity</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ping<span class="w"> </span>&lt;controller-ip&gt;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Check if UDP port is accessible (requires netcat)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>nc<span class="w"> </span>-u<span class="w"> </span>&lt;controller-ip&gt;<span class="w"> </span><span class="m">20777</span>
+</code></pre></div>
+<h3 id="no-real-time-data-showing">No Real-time Data Showing</h3>
+<p><strong>Problem:</strong> UDP port is green but no speed/lap/track data appears.</p>
+<p><strong>Possible Causes &amp; Solutions:</strong></p>
+<ol>
+<li><strong>Driver not in active session</strong></li>
+<li>Must be in practice, qualifying, or race</li>
+<li>
+<p>Must be on track (not in pits/menus)</p>
+</li>
+<li>
+<p><strong>Race hasn't started</strong></p>
+</li>
+<li>Data appears once session begins</li>
+<li>
+<p>May take a few seconds to populate</p>
+</li>
+<li>
+<p><strong>Display refresh issue</strong></p>
+</li>
+<li>Refresh browser page</li>
+<li>Check if data appears after refresh</li>
+</ol>
+<h3 id="collector-shows-stopped">Collector Shows STOPPED</h3>
+<p><strong>Problem:</strong> Individual collector status shows STOPPED (red).</p>
+<p><strong>Possible Causes &amp; Solutions:</strong></p>
+<ol>
+<li><strong>Master Control is OFF</strong></li>
+<li>
+<p>Toggle Master Control to ON</p>
+</li>
+<li>
+<p><strong>Collector crashed</strong></p>
+</li>
+<li>Check logs for errors</li>
+<li>
+<p>Restart collector (toggle Master Control OFF then ON)</p>
+</li>
+<li>
+<p><strong>Configuration issue</strong></p>
+</li>
+<li>Verify configuration is saved</li>
+<li>Check that rig is enabled</li>
+</ol>
+<h3 id="redis-status-is-red">Redis Status is Red</h3>
+<p><strong>Problem:</strong> Redis badge shows red ✗.</p>
+<p><strong>Impact:</strong></p>
+<ul>
+<li>Player names may not save</li>
+<li>Configuration changes may not persist</li>
+<li>Race completion tracking disabled</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li><strong>Check Redis container:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>redis
+</code></pre></div>
+<ol>
+<li><strong>Restart Redis:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>&lt;redis-container-name&gt;
+</code></pre></div>
+<ol>
+<li><strong>Check Redis connectivity:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>&lt;redis-container-name&gt;
+</code></pre></div>
+<h3 id="high-memory-usage">High Memory Usage</h3>
+<p><strong>Problem:</strong> Container memory usage &gt;300 MB or climbing continuously.</p>
+<p><strong>Possible Causes:</strong></p>
+<ul>
+<li>Network issues causing data backup</li>
+<li>Too many simultaneous connections</li>
+<li>Memory leak (rare)</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p><strong>Monitor over time</strong> - Is it stable or growing?</p>
+</li>
+<li>
+<p><strong>Restart collector:</strong></p>
+</li>
+<li>Toggle Master Control OFF</li>
+<li>Wait 10 seconds</li>
+<li>
+<p>Toggle Master Control ON</p>
+</li>
+<li>
+<p><strong>Restart entire container:</strong></p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>f1-2025
+</code></pre></div>
+<h3 id="data-not-appearing-in-splunk">Data Not Appearing in Splunk</h3>
+<p><strong>Problem:</strong> Collectors running, data flowing, but nothing in Splunk dashboards.</p>
+<p><strong>Possible Causes &amp; Solutions:</strong></p>
+<ol>
+<li><strong>HEC token invalid</strong></li>
+<li>Verify HEC token in configuration</li>
+<li>Test token using curl:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>-k<span class="w"> </span>https://&lt;splunk-hec-url&gt;:8088/services/collector<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">"Authorization: Splunk &lt;hec-token&gt;"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"event": "test"}'</span>
+</code></pre></div>
+<ol>
+<li><strong>HEC URL incorrect</strong></li>
+<li>Verify URL format: <code>https://&lt;instance&gt;:8088</code></li>
+<li>Must use HTTPS (not HTTP)</li>
+<li>
+<p>Port must be 8088</p>
+</li>
+<li>
+<p><strong>Firewall blocking port 8088</strong></p>
+</li>
+<li>Test connectivity to HEC endpoint</li>
+<li>
+<p>Check network/firewall rules</p>
+</li>
+<li>
+<p><strong>Splunk Cloud/O11y not enabled</strong></p>
+</li>
+<li>Verify "Enable Splunk Cloud" is checked</li>
+<li>
+<p>Verify "Enable Observability Cloud" is checked (if using O11y)</p>
+</li>
+<li>
+<p><strong>Data indexing delay</strong></p>
+</li>
+<li>Wait 1-2 minutes for data to appear</li>
+<li>Refresh Splunk dashboard</li>
+</ol>
+<p><strong>Enable Debug Mode</strong> to see detailed transmission logs.</p>
+<h2 id="log-files">Log Files</h2>
+<p>The collector generates detailed logs for troubleshooting.</p>
+<h3 id="accessing-logs">Accessing Logs</h3>
+<p><strong>Via Docker:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>f1-2025
+</code></pre></div>
+<p><strong>Log File Location:</strong></p>
+<ul>
+<li>Container: <code>/app/collector.log</code></li>
+<li>Can be mounted as volume for persistent logs</li>
+</ul>
+<h3 id="what-logs-contain">What Logs Contain</h3>
+<p><strong>Normal Operations:</strong></p>
+<ul>
+<li>Collector startup events</li>
+<li>Configuration loaded</li>
+<li>Data transmission statistics</li>
+<li>Collector shutdown events</li>
+</ul>
+<p><strong>Errors:</strong></p>
+<ul>
+<li>Connection failures to Splunk/O11y</li>
+<li>UDP port binding errors</li>
+<li>Data parsing issues</li>
+<li>Network timeouts</li>
+</ul>
+<p><strong>Debug Mode:</strong></p>
+<ul>
+<li>Detailed packet information</li>
+<li>Individual metric transmissions</li>
+<li>Timing information</li>
+<li>Stack traces for errors</li>
+</ul>
+<h3 id="reading-logs">Reading Logs</h3>
+<p><strong>Successful startup:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[INFO] F1 2025 Collector starting...
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>[INFO] Configuration loaded
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>[INFO] UDP listener started on port 20777
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>[INFO] Connected to Redis
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>[INFO] Connected to Splunk HEC
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>[INFO] Collector ready
+</code></pre></div>
+<p><strong>Data flowing:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[INFO] Received telemetry packet from 192.168.1.100
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>[INFO] Speed: 180 mph, Lap: 5, Track: Silverstone
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>[INFO] Sent metrics to Splunk Observability Cloud
+</code></pre></div>
+<p><strong>Common errors:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[ERROR] Failed to connect to HEC: Connection refused
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>[ERROR] Invalid HEC token
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>[ERROR] Redis connection failed
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>[ERROR] UDP port 20777 already in use
+</code></pre></div>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><strong><a href="../managing-collectors/">Manage Collectors</a></strong> - Start/stop collectors and manage player names</li>
+<li><strong><a href="../controller-config/">Controller Configuration</a></strong> - Configure Splunk destinations</li>
+<li><strong><a href="../dashboards/">View Dashboards</a></strong> - Access your data in Splunk</li>
+</ul></div>
 
 
 
