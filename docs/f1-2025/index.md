@@ -10,6 +10,8 @@ The F1 2025 Data Collector captures real-time telemetry from F1 racing simulator
 
 To access the UI open a browser and navigate to `http://<show_instance>.splunk.show:81`, here you can configure where the game data is going to be sent.
 
+To determine the best AWS location to host your Splunk Show instance, use the following tool: [https://splunko11y.com/aws-latency/](https://splunko11y.com/aws-latency/)
+
 **[→ Collector Configuration](configuration.md)**
 
 ### Option 2: Self-Hosted
