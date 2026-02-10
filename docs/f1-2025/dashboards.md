@@ -97,3 +97,12 @@ After installation:
 1. Navigate to **Apps** in your Splunk instance
 2. Click **Data Drivers - F1 2025**
 3. Select a dashboard from the navigation menu
+
+
+### Hiding the Blue Dots
+
+Copy the following snippet and create a new Bookmark URL in Chrome/Safari etc.
+
+```
+javascript:(function()%7Bconst s=document.createElement('style');s.textContent='div[data-test="simple-status-icon-container"]%7Bdisplay:none%7D';document.head.appendChild(s);%7D)();
+```
