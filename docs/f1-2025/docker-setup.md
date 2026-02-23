@@ -63,12 +63,12 @@ Create a startup script (`start-collector.sh`) to run the F1 2025 container:
 
 ```bash
 #!/bin/bash
-if [[ ! -e ~/players.sqlite ]]; then
-    touch ~/players.sqlite
+if [[ ! -e ~/config.json ]]; then
+    echo '{}' > ~/config.json
 fi
 
 docker run -d \
--v ~/players.sqlite:/app/players.sqlite \
+-v ~/config.json:/app/config.json \
 --name f1-2025 \
 --restart always \
 -p 8501:8501/tcp \
@@ -81,9 +81,9 @@ ghcr.io/splunk/f1-2025:latest
 
 This script will:
 
-- Create a SQLite database for player data (if it doesn't exist)
+- Create an empty config file (if it doesn't exist) — the app populates it on first run
 - Run the F1 2025 container in detached mode
-- Mount the player database
+- Mount the config file so settings persist across container upgrades
 - Expose port `8501` for the web UI
 - Expose UDP ports `20777-20780` for telemetry (supports up to 4 rigs)
 - Automatically restart the container if it stops
