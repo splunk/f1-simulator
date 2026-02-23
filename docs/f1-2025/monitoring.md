@@ -2,29 +2,37 @@
 
 This guide covers monitoring the F1 2025 Data Collector's health, verifying data flow, and troubleshooting common issues.
 
-## Status Indicators
+## Status Bar
 
-The controller interface provides multiple status indicators to monitor system health.
+The status bar at the top of the Collector page provides at-a-glance system health via LED indicators.
+
+### Master Control
+
+Located on the left side of the status bar.
+
+- **SYSTEMS LIVE** (green pulsing LED) — All collectors running
+- **SYSTEMS OFFLINE** (muted) — Collectors stopped
+- **DEPLOYING...** — Configuration change in progress
+
+### External IP
+
+A blue LED badge displays the collector's external IP address. Use this IP in the F1 game's telemetry settings.
 
 ### Redis Connection Status
 
-Located in the sidebar, the Redis badge shows the database connection status.
-
-**Indicators:**
-
-- 🟢 **Green ✓** - Redis database connected and operational
-- 🔴 **Red ✗** - Redis connection failed or unavailable
+- 🟢 **Green** — Redis database connected and operational
+- 🔴 **Red** — Redis connection failed or unavailable
 
 **What Redis Does:**
 
-- Stores player/driver names
+- Stores driver names
 - Caches configuration settings
 - Tracks race completion status
 
 **If Redis is Down:**
 
-- Collector will continue to work
-- Player names may not persist
+- Collectors will continue to work
+- Driver names may not persist
 - Race completion tracking may not function
 - Configuration changes may not save
 
@@ -34,56 +42,79 @@ Located in the sidebar, the Redis badge shows the database connection status.
 # Check if Redis container is running
 docker ps | grep redis
 
-# Restart Redis container (if using Docker Compose)
-docker-compose restart redis
+# Restart the container
+docker restart f1-2025
 
-# Check Redis logs
-docker logs <redis-container-name>
+# Check container logs
+docker logs f1-2025
 ```
 
 ### Collectors Status
 
 Shows how many collectors are currently running out of the total configured.
 
-**Display Format:** `X/Y collectors running`
+**Display Format:** `X/Y Collectors`
 
 - **X** = Number of active collectors
 - **Y** = Total number of configured collectors
 
-**Color Coding:**
+**LED Colour:**
 
-- 🟢 **Green** - All collectors running (X = Y)
-- 🟠 **Orange** - Some or no collectors running (X < Y)
+- 🟢 **Green** — All collectors running (X = Y)
+- 🟠 **Amber** — Some collectors running (X < Y)
+- ⚫ **Off** — No collectors running (X = 0)
 
-**Examples:**
+## Rig Card Indicators
 
-- `4/4 collectors running` (Green) - All good, all rigs active
-- `2/4 collectors running` (Orange) - Only 2 out of 4 configured rigs are running
-- `0/4 collectors running` (Orange) - Master Control is OFF or all collectors stopped
+Each rig card displays status pills and live metrics for detailed per-rig monitoring.
+
+### Endpoint Status
+
+When Observability Cloud or HEC destinations are enabled, each rig card shows endpoint health pills:
+
+- **O11y ✓** / **HEC ✓** (green) — Data successfully sent to endpoint
+- **O11y ✗** / **HEC ✗** (red) — Endpoint unreachable or rejecting data
+- **O11y —** / **HEC —** (muted) — No data sent yet (pending first transmission)
+
+### Endpoint Failure Banner
+
+If an endpoint fails, a red error banner appears at the top of the page with details about the failure. This helps identify configuration issues (wrong token, unreachable URL, etc.) immediately.
+
+### Network Queue Status
+
+Each rig card displays a queue health pill showing the state of outbound network requests:
+
+| State | Colour | Meaning |
+| ----- | ------ | ------- |
+| **QUEUE OK** | Green | All requests flowing — no drops, inflight below 50% capacity |
+| **Q:12/50** | Amber | Inflight requests ≥ 50% of max — backpressure building |
+| **3 DROP** | Red | Requests are being dropped — Splunk endpoint may be unreachable or slow |
+
+**Troubleshooting Queue Issues:**
+
+- **Amber (backpressure)** — Temporary network slowness. Usually resolves on its own. Check endpoint health.
+- **Red (drops)** — Verify Splunk endpoint is reachable. Check HEC URL and tokens. May indicate network or firewall issues.
 
 ### UDP Port Status
 
-Each rig displays a UDP port indicator showing whether data is being received.
+Each rig card displays the UDP port number with colour coding:
 
-**Indicators:**
+- 🟢 **Green** — Collector running and ready to receive telemetry
+- ⚫ **Muted** — Collector not running
 
-- 🟢 **Green Port** - Actively receiving telemetry data from F1 2025
-- 🔴 **Red Port** - Not receiving data (no connection)
+### Race Complete Flag
 
-**What This Tells You:**
-
-- Green = F1 2025 game is sending telemetry to this collector
-- Red = Game is not sending data, or network issue exists
+A flag icon with **RACE COMPLETE** appears as a green pill when the race session has ended (after receiving `FinalClassificationData`). This unlocks the driver name for editing.
 
 ## Real-time Data Verification
 
-When collectors are running and receiving data from F1 2025, real-time metrics appear in the interface.
+When collectors are running and receiving data from F1 2025, live metrics appear on each rig card.
 
 ### Speed
 
 - **Display:** Current vehicle speed in mph
 - **Updates:** Continuously during gameplay
-- **Expected Behavior:**
+- **Expected Behaviour:**
     - 0 mph when stationary (pits, menus)
     - Fluctuating values during racing
     - Max speeds vary by track (Monaco ~180 mph, Monza ~220 mph)
@@ -98,7 +129,7 @@ When collectors are running and receiving data from F1 2025, real-time metrics a
 
 - **Display:** Live lap counter
 - **Updates:** Increments as driver completes laps
-- **Expected Behavior:**
+- **Expected Behaviour:**
     - Lap 0 during warm-up/out lap
     - Lap 1 after crossing start/finish line
     - Increments each lap thereafter
@@ -119,22 +150,17 @@ When collectors are running and receiving data from F1 2025, real-time metrics a
 - No track name = telemetry not being received
 - Wrong track name = data from different session/rig
 
-### Data Flow Status
-
-- **RUNNING (Green):** Collector is active and processing data
-- **STOPPED (Red):** Collector is not running
-
 ## System Health Checklist
 
 Use this checklist to verify system health before and during events.
 
 ### Pre-Event Health Check
 
-- [ ] Redis status shows green ✓
+- [ ] Redis status shows green in status bar
+- [ ] Configuration deployed with correct credentials
+- [ ] Driver names set for all active rigs
+- [ ] Master Control toggled to SYSTEMS LIVE
 - [ ] Collectors status shows `X/X` (all running) in green
-- [ ] All UDP ports configured for active rigs
-- [ ] Configuration saved successfully
-- [ ] Player names set for all active rigs
 
 ### During Event Health Check
 
@@ -142,29 +168,31 @@ Use this checklist to verify system health before and during events.
 - [ ] Real-time speed values updating
 - [ ] Lap counters incrementing as races progress
 - [ ] Track names displaying correctly
-- [ ] RUNNING status for all active collectors
+- [ ] O11y/HEC endpoint pills showing ✓
+- [ ] Queue status showing QUEUE OK
 - [ ] Memory usage within normal range (50-200 MB per collector)
 
 ### Post-Event Health Check
 
 - [ ] RACE COMPLETE status appeared for all completed races
 - [ ] All data visible in Splunk dashboards
-- [ ] No error messages in logs
-- [ ] Collectors stopped cleanly when Master Control disabled
+- [ ] No endpoint failure banners displayed
+- [ ] Collectors stopped cleanly when Master Control toggled off
 
 ## Monitoring Best Practices
 
 ### Keep Interface Visible
 
-- Display the controller interface on a monitor during events
+- Display the Collector page on a monitor during events
 - Allows quick identification of issues
 - Real-time verification that data is flowing
 
-### Watch the UDP Ports
+### Watch the Status Pills
 
-- UDP port status is the most critical indicator
-- Green ports = data flowing
-- Red ports = immediate attention needed
+- Endpoint pills (O11y/HEC) are the most critical indicators
+- Green ✓ = data flowing to Splunk
+- Red ✗ = immediate attention needed
+- Queue drops = network or endpoint issue
 
 ### Monitor Memory Usage
 
@@ -178,11 +206,11 @@ Use this checklist to verify system health before and during events.
 
 - \>300 MB per collector = potential issue
 - May indicate data buildup or network problems
-- Consider restarting affected collector
+- Consider restarting collectors
 
 **How to Check:**
 
-- Memory usage displayed per rig in interface
+- Memory usage displayed as an amber pill on each rig card
 - Can also check container stats:
 
 ```bash
@@ -193,16 +221,17 @@ docker stats f1-2025
 
 During long events, check status every 15-30 minutes:
 
-- All ports still green?
+- All endpoint pills green?
+- Queue status OK?
 - Real-time data still updating?
 - Memory usage normal?
-- Any error messages?
+- Any error banners?
 
 ## Troubleshooting Guide
 
-### UDP Port is Red
+### UDP Port Not Receiving Data
 
-**Problem:** Port indicator is red, not receiving data.
+**Problem:** Collector running but no telemetry data appears.
 
 **Possible Causes & Solutions:**
 
@@ -211,7 +240,7 @@ During long events, check status every 15-30 minutes:
    - Verify telemetry is enabled in game settings
 
 2. **Wrong IP address in game telemetry settings**
-   - Check External IP at bottom of controller
+   - Check External IP in the status bar (blue badge)
    - Update game telemetry settings with correct IP
 
 3. **Network connectivity issue**
@@ -237,69 +266,90 @@ ping <controller-ip>
 nc -u <controller-ip> 20777
 ```
 
-### No Real-time Data Showing
+### Endpoint Status Shows ✗
 
-**Problem:** UDP port is green but no speed/lap/track data appears.
-
-**Possible Causes & Solutions:**
-
-1. **Driver not in active session**
-   - Must be in practice, qualifying, or race
-   - Must be on track (not in pits/menus)
-
-2. **Race hasn't started**
-   - Data appears once session begins
-   - May take a few seconds to populate
-
-3. **Display refresh issue**
-   - Refresh browser page
-   - Check if data appears after refresh
-
-### Collector Shows STOPPED
-
-**Problem:** Individual collector status shows STOPPED (red).
+**Problem:** O11y or HEC pill is red.
 
 **Possible Causes & Solutions:**
 
-1. **Master Control is OFF**
-   - Toggle Master Control to ON
+1. **Invalid token**
+   - Open Config panel and verify credentials
+   - Re-enter the token and deploy configuration
+
+2. **Incorrect URL**
+   - Verify HEC URL format: `https://<instance>:8088`
+   - Must use HTTPS (not HTTP)
+
+3. **Firewall blocking connection**
+   - Test connectivity to endpoint
+   - Check network/firewall rules
+
+4. **Endpoint not enabled**
+   - Open Config panel and verify the toggle is on
+
+**Test HEC connectivity:**
+
+```bash
+curl -k https://<splunk-hec-url>:8088/services/collector \
+  -H "Authorization: Splunk <hec-token>" \
+  -d '{"event": "test"}'
+```
+
+### Queue Showing Drops
+
+**Problem:** Queue pill shows red with drop count.
+
+**Possible Causes:**
+
+- Splunk endpoint temporarily unavailable
+- Network latency or packet loss
+- HEC endpoint overloaded
+
+**Solutions:**
+
+1. Check endpoint status pills — if also red, fix the endpoint issue first
+2. Verify network connectivity to Splunk
+3. Restart collectors (toggle Master Control off then on)
+
+### Collector Shows Stopped
+
+**Problem:** Rig card not showing as running.
+
+**Possible Causes & Solutions:**
+
+1. **Master Control is off**
+   - Toggle Master Control to SYSTEMS LIVE
 
 2. **Collector crashed**
    - Check logs for errors
-   - Restart collector (toggle Master Control OFF then ON)
+   - Restart collectors (toggle Master Control off then on)
 
 3. **Configuration issue**
-   - Verify configuration is saved
-   - Check that rig is enabled
+   - Verify configuration is deployed
+   - Check that the correct number of rigs is configured
 
 ### Redis Status is Red
 
-**Problem:** Redis badge shows red ✗.
+**Problem:** Redis LED shows red in status bar.
 
 **Impact:**
 
-- Player names may not save
+- Driver names may not save
 - Configuration changes may not persist
 - Race completion tracking disabled
 
 **Solutions:**
 
-1. **Check Redis container:**
+1. **Restart the container:**
 
    ```bash
-   docker ps | grep redis
+   docker restart f1-2025
    ```
 
-2. **Restart Redis:**
+2. **Check container logs:**
 
    ```bash
-   docker restart <redis-container-name>
-   ```
-
-3. **Check Redis connectivity:**
-
-   ```bash
-   docker logs <redis-container-name>
+   docker logs f1-2025
    ```
 
 ### High Memory Usage
@@ -314,12 +364,12 @@ nc -u <controller-ip> 20777
 
 **Solutions:**
 
-1. **Monitor over time** - Is it stable or growing?
+1. **Monitor over time** — Is it stable or growing?
 
-2. **Restart collector:**
-   - Toggle Master Control OFF
+2. **Restart collectors:**
+   - Toggle Master Control off
    - Wait 10 seconds
-   - Toggle Master Control ON
+   - Toggle Master Control on
 
 3. **Restart entire container:**
 
@@ -327,46 +377,15 @@ nc -u <controller-ip> 20777
    docker restart f1-2025
    ```
 
-### Data Not Appearing in Splunk
-
-**Problem:** Collectors running, data flowing, but nothing in Splunk dashboards.
-
-**Possible Causes & Solutions:**
-
-1. **HEC token invalid**
-   - Verify HEC token in configuration
-   - Test token using curl:
-
-   ```bash
-   curl -k https://<splunk-hec-url>:8088/services/collector \
-     -H "Authorization: Splunk <hec-token>" \
-     -d '{"event": "test"}'
-   ```
-
-2. **HEC URL incorrect**
-   - Verify URL format: `https://<instance>:8088`
-   - Must use HTTPS (not HTTP)
-   - Port must be 8088
-
-3. **Firewall blocking port 8088**
-   - Test connectivity to HEC endpoint
-   - Check network/firewall rules
-
-4. **Splunk Cloud/O11y not enabled**
-   - Verify "Enable Splunk Cloud" is checked
-   - Verify "Enable Observability Cloud" is checked (if using O11y)
-
-5. **Data indexing delay**
-   - Wait 1-2 minutes for data to appear
-   - Refresh Splunk dashboard
-
-**Enable Debug Mode** to see detailed transmission logs.
-
 ## Log Files
 
 The collector generates detailed logs for troubleshooting.
 
 ### Accessing Logs
+
+**Via the UI:**
+
+The Collector page has a built-in log viewer accessible via the API.
 
 **Via Docker:**
 
@@ -374,66 +393,25 @@ The collector generates detailed logs for troubleshooting.
 docker logs f1-2025
 ```
 
-**Log File Location:**
+**Via API:**
 
-- Container: `/app/collector.log`
-- Can be mounted as volume for persistent logs
+```bash
+# JSON format (default)
+curl http://localhost:8501/api/logs
 
-### What Logs Contain
+# Plain text format
+curl "http://localhost:8501/api/logs?format=text"
 
-**Normal Operations:**
-
-- Collector startup events
-- Configuration loaded
-- Data transmission statistics
-- Collector shutdown events
-
-**Errors:**
-
-- Connection failures to Splunk/O11y
-- UDP port binding errors
-- Data parsing issues
-- Network timeouts
-
-**Debug Mode:**
-
-- Detailed packet information
-- Individual metric transmissions
-- Timing information
-- Stack traces for errors
-
-### Reading Logs
-
-**Successful startup:**
-
-```
-[INFO] F1 2025 Collector starting...
-[INFO] Configuration loaded
-[INFO] UDP listener started on port 20777
-[INFO] Connected to Redis
-[INFO] Connected to Splunk HEC
-[INFO] Collector ready
+# Last 20 lines
+curl "http://localhost:8501/api/logs?format=text&lines=20"
 ```
 
-**Data flowing:**
+## Help Panel
 
-```
-[INFO] Received telemetry packet from 192.168.1.100
-[INFO] Speed: 180 mph, Lap: 5, Track: Silverstone
-[INFO] Sent metrics to Splunk Observability Cloud
-```
-
-**Common errors:**
-
-```
-[ERROR] Failed to connect to HEC: Connection refused
-[ERROR] Invalid HEC token
-[ERROR] Redis connection failed
-[ERROR] UDP port 20777 already in use
-```
+Click the **?** button in the top-right of the navigation bar to open the Help panel. It provides a quick reference for rig card indicators, queue states, and configuration options.
 
 ## Next Steps
 
-- **[Manage Collectors](managing-collectors.md)** - Start/stop collectors and manage player names
+- **[Manage Collectors](managing-collectors.md)** - Start/stop collectors and manage driver names
 - **[Controller Configuration](controller-config.md)** - Configure Splunk destinations
 - **[View Dashboards](dashboards.md)** - Access your data in Splunk

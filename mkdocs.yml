@@ -40,6 +40,7 @@ nav:
       - Overview: f1-2025/configuration.md
       - Controller Configuration: f1-2025/controller-config.md
       - Managing Collectors: f1-2025/managing-collectors.md
+      - Monitoring: f1-2025/monitoring.md
     - Game Telemetry Setup: f1-2025/telemetry.md
     - Dashboards: f1-2025/dashboards.md
   - F1 2025 Event Guide:

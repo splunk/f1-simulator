@@ -4,13 +4,13 @@ Configure the F1 2025 game on each racing rig to send UDP telemetry data to the 
 
 ## Finding the IP Address
 
-The IP address you need is displayed under the F1 25 logo of the collector controller interface. The **External IP address** is displayed there (e.g., `98.82.23.19`). Use this IP address in the game's telemetry settings.
+The IP address you need is displayed in the **status bar** at the top of the Collector page as a blue badge (e.g., `98.82.23.19`). Use this IP address in the game's telemetry settings.
 
 **IP Address to Use:**
 
-- **Splunk Show:** External IP shown in the controller (e.g., `98.82.23.19`)
+- **Splunk Show:** External IP shown in the status bar (e.g., `98.82.23.19`)
 - **Self-Hosted (Laptop):** IP address of your laptop on the network
-- **Self-Hosted (Cloud):** External IP address of your EC2/cloud instance shown in the controller
+- **Self-Hosted (Cloud):** External IP address of your EC2/cloud instance shown in the status bar
 
 ## Configuring F1 2025 Game
 
