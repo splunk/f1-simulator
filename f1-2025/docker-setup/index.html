@@ -1206,12 +1206,12 @@
 <h2 id="create-startup-script">Create Startup Script</h2>
 <p>Create a startup script (<code>start-collector.sh</code>) to run the F1 2025 container:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ch">#!/bin/bash</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>!<span class="w"> </span>-e<span class="w"> </span>~/players.sqlite<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span>touch<span class="w"> </span>~/players.sqlite
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>!<span class="w"> </span>-e<span class="w"> </span>~/config.json<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'{}'</span><span class="w"> </span>&gt;<span class="w"> </span>~/config.json
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">fi</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>-v<span class="w"> </span>~/players.sqlite:/app/players.sqlite<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>-v<span class="w"> </span>~/config.json:/app/config.json<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>--name<span class="w"> </span>f1-2025<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>-p<span class="w"> </span><span class="m">8501</span>:8501/tcp<span class="w"> </span><span class="se">\</span>
@@ -1223,9 +1223,9 @@
 </code></pre></div>
 <p>This script will:</p>
 <ul>
-<li>Create a SQLite database for player data (if it doesn't exist)</li>
+<li>Create an empty config file (if it doesn't exist) — the app populates it on first run</li>
 <li>Run the F1 2025 container in detached mode</li>
-<li>Mount the player database</li>
+<li>Mount the config file so settings persist across container upgrades</li>
 <li>Expose port <code>8501</code> for the web UI</li>
 <li>Expose UDP ports <code>20777-20780</code> for telemetry (supports up to 4 rigs)</li>
 <li>Automatically restart the container if it stops</li>
