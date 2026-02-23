@@ -21,7 +21,7 @@ On each racing rig PC:
 3. Configure the following settings:
 
 | Setting | Value |
-|---------|-------|
+| ------- | ----- |
 | UDP Telemetry | **On** |
 | UDP Broadcast Mode | **Off** |
 | UDP IP Address | **External IP from controller** (see above) |
@@ -38,7 +38,7 @@ On each racing rig PC:
 If you're running multiple racing rigs, each rig needs a unique UDP port.
 
 | Rig | UDP Port | IP Address |
-|-----|----------|------------|
+| --- | -------- | ---------- |
 | Rig 1 | 20777 | Same External IP for all rigs |
 | Rig 2 | 20778 | Same External IP for all rigs |
 | Rig 3 | 20779 | Same External IP for all rigs |
