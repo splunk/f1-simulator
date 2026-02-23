@@ -14,14 +14,14 @@
         <link rel="prev" href="../controller-config/">
       
       
-        <link rel="next" href="../telemetry/">
+        <link rel="next" href="../monitoring/">
       
       
         
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -634,22 +634,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#individual-rig-status" class="md-nav__link">
+  <a href="#rig-cards" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Individual Rig Status
+        Rig Cards
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Individual Rig Status">
+    <nav class="md-nav" aria-label="Rig Cards">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#status-information-display" class="md-nav__link">
+  <a href="#status-pills" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status Information Display
+        Status Pills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live Metrics
       
     </span>
   </a>
@@ -662,22 +673,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#player-management" class="md-nav__link">
+  <a href="#driver-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Player Management
+        Driver Management
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Player Management">
+    <nav class="md-nav" aria-label="Driver Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setting-player-names" class="md-nav__link">
+  <a href="#editing-driver-names" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting Player Names
+        Editing Driver Names
       
     </span>
   </a>
@@ -715,6 +726,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1168,22 +1207,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#individual-rig-status" class="md-nav__link">
+  <a href="#rig-cards" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Individual Rig Status
+        Rig Cards
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Individual Rig Status">
+    <nav class="md-nav" aria-label="Rig Cards">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#status-information-display" class="md-nav__link">
+  <a href="#status-pills" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status Information Display
+        Status Pills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live Metrics
       
     </span>
   </a>
@@ -1196,22 +1246,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#player-management" class="md-nav__link">
+  <a href="#driver-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Player Management
+        Driver Management
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Player Management">
+    <nav class="md-nav" aria-label="Driver Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setting-player-names" class="md-nav__link">
+  <a href="#editing-driver-names" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting Player Names
+        Editing Driver Names
       
     </span>
   </a>
@@ -1268,89 +1318,100 @@
 <div><h1 id="managing-data-collectors">Managing Data Collectors</h1>
 <p>This guide covers starting, stopping, and managing the F1 2025 data collectors.</p>
 <h2 id="master-control">Master Control</h2>
-<p>The Master Control toggle provides centralized control over all data collectors.</p>
+<p>The Master Control toggle in the top-left of the status bar provides centralized control over all data collectors.</p>
 <h3 id="starting-all-collectors">Starting All Collectors</h3>
 <ol>
-<li>Locate the <strong>Master Control</strong> toggle at the top of the interface (orange toggle switch)</li>
-<li>Click to switch to <strong>ON</strong> position</li>
-<li>All configured collectors will start simultaneously</li>
+<li>Click the <strong>Master Control</strong> toggle in the status bar</li>
+<li>The status changes to <strong>SYSTEMS LIVE</strong> with a pulsing green LED</li>
+<li>All configured collectors start simultaneously</li>
 </ol>
 <p><strong>What Happens:</strong></p>
 <ul>
 <li>Collectors for all configured rigs start listening for UDP telemetry</li>
 <li>UDP ports open and begin accepting data</li>
 <li>Data flows to configured Splunk destinations</li>
-<li>Status indicators update to show "RUNNING"</li>
+<li>Rig card status pills update to reflect running state</li>
 </ul>
 <h3 id="stopping-all-collectors">Stopping All Collectors</h3>
 <ol>
-<li>Click the <strong>Master Control</strong> toggle to switch to <strong>OFF</strong> position</li>
-<li>All running collectors stop immediately</li>
+<li>Click the <strong>Master Control</strong> toggle to switch off</li>
+<li>The status changes to <strong>SYSTEMS OFFLINE</strong></li>
 </ol>
 <p><strong>What Happens:</strong></p>
 <ul>
 <li>All collectors stop processing data</li>
 <li>UDP ports stop listening</li>
 <li>No data is sent to Splunk destinations</li>
-<li>Status indicators update to show "STOPPED"</li>
+<li>Rig card status pills update accordingly</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Use Master Control for Events</p>
 <p>Master Control is ideal for coordinated start/stop during events. All rigs begin and end data collection simultaneously.</p>
 </div>
-<h2 id="individual-rig-status">Individual Rig Status</h2>
-<p>Each rig displays comprehensive status information in the interface.</p>
-<h3 id="status-information-display">Status Information Display</h3>
-<p><strong>Rig Identifier</strong></p>
+<h2 id="rig-cards">Rig Cards</h2>
+<p>Each configured rig is displayed as a card in the main area. Cards are arranged in a responsive grid — single column for 1-2 rigs, two columns for 3-4 rigs.</p>
+<h3 id="status-pills">Status Pills</h3>
+<p>Each rig card displays a row of status pills at the top:</p>
+<table>
+<thead>
+<tr>
+<th>Pill</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rig ID</strong> (blue)</td>
+<td>Rig identifier (e.g. <code>RIG 1</code>, <code>RIG 2</code>)</td>
+</tr>
+<tr>
+<td><strong>UDP port</strong></td>
+<td>Listening port number — green when running, muted when stopped</td>
+</tr>
+<tr>
+<td><strong>Memory</strong> (amber)</td>
+<td>Collector process memory usage in MB (visible when running)</td>
+</tr>
+<tr>
+<td><strong>O11y</strong></td>
+<td>Observability Cloud endpoint status — ✓ (green), ✗ (red), or — (pending). Only shown when O11y is enabled</td>
+</tr>
+<tr>
+<td><strong>HEC</strong></td>
+<td>Splunk HEC endpoint status — ✓ (green), ✗ (red), or — (pending). Only shown when HEC is enabled</td>
+</tr>
+<tr>
+<td><strong>Queue</strong></td>
+<td>Network queue health — see <a href="../monitoring/">Monitoring</a> for details</td>
+</tr>
+<tr>
+<td><strong>Race Complete</strong></td>
+<td>Appears with a flag icon when a race has finished</td>
+</tr>
+</tbody>
+</table>
+<h3 id="live-metrics">Live Metrics</h3>
+<p>When a rig is running and receiving telemetry data, three hero metrics appear:</p>
 <ul>
-<li>Shows the rig hostname (e.g., <code>RIG_1</code>, <code>RIG_2</code>, <code>RIG_3</code>, <code>RIG_4</code>)</li>
-<li>Unique identifier for each racing simulator</li>
+<li><strong>Speed MPH</strong> — Current vehicle speed</li>
+<li><strong>Lap</strong> — Live lap counter</li>
+<li><strong>Track</strong> — Current track name (e.g. "Silverstone", "Monaco", "Spa")</li>
 </ul>
-<p><strong>UDP Port</strong></p>
-<ul>
-<li>Displays the listening port number (e.g., <code>20777</code>, <code>20778</code>, <code>20779</code>, <code>20780</code>)</li>
-<li>Color-coded status indicator:<ul>
-<li><strong>Green:</strong> Actively receiving data</li>
-<li><strong>Grey:</strong> No data being received</li>
-</ul>
-</li>
-</ul>
-<p><strong>Collection Status</strong></p>
-<ul>
-<li><strong>RUNNING</strong> (green): Collector is active and processing data</li>
-<li><strong>STOPPED</strong> (red): Collector is not running</li>
-</ul>
-<p><strong>Container Memory Usage</strong></p>
-<ul>
-<li>Displays current memory usage in MB</li>
-<li>Helps monitor resource consumption</li>
-<li>Typical range: 50-100 MB per collector</li>
-</ul>
-<p><strong>Race Complete Flag</strong></p>
-<ul>
-<li>Shows when a race has finished</li>
-<li><strong>RACE COMPLETE</strong> indicator appears after final classification data received</li>
-<li>Important for player name changes (see below)</li>
-</ul>
-<p><strong>Real-time Metrics</strong> (when running)</p>
-<ul>
-<li><strong>Speed:</strong> Current vehicle speed in mph</li>
-<li><strong>Current Lap:</strong> Live lap counter</li>
-<li><strong>Track:</strong> Current track name (e.g., "Silverstone", "Monaco", "Spa")</li>
-</ul>
-<h2 id="player-management">Player Management</h2>
-<p>Each rig can have an associated player/driver name for identification in Splunk dashboards.</p>
-<h3 id="setting-player-names">Setting Player Names</h3>
+<p>If a collector is running but no telemetry data has been received yet, the card displays "Awaiting telemetry data..."</p>
+<h2 id="driver-management">Driver Management</h2>
+<p>Each rig has an associated driver name displayed at the bottom of the card. This name is used as a dimension in telemetry data and appears in Splunk dashboards.</p>
+<h3 id="editing-driver-names">Editing Driver Names</h3>
 <ol>
-<li>Locate the player name field for the rig</li>
-<li>Type the driver's name in the text field</li>
-<li>Click the <strong>"Update"</strong> button</li>
+<li><strong>Click</strong> the driver name area on the rig card — the row highlights on hover with an edit icon</li>
+<li>The name field becomes an inline text input</li>
+<li>Type the new driver name</li>
+<li>Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> or click <strong>Save</strong> to confirm</li>
+<li>Press <span class="keys"><kbd class="key-escape">Esc</kbd></span> or click <strong>✕</strong> to cancel</li>
 </ol>
-<p>The player name will appear in Splunk dashboards and helps identify which driver's data you're viewing.</p>
 <h3 id="race-completion-rule">Race Completion Rule</h3>
 <div class="admonition warning">
-<p class="admonition-title">CRITICAL: Player Name Update Restriction</p>
-<p>🚨 Player names can <strong>only</strong> be updated when the UI displays <strong>RACE COMPLETE</strong> for that rig.</p>
+<p class="admonition-title">CRITICAL: Driver Name Update Restriction</p>
+<p>Driver names can <strong>only</strong> be updated when the rig displays the <strong>RACE COMPLETE</strong> status pill.</p>
 </div>
 <p><strong>Why This Restriction Exists:</strong></p>
 <ul>
@@ -1360,23 +1421,22 @@
 </ul>
 <p><strong>How It Works:</strong></p>
 <ol>
-<li>Driver starts a race - player name is locked</li>
-<li>Driver completes the race - system receives <code>FinalClassificationData</code> packet</li>
-<li>UI displays <strong>RACE COMPLETE</strong> status</li>
-<li>Player name field becomes editable</li>
-<li>Update player name for the next driver</li>
-<li>New race starts - player name locks again</li>
+<li>Driver starts a race — driver name is locked</li>
+<li>Driver completes the race — system receives <code>FinalClassificationData</code> packet</li>
+<li>Rig card displays <strong>RACE COMPLETE</strong> status pill</li>
+<li>Driver name becomes editable</li>
+<li>Update driver name for the next driver</li>
+<li>New race starts — driver name locks again</li>
 </ol>
 <p><strong>Best Practice for Multi-Driver Events:</strong></p>
 <ul>
 <li>Wait for <strong>RACE COMPLETE</strong> before swapping drivers</li>
-<li>Update the player name immediately after race completion</li>
+<li>Update the driver name immediately after race completion</li>
 <li>Have the next driver ready to start their session</li>
-<li>Monitor the UI to confirm the new name is saved</li>
 </ul>
 <div class="admonition danger">
-<p class="admonition-title">Do Not Update Player Name Mid-Race</p>
-<p>Never update a player name while a race is in progress. This will corrupt the data attribution in Splunk.</p>
+<p class="admonition-title">Do Not Update Driver Name Mid-Race</p>
+<p>Never update a driver name while a race is in progress. This will corrupt the data attribution in Splunk.</p>
 </div>
 <h2 id="next-steps">Next Steps</h2>
 <ul>

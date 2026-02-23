@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://splunk.github.io/f1-simulator/f1-2025/telemetry/">
       
       
-        <link rel="prev" href="../managing-collectors/">
+        <link rel="prev" href="../monitoring/">
       
       
         <link rel="next" href="../dashboards/">
@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -541,6 +541,34 @@
     
   
     Managing Collectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring
   
 
     
@@ -1142,12 +1170,12 @@
 <div><h1 id="f1-2025-telemetry-configuration">F1 2025 Telemetry Configuration</h1>
 <p>Configure the F1 2025 game on each racing rig to send UDP telemetry data to the collector.</p>
 <h2 id="finding-the-ip-address">Finding the IP Address</h2>
-<p>The IP address you need is displayed under the F1 25 logo of the collector controller interface. The <strong>External IP address</strong> is displayed there (e.g., <code>98.82.23.19</code>). Use this IP address in the game's telemetry settings.</p>
+<p>The IP address you need is displayed in the <strong>status bar</strong> at the top of the Collector page as a blue badge (e.g., <code>98.82.23.19</code>). Use this IP address in the game's telemetry settings.</p>
 <p><strong>IP Address to Use:</strong></p>
 <ul>
-<li><strong>Splunk Show:</strong> External IP shown in the controller (e.g., <code>98.82.23.19</code>)</li>
+<li><strong>Splunk Show:</strong> External IP shown in the status bar (e.g., <code>98.82.23.19</code>)</li>
 <li><strong>Self-Hosted (Laptop):</strong> IP address of your laptop on the network</li>
-<li><strong>Self-Hosted (Cloud):</strong> External IP address of your EC2/cloud instance shown in the controller</li>
+<li><strong>Self-Hosted (Cloud):</strong> External IP address of your EC2/cloud instance shown in the status bar</li>
 </ul>
 <h2 id="configuring-f1-2025-game">Configuring F1 2025 Game</h2>
 <p>On each racing rig PC:</p>

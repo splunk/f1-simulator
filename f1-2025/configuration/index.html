@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -539,6 +539,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#interface-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -651,6 +662,34 @@
     
   
     Managing Collectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring
   
 
     
@@ -1073,6 +1112,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#interface-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1155,10 +1205,35 @@
 
 <div><h1 id="using-the-f1-2025-collector">Using the F1 2025 Collector</h1>
 <p>The F1 2025 Data Collector provides a web-based interface for configuring, managing, and monitoring real-time telemetry collection from F1 racing simulators.</p>
+<h2 id="interface-overview">Interface Overview</h2>
+<p>The collector UI has three pages accessible via the navigation bar:</p>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Collector</strong></td>
+<td>Main control page — Master Control, rig status cards, configuration</td>
+</tr>
+<tr>
+<td><strong>Telemetry</strong></td>
+<td>Live telemetry dashboard with charts and track map</td>
+</tr>
+<tr>
+<td><strong>Pit Wall</strong></td>
+<td>Pit wall overview of all active rigs</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>Help</strong> button (?) in the navigation bar opens a slide-over panel with a quick reference guide for the current page.</p>
 <h2 id="getting-started">Getting Started</h2>
 <p>Follow these guides in order to set up and run your F1 2025 data collection:</p>
 <h3 id="1-controller-configuration">1. Controller Configuration</h3>
-<p>Configure your event settings and Splunk destinations.</p>
+<p>Open the Config panel to set up your event settings and Splunk destinations.</p>
 <p><strong><a href="../controller-config/">→ Controller Configuration Guide</a></strong></p>
 <h3 id="2-f1-2025-game-setup">2. F1 2025 Game Setup</h3>
 <p>Configure UDP telemetry in the F1 2025 game on each racing rig.</p>
@@ -1171,35 +1246,47 @@
 <thead>
 <tr>
 <th>Indicator</th>
-<th>Colour/Status</th>
-<th>Colour/Status</th>
-<th>Meaning</th>
+<th>Healthy</th>
+<th>Unhealthy</th>
+<th>Location</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>UDP Port</td>
-<td>🟢</td>
-<td>⚪</td>
-<td>Receiving telemetry data</td>
-</tr>
-<tr>
-<td>Collection Status</td>
-<td><strong>RUNNING</strong></td>
-<td><strong>STOPPED</strong></td>
-<td>Collector active/inactive</td>
+<td>Master Control</td>
+<td>SYSTEMS LIVE (green LED)</td>
+<td>SYSTEMS OFFLINE</td>
+<td>Status bar</td>
 </tr>
 <tr>
 <td>Redis</td>
-<td>✓</td>
-<td>✗</td>
-<td>Database connected</td>
+<td>Green LED</td>
+<td>Red LED</td>
+<td>Status bar</td>
 </tr>
 <tr>
 <td>Collectors</td>
-<td>All Collectors running</td>
-<td>Some/No Collectors running</td>
-<td>Collector health</td>
+<td>X/X (green)</td>
+<td>X/Y amber, 0/Y off</td>
+<td>Status bar</td>
+</tr>
+<tr>
+<td>UDP Port</td>
+<td>Green (receiving data)</td>
+<td>Muted (no data)</td>
+<td>Rig card pill</td>
+</tr>
+<tr>
+<td>O11y / HEC</td>
+<td>✓ (green)</td>
+<td>✗ (red)</td>
+<td>Rig card pill</td>
+</tr>
+<tr>
+<td>Queue</td>
+<td>QUEUE OK (green)</td>
+<td>DROP (red)</td>
+<td>Rig card pill</td>
 </tr>
 </tbody>
 </table>
