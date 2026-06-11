@@ -45,7 +45,7 @@ Choose the installation method that works best for your environment.
     ##### Create a tar.gz package:
 
     ```bash
-    tar --disable-copyfile --exclude='.*' --exclude='._*' -cvzf datadrivers-app.tar.gz datadrivers-app
+    tar --disable-copyfile --exclude='.*' --exclude='._*' --exclude='node_modules' -cvzf datadrivers-app.tar.gz datadrivers-app
     ```
 
     ##### Upload to Splunk:
