@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1475,7 +1475,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/splunk/datadrivers-app.git
 </code></pre></div>
 <h5 id="create-a-targz-package">Create a tar.gz package:</h5>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tar<span class="w"> </span>--disable-copyfile<span class="w"> </span>--exclude<span class="o">=</span><span class="s1">'.*'</span><span class="w"> </span>--exclude<span class="o">=</span><span class="s1">'._*'</span><span class="w"> </span>-cvzf<span class="w"> </span>datadrivers-app.tar.gz<span class="w"> </span>datadrivers-app
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tar<span class="w"> </span>--disable-copyfile<span class="w"> </span>--exclude<span class="o">=</span><span class="s1">'.*'</span><span class="w"> </span>--exclude<span class="o">=</span><span class="s1">'._*'</span><span class="w"> </span>--exclude<span class="o">=</span><span class="s1">'node_modules'</span><span class="w"> </span>-cvzf<span class="w"> </span>datadrivers-app.tar.gz<span class="w"> </span>datadrivers-app
 </code></pre></div>
 <h5 id="upload-to-splunk">Upload to Splunk:</h5>
 <ul>
