@@ -1,137 +1,102 @@
-# Controller Configuration
+# Collector Configuration
 
-This guide covers the initial configuration of the F1 2025 Data Collector interface.
+Select **Config** on the Collector page. Changes are written to the mounted configuration file when you select **Deploy Configuration**.
 
-![Collector UI](../assets/screenshots/f1-2025-ui.png)
+!!! warning "Deploying stops collection"
+    **Deploy Configuration** stops any running collectors and clears transient runtime display state. It does not restart collection — turn **Master Control** back on afterwards.
 
-## Opening the Configuration Panel
+## General
 
-Configuration settings are accessed via a slide-over panel. Click the **Config** button (gear icon) in the top-right of the status bar to open it. Press ++escape++ or click outside the panel to close it.
+![The Configuration panel](../assets/screenshots/f1-2025/config-general.png)
 
-### General
+- **Number of Rigs** — enable one to four rigs. One is the default and is recommended unless multiple simulators are actually in use.
+- **Speed Display** — show speed in MPH or KPH on the Collector page and Pit Wall. This changes only the display; the raw telemetry fields sent to Splunk are unchanged.
+- **Event Name** — a label added to emitted telemetry so an event's data can be identified in Splunk, for example `Data Drivers` or the name of your conference activation.
 
-#### Number of Rigs
+!!! warning "An event name is required"
+    Master Control refuses to start without one. The error reads `Event name is not configured. Set it in Settings before starting collectors.`
 
-Choose the number of F1 racing rigs you'll be monitoring during your event. You can configure between 1 and 4 rigs.
+The UDP assignments are fixed and predictable:
 
-#### Event Name
+| Rig | UDP port |
+| --- | ---: |
+| RIG 1 | 20777 |
+| RIG 2 | 20778 |
+| RIG 3 | 20779 |
+| RIG 4 | 20780 |
 
-Enter a descriptive name for your event to identify the data stream in Splunk e.g. "Cisco Live", "Snow Testing", "Customer Demo Day"
+## Destinations
 
-### Observability Cloud
+Both destinations are optional and independent. Enable each with the toggle next to its heading.
 
-Toggle the **Observability Cloud** switch to enable this destination. When enabled, the following fields appear:
+![Both destinations enabled](../assets/screenshots/f1-2025/config-destinations.png)
 
-#### Realm
+!!! note "Blank token fields keep the stored token"
+    Once a token is saved, its field shows a masked placeholder and a **Token configured** indicator. Leaving it blank on a later deploy preserves the stored value; you only need to retype it when the token itself changes.
 
-Select your Splunk Observability Cloud realm from the dropdown.
+### Splunk Observability Cloud
 
-**Available Realms:**
+Sends a deliberately small allowlist of gauges as metrics through the Splunk ingest API. Full telemetry events remain exclusive to HEC.
 
-- `eu0`, `eu1`, `eu2` (Europe)
-- `us0`, `us1`, `us2` (United States)
-- `au0` (Australia)
-- `jp0` (Japan)
-- `sg0` (Singapore)
+1. Enable **Observability Cloud**.
+2. Select your **Realm** from the list, for example `us0` or `eu0`.
+3. Enter your Splunk Observability Cloud **Access Token**.
+4. Select **Deploy Configuration**.
+5. Turn **Master Control** back on and confirm the rig cards show **O11y ✓**.
 
-#### Access Token
-
-Enter the Access Token for the Observability Cloud organization where you want to send metrics. If a token is already configured, a green "Token configured" indicator appears and you can leave the field blank to keep the existing token.
+Choose the realm assigned to your Observability organization. The collector builds the ingest URL from it, so no full URL is needed.
 
 ### Splunk Enterprise / Cloud
 
-Toggle the **Splunk Enterprise / Cloud** switch to enable this destination. When enabled, the following fields appear:
+Sends flattened events through HTTP Event Collector.
 
-!!! note "If running a Splunk Show instance, all of the below is pre-configured."
+1. Enable **Splunk Enterprise / Cloud**.
+2. Enter the **HEC URL:Port**, for example `https://splunk.example.com:8088`.
+3. Enter the **HEC Token**.
+4. Select **Deploy Configuration**.
+5. Turn **Master Control** back on and confirm the rig cards show **HEC ✓**.
 
-#### HEC URL and Port
+The destination index is not set in the collector. It comes from the HEC token's configuration in Splunk, so ask your Splunk administrator to point the token at the intended index — normally `data_drivers_f1_2025`.
 
-Enter your Splunk HTTP Event Collector (HEC) endpoint.
+!!! warning "Protect access tokens"
+    Treat HEC and Observability tokens as secrets. Do not paste them into chat, screenshots, issue reports, or public configuration examples.
 
-- **Format:** `https://<your-splunk-instance>:8088`
-- **Example:** `https://il-0cc8aef679649f2c.splunkcloud.com:8088`
+!!! note "HEC certificate verification"
+    The collector does not verify TLS certificates when delivering to HEC, which is why a self-signed or IP-addressed endpoint still works. This is retained for compatibility with earlier collector versions. Deploy a trusted HEC certificate where you can, and do not treat the collector as proof that the endpoint is authenticated.
 
-#### HEC Token
+    Certificates *are* verified for Splunk Observability Cloud and for the public-address lookup.
 
-Enter your HEC authentication token. If a token is already configured, a green "Token configured" indicator appears and you can leave the field blank to keep the existing token.
+### On Splunk Show
 
-### Mode
+Splunk Show instances arrive with HEC already enabled and configured. Leave the **Splunk Enterprise / Cloud** fields alone and configure only Observability Cloud if you are using it.
 
-#### Playback Mode
+Show cannot know your Observability realm or token, so those fields are always yours to fill in.
 
-Toggle the **Playback Mode** switch to enable demo mode using pre-recorded telemetry data.
+## Playback Mode
 
-**When to Use:**
+Playback re-sends a recorded `.tlm` file through the normal parsing and delivery pipeline, so it exercises everything except the UDP socket.
 
-- **Off** (default) - Live events with actual F1 2025 gameplay
-- **On** - Demonstrations without racing rigs using pre-recorded data
+1. Enable **Playback Mode** under **Mode**.
+2. Select a **Replay File** for each enabled rig.
+3. Select **Deploy Configuration**, then turn on **Master Control**.
 
-**Use Cases for Playback Mode:**
+Every enabled rig must have an existing replay file selected, or startup fails with `Replay file missing for: <rig>`. Replay loops continuously — when a file reaches its end the collector logs `Replay loop #n completed, restarting...` and plays it again.
 
-- Showcasing Splunk dashboards to customers
-- Testing dashboard configurations
-- Training sessions without racing equipment
-- Demo environments
+While playback is enabled, rig cards read **Telemetry playback**, an amber **PLAYBACK MODE** badge appears in the status bar, and the Record control is hidden.
 
-### Deploying Your Configuration
+!!! tip "Demo safely"
+    Playback is the quickest way to validate destinations and dashboards without occupying a simulator. Check the **PLAYBACK MODE** badge before you expect live UDP packets — a looping replay looks very much like a live session.
 
-After configuring all settings:
+To return to live telemetry, disable Playback Mode, deploy, and restart Master Control.
 
-1. **Review** all fields to ensure accuracy
-2. **Click** the **"Deploy Configuration"** button at the bottom of the panel
+## What starting validates
 
-!!! warning "Deploying stops all running collectors and resets the database"
-    Saving a new configuration will stop any running collectors and flush Redis. You will need to restart collectors via Master Control after deploying.
+Turning on Master Control runs these checks in order and refuses to start on the first failure:
 
-## Configuration Examples
+1. The configuration file can be read.
+2. An event name is set.
+3. Every enabled destination passes its health check.
+4. At least one rig is configured.
+5. In Playback Mode, every rig has an existing replay file.
 
-### Example 1: Production Event with Both Platforms
-
-```text
-Rigs: 4
-Event Name: Cisco Live 2025
-Observability Cloud:
-  - Realm: us1
-  - Access Token: ••••••••
-  - Enabled: ✓
-Splunk Enterprise:
-  - HEC URL: https://prd-splunk.company.com:8088
-  - HEC Token: ••••••••
-  - Enabled: ✓
-Playback Mode: Off
-```
-
-### Example 2: Demo Mode with Observability Cloud Only
-
-```text
-Rigs: 2
-Event Name: Customer Demo
-Observability Cloud:
-  - Realm: us0
-  - Access Token: ••••••••
-  - Enabled: ✓
-Splunk Enterprise:
-  - Enabled: ✗
-Playback Mode: On
-```
-
-### Example 3: Testing with Splunk Enterprise Only
-
-```text
-Rigs: 1
-Event Name: Testing Setup
-Observability Cloud:
-  - Enabled: ✗
-Splunk Enterprise:
-  - HEC URL: https://localhost:8088
-  - HEC Token: ••••••••
-  - Enabled: ✓
-Playback Mode: Off
-```
-
-## Next Steps
-
-After configuring the controller:
-
-1. **[Set up F1 2025 Game Telemetry](telemetry.md)** - Configure UDP output in the game
-2. **[Manage Collectors](managing-collectors.md)** - Start data collection
+The failure reason is shown in the UI, which makes Master Control a useful pre-event test on its own.
