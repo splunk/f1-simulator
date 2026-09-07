@@ -1,0 +1,9 @@
+- term: HTTP Event Collector
+  abbr: HEC
+  definition: Splunk's HTTP endpoint for receiving event data. The collector uses a HEC URL and token to send full telemetry to Splunk Enterprise or Splunk Cloud.
+- term: User Datagram Protocol
+  abbr: UDP
+  definition: The network protocol F1 25 uses to send telemetry packets to the collector. Each rig sends to the collector's IP address and its assigned UDP port.
+- term: realm
+  abbr: ""
+  definition: The region identifier for your Splunk Observability Cloud organization, such as us0 or eu0. It determines which ingest endpoint receives your metrics.

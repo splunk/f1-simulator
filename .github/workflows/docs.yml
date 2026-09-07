@@ -1,0 +1,67 @@
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  HUGO_VERSION: '0.165.0'
+  TZ: Europe/London
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.5'
+          cache: false
+      - name: Install Hugo
+        env:
+          INSTALL_DIR: ${{ runner.temp }}/hugo
+        run: |
+          mkdir -p "$INSTALL_DIR"
+          cd "$INSTALL_DIR"
+          curl --fail --location --retry 3 --output hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          curl --fail --location --retry 3 --output checksums.txt "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt"
+          awk -v archive="hugo_${HUGO_VERSION}_linux-amd64.tar.gz" '$2 == archive { print $1 "  hugo.tar.gz" }' checksums.txt > checksum.txt
+          test -s checksum.txt
+          sha256sum --check checksum.txt
+          tar -xzf hugo.tar.gz hugo
+          echo "$INSTALL_DIR" >> "$GITHUB_PATH"
+      - name: Build
+        run: hugo --gc --minify --panicOnWarning --cacheDir "${{ runner.temp }}/hugo-cache"
+      - name: Check pages, links, images and search
+        run: python3 scripts/check_site.py public
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: public
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5

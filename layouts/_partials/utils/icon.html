@@ -1,0 +1,9 @@
+{{/* Hextra v0.12 icon rendering, using Hugo's current data API. */}}
+{{- $icon := index hugo.Data.icons .name -}}
+{{- if not $icon -}}
+  {{- errorf "icon %q not found" .name -}}
+{{- end -}}
+{{- with .attributes -}}
+  {{- $icon = replaceRE "<svg" (printf "<svg %s" .) $icon -}}
+{{- end -}}
+{{- return ($icon | safeHTML) -}}

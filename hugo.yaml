@@ -1,0 +1,83 @@
+baseURL: https://splunk.github.io/f1-simulator/
+locale: en-GB
+title: Splunk Data Drivers
+enableRobotsTXT: true
+disableKinds: [taxonomy, term, RSS]
+
+module:
+  hugoVersion:
+    min: '0.165.0'
+  imports:
+    - path: github.com/imfing/hextra
+      # Use our own branding and assets, not the theme's demo images.
+      mounts:
+        - source: layouts
+          target: layouts
+        - source: assets
+          target: assets
+        - source: i18n
+          target: i18n
+        - source: data
+          target: data
+
+markup:
+  goldmark:
+    renderer:
+      # Hextra Steps and nested shortcodes render HTML from our authored content.
+      unsafe: true
+  highlight:
+    noClasses: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+
+menu:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 1
+    - name: F1 2025 Collector
+      pageRef: /f1-2025
+      weight: 2
+    - name: Event Guide
+      pageRef: /event_guide
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+    - name: GitHub
+      url: https://github.com/splunk/f1-simulator
+      weight: 5
+      params:
+        icon: github
+
+params:
+  description: Set up F1 2025 telemetry, run your racing event, and explore the data with Splunk.
+  theme:
+    default: dark
+    displayToggle: false
+  navbar:
+    width: wide
+    displayLogo: false
+  page:
+    width: wide
+    contextMenu:
+      enable: false
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: false
+    width: wide
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      index: content
+  editURL:
+    enable: false
+  highlight:
+    copy:
+      enable: true
+  imageZoom:
+    enable: true

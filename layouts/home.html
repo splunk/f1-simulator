@@ -1,0 +1,40 @@
+{{ define "main" }}
+  {{ partial "sidebar.html" (dict "context" . "disableSidebar" true) }}
+  <main id="content" class="dd-home">
+    <section class="dd-hero" aria-labelledby="hero-title">
+      <div class="dd-hero-inner">
+        <div class="dd-hero-copy">
+          <p class="dd-eyebrow"><span aria-hidden="true"></span> SPLUNK DATA DRIVERS · F1 2025</p>
+          <h1 id="hero-title">Hands on the wheel.<br>Eyes on the data.</h1>
+          <p class="dd-hero-description">Bring every lap to life with Splunk. Connect your simulator, capture the telemetry, and get your next racing event on the grid.</p>
+          <div class="dd-hero-actions">
+            <a class="dd-button dd-button-primary" href="{{ relref . "/f1-2025" }}">Quick start <span aria-hidden="true">↗</span></a>
+            <a class="dd-button dd-button-secondary" href="{{ relref . "/event_guide/grand-prix" }}">Set up your race <span aria-hidden="true">→</span></a>
+          </div>
+          <p class="dd-hero-caption">F1 25 telemetry. Up to four rigs. One collector.</p>
+        </div>
+        <div class="dd-hero-art">
+          <img src="{{ "assets/images/illustration.png" | relURL }}" alt="Front view of an orange McLaren Formula 1 car" width="800" height="800" fetchpriority="high" draggable="false">
+        </div>
+      </div>
+      <svg class="dd-wave" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true"><path d="M0 115C220 210 330 20 550 78S820 195 1030 83 1270 0 1440 35V180H0Z"/></svg>
+    </section>
+    <nav class="dd-paths" aria-label="Documentation shortcuts">
+      <a class="dd-path" href="{{ relref . "/f1-2025/docker-setup" }}">
+        <span class="dd-path-number">01 / CONNECT</span>
+        <h2>Start collecting <span aria-hidden="true">↗</span></h2>
+        <p>Run locally with Docker, configure your destinations, and connect F1 25.</p>
+      </a>
+      <a class="dd-path" href="{{ relref . "/event_guide/grand-prix" }}">
+        <span class="dd-path-number">02 / GO RACING</span>
+        <h2>Run your event <span aria-hidden="true">↗</span></h2>
+        <p>Set the assists, rules and race conditions for a smooth experience on the rig.</p>
+      </a>
+      <a class="dd-path" href="{{ relref . "/f1-2025/dashboards" }}">
+        <span class="dd-path-number">03 / EXPLORE</span>
+        <h2>Follow the data <span aria-hidden="true">↗</span></h2>
+        <p>Turn live telemetry into insights with your Splunk dashboards.</p>
+      </a>
+    </nav>
+  </main>
+{{ end }}

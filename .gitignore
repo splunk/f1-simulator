@@ -5,3 +5,8 @@ acc-collector/acc_ingest_settings.ini
 acc-collector/acc_ingest_settings.ini
 *.sqlite
 venv
+.venv/
+public/
+resources/
+.hugo_build.lock
+.hugo-cache/

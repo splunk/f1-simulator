@@ -1,0 +1,9 @@
+{{ define "main" }}
+  {{ partial "sidebar.html" (dict "context" . "disableSidebar" true) }}
+  <main id="content" class="dd-not-found">
+    <p class="dd-eyebrow">404 / OFF TRACK</p>
+    <h1>That page isn’t on the grid.</h1>
+    <p>Head back to the F1 2025 documentation to find your next step.</p>
+    <a class="dd-button dd-button-primary" href="{{ relref . "/f1-2025" }}">F1 2025 Collector <span aria-hidden="true">→</span></a>
+  </main>
+{{ end }}

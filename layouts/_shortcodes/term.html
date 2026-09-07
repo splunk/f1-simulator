@@ -1,0 +1,14 @@
+{{/* Hextra's term shortcode, updated for Hugo's data API and keyboard access. */}}
+{{- $entry := .Get "entry" | default (.Get 0) -}}
+{{- $match := dict -}}
+{{- range index hugo.Data .Site.Language.Lang "termbase" -}}
+  {{- if or (eq (lower .abbr) (lower $entry)) (eq (lower .term) (lower $entry)) -}}
+    {{- $match = . -}}
+    {{- break -}}
+  {{- end -}}
+{{- end -}}
+{{- with $match -}}
+  <span class="dd-term"><abbr tabindex="0" aria-describedby="term-{{ $.Page.File.UniqueID }}-{{ $.Ordinal }}">{{ $entry }}</abbr><span class="dd-term-definition" role="tooltip" id="term-{{ $.Page.File.UniqueID }}-{{ $.Ordinal }}">{{ .definition }}</span></span>
+{{- else -}}
+  {{- errorf "Unknown glossary term %q in %s" $entry .Position -}}
+{{- end -}}

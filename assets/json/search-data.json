@@ -1,0 +1,10 @@
+{{/* Only index published documentation with content; no theme demo entries. */}}
+{{- $output := dict -}}
+{{- $pages := where site.Pages "Kind" "in" (slice "page" "section") -}}
+{{- range where $pages "Params.excludeSearch" "!=" true -}}
+  {{- if .Content -}}
+    {{- $data := partial "utils/fragments" (dict "context" . "type" "content") -}}
+    {{- $output = merge $output (dict .RelPermalink (dict "title" .LinkTitle "data" $data)) -}}
+  {{- end -}}
+{{- end -}}
+{{- $output | jsonify -}}

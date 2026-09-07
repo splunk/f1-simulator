@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" dir="{{ .Site.Language.Direction | default `ltr` }}" class="dark">
+  {{ partial "head.html" . }}
+  <body>
+    <a class="dd-skip-link" href="#content">Skip to content</a>
+    {{ partial "navbar.html" . }}
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer.html" . }}
+    {{ partial "scripts.html" . }}
+  </body>
+</html>
