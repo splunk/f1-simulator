@@ -1,108 +1,50 @@
-# Viewing Your Data in Dashboards
+# Viewing F1 2025 Data
 
-Once your F1 2025 collector is streaming telemetry data, you can visualize and analyze it using pre-built dashboards in Splunk Observability Cloud and Splunk Enterprise/Cloud.
+The collector feeds full telemetry events to Splunk Enterprise or Splunk Cloud through HEC, and a smaller real-time metric set to Splunk Observability Cloud.
 
 ## Splunk Observability Cloud
 
-### Dashboard Group
+A pre-built F1 2025 dashboard group is available in the repository.
 
-A pre-built dashboard group is available for Splunk Observability Cloud that provides real-time visualization of F1 telemetry data.
+1. Download the [F1 2025 Observability dashboard group](https://github.com/splunk/f1-simulator/blob/main/observability/dashboard_group_F1_2025.json).
+2. In Splunk Observability Cloud, open **Dashboards**.
+3. Select **Create → Import**.
+4. Upload the JSON file and import it.
+5. Open the **F1 2025** dashboard group.
 
-### Importing the Dashboard
+If charts are empty, confirm the rig cards show **O11y ✓** and verify the realm and access token under **Config → Destinations**.
 
-1.  **Download the dashboard JSON file:** [Download F1 2025 Dashboard Group](https://github.com/splunk/f1-simulator/blob/main/observability/dashboard_group_F1_2025.json)
+## Splunk Enterprise and Splunk Cloud
 
-2.  **Import into Observability Cloud:**
-    1. Navigate to **Dashboards** in Splunk Observability Cloud
-    2. Click **Create** → **Import**
-    3. Upload the downloaded JSON file
-    4. Click **Import**
+The [Data Drivers app](https://github.com/splunk/datadrivers-app) provides the F1 2025 dashboards.
 
-3.  **Access the dashboards:**
-    1. Navigate to **Dashboards**
-    2. Find the **F1 2025** dashboard group
+For a standalone environment:
 
-## Splunk Enterprise/Cloud
+1. Download or clone the app repository.
+2. Package the `datadrivers-app` directory as a `.tar.gz` file.
+3. In Splunk, open **Apps → Manage Apps → Install app from file**.
+4. Upload the package and follow the restart prompt if shown.
+5. Open **Data Drivers – F1 2025** from the Apps menu.
 
-### Data Drivers App
+For managed Splunk Cloud or a centrally administered Splunk deployment, ask the platform administrator to install the app using the organization's normal application deployment process.
 
-The DataDrivers App provides comprehensive dashboards for analyzing F1 telemetry data in Splunk Enterprise and Splunk Cloud.
+The collector does not choose an index. Events land in whatever index the HEC token is configured for — normally `data_drivers_f1_2025`. If searches return nothing, confirm the token's index with your Splunk administrator.
 
-#### Installation Methods
+## Session summary events
 
-Choose the installation method that works best for your environment.
+In addition to the raw parsed packets, the collector emits one `SessionCompleted` event per completed session, carrying that session's fastest lap. It is correlated by rig and the game's session UID, and is the most convenient event to build leaderboards from — it avoids scanning every lap record.
 
-=== "Manual Installation"
+Useful fields include `completion_source` and `final_classification_received`, which indicate whether the summary came from the authoritative Final Classification packet or from the 60-second Session Ended fallback.
 
-    Install the app manually by uploading the package file.
+## Validate the data first
 
-    ##### Clone the DataDrivers App repository:
+Before troubleshooting a dashboard, confirm delivery at the collector:
 
-    ```bash
-    git clone https://github.com/splunk/datadrivers-app.git
-    ```
+1. **Master Control** reads **SYSTEMS LIVE**.
+2. The rig card shows **HEC ✓** or **O11y ✓** for the destination you are querying.
+3. The queue pill reads **QUEUE OK**.
+4. The **Logs** panel shows no repeating delivery errors.
+5. The rig is producing live values.
 
-    ##### Create a tar.gz package:
-
-    ```bash
-    tar --disable-copyfile --exclude='.*' --exclude='._*' --exclude='node_modules' -cvzf datadrivers-app.tar.gz datadrivers-app
-    ```
-
-    ##### Upload to Splunk:
-    - Navigate to **Apps** → **Manage Apps** in your Splunk instance
-    - Click **Install app from file**
-    - Browse for the `datadrivers-app.tar.gz` file
-    - Click **Upload**
-
-=== "Remote Installation"
-
-    For managed Splunk environments, install the app via deployment server for automatic updates.
-
-
-    ##### Configure the deployment client:
-
-    Edit `/opt/splunk/etc/system/local/deploymentclient.conf`:
-
-    ```ini
-    [target-broker:deploymentServer]
-    targetUri = https://dddemo.notsplunktshirtco.com:8089
-
-    [deployment-client]
-    phoneHomeIntervalInSecs = 60
-    ```
-
-    ##### Restart Splunk:
-
-    ```bash
-    sudo /opt/splunk/bin/splunk restart
-    ```
-
-    ##### Wait for deployment:
-    1. After Splunk restarts, it will contact the deployment server
-    2. The Data Drivers App will be downloaded and installed automatically
-    3. Splunk will restart again to load the app
-    4. Any future updates will be applied automatically
-
-    ##### Benefits of Deployment Server Method:
-
-    - Automatic updates to dashboards
-    - Centralized management
-    - Consistent deployment across multiple Splunk instances
-    - Automatic bug fixes and improvements
-
-### Accessing the Dashboards
-
-After installation:
-
-1. Navigate to **Apps** in your Splunk instance
-2. Click **Data Drivers - F1 2025**
-3. Select a dashboard from the navigation menu
-
-
-### Hiding the Blue Dots
-
-Copy the following snippet and create a new Bookmark URL in Chrome/Safari etc.
-
-```
-javascript:(function()%7Bconst s=document.createElement('style');s.textContent='div[data-test="simple-status-icon-container"]%7Bdisplay:none%7D';document.head.appendChild(s);%7D)();
-```
+!!! tip "Keep dimensions predictable"
+    Use consistent event names and rig names throughout an activation. This makes filters reusable and prevents one physical rig from appearing as several unrelated time series.

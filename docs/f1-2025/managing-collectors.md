@@ -1,109 +1,62 @@
-# Managing Data Collectors
+# Running an Event
 
-This guide covers starting, stopping, and managing the F1 2025 data collectors.
+Every enabled rig is independent. Recording and race completion on one rig do not affect another.
 
-## Master Control
+## Before a driver starts
 
-The Master Control toggle in the top-left of the status bar provides centralized control over all data collectors.
+1. Confirm the rig card shows **Telemetry live** or **Awaiting telemetry**, not **Collector stopped**.
+2. Select **EDIT** on the card.
+3. Enter the driver's display name and select **SAVE**.
+4. Ask the driver to start or join the configured F1 25 session.
 
-### Starting All Collectors
+The driver name is a label carried with that rig's delivered telemetry. Unlike earlier collector versions, it is not a lock: packets arriving before a name is entered are still parsed and delivered, attributed to whatever name the rig currently holds. Set the name **before** the race rather than during it.
 
-1. Click the **Master Control** toggle in the status bar
-2. The status changes to **SYSTEMS LIVE** with a pulsing green LED
-3. All configured collectors start simultaneously
+Saving a name also clears the previous race-complete state and fastest lap from the card, which is how you hand a rig over between drivers.
 
-**What Happens:**
+## During a session
 
-- Collectors for all configured rigs start listening for UDP telemetry
-- UDP ports open and begin accepting data
-- Data flows to configured Splunk destinations
-- Rig card status pills update to reflect running state
+Watch the rig card for speed, gear, lap, lap time, and track. If the values stay blank, use [Collector Health](monitoring.md#collector-health) to determine whether packets are reaching the port.
 
-### Stopping All Collectors
+## Completing a session
 
-1. Click the **Master Control** toggle to switch off
-2. The status changes to **SYSTEMS OFFLINE**
+At the end of a normal race, let the driver reach the results screen so the game sends **Final Classification**. On receipt, the collector:
 
-**What Happens:**
+- marks the card **Race complete**;
+- stops that rig's active recording;
+- forwards the original Final Classification event to HEC; and
+- emits a `SessionCompleted` summary event containing the session's fastest lap.
 
-- All collectors stop processing data
-- UDP ports stop listening
-- No data is sent to Splunk destinations
-- Rig card status pills update accordingly
+`SessionCompleted` is correlated by rig and the game's own session UID. The fastest lap is taken from Final Classification, which is authoritative; a matching personal fastest-lap event and then session history data are used as fallbacks.
 
-!!! tip "Use Master Control for Events"
-    Master Control is ideal for coordinated start/stop during events. All rigs begin and end data collection simultaneously.
+### If Final Classification never arrives
 
-## Rig Cards
+If the game exits or crashes before the results screen, the collector waits 60 seconds after Session Ended and then publishes the summary from cached data, marked `completion_source=session_ended_fallback` with `final_classification_received=false`.
 
-Each configured rig is displayed as a card in the main area. Cards are arranged in a responsive grid — single column for 1-2 rigs, two columns for 3-4 rigs.
+No operator action, PIN, or override is needed — this is automatic. A late Final Classification packet can still publish a higher-authority revision of the same summary.
 
-### Status Pills
+## Recording telemetry
 
-Each rig card displays a row of status pills at the top:
+Recording uses a booth model: one global arm control, and an independent recording lifecycle per rig.
 
-| Pill | Description |
-| ---- | ----------- |
-| **Rig ID** (blue) | Rig identifier (e.g. `RIG 1`, `RIG 2`) |
-| **UDP port** | Listening port number — green when running, muted when stopped |
-| **Memory** (amber) | Collector process memory usage in MB (visible when running) |
-| **O11y** | Observability Cloud endpoint status — ✓ (green), ✗ (red), or — (pending). Only shown when O11y is enabled |
-| **HEC** | Splunk HEC endpoint status — ✓ (green), ✗ (red), or — (pending). Only shown when HEC is enabled |
-| **Queue** | Network queue health — see [Monitoring](monitoring.md) for details |
-| **Race Complete** | Appears with a flag icon when a race has finished |
+1. With collectors running on live UDP, press **RECORD** once. The control changes to **ARMED**.
+2. Each rig opens its own `.tlm` file when that simulator sends the five start lights.
+3. A rig closes its own file on Final Classification, or on its own 60-second Session Ended fallback. The booth stays armed, so a rig that has finished can record the next race while other rigs are still running.
+4. Press **ARMED** to immediately close every active recording and return to idle.
 
-### Live Metrics
+Files are written to `/app/telemetry_data` inside the container as `<timestamp>_<track>_<rig>.tlm`.
 
-When a rig is running and receiving telemetry data, three hero metrics appear:
+Other things worth knowing:
 
-- **Speed MPH** — Current vehicle speed
-- **Lap** — Live lap counter
-- **Track** — Current track name (e.g. "Silverstone", "Monaco", "Spa")
+- If a game closes or telemetry disappears mid-race, 30 seconds of inactivity closes that rig's partial file without marking the race complete and without disarming the booth.
+- A card showing **REC ERROR** could not create or write its file. Hover the pill for the error.
+- Shutting down the collector or deploying configuration closes all open files.
+- Recordings are lost when the container is replaced unless `/app/telemetry_data` is mounted — see [Persistent files](docker-setup.md#persistent-files).
 
-If a collector is running but no telemetry data has been received yet, the card displays "Awaiting telemetry data..."
+!!! tip "Record a known-good race"
+    Keep a short, complete recording from a tested rig. Played back through [Playback Mode](controller-config.md#playback-mode), it validates dashboards and destinations without occupying the simulator.
 
-## Driver Management
+## Adding rigs
 
-Each rig has an associated driver name displayed at the bottom of the card. This name is used as a dimension in telemetry data and appears in Splunk dashboards.
+Open **Config → General**, choose the required number of rigs, and deploy. Make sure the corresponding UDP ports are published by Docker or allowed by the cloud firewall. Each game uses the same collector address but a different port.
 
-### Editing Driver Names
-
-1. **Click** the driver name area on the rig card — the row highlights on hover with an edit icon
-2. The name field becomes an inline text input
-3. Type the new driver name
-4. Press ++enter++ or click **Save** to confirm
-5. Press ++escape++ or click **✕** to cancel
-
-### Race Completion Rule
-
-!!! warning "CRITICAL: Driver Name Update Restriction"
-    Driver names can **only** be updated when the rig displays the **RACE COMPLETE** status pill.
-
-**Why This Restriction Exists:**
-
-- Prevents data corruption during active races
-- Ensures all lap data is correctly attributed to the same driver
-- Maintains data integrity in Splunk dashboards
-
-**How It Works:**
-
-1. Driver starts a race — driver name is locked
-2. Driver completes the race — system receives `FinalClassificationData` packet
-3. Rig card displays **RACE COMPLETE** status pill
-4. Driver name becomes editable
-5. Update driver name for the next driver
-6. New race starts — driver name locks again
-
-**Best Practice for Multi-Driver Events:**
-
-- Wait for **RACE COMPLETE** before swapping drivers
-- Update the driver name immediately after race completion
-- Have the next driver ready to start their session
-
-!!! danger "Do Not Update Driver Name Mid-Race"
-    Never update a driver name while a race is in progress. This will corrupt the data attribution in Splunk.
-
-## Next Steps
-
-- **[Configure F1 2025 Game](telemetry.md)** - Set up game telemetry settings
-- **[View Dashboards](dashboards.md)** - Access your data in Splunk
+Return to one rig after a multi-rig event if that is the normal deployment. Fewer open ports and fewer unused cards make operation clearer.

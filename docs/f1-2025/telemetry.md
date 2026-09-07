@@ -1,69 +1,66 @@
 # F1 2025 Telemetry Configuration
 
-Configure the F1 2025 game on each racing rig to send UDP telemetry data to the collector.
+Configure every racing rig to send F1 25 UDP telemetry to the collector.
 
-## Finding the IP Address
+## Find the collector address
 
-The IP address you need is displayed in the **status bar** at the top of the Collector page as a blue badge (e.g., `98.82.23.19`). Use this IP address in the game's telemetry settings.
+The collector's public IP address is shown in the status bar of the Collector page, next to a blue indicator.
 
-**IP Address to Use:**
+- **Splunk Show or cloud deployment:** use the public address shown in the status bar.
+- **Local Docker:** use the Docker host's LAN address, not `localhost`, because the game runs on another computer.
+- **Same computer:** `127.0.0.1` can be used only when F1 25 and the collector run on the same machine.
 
-- **Splunk Show:** External IP shown in the status bar (e.g., `98.82.23.19`)
-- **Self-Hosted (Laptop):** IP address of your laptop on the network
-- **Self-Hosted (Cloud):** External IP address of your EC2/cloud instance shown in the status bar
+## Configure F1 25
 
-## Configuring F1 2025 Game
+On the racing rig:
 
-On each racing rig PC:
-
-1. **Launch F1 2025**
-2. Navigate to **Game Options** → **Settings** → **Telemetry Settings**
-3. Configure the following settings:
+1. Launch F1 25.
+2. Open **Game Options → Settings → Telemetry Settings**.
+3. Configure:
 
 | Setting | Value |
-| ------- | ----- |
+| --- | --- |
 | UDP Telemetry | **On** |
 | UDP Broadcast Mode | **Off** |
-| UDP IP Address | **External IP from controller** (see above) |
-| UDP Port | **20777** (first rig) |
+| UDP IP Address | The collector address |
+| UDP Port | `20777` for RIG 1 |
 | UDP Send Rate | **10Hz** |
 | UDP Format | **2025** |
 | Your Telemetry | **Restricted** |
 | Show Online IDs | **Off** |
 
-![Telemetry Settings](../assets/screenshots/telemetry.png)
+![F1 25 telemetry settings](../assets/screenshots/telemetry.png)
 
-## Multiple Rigs Configuration
+## Multiple rigs
 
-If you're running multiple racing rigs, each rig needs a unique UDP port.
+All rigs use the same collector address but a unique UDP port:
 
-| Rig | UDP Port | IP Address |
-| --- | -------- | ---------- |
-| Rig 1 | 20777 | Same External IP for all rigs |
-| Rig 2 | 20778 | Same External IP for all rigs |
-| Rig 3 | 20779 | Same External IP for all rigs |
-| Rig 4 | 20780 | Same External IP for all rigs |
+| Rig | UDP port |
+| --- | ---: |
+| RIG 1 | 20777 |
+| RIG 2 | 20778 |
+| RIG 3 | 20779 |
+| RIG 4 | 20780 |
 
-!!! important "Same IP, Different Ports"
-    All rigs use the **same IP address** (the External IP from the controller) but **different UDP ports**. The controller automatically differentiates between rigs based on the port number.
+Enable the required rig count under **Config → General** before testing, and deploy. For self-hosted Docker, publish the same UDP ports on the container.
 
-## Testing Your Configuration
+## Test the connection
 
-After configuring the game telemetry:
+1. Turn on **Master Control** and confirm it reads **SYSTEMS LIVE**.
+2. Enter a driver name on the rig card.
+3. Start a Practice session in the game.
+4. Confirm the card moves to **Telemetry live** and shows speed, gear, lap, and track.
+5. Open **Health** and confirm the rig's packet count increases.
+6. Confirm the card's destination pills show **✓**.
 
-- **Start a Practice Session** in F1 2025
-- **Check the Controller Interface:**
-    - UDP port should turn **green**
-    - Real-time data should appear (speed, lap, track) in the Collector UI
-- **If Port is Red:**
-    - Verify IP address is correct
-    - Check UDP port number
-    - Test network connectivity (ping the IP from rig PC)
-    - Ensure F1 2025 telemetry is enabled
+!!! tip "Use the displayed address"
+    Cloud public addresses can change when an instance is replaced. Read the address from the status bar during event setup rather than copying it from an old runbook.
 
-## Next Steps
+## If data does not appear
 
-After configuring game telemetry:
-
-1. **[Manage Collectors](managing-collectors.md)** - Start data collection
-2. **[View Dashboards](dashboards.md)** - Access your data in Splunk
+- Recheck the IP address and assigned port.
+- Confirm the collector host firewall allows inbound UDP.
+- Confirm the Docker or cloud port mapping exists.
+- Make sure UDP Broadcast Mode is Off.
+- Confirm Master Control is on and the rig count covers this rig.
+- Use [Monitoring and Troubleshooting](monitoring.md) to separate UDP and destination problems.

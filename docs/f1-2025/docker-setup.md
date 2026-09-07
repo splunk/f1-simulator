@@ -1,141 +1,100 @@
-# Docker Setup for Self-Hosted Deployment
+# Docker Setup for Local Use
 
-This guide covers setting up the F1 2025 collector using Docker on your local laptop or cloud instance.
+These instructions run the collector image on macOS or Linux.
 
-!!! info "Using Splunk Show?"
-    If you're using a Splunk Show instance, you don't need Docker setup. Go to the [Using the Collector](configuration.md) instead.
+!!! note "Splunk Show users can skip this page"
+    Most events run on a requested Splunk Show instance, where the collector is already installed, running, and configured for HEC. Go straight to [Collector Configuration](controller-config.md) instead.
 
 ## Prerequisites
 
-Choose your hosting platform:
+- Docker Desktop or Docker Engine
+- A Splunk HEC URL and token if sending full telemetry to Splunk
+- A Splunk Observability Cloud realm and access token if sending real-time metrics
+- The computer's LAN IP address, reachable from the racing rig
 
-=== "macOS (Laptop)"
-    - Apple MacBook with Apple Silicon (M1/M2/M3)
-    - Administrator access
-    - Hardwired internet connection
+## Start the collector
 
-    [**Download Docker Desktop for Mac with Apple Silicon**](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-arm64)
-
-    After installation:
-
-    1. Open Docker Desktop
-    2. Wait for Docker to start (whale icon in menu bar)
-    3. Verify installation:
-
-    ```bash
-    docker --version
-    ```
-
-=== "Ubuntu (Cloud)"
-    - AWS EC2 `t2.large` or equivalent
-    - Ubuntu 22.04 or above
-    - External IP address
-    - Inbound access on ports `8501/tcp` and `20777-20784/udp`
-
-    Run the following commands to install Docker on Ubuntu:
-
-    ```bash
-    sudo apt remove docker docker-engine docker.io containerd runc
-    sudo apt update
-    sudo apt install ca-certificates curl gnupg -y
-    sudo install -m 0755 -d /etc/apt/keyrings
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    sudo chmod a+r /etc/apt/keyrings/docker.gpg
-    echo \
-    "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-    "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt update
-    sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-    sudo usermod -aG docker $USER    ```
-
-    **Important:** Log out and log back in for group membership to take effect.
-
-    Verify installation:
-
-    ```bash
-    docker --version
-    ```
-
-## Create Startup Script
-
-Create a startup script (`start-collector.sh`) to run the F1 2025 container:
+Create the configuration file the container writes settings back into, then start the container:
 
 ```bash
-#!/bin/bash
-if [[ ! -e ~/config.json ]]; then
-    echo '{}' > ~/config.json
-fi
+touch "$HOME/config.json"
+chmod 666 "$HOME/config.json"
 
 docker run -d \
--v ~/config.json:/app/config.json \
---name f1-2025 \
---restart always \
--p 8501:8501/tcp \
--p 20777:20777/udp \
--p 20778:20778/udp \
--p 20779:20779/udp \
--p 20780:20780/udp \
-ghcr.io/splunk/f1-2025:latest
+  --name f1-2025 \
+  --restart always \
+  -v "$HOME/config.json:/app/config.json" \
+  -p 81:8501/tcp \
+  -p 8501:8501/tcp \
+  -p 20777:20777/udp \
+  -p 20778:20778/udp \
+  -p 20779:20779/udp \
+  -p 20780:20780/udp \
+  ghcr.io/splunk/f1-2025-go:latest
 ```
 
-This script will:
+!!! tip "Collector repository users"
+    If you have the collector repository checked out, `./v5/scripts/start-collector.sh` performs exactly these steps, including removing any existing `f1-2025` container first.
 
-- Create an empty config file (if it doesn't exist) — the app populates it on first run
-- Run the F1 2025 container in detached mode
-- Mount the config file so settings persist across container upgrades
-- Expose port `8501` for the web UI
-- Expose UDP ports `20777-20780` for telemetry (supports up to 4 rigs)
-- Automatically restart the container if it stops
+The container listens on TCP `8501`. The run above publishes it on both host port `81` and host port `8501`, so the UI is reachable at either address:
 
-Make the script executable:
+- [http://localhost:81](http://localhost:81) — matches the `:81` convention used by Splunk Show instances
+- [http://localhost:8501](http://localhost:8501)
+
+Confirm the container becomes `healthy`:
 
 ```bash
-chmod +x start-collector.sh
+docker ps --filter name=f1-2025
 ```
 
-Execute the startup script:
+!!! note "Publishing UDP ports"
+    All four UDP ports are published above so that extra rigs can be enabled later without recreating the container. The collector only binds the ports for the rig count set under **Config → General**.
+
+## Persistent files
+
+| Container path | Purpose |
+| --- | --- |
+| `/app/config.json` | Collector settings, including destination URLs and tokens |
+| `/app/telemetry_data` | `.tlm` recordings and bundled replay files |
+| `/app/collector.log` | Rotating collector log (10 MB, three backups) |
+
+The run command above bind-mounts `$HOME/config.json`, so settings survive container replacement. Recordings do not unless you also mount the data directory:
 
 ```bash
-./start-collector.sh
+-v "$HOME/f1-telemetry:/app/telemetry_data" \
 ```
 
-Verify the container is running:
+Mount it before an event if the `.tlm` files must be kept. Note that this mount also replaces the bundled replay files used by [Playback Mode](controller-config.md#playback-mode), so copy any replay you want to keep using into the host directory.
+
+## Configure the collector
+
+Open **Config** in the UI, set an **Event Name**, enable HEC and/or Observability, then select **Deploy Configuration**. Turn on **Master Control** to start collecting. See [Collector Configuration](controller-config.md) for field details.
+
+!!! warning "An event name is required"
+    Master Control refuses to start until an event name is set. The error reads `Event name is not configured.`
+
+## Useful commands
 
 ```bash
-docker port f1-2025
+# Follow collector logs
+docker logs -f f1-2025
+
+# Restart the collector
+docker restart f1-2025
+
+# Stop and remove the container; the mounted config file is retained
+docker rm -f f1-2025
+
+# Pull a newer image before recreating the container
+docker pull ghcr.io/splunk/f1-2025-go:latest
 ```
 
-Expected output:
+## Network access
 
-```text
-8501/tcp -> 0.0.0.0:8501
-20777/udp -> 0.0.0.0:20777
-20778/udp -> 0.0.0.0:20778
-20779/udp -> 0.0.0.0:20779
-20780/udp -> 0.0.0.0:20780
-```
+Allow inbound TCP `81` (or `8501`) from the operator network and inbound UDP `20777` from the racing rig. Open the additional UDP ports only when additional rigs are enabled. For an internet-hosted collector, apply the same rules to the cloud firewall or security group.
 
-Check container status:
+## Next steps
 
-```bash
-docker ps
-```
-
-You should see the `f1-2025` container running.
-
-## AWS EC2 Security Group
-
-Configure your security group to allow:
-
-| Type | Protocol | Port Range | Source |
-|------|----------|------------|--------|
-| Custom TCP | TCP | 8501 | Your IP/CIDR |
-| Custom UDP | UDP | 20777-20780 | Rig IPs/CIDR |
-
-## Next Steps
-
-Once your Docker container is running:
-
-1. [Configure the Web Interface](configuration.md)
-2. [Set up F1 2025 Game Telemetry](telemetry.md)
+1. [Configure the collector](controller-config.md)
+2. [Configure F1 25 telemetry](telemetry.md)
+3. [Run a pre-event health check](monitoring.md#pre-event-checklist)
