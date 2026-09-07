@@ -21,15 +21,15 @@
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Managing Collectors - Splunk Data Drivers</title>
+        <title>Running an Event - Splunk Data Drivers</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#managing-data-collectors" class="md-skip">
+        <a href="#running-an-event" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Managing Collectors
+              Running an Event
             
           </span>
         </div>
@@ -406,7 +406,7 @@
   <span class="md-ellipsis">
     
   
-    Docker Setup (Self-Hosted)
+    Docker Setup (Local)
   
 
     
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    The Collector Page
   
 
     
@@ -514,7 +514,7 @@
   <span class="md-ellipsis">
     
   
-    Controller Configuration
+    Collector Configuration
   
 
     
@@ -551,7 +551,7 @@
   <span class="md-ellipsis">
     
   
-    Managing Collectors
+    Running an Event
   
 
     
@@ -569,7 +569,7 @@
   <span class="md-ellipsis">
     
   
-    Managing Collectors
+    Running an Event
   
 
     
@@ -595,33 +595,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#master-control" class="md-nav__link">
+  <a href="#before-a-driver-starts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Master Control
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Master Control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#starting-all-collectors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Starting All Collectors
+        Before a driver starts
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#stopping-all-collectors" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#during-a-session" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stopping All Collectors
+        During a session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completing-a-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Completing a session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Completing a session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-final-classification-never-arrives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If Final Classification never arrives
       
     </span>
   </a>
@@ -634,88 +645,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rig-cards" class="md-nav__link">
+  <a href="#recording-telemetry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rig Cards
+        Recording telemetry
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Rig Cards">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#status-pills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Status Pills
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#live-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Live Metrics
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#driver-management" class="md-nav__link">
+  <a href="#adding-rigs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Driver Management
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Driver Management">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#editing-driver-names" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Editing Driver Names
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#race-completion-rule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Race Completion Rule
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
+        Adding rigs
       
     </span>
   </a>
@@ -745,7 +689,7 @@
   <span class="md-ellipsis">
     
   
-    Monitoring
+    Monitoring and Troubleshooting
   
 
     
@@ -762,6 +706,34 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pit-wall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pit Wall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1168,33 +1140,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#master-control" class="md-nav__link">
+  <a href="#before-a-driver-starts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Master Control
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Master Control">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#starting-all-collectors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Starting All Collectors
+        Before a driver starts
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#stopping-all-collectors" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#during-a-session" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stopping All Collectors
+        During a session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completing-a-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Completing a session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Completing a session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-final-classification-never-arrives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If Final Classification never arrives
       
     </span>
   </a>
@@ -1207,88 +1190,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rig-cards" class="md-nav__link">
+  <a href="#recording-telemetry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rig Cards
+        Recording telemetry
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Rig Cards">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#status-pills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Status Pills
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#live-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Live Metrics
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#driver-management" class="md-nav__link">
+  <a href="#adding-rigs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Driver Management
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Driver Management">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#editing-driver-names" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Editing Driver Names
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#race-completion-rule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Race Completion Rule
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
+        Adding rigs
       
     </span>
   </a>
@@ -1315,134 +1231,54 @@
   
 
 
-<div><h1 id="managing-data-collectors">Managing Data Collectors</h1>
-<p>This guide covers starting, stopping, and managing the F1 2025 data collectors.</p>
-<h2 id="master-control">Master Control</h2>
-<p>The Master Control toggle in the top-left of the status bar provides centralized control over all data collectors.</p>
-<h3 id="starting-all-collectors">Starting All Collectors</h3>
+<div><h1 id="running-an-event">Running an Event</h1>
+<p>Every enabled rig is independent. Recording and race completion on one rig do not affect another.</p>
+<h2 id="before-a-driver-starts">Before a driver starts</h2>
 <ol>
-<li>Click the <strong>Master Control</strong> toggle in the status bar</li>
-<li>The status changes to <strong>SYSTEMS LIVE</strong> with a pulsing green LED</li>
-<li>All configured collectors start simultaneously</li>
+<li>Confirm the rig card shows <strong>Telemetry live</strong> or <strong>Awaiting telemetry</strong>, not <strong>Collector stopped</strong>.</li>
+<li>Select <strong>EDIT</strong> on the card.</li>
+<li>Enter the driver's display name and select <strong>SAVE</strong>.</li>
+<li>Ask the driver to start or join the configured F1 25 session.</li>
 </ol>
-<p><strong>What Happens:</strong></p>
+<p>The driver name is a label carried with that rig's delivered telemetry. Unlike earlier collector versions, it is not a lock: packets arriving before a name is entered are still parsed and delivered, attributed to whatever name the rig currently holds. Set the name <strong>before</strong> the race rather than during it.</p>
+<p>Saving a name also clears the previous race-complete state and fastest lap from the card, which is how you hand a rig over between drivers.</p>
+<h2 id="during-a-session">During a session</h2>
+<p>Watch the rig card for speed, gear, lap, lap time, and track. If the values stay blank, use <a href="../monitoring/#collector-health">Collector Health</a> to determine whether packets are reaching the port.</p>
+<h2 id="completing-a-session">Completing a session</h2>
+<p>At the end of a normal race, let the driver reach the results screen so the game sends <strong>Final Classification</strong>. On receipt, the collector:</p>
 <ul>
-<li>Collectors for all configured rigs start listening for UDP telemetry</li>
-<li>UDP ports open and begin accepting data</li>
-<li>Data flows to configured Splunk destinations</li>
-<li>Rig card status pills update to reflect running state</li>
+<li>marks the card <strong>Race complete</strong>;</li>
+<li>stops that rig's active recording;</li>
+<li>forwards the original Final Classification event to HEC; and</li>
+<li>emits a <code>SessionCompleted</code> summary event containing the session's fastest lap.</li>
 </ul>
-<h3 id="stopping-all-collectors">Stopping All Collectors</h3>
+<p><code>SessionCompleted</code> is correlated by rig and the game's own session UID. The fastest lap is taken from Final Classification, which is authoritative; a matching personal fastest-lap event and then session history data are used as fallbacks.</p>
+<h3 id="if-final-classification-never-arrives">If Final Classification never arrives</h3>
+<p>If the game exits or crashes before the results screen, the collector waits 60 seconds after Session Ended and then publishes the summary from cached data, marked <code>completion_source=session_ended_fallback</code> with <code>final_classification_received=false</code>.</p>
+<p>No operator action, PIN, or override is needed — this is automatic. A late Final Classification packet can still publish a higher-authority revision of the same summary.</p>
+<h2 id="recording-telemetry">Recording telemetry</h2>
+<p>Recording uses a booth model: one global arm control, and an independent recording lifecycle per rig.</p>
 <ol>
-<li>Click the <strong>Master Control</strong> toggle to switch off</li>
-<li>The status changes to <strong>SYSTEMS OFFLINE</strong></li>
+<li>With collectors running on live UDP, press <strong>RECORD</strong> once. The control changes to <strong>ARMED</strong>.</li>
+<li>Each rig opens its own <code>.tlm</code> file when that simulator sends the five start lights.</li>
+<li>A rig closes its own file on Final Classification, or on its own 60-second Session Ended fallback. The booth stays armed, so a rig that has finished can record the next race while other rigs are still running.</li>
+<li>Press <strong>ARMED</strong> to immediately close every active recording and return to idle.</li>
 </ol>
-<p><strong>What Happens:</strong></p>
+<p>Files are written to <code>/app/telemetry_data</code> inside the container as <code>&lt;timestamp&gt;_&lt;track&gt;_&lt;rig&gt;.tlm</code>.</p>
+<p>Other things worth knowing:</p>
 <ul>
-<li>All collectors stop processing data</li>
-<li>UDP ports stop listening</li>
-<li>No data is sent to Splunk destinations</li>
-<li>Rig card status pills update accordingly</li>
+<li>If a game closes or telemetry disappears mid-race, 30 seconds of inactivity closes that rig's partial file without marking the race complete and without disarming the booth.</li>
+<li>A card showing <strong>REC ERROR</strong> could not create or write its file. Hover the pill for the error.</li>
+<li>Shutting down the collector or deploying configuration closes all open files.</li>
+<li>Recordings are lost when the container is replaced unless <code>/app/telemetry_data</code> is mounted — see <a href="../docker-setup/#persistent-files">Persistent files</a>.</li>
 </ul>
 <div class="admonition tip">
-<p class="admonition-title">Use Master Control for Events</p>
-<p>Master Control is ideal for coordinated start/stop during events. All rigs begin and end data collection simultaneously.</p>
+<p class="admonition-title">Record a known-good race</p>
+<p>Keep a short, complete recording from a tested rig. Played back through <a href="../controller-config/#playback-mode">Playback Mode</a>, it validates dashboards and destinations without occupying the simulator.</p>
 </div>
-<h2 id="rig-cards">Rig Cards</h2>
-<p>Each configured rig is displayed as a card in the main area. Cards are arranged in a responsive grid — single column for 1-2 rigs, two columns for 3-4 rigs.</p>
-<h3 id="status-pills">Status Pills</h3>
-<p>Each rig card displays a row of status pills at the top:</p>
-<table>
-<thead>
-<tr>
-<th>Pill</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Rig ID</strong> (blue)</td>
-<td>Rig identifier (e.g. <code>RIG 1</code>, <code>RIG 2</code>)</td>
-</tr>
-<tr>
-<td><strong>UDP port</strong></td>
-<td>Listening port number — green when running, muted when stopped</td>
-</tr>
-<tr>
-<td><strong>Memory</strong> (amber)</td>
-<td>Collector process memory usage in MB (visible when running)</td>
-</tr>
-<tr>
-<td><strong>O11y</strong></td>
-<td>Observability Cloud endpoint status — ✓ (green), ✗ (red), or — (pending). Only shown when O11y is enabled</td>
-</tr>
-<tr>
-<td><strong>HEC</strong></td>
-<td>Splunk HEC endpoint status — ✓ (green), ✗ (red), or — (pending). Only shown when HEC is enabled</td>
-</tr>
-<tr>
-<td><strong>Queue</strong></td>
-<td>Network queue health — see <a href="../monitoring/">Monitoring</a> for details</td>
-</tr>
-<tr>
-<td><strong>Race Complete</strong></td>
-<td>Appears with a flag icon when a race has finished</td>
-</tr>
-</tbody>
-</table>
-<h3 id="live-metrics">Live Metrics</h3>
-<p>When a rig is running and receiving telemetry data, three hero metrics appear:</p>
-<ul>
-<li><strong>Speed MPH</strong> — Current vehicle speed</li>
-<li><strong>Lap</strong> — Live lap counter</li>
-<li><strong>Track</strong> — Current track name (e.g. "Silverstone", "Monaco", "Spa")</li>
-</ul>
-<p>If a collector is running but no telemetry data has been received yet, the card displays "Awaiting telemetry data..."</p>
-<h2 id="driver-management">Driver Management</h2>
-<p>Each rig has an associated driver name displayed at the bottom of the card. This name is used as a dimension in telemetry data and appears in Splunk dashboards.</p>
-<h3 id="editing-driver-names">Editing Driver Names</h3>
-<ol>
-<li><strong>Click</strong> the driver name area on the rig card — the row highlights on hover with an edit icon</li>
-<li>The name field becomes an inline text input</li>
-<li>Type the new driver name</li>
-<li>Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> or click <strong>Save</strong> to confirm</li>
-<li>Press <span class="keys"><kbd class="key-escape">Esc</kbd></span> or click <strong>✕</strong> to cancel</li>
-</ol>
-<h3 id="race-completion-rule">Race Completion Rule</h3>
-<div class="admonition warning">
-<p class="admonition-title">CRITICAL: Driver Name Update Restriction</p>
-<p>Driver names can <strong>only</strong> be updated when the rig displays the <strong>RACE COMPLETE</strong> status pill.</p>
-</div>
-<p><strong>Why This Restriction Exists:</strong></p>
-<ul>
-<li>Prevents data corruption during active races</li>
-<li>Ensures all lap data is correctly attributed to the same driver</li>
-<li>Maintains data integrity in Splunk dashboards</li>
-</ul>
-<p><strong>How It Works:</strong></p>
-<ol>
-<li>Driver starts a race — driver name is locked</li>
-<li>Driver completes the race — system receives <code>FinalClassificationData</code> packet</li>
-<li>Rig card displays <strong>RACE COMPLETE</strong> status pill</li>
-<li>Driver name becomes editable</li>
-<li>Update driver name for the next driver</li>
-<li>New race starts — driver name locks again</li>
-</ol>
-<p><strong>Best Practice for Multi-Driver Events:</strong></p>
-<ul>
-<li>Wait for <strong>RACE COMPLETE</strong> before swapping drivers</li>
-<li>Update the driver name immediately after race completion</li>
-<li>Have the next driver ready to start their session</li>
-</ul>
-<div class="admonition danger">
-<p class="admonition-title">Do Not Update Driver Name Mid-Race</p>
-<p>Never update a driver name while a race is in progress. This will corrupt the data attribution in Splunk.</p>
-</div>
-<h2 id="next-steps">Next Steps</h2>
-<ul>
-<li><strong><a href="../telemetry/">Configure F1 2025 Game</a></strong> - Set up game telemetry settings</li>
-<li><strong><a href="../dashboards/">View Dashboards</a></strong> - Access your data in Splunk</li>
-</ul></div>
+<h2 id="adding-rigs">Adding rigs</h2>
+<p>Open <strong>Config → General</strong>, choose the required number of rigs, and deploy. Make sure the corresponding UDP ports are published by Docker or allowed by the cloud firewall. Each game uses the same collector address but a different port.</p>
+<p>Return to one rig after a multi-rig event if that is the normal deployment. Fewer open ports and fewer unused cards make operation clearer.</p></div>
 
 
 
@@ -1555,7 +1391,7 @@
     
     
   
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
 

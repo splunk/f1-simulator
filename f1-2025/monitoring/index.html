@@ -14,22 +14,22 @@
         <link rel="prev" href="../managing-collectors/">
       
       
-        <link rel="next" href="../telemetry/">
+        <link rel="next" href="../pit-wall/">
       
       
         
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Monitoring - Splunk Data Drivers</title>
+        <title>Monitoring and Troubleshooting - Splunk Data Drivers</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring-system-health" class="md-skip">
+        <a href="#monitoring-and-troubleshooting" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Monitoring
+              Monitoring and Troubleshooting
             
           </span>
         </div>
@@ -406,7 +406,7 @@
   <span class="md-ellipsis">
     
   
-    Docker Setup (Self-Hosted)
+    Docker Setup (Local)
   
 
     
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    The Collector Page
   
 
     
@@ -514,7 +514,7 @@
   <span class="md-ellipsis">
     
   
-    Controller Configuration
+    Collector Configuration
   
 
     
@@ -542,7 +542,7 @@
   <span class="md-ellipsis">
     
   
-    Managing Collectors
+    Running an Event
   
 
     
@@ -579,7 +579,7 @@
   <span class="md-ellipsis">
     
   
-    Monitoring
+    Monitoring and Troubleshooting
   
 
     
@@ -597,7 +597,7 @@
   <span class="md-ellipsis">
     
   
-    Monitoring
+    Monitoring and Troubleshooting
   
 
     
@@ -623,22 +623,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#status-bar" class="md-nav__link">
+  <a href="#pre-event-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status Bar
+        Pre-event checklist
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Status Bar">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collector-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collector Health
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common problems
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common problems">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#master-control" class="md-nav__link">
+  <a href="#master-control-will-not-turn-on" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Master Control
+        Master Control will not turn on
       
     </span>
   </a>
@@ -646,10 +679,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#external-ip" class="md-nav__link">
+  <a href="#no-udp-packets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        External IP
+        No UDP packets
       
     </span>
   </a>
@@ -657,10 +690,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#redis-connection-status" class="md-nav__link">
+  <a href="#packets-arrive-but-no-events-are-delivered" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Redis Connection Status
+        Packets arrive but no events are delivered
       
     </span>
   </a>
@@ -668,10 +701,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#collectors-status" class="md-nav__link">
+  <a href="#the-queue-pill-shows-drop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Collectors Status
+        The queue pill shows DROP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-card-stays-on-awaiting-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A card stays on "Awaiting telemetry"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-card-stays-on-race-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A card stays on "Race complete"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability-is-off-on-splunk-show" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability is off on Splunk Show
       
     </span>
   </a>
@@ -684,365 +750,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rig-card-indicators" class="md-nav__link">
+  <a href="#during-an-event" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rig Card Indicators
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Rig Card Indicators">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#endpoint-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Endpoint Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#endpoint-failure-banner" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Endpoint Failure Banner
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#network-queue-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Network Queue Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#udp-port-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UDP Port Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#race-complete-flag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Race Complete Flag
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#real-time-data-verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-time Data Verification
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Real-time Data Verification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#speed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Speed
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#current-lap" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Lap
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#track" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Track
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-health-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        System Health Checklist
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="System Health Checklist">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pre-event-health-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pre-Event Health Check
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#during-event-health-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        During Event Health Check
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post-event-health-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Post-Event Health Check
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monitoring Best Practices
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#keep-interface-visible" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Keep Interface Visible
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#watch-the-status-pills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Watch the Status Pills
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monitor-memory-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monitor Memory Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#regular-status-checks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Regular Status Checks
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting Guide
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting Guide">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#udp-port-not-receiving-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UDP Port Not Receiving Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#endpoint-status-shows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Endpoint Status Shows ✗
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#queue-showing-drops" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Queue Showing Drops
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collector-shows-stopped" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collector Shows Stopped
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#redis-status-is-red" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis Status is Red
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#high-memory-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        High Memory Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#log-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Log Files
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Log Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#accessing-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Accessing Logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#help-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Help Panel
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
+        During an event
       
     </span>
   </a>
@@ -1061,6 +772,34 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pit-wall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pit Wall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1467,22 +1206,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#status-bar" class="md-nav__link">
+  <a href="#pre-event-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status Bar
+        Pre-event checklist
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Status Bar">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collector-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collector Health
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common problems
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common problems">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#master-control" class="md-nav__link">
+  <a href="#master-control-will-not-turn-on" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Master Control
+        Master Control will not turn on
       
     </span>
   </a>
@@ -1490,10 +1262,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#external-ip" class="md-nav__link">
+  <a href="#no-udp-packets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        External IP
+        No UDP packets
       
     </span>
   </a>
@@ -1501,10 +1273,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#redis-connection-status" class="md-nav__link">
+  <a href="#packets-arrive-but-no-events-are-delivered" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Redis Connection Status
+        Packets arrive but no events are delivered
       
     </span>
   </a>
@@ -1512,10 +1284,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#collectors-status" class="md-nav__link">
+  <a href="#the-queue-pill-shows-drop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Collectors Status
+        The queue pill shows DROP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-card-stays-on-awaiting-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A card stays on "Awaiting telemetry"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-card-stays-on-race-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A card stays on "Race complete"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability-is-off-on-splunk-show" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability is off on Splunk Show
       
     </span>
   </a>
@@ -1528,365 +1333,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rig-card-indicators" class="md-nav__link">
+  <a href="#during-an-event" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rig Card Indicators
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Rig Card Indicators">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#endpoint-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Endpoint Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#endpoint-failure-banner" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Endpoint Failure Banner
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#network-queue-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Network Queue Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#udp-port-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UDP Port Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#race-complete-flag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Race Complete Flag
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#real-time-data-verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Real-time Data Verification
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Real-time Data Verification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#speed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Speed
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#current-lap" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Lap
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#track" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Track
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-health-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        System Health Checklist
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="System Health Checklist">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pre-event-health-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pre-Event Health Check
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#during-event-health-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        During Event Health Check
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post-event-health-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Post-Event Health Check
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monitoring Best Practices
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#keep-interface-visible" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Keep Interface Visible
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#watch-the-status-pills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Watch the Status Pills
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monitor-memory-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monitor Memory Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#regular-status-checks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Regular Status Checks
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting Guide
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting Guide">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#udp-port-not-receiving-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        UDP Port Not Receiving Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#endpoint-status-shows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Endpoint Status Shows ✗
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#queue-showing-drops" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Queue Showing Drops
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collector-shows-stopped" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collector Shows Stopped
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#redis-status-is-red" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis Status is Red
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#high-memory-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        High Memory Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#log-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Log Files
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Log Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#accessing-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Accessing Logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#help-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Help Panel
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
+        During an event
       
     </span>
   </a>
@@ -1913,413 +1363,133 @@
   
 
 
-<div><h1 id="monitoring-system-health">Monitoring System Health</h1>
-<p>This guide covers monitoring the F1 2025 Data Collector's health, verifying data flow, and troubleshooting common issues.</p>
-<h2 id="status-bar">Status Bar</h2>
-<p>The status bar at the top of the Collector page provides at-a-glance system health via LED indicators.</p>
-<h3 id="master-control">Master Control</h3>
-<p>Located on the left side of the status bar.</p>
+<div><h1 id="monitoring-and-troubleshooting">Monitoring and Troubleshooting</h1>
+<p>The collector separates UDP ingest from destination delivery. A healthy game connection does not prove HEC or Observability is healthy, so check both sides.</p>
+<h2 id="pre-event-checklist">Pre-event checklist</h2>
 <ul>
-<li><strong>SYSTEMS LIVE</strong> (green pulsing LED) — All collectors running</li>
-<li><strong>SYSTEMS OFFLINE</strong> (muted) — Collectors stopped</li>
-<li><strong>DEPLOYING...</strong> — Configuration change in progress</li>
+<li>The collector container reports <code>healthy</code>.</li>
+<li><strong>Master Control</strong> reads <strong>SYSTEMS LIVE</strong> and the status bar shows <strong>n/n Collectors</strong>.</li>
+<li><strong>Runtime State</strong> is green.</li>
+<li>Every enabled destination shows <strong>✓</strong> on the rig cards.</li>
+<li>A short practice session moves each card to <strong>Telemetry live</strong> with real speed, lap, and track values.</li>
+<li>The queue pill reads <strong>QUEUE OK</strong> under load.</li>
+<li>Every active rig has the correct driver name.</li>
+<li>A complete short race ends with the card showing <strong>Race complete</strong>.</li>
 </ul>
-<h3 id="external-ip">External IP</h3>
-<p>A blue LED badge displays the collector's external IP address. Use this IP in the F1 game's telemetry settings.</p>
-<h3 id="redis-connection-status">Redis Connection Status</h3>
-<ul>
-<li>🟢 <strong>Green</strong> — Redis database connected and operational</li>
-<li>🔴 <strong>Red</strong> — Redis connection failed or unavailable</li>
-</ul>
-<p><strong>What Redis Does:</strong></p>
-<ul>
-<li>Stores driver names</li>
-<li>Caches configuration settings</li>
-<li>Tracks race completion status</li>
-</ul>
-<p><strong>If Redis is Down:</strong></p>
-<ul>
-<li>Collectors will continue to work</li>
-<li>Driver names may not persist</li>
-<li>Race completion tracking may not function</li>
-<li>Configuration changes may not save</li>
-</ul>
-<p><strong>Troubleshooting Red Redis Status:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Check if Redis container is running</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>redis
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Restart the container</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>docker<span class="w"> </span>restart<span class="w"> </span>f1-2025
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Check container logs</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>f1-2025
-</code></pre></div>
-<h3 id="collectors-status">Collectors Status</h3>
-<p>Shows how many collectors are currently running out of the total configured.</p>
-<p><strong>Display Format:</strong> <code>X/Y Collectors</code></p>
-<ul>
-<li><strong>X</strong> = Number of active collectors</li>
-<li><strong>Y</strong> = Total number of configured collectors</li>
-</ul>
-<p><strong>LED Colour:</strong></p>
-<ul>
-<li>🟢 <strong>Green</strong> — All collectors running (X = Y)</li>
-<li>🟠 <strong>Amber</strong> — Some collectors running (X &lt; Y)</li>
-<li>⚫ <strong>Off</strong> — No collectors running (X = 0)</li>
-</ul>
-<h2 id="rig-card-indicators">Rig Card Indicators</h2>
-<p>Each rig card displays status pills and live metrics for detailed per-rig monitoring.</p>
-<h3 id="endpoint-status">Endpoint Status</h3>
-<p>When Observability Cloud or HEC destinations are enabled, each rig card shows endpoint health pills:</p>
-<ul>
-<li><strong>O11y ✓</strong> / <strong>HEC ✓</strong> (green) — Data successfully sent to endpoint</li>
-<li><strong>O11y ✗</strong> / <strong>HEC ✗</strong> (red) — Endpoint unreachable or rejecting data</li>
-<li><strong>O11y —</strong> / <strong>HEC —</strong> (muted) — No data sent yet (pending first transmission)</li>
-</ul>
-<h3 id="endpoint-failure-banner">Endpoint Failure Banner</h3>
-<p>If an endpoint fails, a red error banner appears at the top of the page with details about the failure. This helps identify configuration issues (wrong token, unreachable URL, etc.) immediately.</p>
-<h3 id="network-queue-status">Network Queue Status</h3>
-<p>Each rig card displays a queue health pill showing the state of outbound network requests:</p>
+<div class="admonition tip">
+<p class="admonition-title">Master Control is the fastest pre-event test</p>
+<p>It validates the config file, the event name, every enabled destination, the rig list, and — in Playback Mode — the replay files, and reports the first failure. Toggling it off and on is a full pre-flight check.</p>
+</div>
+<h2 id="collector-health">Collector Health</h2>
+<p>Open <strong>Health</strong> to inspect UDP reception and parser activity per rig.</p>
+<p><img alt="The Collector Health panel" src="../../assets/screenshots/f1-2025/health.png"></p>
 <table>
 <thead>
 <tr>
-<th>State</th>
-<th>Colour</th>
+<th>Metric</th>
 <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>QUEUE OK</strong></td>
-<td>Green</td>
-<td>All requests flowing — no drops, inflight below 50% capacity</td>
+<td><strong>Uptime</strong></td>
+<td>How long this rig's collector has been running</td>
 </tr>
 <tr>
-<td><strong>Q:12/50</strong></td>
-<td>Amber</td>
-<td>Inflight requests ≥ 50% of max — backpressure building</td>
+<td><strong>Total Pkts</strong> / <strong>Total Data</strong></td>
+<td>Cumulative UDP packets and bytes since that collector started</td>
 </tr>
 <tr>
-<td><strong>3 DROP</strong></td>
-<td>Red</td>
-<td>Requests are being dropped — Splunk endpoint may be unreachable or slow</td>
+<td><strong>Parse Errs</strong></td>
+<td>Packets that could not be decoded</td>
+</tr>
+<tr>
+<td><strong>Packets</strong></td>
+<td>Incoming UDP packet rate over the last 10 seconds</td>
+</tr>
+<tr>
+<td><strong>Bandwidth</strong> / <strong>Error Rate</strong></td>
+<td>Current throughput and decode failure rate</td>
+</tr>
+<tr>
+<td><strong>Packet Types</strong></td>
+<td>Cumulative decoded counts grouped by F1 packet type</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Troubleshooting Queue Issues:</strong></p>
-<ul>
-<li><strong>Amber (backpressure)</strong> — Temporary network slowness. Usually resolves on its own. Check endpoint health.</li>
-<li><strong>Red (drops)</strong> — Verify Splunk endpoint is reachable. Check HEC URL and tokens. May indicate network or firewall issues.</li>
-</ul>
-<h3 id="udp-port-status">UDP Port Status</h3>
-<p>Each rig card displays the UDP port number with colour coding:</p>
-<ul>
-<li>🟢 <strong>Green</strong> — Collector running and ready to receive telemetry</li>
-<li>⚫ <strong>Muted</strong> — Collector not running</li>
-</ul>
-<h3 id="race-complete-flag">Race Complete Flag</h3>
-<p>A flag icon with <strong>RACE COMPLETE</strong> appears as a green pill when the race session has ended (after receiving <code>FinalClassificationData</code>). This unlocks the driver name for editing.</p>
-<h2 id="real-time-data-verification">Real-time Data Verification</h2>
-<p>When collectors are running and receiving data from F1 2025, live metrics appear on each rig card.</p>
-<h3 id="speed">Speed</h3>
-<ul>
-<li><strong>Display:</strong> Current vehicle speed in mph</li>
-<li><strong>Updates:</strong> Continuously during gameplay</li>
-<li><strong>Expected Behaviour:</strong><ul>
-<li>0 mph when stationary (pits, menus)</li>
-<li>Fluctuating values during racing</li>
-<li>Max speeds vary by track (Monaco ~180 mph, Monza ~220 mph)</li>
-</ul>
-</li>
-</ul>
-<p><strong>Troubleshooting:</strong></p>
-<ul>
-<li>No speed shown = no telemetry data being received</li>
-<li>Speed stuck at 0 = driver may be in menu/paused</li>
-<li>Speed frozen = possible network issue or game frozen</li>
-</ul>
-<h3 id="current-lap">Current Lap</h3>
-<ul>
-<li><strong>Display:</strong> Live lap counter</li>
-<li><strong>Updates:</strong> Increments as driver completes laps</li>
-<li><strong>Expected Behaviour:</strong><ul>
-<li>Lap 0 during warm-up/out lap</li>
-<li>Lap 1 after crossing start/finish line</li>
-<li>Increments each lap thereafter</li>
-</ul>
-</li>
-</ul>
-<p><strong>Troubleshooting:</strong></p>
-<ul>
-<li>Lap not incrementing = driver may not be in race session</li>
-<li>Lap counter missing = no telemetry data</li>
-</ul>
-<h3 id="track">Track</h3>
-<ul>
-<li><strong>Display:</strong> Current track name</li>
-<li><strong>Examples:</strong> "Silverstone", "Monaco", "Spa-Francorchamps", "Suzuka"</li>
-<li><strong>Updates:</strong> When track loads in game</li>
-</ul>
-<p><strong>Troubleshooting:</strong></p>
-<ul>
-<li>No track name = telemetry not being received</li>
-<li>Wrong track name = data from different session/rig</li>
-</ul>
-<h2 id="system-health-checklist">System Health Checklist</h2>
-<p>Use this checklist to verify system health before and during events.</p>
-<h3 id="pre-event-health-check">Pre-Event Health Check</h3>
-<ul>
-<li>[ ] Redis status shows green in status bar</li>
-<li>[ ] Configuration deployed with correct credentials</li>
-<li>[ ] Driver names set for all active rigs</li>
-<li>[ ] Master Control toggled to SYSTEMS LIVE</li>
-<li>[ ] Collectors status shows <code>X/X</code> (all running) in green</li>
-</ul>
-<h3 id="during-event-health-check">During Event Health Check</h3>
-<ul>
-<li>[ ] All active rig UDP ports are green</li>
-<li>[ ] Real-time speed values updating</li>
-<li>[ ] Lap counters incrementing as races progress</li>
-<li>[ ] Track names displaying correctly</li>
-<li>[ ] O11y/HEC endpoint pills showing ✓</li>
-<li>[ ] Queue status showing QUEUE OK</li>
-<li>[ ] Memory usage within normal range (50-200 MB per collector)</li>
-</ul>
-<h3 id="post-event-health-check">Post-Event Health Check</h3>
-<ul>
-<li>[ ] RACE COMPLETE status appeared for all completed races</li>
-<li>[ ] All data visible in Splunk dashboards</li>
-<li>[ ] No endpoint failure banners displayed</li>
-<li>[ ] Collectors stopped cleanly when Master Control toggled off</li>
-</ul>
-<h2 id="monitoring-best-practices">Monitoring Best Practices</h2>
-<h3 id="keep-interface-visible">Keep Interface Visible</h3>
-<ul>
-<li>Display the Collector page on a monitor during events</li>
-<li>Allows quick identification of issues</li>
-<li>Real-time verification that data is flowing</li>
-</ul>
-<h3 id="watch-the-status-pills">Watch the Status Pills</h3>
-<ul>
-<li>Endpoint pills (O11y/HEC) are the most critical indicators</li>
-<li>Green ✓ = data flowing to Splunk</li>
-<li>Red ✗ = immediate attention needed</li>
-<li>Queue drops = network or endpoint issue</li>
-</ul>
-<h3 id="monitor-memory-usage">Monitor Memory Usage</h3>
-<p><strong>Normal Memory Usage:</strong></p>
-<ul>
-<li>50-150 MB per collector (typical)</li>
-<li>150-200 MB per collector (high load)</li>
-<li>Total system memory should be &lt;1 GB for 4 collectors</li>
-</ul>
-<p><strong>High Memory Usage:</strong></p>
-<ul>
-<li>&gt;300 MB per collector = potential issue</li>
-<li>May indicate data buildup or network problems</li>
-<li>Consider restarting collectors</li>
-</ul>
-<p><strong>How to Check:</strong></p>
-<ul>
-<li>Memory usage displayed as an amber pill on each rig card</li>
-<li>Can also check container stats:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>stats<span class="w"> </span>f1-2025
+<p>This panel is the best place to answer "is the game reaching this UDP port?". It is entirely separate from the outbound queue pill — health counts packets coming <em>in</em>, the queue pill counts requests going <em>out</em>.</p>
+<p>With two or more collectors running, a <strong>Combined</strong> summary appears above the per-rig panels.</p>
+<h2 id="logs">Logs</h2>
+<p>Open <strong>Logs</strong> for the collector log. It covers application lifecycle, endpoint errors, retry failures, and 10-second outbound request statistics.</p>
+<p><img alt="The Logs panel" src="../../assets/screenshots/f1-2025/logs.png"></p>
+<p>Choose 50, 100, or 200 lines, enable <strong>Auto</strong> to refresh every five seconds, or select <strong>Refresh</strong>. Local Docker users can also follow the container log:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>f1-2025
 </code></pre></div>
-<h3 id="regular-status-checks">Regular Status Checks</h3>
-<p>During long events, check status every 15-30 minutes:</p>
-<ul>
-<li>All endpoint pills green?</li>
-<li>Queue status OK?</li>
-<li>Real-time data still updating?</li>
-<li>Memory usage normal?</li>
-<li>Any error banners?</li>
-</ul>
-<h2 id="troubleshooting-guide">Troubleshooting Guide</h2>
-<h3 id="udp-port-not-receiving-data">UDP Port Not Receiving Data</h3>
-<p><strong>Problem:</strong> Collector running but no telemetry data appears.</p>
-<p><strong>Possible Causes &amp; Solutions:</strong></p>
+<p>Look for the first concrete endpoint or parsing error rather than repeatedly restarting the collector.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>Requests/10s</code> is not the packet rate</p>
+<p>That log line measures outbound sink requests, so it will not match the incoming UDP packet rate shown in Health.</p>
+</div>
+<p>The log file is <code>/app/collector.log</code>, rotated at 10 MB with three backups. The collector does not send its own log to HEC; use your container platform's logging integration if collector logs must be indexed in Splunk.</p>
+<h2 id="common-problems">Common problems</h2>
+<h3 id="master-control-will-not-turn-on">Master Control will not turn on</h3>
+<p>The collector reports the first failed check. The usual causes:</p>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Event name is not configured.</code></td>
+<td>Set <strong>Event Name</strong> under <strong>Config → General</strong> and deploy.</td>
+</tr>
+<tr>
+<td>An endpoint error</td>
+<td>A destination you enabled failed its health check. Correct the realm, URL, or token.</td>
+</tr>
+<tr>
+<td><code>No rigs configured.</code></td>
+<td>Set the rig count under <strong>Config → General</strong>.</td>
+</tr>
+<tr>
+<td><code>Replay file missing for: &lt;rig&gt;</code></td>
+<td>Select an existing replay file for every rig, or disable Playback Mode.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no-udp-packets">No UDP packets</h3>
 <ol>
-<li><strong>F1 2025 not running on rig</strong></li>
-<li>Start the game</li>
-<li>
-<p>Verify telemetry is enabled in game settings</p>
-</li>
-<li>
-<p><strong>Wrong IP address in game telemetry settings</strong></p>
-</li>
-<li>Check External IP in the status bar (blue badge)</li>
-<li>
-<p>Update game telemetry settings with correct IP</p>
-</li>
-<li>
-<p><strong>Network connectivity issue</strong></p>
-</li>
-<li>Ping controller IP from rig PC</li>
-<li>Check firewall rules</li>
-<li>
-<p>Verify UDP port not blocked</p>
-</li>
-<li>
-<p><strong>Wrong UDP port configured</strong></p>
-</li>
-<li>Verify game is sending to correct port (20777, 20778, etc.)</li>
-<li>
-<p>Each rig needs unique port number</p>
-</li>
-<li>
-<p><strong>Game in menu/paused</strong></p>
-</li>
-<li>Driver must be in session (practice, qualifying, race)</li>
-<li>Telemetry doesn't stream from menus</li>
+<li>Confirm <strong>UDP Telemetry</strong> is On in F1 25.</li>
+<li>Enter the collector address exactly as shown in the status bar; use the LAN address for a LAN-only deployment.</li>
+<li>Confirm RIG 1 uses <code>20777</code>; additional rigs use <code>20778</code>–<code>20780</code>.</li>
+<li>Confirm UDP Broadcast Mode is Off.</li>
+<li>Check the host firewall, Docker port publishing, and cloud security group.</li>
+<li>Confirm the rig can route to the collector address.</li>
 </ol>
-<p><strong>Verification Steps:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># From the rig PC, test network connectivity</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ping<span class="w"> </span>&lt;controller-ip&gt;
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Check if UDP port is accessible (requires netcat)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>nc<span class="w"> </span>-u<span class="w"> </span>&lt;controller-ip&gt;<span class="w"> </span><span class="m">20777</span>
-</code></pre></div>
-<h3 id="endpoint-status-shows">Endpoint Status Shows ✗</h3>
-<p><strong>Problem:</strong> O11y or HEC pill is red.</p>
-<p><strong>Possible Causes &amp; Solutions:</strong></p>
-<ol>
-<li><strong>Invalid token</strong></li>
-<li>Open Config panel and verify credentials</li>
-<li>
-<p>Re-enter the token and deploy configuration</p>
-</li>
-<li>
-<p><strong>Incorrect URL</strong></p>
-</li>
-<li>Verify HEC URL format: <code>https://&lt;instance&gt;:8088</code></li>
-<li>
-<p>Must use HTTPS (not HTTP)</p>
-</li>
-<li>
-<p><strong>Firewall blocking connection</strong></p>
-</li>
-<li>Test connectivity to endpoint</li>
-<li>
-<p>Check network/firewall rules</p>
-</li>
-<li>
-<p><strong>Endpoint not enabled</strong></p>
-</li>
-<li>Open Config panel and verify the toggle is on</li>
-</ol>
-<p><strong>Test HEC connectivity:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>-k<span class="w"> </span>https://&lt;splunk-hec-url&gt;:8088/services/collector<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">"Authorization: Splunk &lt;hec-token&gt;"</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"event": "test"}'</span>
-</code></pre></div>
-<h3 id="queue-showing-drops">Queue Showing Drops</h3>
-<p><strong>Problem:</strong> Queue pill shows red with drop count.</p>
-<p><strong>Possible Causes:</strong></p>
+<p>The public-address lookup can fail on a network that intercepts TLS. The collector still runs when it does; the address badge is simply absent, and you can use the LAN or known public address directly.</p>
+<h3 id="packets-arrive-but-no-events-are-delivered">Packets arrive but no events are delivered</h3>
+<p>Confirm the destination is actually enabled and healthy:</p>
 <ul>
-<li>Splunk endpoint temporarily unavailable</li>
-<li>Network latency or packet loss</li>
-<li>HEC endpoint overloaded</li>
+<li>the destination toggle is on in <strong>Config</strong>;</li>
+<li>the rig card pill shows <strong>HEC ✓</strong> or <strong>O11y ✓</strong>;</li>
+<li>the token and URL or realm are correct; and</li>
+<li>the HEC token points at an index that exists and accepts it.</li>
 </ul>
-<p><strong>Solutions:</strong></p>
-<ol>
-<li>Check endpoint status pills — if also red, fix the endpoint issue first</li>
-<li>Verify network connectivity to Splunk</li>
-<li>Restart collectors (toggle Master Control off then on)</li>
-</ol>
-<h3 id="collector-shows-stopped">Collector Shows Stopped</h3>
-<p><strong>Problem:</strong> Rig card not showing as running.</p>
-<p><strong>Possible Causes &amp; Solutions:</strong></p>
-<ol>
-<li><strong>Master Control is off</strong></li>
-<li>
-<p>Toggle Master Control to SYSTEMS LIVE</p>
-</li>
-<li>
-<p><strong>Collector crashed</strong></p>
-</li>
-<li>Check logs for errors</li>
-<li>
-<p>Restart collectors (toggle Master Control off then on)</p>
-</li>
-<li>
-<p><strong>Configuration issue</strong></p>
-</li>
-<li>Verify configuration is deployed</li>
-<li>Check that the correct number of rigs is configured</li>
-</ol>
-<h3 id="redis-status-is-red">Redis Status is Red</h3>
-<p><strong>Problem:</strong> Redis LED shows red in status bar.</p>
-<p><strong>Impact:</strong></p>
-<ul>
-<li>Driver names may not save</li>
-<li>Configuration changes may not persist</li>
-<li>Race completion tracking disabled</li>
-</ul>
-<p><strong>Solutions:</strong></p>
-<ol>
-<li><strong>Restart the container:</strong></li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>f1-2025
-</code></pre></div>
-<ol>
-<li><strong>Check container logs:</strong></li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>f1-2025
-</code></pre></div>
-<h3 id="high-memory-usage">High Memory Usage</h3>
-<p><strong>Problem:</strong> Container memory usage &gt;300 MB or climbing continuously.</p>
-<p><strong>Possible Causes:</strong></p>
-<ul>
-<li>Network issues causing data backup</li>
-<li>Too many simultaneous connections</li>
-<li>Memory leak (rare)</li>
-</ul>
-<p><strong>Solutions:</strong></p>
-<ol>
-<li>
-<p><strong>Monitor over time</strong> — Is it stable or growing?</p>
-</li>
-<li>
-<p><strong>Restart collectors:</strong></p>
-</li>
-<li>Toggle Master Control off</li>
-<li>Wait 10 seconds</li>
-<li>
-<p>Toggle Master Control on</p>
-</li>
-<li>
-<p><strong>Restart entire container:</strong></p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>f1-2025
-</code></pre></div>
-<h2 id="log-files">Log Files</h2>
-<p>The collector generates detailed logs for troubleshooting.</p>
-<h3 id="accessing-logs">Accessing Logs</h3>
-<p><strong>Via the UI:</strong></p>
-<p>The Collector page has a built-in log viewer accessible via the API.</p>
-<p><strong>Via Docker:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>f1-2025
-</code></pre></div>
-<p><strong>Via API:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># JSON format (default)</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>curl<span class="w"> </span>http://localhost:8501/api/logs
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Plain text format</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>curl<span class="w"> </span><span class="s2">"http://localhost:8501/api/logs?format=text"</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Last 20 lines</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>curl<span class="w"> </span><span class="s2">"http://localhost:8501/api/logs?format=text&amp;lines=20"</span>
-</code></pre></div>
-<h2 id="help-panel">Help Panel</h2>
-<p>Click the <strong>?</strong> button in the top-right of the navigation bar to open the Help panel. It provides a quick reference for rig card indicators, queue states, and configuration options.</p>
-<h2 id="next-steps">Next Steps</h2>
-<ul>
-<li><strong><a href="../managing-collectors/">Manage Collectors</a></strong> - Start/stop collectors and manage driver names</li>
-<li><strong><a href="../controller-config/">Controller Configuration</a></strong> - Configure Splunk destinations</li>
-<li><strong><a href="../dashboards/">View Dashboards</a></strong> - Access your data in Splunk</li>
-</ul></div>
+<p>Then check the Logs panel for the first delivery error.</p>
+<h3 id="the-queue-pill-shows-drop">The queue pill shows DROP</h3>
+<p>The collector is producing outbound requests faster than a destination accepts them, or that destination is failing. Open <strong>Logs</strong>, correct the endpoint or network problem, and watch the pill return to <strong>QUEUE OK</strong>.</p>
+<p>Because the collector holds outbound requests in memory rather than on disk, events rejected for capacity are not retried from a spool. Fix a failing destination promptly rather than letting it run degraded.</p>
+<h3 id="a-card-stays-on-awaiting-telemetry">A card stays on "Awaiting telemetry"</h3>
+<p>The collector is running but no packets have arrived recently. Check Health for that rig's packet count. If it is not increasing, the problem is on the UDP side — see <a href="#no-udp-packets">No UDP packets</a>.</p>
+<h3 id="a-card-stays-on-race-complete">A card stays on "Race complete"</h3>
+<p>That rig received Final Classification and is showing the finished session. Enter the next driver's name to clear it.</p>
+<h3 id="observability-is-off-on-splunk-show">Observability is off on Splunk Show</h3>
+<p>Show configures HEC for you, but cannot know your Observability realm or token. Set them under <strong>Config → Destinations</strong>, deploy, restart Master Control, and confirm the cards show <strong>O11y ✓</strong>.</p>
+<h2 id="during-an-event">During an event</h2>
+<p>Keep the Collector page visible to the operator. Check Health when a card stops updating; avoid restarting a healthy collector just because a car is stationary in the game.</p></div>
 
 
 
@@ -2432,7 +1602,7 @@
     
     
   
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
 

@@ -21,15 +21,15 @@
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Controller Configuration - Splunk Data Drivers</title>
+        <title>Collector Configuration - Splunk Data Drivers</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#controller-configuration" class="md-skip">
+        <a href="#collector-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Controller Configuration
+              Collector Configuration
             
           </span>
         </div>
@@ -406,7 +406,7 @@
   <span class="md-ellipsis">
     
   
-    Docker Setup (Self-Hosted)
+    Docker Setup (Local)
   
 
     
@@ -486,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    The Collector Page
   
 
     
@@ -523,7 +523,7 @@
   <span class="md-ellipsis">
     
   
-    Controller Configuration
+    Collector Configuration
   
 
     
@@ -541,7 +541,7 @@
   <span class="md-ellipsis">
     
   
-    Controller Configuration
+    Collector Configuration
   
 
     
@@ -567,18 +567,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#opening-the-configuration-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Opening the Configuration Panel
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Opening the Configuration Panel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#general" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -587,72 +575,28 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="General">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#destinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Destinations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Destinations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#number-of-rigs" class="md-nav__link">
+  <a href="#splunk-observability-cloud" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Number of Rigs
+        Splunk Observability Cloud
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#event-name" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Event Name
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#observability-cloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Observability Cloud
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Observability Cloud">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#realm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Realm
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#access-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access Token
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -665,25 +609,13 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Splunk Enterprise / Cloud">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hec-url-and-port" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HEC URL and Port
-      
-    </span>
-  </a>
-  
 </li>
         
           <li class="md-nav__item">
-  <a href="#hec-token" class="md-nav__link">
+  <a href="#on-splunk-show" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HEC Token
+        On Splunk Show
       
     </span>
   </a>
@@ -694,20 +626,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#mode" class="md-nav__link">
-    <span class="md-ellipsis">
       
-        Mode
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Mode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+        <li class="md-nav__item">
   <a href="#playback-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -717,83 +637,12 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploying-your-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deploying Your Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#configuration-examples" class="md-nav__link">
+  <a href="#what-starting-validates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-production-event-with-both-platforms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 1: Production Event with Both Platforms
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-demo-mode-with-observability-cloud-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 2: Demo Mode with Observability Cloud Only
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-3-testing-with-splunk-enterprise-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 3: Testing with Splunk Enterprise Only
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
+        What starting validates
       
     </span>
   </a>
@@ -823,7 +672,7 @@
   <span class="md-ellipsis">
     
   
-    Managing Collectors
+    Running an Event
   
 
     
@@ -851,7 +700,7 @@
   <span class="md-ellipsis">
     
   
-    Monitoring
+    Monitoring and Troubleshooting
   
 
     
@@ -868,6 +717,34 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pit-wall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pit Wall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1274,18 +1151,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#opening-the-configuration-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Opening the Configuration Panel
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Opening the Configuration Panel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#general" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1294,72 +1159,28 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="General">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#destinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Destinations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Destinations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#number-of-rigs" class="md-nav__link">
+  <a href="#splunk-observability-cloud" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Number of Rigs
+        Splunk Observability Cloud
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#event-name" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Event Name
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#observability-cloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Observability Cloud
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Observability Cloud">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#realm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Realm
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#access-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access Token
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1372,25 +1193,13 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Splunk Enterprise / Cloud">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hec-url-and-port" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HEC URL and Port
-      
-    </span>
-  </a>
-  
 </li>
         
           <li class="md-nav__item">
-  <a href="#hec-token" class="md-nav__link">
+  <a href="#on-splunk-show" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HEC Token
+        On Splunk Show
       
     </span>
   </a>
@@ -1401,20 +1210,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#mode" class="md-nav__link">
-    <span class="md-ellipsis">
       
-        Mode
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Mode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+        <li class="md-nav__item">
   <a href="#playback-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1424,83 +1221,12 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploying-your-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deploying Your Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#configuration-examples" class="md-nav__link">
+  <a href="#what-starting-validates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-production-event-with-both-platforms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 1: Production Event with Both Platforms
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-demo-mode-with-observability-cloud-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 2: Demo Mode with Observability Cloud Only
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-3-testing-with-splunk-enterprise-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 3: Testing with Splunk Enterprise Only
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
+        What starting validates
       
     </span>
   </a>
@@ -1527,110 +1253,113 @@
   
 
 
-<div><h1 id="controller-configuration">Controller Configuration</h1>
-<p>This guide covers the initial configuration of the F1 2025 Data Collector interface.</p>
-<p><img alt="Collector UI" src="../../assets/screenshots/f1-2025-ui.png"></p>
-<h2 id="opening-the-configuration-panel">Opening the Configuration Panel</h2>
-<p>Configuration settings are accessed via a slide-over panel. Click the <strong>Config</strong> button (gear icon) in the top-right of the status bar to open it. Press <span class="keys"><kbd class="key-escape">Esc</kbd></span> or click outside the panel to close it.</p>
-<h3 id="general">General</h3>
-<h4 id="number-of-rigs">Number of Rigs</h4>
-<p>Choose the number of F1 racing rigs you'll be monitoring during your event. You can configure between 1 and 4 rigs.</p>
-<h4 id="event-name">Event Name</h4>
-<p>Enter a descriptive name for your event to identify the data stream in Splunk e.g. "Cisco Live", "Snow Testing", "Customer Demo Day"</p>
-<h3 id="observability-cloud">Observability Cloud</h3>
-<p>Toggle the <strong>Observability Cloud</strong> switch to enable this destination. When enabled, the following fields appear:</p>
-<h4 id="realm">Realm</h4>
-<p>Select your Splunk Observability Cloud realm from the dropdown.</p>
-<p><strong>Available Realms:</strong></p>
-<ul>
-<li><code>eu0</code>, <code>eu1</code>, <code>eu2</code> (Europe)</li>
-<li><code>us0</code>, <code>us1</code>, <code>us2</code> (United States)</li>
-<li><code>au0</code> (Australia)</li>
-<li><code>jp0</code> (Japan)</li>
-<li><code>sg0</code> (Singapore)</li>
-</ul>
-<h4 id="access-token">Access Token</h4>
-<p>Enter the Access Token for the Observability Cloud organization where you want to send metrics. If a token is already configured, a green "Token configured" indicator appears and you can leave the field blank to keep the existing token.</p>
-<h3 id="splunk-enterprise-cloud">Splunk Enterprise / Cloud</h3>
-<p>Toggle the <strong>Splunk Enterprise / Cloud</strong> switch to enable this destination. When enabled, the following fields appear:</p>
-<div class="admonition note">
-<p class="admonition-title">If running a Splunk Show instance, all of the below is pre-configured.</p>
-</div>
-<h4 id="hec-url-and-port">HEC URL and Port</h4>
-<p>Enter your Splunk HTTP Event Collector (HEC) endpoint.</p>
-<ul>
-<li><strong>Format:</strong> <code>https://&lt;your-splunk-instance&gt;:8088</code></li>
-<li><strong>Example:</strong> <code>https://il-0cc8aef679649f2c.splunkcloud.com:8088</code></li>
-</ul>
-<h4 id="hec-token">HEC Token</h4>
-<p>Enter your HEC authentication token. If a token is already configured, a green "Token configured" indicator appears and you can leave the field blank to keep the existing token.</p>
-<h3 id="mode">Mode</h3>
-<h4 id="playback-mode">Playback Mode</h4>
-<p>Toggle the <strong>Playback Mode</strong> switch to enable demo mode using pre-recorded telemetry data.</p>
-<p><strong>When to Use:</strong></p>
-<ul>
-<li><strong>Off</strong> (default) - Live events with actual F1 2025 gameplay</li>
-<li><strong>On</strong> - Demonstrations without racing rigs using pre-recorded data</li>
-</ul>
-<p><strong>Use Cases for Playback Mode:</strong></p>
-<ul>
-<li>Showcasing Splunk dashboards to customers</li>
-<li>Testing dashboard configurations</li>
-<li>Training sessions without racing equipment</li>
-<li>Demo environments</li>
-</ul>
-<h3 id="deploying-your-configuration">Deploying Your Configuration</h3>
-<p>After configuring all settings:</p>
-<ol>
-<li><strong>Review</strong> all fields to ensure accuracy</li>
-<li><strong>Click</strong> the <strong>"Deploy Configuration"</strong> button at the bottom of the panel</li>
-</ol>
+<div><h1 id="collector-configuration">Collector Configuration</h1>
+<p>Select <strong>Config</strong> on the Collector page. Changes are written to the mounted configuration file when you select <strong>Deploy Configuration</strong>.</p>
 <div class="admonition warning">
-<p class="admonition-title">Deploying stops all running collectors and resets the database</p>
-<p>Saving a new configuration will stop any running collectors and flush Redis. You will need to restart collectors via Master Control after deploying.</p>
+<p class="admonition-title">Deploying stops collection</p>
+<p><strong>Deploy Configuration</strong> stops any running collectors and clears transient runtime display state. It does not restart collection — turn <strong>Master Control</strong> back on afterwards.</p>
 </div>
-<h2 id="configuration-examples">Configuration Examples</h2>
-<h3 id="example-1-production-event-with-both-platforms">Example 1: Production Event with Both Platforms</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Rigs: 4
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Event Name: Cisco Live 2025
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Observability Cloud:
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  - Realm: us1
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  - Access Token: ••••••••
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  - Enabled: ✓
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Splunk Enterprise:
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  - HEC URL: https://prd-splunk.company.com:8088
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  - HEC Token: ••••••••
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  - Enabled: ✓
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Playback Mode: Off
-</code></pre></div>
-<h3 id="example-2-demo-mode-with-observability-cloud-only">Example 2: Demo Mode with Observability Cloud Only</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Rigs: 2
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Event Name: Customer Demo
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Observability Cloud:
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  - Realm: us0
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  - Access Token: ••••••••
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  - Enabled: ✓
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Splunk Enterprise:
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  - Enabled: ✗
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Playback Mode: On
-</code></pre></div>
-<h3 id="example-3-testing-with-splunk-enterprise-only">Example 3: Testing with Splunk Enterprise Only</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Rigs: 1
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Event Name: Testing Setup
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Observability Cloud:
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  - Enabled: ✗
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Splunk Enterprise:
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  - HEC URL: https://localhost:8088
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  - HEC Token: ••••••••
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  - Enabled: ✓
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Playback Mode: Off
-</code></pre></div>
-<h2 id="next-steps">Next Steps</h2>
-<p>After configuring the controller:</p>
+<h2 id="general">General</h2>
+<p><img alt="The Configuration panel" src="../../assets/screenshots/f1-2025/config-general.png"></p>
+<ul>
+<li><strong>Number of Rigs</strong> — enable one to four rigs. One is the default and is recommended unless multiple simulators are actually in use.</li>
+<li><strong>Speed Display</strong> — show speed in MPH or KPH on the Collector page and Pit Wall. This changes only the display; the raw telemetry fields sent to Splunk are unchanged.</li>
+<li><strong>Event Name</strong> — a label added to emitted telemetry so an event's data can be identified in Splunk, for example <code>Data Drivers</code> or the name of your conference activation.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">An event name is required</p>
+<p>Master Control refuses to start without one. The error reads <code>Event name is not configured. Set it in Settings before starting collectors.</code></p>
+</div>
+<p>The UDP assignments are fixed and predictable:</p>
+<table>
+<thead>
+<tr>
+<th>Rig</th>
+<th style="text-align: right;">UDP port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RIG 1</td>
+<td style="text-align: right;">20777</td>
+</tr>
+<tr>
+<td>RIG 2</td>
+<td style="text-align: right;">20778</td>
+</tr>
+<tr>
+<td>RIG 3</td>
+<td style="text-align: right;">20779</td>
+</tr>
+<tr>
+<td>RIG 4</td>
+<td style="text-align: right;">20780</td>
+</tr>
+</tbody>
+</table>
+<h2 id="destinations">Destinations</h2>
+<p>Both destinations are optional and independent. Enable each with the toggle next to its heading.</p>
+<p><img alt="Both destinations enabled" src="../../assets/screenshots/f1-2025/config-destinations.png"></p>
+<div class="admonition note">
+<p class="admonition-title">Blank token fields keep the stored token</p>
+<p>Once a token is saved, its field shows a masked placeholder and a <strong>Token configured</strong> indicator. Leaving it blank on a later deploy preserves the stored value; you only need to retype it when the token itself changes.</p>
+</div>
+<h3 id="splunk-observability-cloud">Splunk Observability Cloud</h3>
+<p>Sends a deliberately small allowlist of gauges as metrics through the Splunk ingest API. Full telemetry events remain exclusive to HEC.</p>
 <ol>
-<li><strong><a href="../telemetry/">Set up F1 2025 Game Telemetry</a></strong> - Configure UDP output in the game</li>
-<li><strong><a href="../managing-collectors/">Manage Collectors</a></strong> - Start data collection</li>
-</ol></div>
+<li>Enable <strong>Observability Cloud</strong>.</li>
+<li>Select your <strong>Realm</strong> from the list, for example <code>us0</code> or <code>eu0</code>.</li>
+<li>Enter your Splunk Observability Cloud <strong>Access Token</strong>.</li>
+<li>Select <strong>Deploy Configuration</strong>.</li>
+<li>Turn <strong>Master Control</strong> back on and confirm the rig cards show <strong>O11y ✓</strong>.</li>
+</ol>
+<p>Choose the realm assigned to your Observability organization. The collector builds the ingest URL from it, so no full URL is needed.</p>
+<h3 id="splunk-enterprise-cloud">Splunk Enterprise / Cloud</h3>
+<p>Sends flattened events through HTTP Event Collector.</p>
+<ol>
+<li>Enable <strong>Splunk Enterprise / Cloud</strong>.</li>
+<li>Enter the <strong>HEC URL:Port</strong>, for example <code>https://splunk.example.com:8088</code>.</li>
+<li>Enter the <strong>HEC Token</strong>.</li>
+<li>Select <strong>Deploy Configuration</strong>.</li>
+<li>Turn <strong>Master Control</strong> back on and confirm the rig cards show <strong>HEC ✓</strong>.</li>
+</ol>
+<p>The destination index is not set in the collector. It comes from the HEC token's configuration in Splunk, so ask your Splunk administrator to point the token at the intended index — normally <code>data_drivers_f1_2025</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Protect access tokens</p>
+<p>Treat HEC and Observability tokens as secrets. Do not paste them into chat, screenshots, issue reports, or public configuration examples.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">HEC certificate verification</p>
+<p>The collector does not verify TLS certificates when delivering to HEC, which is why a self-signed or IP-addressed endpoint still works. This is retained for compatibility with earlier collector versions. Deploy a trusted HEC certificate where you can, and do not treat the collector as proof that the endpoint is authenticated.</p>
+<p>Certificates <em>are</em> verified for Splunk Observability Cloud and for the public-address lookup.</p>
+</div>
+<h3 id="on-splunk-show">On Splunk Show</h3>
+<p>Splunk Show instances arrive with HEC already enabled and configured. Leave the <strong>Splunk Enterprise / Cloud</strong> fields alone and configure only Observability Cloud if you are using it.</p>
+<p>Show cannot know your Observability realm or token, so those fields are always yours to fill in.</p>
+<h2 id="playback-mode">Playback Mode</h2>
+<p>Playback re-sends a recorded <code>.tlm</code> file through the normal parsing and delivery pipeline, so it exercises everything except the UDP socket.</p>
+<ol>
+<li>Enable <strong>Playback Mode</strong> under <strong>Mode</strong>.</li>
+<li>Select a <strong>Replay File</strong> for each enabled rig.</li>
+<li>Select <strong>Deploy Configuration</strong>, then turn on <strong>Master Control</strong>.</li>
+</ol>
+<p>Every enabled rig must have an existing replay file selected, or startup fails with <code>Replay file missing for: &lt;rig&gt;</code>. Replay loops continuously — when a file reaches its end the collector logs <code>Replay loop #n completed, restarting...</code> and plays it again.</p>
+<p>While playback is enabled, rig cards read <strong>Telemetry playback</strong>, an amber <strong>PLAYBACK MODE</strong> badge appears in the status bar, and the Record control is hidden.</p>
+<div class="admonition tip">
+<p class="admonition-title">Demo safely</p>
+<p>Playback is the quickest way to validate destinations and dashboards without occupying a simulator. Check the <strong>PLAYBACK MODE</strong> badge before you expect live UDP packets — a looping replay looks very much like a live session.</p>
+</div>
+<p>To return to live telemetry, disable Playback Mode, deploy, and restart Master Control.</p>
+<h2 id="what-starting-validates">What starting validates</h2>
+<p>Turning on Master Control runs these checks in order and refuses to start on the first failure:</p>
+<ol>
+<li>The configuration file can be read.</li>
+<li>An event name is set.</li>
+<li>Every enabled destination passes its health check.</li>
+<li>At least one rig is configured.</li>
+<li>In Playback Mode, every rig has an existing replay file.</li>
+</ol>
+<p>The failure reason is shown in the UI, which makes Master Control a useful pre-event test on its own.</p></div>
 
 
 
@@ -1743,7 +1472,7 @@
     
     
   
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
 
