@@ -11,7 +11,7 @@ Configure every racing rig to send F1 25 {{< term "UDP" >}} telemetry to the col
 
 ## Find the collector address
 
-The collector's public IP address is shown in the status bar of the Collector page, next to a blue indicator.
+The collector's public IP address is shown in the status bar of the Collector page, in the **IP** pill.
 
 - **Splunk Show or cloud deployment:** use the public address shown in the status bar.
 - **Local Docker:** use the Docker host's LAN address, not `localhost`, because the game runs on another computer.
@@ -49,16 +49,18 @@ All rigs use the same collector address but a unique UDP port:
 | RIG 3 | 20779 |
 | RIG 4 | 20780 |
 
-Enable the required rig count under **Config → General** before testing, and deploy. For self-hosted Docker, publish the same UDP ports on the container.
+Add the required rigs under **Configuration → Rigs** before testing, then save. For self-hosted Docker, publish the same UDP ports on the container.
 
 ## Test the connection
 
-1. Turn on **Master Control** and confirm it reads **SYSTEMS LIVE**.
-2. Enter a driver name on the rig card.
-3. Start a Practice session in the game.
-4. Confirm the card moves to **Telemetry live** and shows speed, gear, lap, and track.
-5. Open **Health** and confirm the rig's packet count increases.
-6. Confirm the card's destination pills show **✓**.
+1. Confirm **Listener · On** on the rig card.
+2. Enter a driver name and select **Ready** before the first starting light.
+3. Start a three-lap Grand Prix in the game.
+4. Confirm **Collecting** and changing lap, lap time, speed and gear.
+5. Open **Collector health → Rigs** and confirm packet counts increase.
+6. Let the race reach Final Classification, then check the result and your destination dashboards.
+
+A practice session or UDP arriving before Ready can prove network reception, but does not prove race capture. v6 requires the first starting light and a ready driver.
 
 {{< callout type="default" >}}
 
@@ -76,5 +78,5 @@ Cloud public addresses can change when an instance is replaced. Read the address
 - Confirm the collector host firewall allows inbound UDP.
 - Confirm the Docker or cloud port mapping exists.
 - Make sure UDP Broadcast Mode is Off.
-- Confirm Master Control is on and the rig count covers this rig.
+- Confirm the rig is configured and its listener is on.
 - Use [Monitoring and Troubleshooting](/f1-2025/monitoring/) to separate UDP and destination problems.

@@ -5,131 +5,146 @@ weight: 20
 type: "docs"
 ---
 
-These instructions run the collector image on macOS or Linux.
-
-{{< callout type="info" >}}
-
-**Splunk Show users can skip this page**
-
-Most events run on a requested Splunk Show instance, where the collector is already installed, running, and configured for {{< term "HEC" >}}. Go straight to [Collector Configuration](/f1-2025/controller-config/) instead.
-
-{{< /callout >}}
+These instructions run **v6** on Docker Desktop or Docker Engine. Splunk Show users with v6 already provisioned can go straight to [Collector Configuration](/f1-2025/controller-config/).
 
 ## Prerequisites
 
-- Docker Desktop or Docker Engine
-- A Splunk HEC URL and token if sending full telemetry to Splunk
-- A Splunk Observability Cloud {{< term "realm" >}} and access token if sending real-time metrics
-- The computer's LAN IP address, reachable from the racing rig
-
-{{% steps %}}
+- Docker and a release image built for the host architecture (ARM64 or AMD64).
+- HEC URL/token and/or an Observability realm/token.
+- A reachable collector IP address and the required TCP/UDP firewall rules.
 
 ## Start the collector
 
-Create the configuration file the container writes settings back into, then start the container:
+The standard deployment uses the published `ghcr.io/splunk/f1-2025-v6:latest` image. `latest` follows new releases; use a tested version tag or digest if you need to control exactly when an event deployment changes.
+
+Save this as your collector startup script. The **named volume mounted at `/data` is required to retain configuration across container replacements**.
+
+If an existing collector was started without a named volume, follow [migration](#migrate-an-existing-collector) **before** running this script. Creating a named volume does not copy the previous volume's contents.
 
 ```bash
-touch "$HOME/config.json"
-chmod 666 "$HOME/config.json"
+#!/bin/bash
+set -euo pipefail
+
+IMAGE="ghcr.io/splunk/f1-2025-v6:latest"
+DATA_VOLUME="f1-v6-data"
+
+docker volume create "$DATA_VOLUME" >/dev/null
+docker pull "$IMAGE"
+
+if docker container inspect f1-2025 >/dev/null 2>&1; then
+    docker stop --timeout 120 f1-2025
+    docker rm f1-2025
+fi
 
 docker run -d \
   --name f1-2025 \
   --restart always \
-  -v "$HOME/config.json:/app/config.json" \
+  --stop-timeout 120 \
+  --read-only \
+  --cap-drop ALL \
+  --security-opt no-new-privileges:true \
+  --mount "type=volume,source=$DATA_VOLUME,target=/data" \
   -p 81:8501/tcp \
   -p 8501:8501/tcp \
   -p 20777:20777/udp \
   -p 20778:20778/udp \
   -p 20779:20779/udp \
   -p 20780:20780/udp \
-  ghcr.io/splunk/f1-2025-go:latest
+  "$IMAGE"
 ```
 
-{{< callout type="default" >}}
+To build locally from the [collector repository](https://github.com/splunk/datadrivers-f1-collector):
 
-**Collector repository users**
+```bash
+./v6/scripts/build.sh --version keep --tag none --local \
+  --repository f1-2025-v6 --yes
+```
 
-If you have the collector repository checked out, `./v5/scripts/start-collector.sh` performs exactly these steps, including removing any existing `f1-2025` container first.
+Use the exact local tag printed by the build script in place of the published image. Local builds do not publish an image.
 
-{{< /callout >}}
+Run only one collector on each set of published ports.
 
 ## Check collector health
 
-The container listens on TCP `8501`. The run above publishes it on both host port `81` and host port `8501`, so the UI is reachable at either address:
-
-- [http://localhost:81](http://localhost:81) — matches the `:81` convention used by Splunk Show instances
-- [http://localhost:8501](http://localhost:8501)
-
-Confirm the container becomes `healthy`:
+Open `http://localhost:81` or `http://localhost:8501`. From another machine, substitute the collector host address. Both ports above map to the same UI/API service. Check:
 
 ```bash
 docker ps --filter name=f1-2025
+curl --fail http://localhost:81/healthz
 ```
 
-{{< callout type="info" >}}
-
-**Publishing UDP ports**
-
-All four UDP ports are published above so that extra rigs can be enabled later without recreating the container. The collector only binds the ports for the rig count set under **Config → General**.
-
-{{< /callout >}}
+The container should become healthy. Healthz confirms the process responds, not that data is visible in Splunk.
 
 ## Configure the collector
 
-Open **Config** in the UI, set an **Event Name**, enable HEC and/or Observability, then select **Deploy Configuration**. Turn on **Master Control** to start collecting. See [Collector Configuration](/f1-2025/controller-config/) for field details.
-
-{{< callout type="warning" >}}
-
-**An event name is required**
-
-Master Control refuses to start until an event name is set. The error reads `Event name is not configured.`
-
-{{< /callout >}}
+Open **Configuration**, set the event and rigs, enable HEC and/or Observability, then **Save configuration**. Save before using **Test saved connection**. Listeners start automatically. Driver assignment requires at least one configured, enabled destination.
 
 ## Connect the racing rig
 
-Follow [Game Telemetry Setup](/f1-2025/telemetry/) to configure F1 25 with the collector address and UDP port. Run a short practice session and confirm live values appear on the rig card.
-
-{{% /steps %}}
+Follow [Game Telemetry Setup](/f1-2025/telemetry/). Enter a test driver and select Ready, then run a three-lap Grand Prix through Final Classification. A practice session without a first-light event does not test v6 race capture.
 
 ## Persistent files
 
-| Container path | Purpose |
-| --- | --- |
-| `/app/config.json` | Collector settings, including destination URLs and tokens |
-| `/app/telemetry_data` | `.tlm` recordings and bundled replay files |
-| `/app/collector.log` | Rotating collector log (10 MB, three backups) |
+Mount **one writable `/data` volume per collector instance**. It holds:
 
-The run command above bind-mounts `$HOME/config.json`, so settings survive container replacement. Recordings do not unless you also mount the data directory:
+| Path | Purpose |
+| --- | --- |
+| `/data/config.json` | Saved configuration and destination secrets |
+| `/data/recordings` | Raw recordings, metadata and recording settings |
+| `/data/results` | Local race outcomes |
+| Other `/data` state | Durable destination queues, rig recovery/completion state and collector identity |
+| `/opt/collector/telemetry_data` | Read-only bundled sample recordings in the image |
+
+No separate configuration bind mount is needed. Configure the collector through its UI or supported HEC update API. Keep the volume when replacing the container. Never run two collectors against the same data directory.
+
+Two bundled Austria recordings are imported into Saved files on startup without starting playback. Deleting an imported sample keeps it deleted on later starts; upload it again to restore it.
+
+## Verify persistence
 
 ```bash
--v "$HOME/f1-telemetry:/app/telemetry_data" \
+docker inspect f1-2025 \
+  --format '{{range .Mounts}}{{println .Name "->" .Destination}}{{end}}'
 ```
 
-Mount it before an event if the `.tlm` files must be kept. Note that this mount also replaces the bundled replay files used by [Playback Mode](/f1-2025/controller-config/#playback-mode), so copy any replay you want to keep using into the host directory.
+Expect `f1-v6-data -> /data`. Both UI changes and `/update_hec` updates are stored in this volume. Reusing the same volume preserves configuration, pending delivery, recordings and results. Do not delete it when replacing the container.
+
+### Migrate an existing collector
+
+Finish all assigned races and pause automatic updates during migration. Inspect the current `/data` mount before removing the old container. An installation without an explicit mount normally has an anonymous Docker volume with a long generated name.
+
+Stop the collector gracefully, back up its complete `/data` directory, and copy its contents into the new named volume. Preserve ownership and file permissions; the collector runs as UID/GID `10001`. Then start the replacement with `f1-v6-data:/data` and verify configuration and retained recordings/results before discarding the old volume or backup. Do not copy a live, changing queue.
+
+If starting with an empty volume is intentional, configure destinations once after switching. An earlier anonymous volume may still contain lost settings unless it was deleted. Mounting only `/app/config.json` does not persist v6 configuration; its active path is `/data/config.json`.
+
+### Watchtower and EC2
+
+Watchtower replacements must retain the named `/data` mount. Its `--remove-volumes` / `WATCHTOWER_REMOVE_VOLUMES` option targets anonymous volumes, not named volumes. See [Watchtower's volume option](https://github.com/containrrr/watchtower/blob/main/docs/arguments.md#remove-anonymous-volumes) and [Docker volume persistence](https://docs.docker.com/engine/storage/volumes/).
+
+A named volume survives container replacement on the same host. It does not by itself survive deletion of the EC2 disk. For a disposable event host, drain both destination queues and export wanted files before termination. Schedule image updates between races; persistence does not make a container restart transparent to an active race.
 
 ## Useful commands
 
 ```bash
-# Follow collector logs
+# Follow process logs
 docker logs -f f1-2025
 
-# Restart the collector
-docker restart f1-2025
+# Graceful stop (allow accepted data to flush)
+docker stop --timeout 120 f1-2025
 
-# Stop and remove the container; the mounted config file is retained
-docker rm -f f1-2025
-
-# Pull a newer image before recreating the container
-docker pull ghcr.io/splunk/f1-2025-go:latest
+# Start the same container again
+docker start f1-2025
 ```
+
+For upgrades, finish assigned races, check destination queues, stop gracefully, then replace the container using the same data volume and a tested image. If storage is failing, restore it or extend the stop timeout; forced termination can lose unwritten memory.
+
+Before deleting a volume or terminating EC2, verify both queues are empty and download any recordings/logs you want to keep.
 
 ## Network access
 
-Allow inbound TCP `81` (or `8501`) from the operator network and inbound UDP `20777` from the racing rig. Open the additional UDP ports only when additional rigs are enabled. For an internet-hosted collector, apply the same rules to the cloud firewall or security group.
+Restrict TCP `81`/`8501` to trusted operators/automation; the UI and configuration APIs are not a public multi-user authentication service. Allow UDP `20777`–`20780` from the relevant rigs. Publish only the additional ports your deployment needs. Outbound connectivity must reach configured destinations; public-IP lookup failure does not stop capture.
 
 ## Next steps
 
 1. [Configure the collector](/f1-2025/controller-config/)
 2. [Configure F1 25 telemetry](/f1-2025/telemetry/)
-3. [Run a pre-event health check](/f1-2025/monitoring/#pre-event-checklist)
+3. [Run the pre-event checklist](/f1-2025/monitoring/#pre-event-checklist)

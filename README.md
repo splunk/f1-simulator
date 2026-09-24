@@ -46,9 +46,9 @@ Use Hextra shortcodes for callouts and tabs:
 
 ```markdown
 {{< callout type="warning" >}}
-**Deploying stops collection**
+**Save configuration before assigning drivers**
 
-Turn Master Control back on after deploying configuration.
+Finish assigned races before changing their event, rig or destination settings.
 {{< /callout >}}
 
 {{< tabs >}}
@@ -102,3 +102,7 @@ re-run the build and site check and review the homepage, documentation navigatio
 tabs, search and mobile layout. Local theme overrides cover the branded homepage,
 dark page shell, fixed dark preference, favicon, 404 page and documentation-only
 search data. The small icon helper uses Hugo's current `hugo.Data` API.
+
+## v6 documentation screenshots
+
+Current collector instructions target v6.0.5. Screenshots are in `static/assets/screenshots/f1-2025/v6/`; see its `README.md` for provenance. Use an isolated collector with demo names and mock destinations when refreshing images. Never capture saved credentials or send documentation replays into a conference leaderboard. Preserve existing page URLs and update instructions against the running version, especially capture boundaries, retention and playback behaviour.

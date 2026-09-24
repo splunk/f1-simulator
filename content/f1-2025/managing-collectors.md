@@ -5,82 +5,69 @@ weight: 50
 type: "docs"
 ---
 
-Every enabled rig is independent. Recording and race completion on one rig do not affect another.
+Prepare the game's playlist of **27 three-lap Grands Prix** using the [Event Guide](/event_guide/). The collector handles up to four independent rigs; it does not create or advance the game playlist.
 
 ## Before a driver starts
 
-1. Confirm the rig card shows **Telemetry live** or **Awaiting telemetry**, not **Collector stopped**.
-2. Select **EDIT** on the card.
-3. Enter the driver's display name and select **SAVE**.
-4. Ask the driver to start or join the configured F1 25 session.
+1. Confirm the correct rig shows **Listener · On** and there are no storage/configuration errors.
+2. Enter the attendee's name under **Next driver**.
+3. Select **Ready**. The card becomes papaya and shows **Current driver**.
+4. Ask the driver to press **A** in the game to start.
 
-The driver name is a label carried with that rig's delivered telemetry. Unlike earlier collector versions, it is not a lock: packets arriving before a name is entered are still parsed and delivered, attributed to whatever name the rig currently holds. Set the name **before** the race rather than during it.
-
-Saving a name also clears the previous race-complete state and fastest lap from the card, which is how you hand a rig over between drivers.
+The collector begins saving and forwarding the attendee's car at **STLG 1**, the first starting light. Game payloads before that point, after completion, or without a ready driver are ignored. Health counters may still count incoming traffic.
 
 ## During a session
 
-Watch the rig card for speed, gear, lap, lap time, and track. If the values stay blank, use [Collector Health](/f1-2025/monitoring/#collector-health) to determine whether packets are reaching the port.
+The card becomes green while collecting and shows lap, lap time, speed, gear and fastest valid lap. Recording raw `.tlm` files is optional and separate from normal delivery to Splunk.
+
+If the first light was missed, use **Abort / reset**, assign the driver again, and restart the race. Do not start an already-running race by entering a name late.
 
 ## Completing a session
 
-At the end of a normal race, let the driver reach the results screen so the game sends **Final Classification**. On receipt, the collector:
+1. **SEND (Session Ended)** changes the card to cyan **Awaiting result**. Leave the game running through the results screen.
+2. **FinalClassificationData (packet 8)** is the final capture boundary. It ends the raw recording and begins saving the result.
+3. The collector commits the completion locally and queues the Final Classification event and `SessionCompleted` summary.
+4. The card opens for the next driver after local saving succeeds, even if a destination is temporarily offline. The last result stays in the footer row.
 
-- marks the card **Race complete**;
-- stops that rig's active recording;
-- forwards the original Final Classification event to HEC; and
-- emits a `SessionCompleted` summary event containing the session's fastest lap.
-
-{{< details title="How the session summary chooses a fastest lap" closed="true" >}}
-
-`SessionCompleted` is correlated by rig and the game's own session UID. The fastest lap is taken from Final Classification, which is authoritative; a matching personal fastest-lap event and then session history data are used as fallbacks.
-
-{{< /details >}}
+A **DNF** keeps the fastest known valid completed lap before retirement. With no valid completed lap, there is no fastest time. A DNF still waits for Final Classification.
 
 ### If Final Classification never arrives
 
-{{< details title="Automatic fallback after a game exit or crash" closed="true" >}}
+There is **no 60-second automatic completion fallback** in v6. SEND or loss of UDP alone cannot complete a race. Check Logs and the game first. For an abandoned race, use **Abort / reset** and confirm **Abort attempt**. This saves an incomplete local outcome and does not emit a completed-race summary.
 
-If the game exits or crashes before the results screen, the collector waits 60 seconds after Session Ended and then publishes the summary from cached data, marked `completion_source=session_ended_fallback` with `final_classification_received=false`.
-
-No operator action, PIN, or override is needed — this is automatic. A late Final Classification packet can still publish a higher-authority revision of the same summary.
-
-{{< /details >}}
+If the card is saving a received final result, resolve the storage problem and let it finish; abort is blocked while completion is being saved. After a restart, follow the displayed recovery state rather than starting the same heat again blindly.
 
 ## Recording telemetry
 
-Recording uses a booth model: one global arm control, and an independent recording lifecycle per rig.
+![Global recording control](/assets/screenshots/f1-2025/v6/recording.png)
 
-1. With collectors running on live UDP, press **RECORD** once. The control changes to **ARMED**.
-2. Each rig opens its own `.tlm` file when that simulator sends the five start lights.
-3. A rig closes its own file on Final Classification, or on its own 60-second Session Ended fallback. The booth stays armed, so a rig that has finished can record the next race while other rigs are still running.
-4. Press **ARMED** to immediately close every active recording and return to idle.
+1. Open **Recordings → Recording** and turn on **Record all rigs** before the next race.
+2. Assign each driver normally. Every rig writes its own file from accepted STLG 1 through matching Final Classification, including both packets.
+3. Leave the switch on across driver changes. The prominent armed indicator means the collector is ready to record future races; it does not mean a file is currently being written.
+4. Turning the switch off lets active recordings finish. Turning it on mid-race applies to the next race.
 
-Files are written to `/app/telemetry_data` inside the container as `<timestamp>_<track>_<rig>.tlm`.
+Abort, shutdown or a recording failure can leave an incomplete diagnostic file. Optional recording failure does not stop normal Splunk delivery. A restart does not resume an open recording.
 
-{{< details title="Recording interruptions and errors" closed="true" >}}
+### Saved files, import and export
 
-- If a game closes or telemetry disappears mid-race, 30 seconds of inactivity closes that rig's partial file without marking the race complete and without disarming the booth.
-- A card showing **REC ERROR** could not create or write its file. Hover the pill for the error.
-- Shutting down the collector or deploying configuration closes all open files.
-{{< /details >}}
+![Saved recordings with download and delete icons](/assets/screenshots/f1-2025/v6/saved-files.png)
 
-{{< callout type="warning" >}}
-**Keep recordings across container replacement**
+In **Recordings → Saved files**, use the **download icon** to export a `.tlm`, or choose a file and select **Upload recording** to import recordings. Only complete first-light-to-final-classification races are playable. Incomplete files remain downloadable for investigation. The trash icon deletes a finished file after confirmation; active files are protected.
 
-Recordings are lost when the container is replaced unless `/app/telemetry_data` is mounted — see [Persistent files](/f1-2025/docker-setup/#persistent-files).
-{{< /callout >}}
+New race recordings include the assigned driver in their download filename, for example `20260924_143025_Rig_1_Alex_Taylor.tlm`. Spaces become underscores in the filename only; the displayed/Splunk name remains `Alex Taylor`. Existing recordings and imported filenames are unchanged. The name in the filename does not embed driver metadata into the raw packet contents.
 
-{{< callout type="default" >}}
+Files remain under `/data/recordings` until deleted. Storage settings default to a 32 GiB library, 500 MiB maximum upload and 1 GiB free-space reserve. Export recordings you need before deleting the Docker volume or terminating a disposable instance. Raw recordings contain original packet arrays, potentially including other cars and in-game names; the separate driver/event metadata is not embedded in the exported file.
 
-**Record a known-good race**
+## Playback
 
-Keep a short, complete recording from a tested rig. Played back through [Playback Mode](/f1-2025/controller-config/#playback-mode), it validates dashboards and destinations without occupying the simulator.
+![Per-rig playback selection](/assets/screenshots/f1-2025/v6/playback.png)
 
-{{< /callout >}}
+Open **Recordings → Playback**, choose a saved race, an idle rig and a driver name, then select **Start playback**. The playback driver name uses the [same validation rules](/f1-2025/configuration/#entering-a-driver-name) as live assignment; **Start playback** remains disabled for an empty or invalid name. It plays **once at 1×**, through the configured destinations. Other rigs remain independent. The chosen rig excludes live UDP during playback; playback never creates another recording.
+
+The card shows **Source · Playback** and elapsed/total time in minutes and seconds. **Stop playback** aborts an unfinished replay. If Final Classification has already arrived, stopping preserves the completed result while it saves.
+
+Playback uses fresh session identities and labels output `data_mode=playback`. Existing dashboards include playback unless filtered. Use a test event/destination or exclude playback from conference leaderboards. There is no loop, pause or seek control.
 
 ## Adding rigs
 
-Open **Config → General**, choose the required number of rigs, and deploy. Make sure the corresponding UDP ports are published by Docker or allowed by the cloud firewall. Each game uses the same collector address but a different port.
-
-Return to one rig after a multi-rig event if that is the normal deployment. Fewer open ports and fewer unused cards make operation clearer.
+Before assigning drivers, open **Configuration → Rigs**, add up to four rigs and save. Match each game's UDP port to its rig; publish the ports in Docker and allow them through the firewall. Standard assignments are `20777`–`20780`.
