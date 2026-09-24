@@ -1,105 +1,72 @@
 ---
-title: "Using the Collector"
+title: "Using the v6 Collector"
 linkTitle: "The Collector Page"
 weight: 30
 type: "docs"
 ---
 
-The **Collector** page at `/` is the operator screen. Everything needed to run an event is on it: the master switch, one card per rig, and the Logs, Health, and Config panels.
+The collector page is the operator screen for up to four independent rigs. The footer identifies the installed version. These instructions and screenshots describe **v6.0.5**. Screenshots use an isolated demonstration collector with a mock HEC destination; they do not show production credentials or prove destination availability.
 
-![The Collector page during a session](/assets/screenshots/f1-2025/collector.png)
+![v6 collector with four independent rig cards](/assets/screenshots/f1-2025/v6/collector.png)
 
 ## Status bar
 
-| Control | Meaning |
+| Pill | Meaning |
 | --- | --- |
-| **Master Control** | The master switch. **SYSTEMS LIVE** means the UDP listeners and delivery workers are running; **SYSTEMS OFFLINE** means nothing is being collected. |
-| **PLAYBACK MODE** | An amber badge shown when the collector is replaying a recorded `.tlm` file instead of listening for live UDP. |
-| Public address | The collector's public IP address, shown with a blue indicator. This is the address to enter in F1 25 for an internet-reachable collector. |
-| **Runtime State** | Green when the collector's shared runtime state is available. Red means the UI cannot read live values. |
-| **MEM** | Total memory used by the single collector process for all rigs — not memory per rig. |
-| **n/n Collectors** | How many of the configured rigs currently have a running collector. |
+| **Event** | Event Name used to identify the event in Splunk. |
+| **IP** | Public internet address. Use the host's LAN address for local rigs. |
+| **Memory** | Collector-process memory, not the entire host or Docker VM. |
+| **HEC / Observability** | Destination delivery status. Click to open that destination's health tab. |
+| **Queue** | Outgoing batches waiting on disk. Click for queue health. |
 
-The **Logs**, **Health**, and **Config** buttons on the right open the three operator panels.
+**Connected** means delivery has succeeded and there is no current delivery problem; it does not verify dashboard results. **Waiting** means no successful delivery since startup. **Retrying** means a failed delivery is being retried. **Off** means disabled. A disabled destination with retained data is paused.
 
-{{< callout type="info" >}}
-
-**The address badge is the public IP only**
-
-The badge shows an address, not a port. Each rig's UDP port is on its own card. On a LAN-only deployment, use the Docker host's LAN address rather than the public one.
-
-{{< /callout >}}
+The Queue pill suppresses brief pending batches for three seconds to avoid flicker. **Delayed** uses the configured warning threshold, normally 30 seconds. That threshold never expires or deletes data.
 
 ## Rig cards
 
-Each enabled rig has its own card. The card border and state line are colour-coded:
-
-| State line | Meaning |
+| Card state | Operator meaning |
 | --- | --- |
-| **Telemetry live** | The collector is running and receiving UDP packets. |
-| **Telemetry playback** | The collector is running and replaying a recorded file. |
-| **Awaiting telemetry** | The collector is running but no packets have arrived recently. |
-| **Awaiting playback** | Playback is configured but has not produced packets yet. |
-| **Race complete** | Final Classification was received for this session. |
-| **Collector stopped** | Master Control is off, or this rig failed to start. |
+| **Awaiting driver** | Enter the next attendee. No race is being collected. |
+| **Driver required** | Game traffic is arriving without a ready driver; race payloads are not saved or forwarded. |
+| **Ready** (papaya) | Driver assigned; waiting for the first starting light. |
+| **Collecting** (green) | Race telemetry is being accepted. |
+| **Awaiting result** (cyan) | Session Ended arrived; wait for Final Classification. |
+| **Saving result** | Final Classification arrived; local completion is being committed. Wait. |
+| Warning / error | Select the pill to open the relevant activity log. |
 
-The pills along the top of each card show:
+**Listener · On** means the UDP socket is open. The **UDP** pill describes traffic, not whether a race is being captured. Silence before a race or between drivers is normal. A genuine interruption during capture needs investigation.
 
-- **RIG n** — the rig identifier used in the delivered data
-- **UDP nnnnn** — the rig's UDP port; green when packets arrived recently
-- **REC** — this rig is currently writing a `.tlm` recording
-- **REC ERROR** — this rig could not create or write its recording file; hover for the error
-- **O11y ✓ / ✗ / —** and **HEC ✓ / ✗ / —** — the latest endpoint validation result, shown only for enabled destinations
-- The queue pill — see below
-
-The card body shows speed, gear, lap, lap time, and track, with the session's fastest lap in the top-right.
-
-### The queue pill
-
-The queue pill covers **outbound HEC and Observability requests only**. It is not the UDP receive path and does not report dropped game packets.
-
-| Pill | Meaning |
-| --- | --- |
-| **QUEUE OK** | No outbound request was rejected for capacity in the last 10-second sample. This does not prove the destination accepted every request. |
-| **Q 12/60** | This rig currently has 12 requests using a shared 60-request capacity. The denominator is shared across all rigs, not reserved per card. |
-| **3 DROP** | Three outbound requests were rejected in the last 10-second sample because the shared in-memory capacity was full. |
-
-HTTP and network delivery failures are recorded in the collector log and health data, and can occur even while the pill reads **QUEUE OK**.
+Each card shows Rig, Fastest Lap (purple), Lap, Lap Time, Speed and Gear. The current driver replaces the entry field after assignment, displayed in cyan. The label, name and action button stay aligned; entered and assigned names use the same bold typography. The bottom row retains the last result; **Saved locally** is not a Splunk delivery acknowledgement.
 
 ## Entering a driver name
 
-![Entering a driver name on a rig card](/assets/screenshots/f1-2025/driver-name.png)
+![Ready controls and an assigned driver on v6](/assets/screenshots/f1-2025/v6/driver-name.png)
 
-1. Select **EDIT** on the rig card.
-2. Type the driver's display name.
-3. Select **SAVE**.
+1. Enter the attendee's display name in **Next driver** on the correct rig.
+2. Select **Ready** before the game starts its lights.
+3. Ask the attendee to start the race. Capture begins at **STLG 1**, the first starting light.
 
-The name is a label attached to that rig's delivered telemetry. Saving a new name also clears the previous race-complete and fastest-lap display, which is how a card is handed over to the next driver.
+Names must contain **1–60 characters** using **A–Z, a–z, 0–9, ordinary spaces, underscores or hyphens**. Apostrophes, accents, slashes and other punctuation are not accepted. Leading/trailing spaces are trimmed; spaces inside the name remain in the UI and Splunk.
 
-## Recording
+Validation runs as you type. An invalid name stays visible, the label changes to an amber explanation, and **Ready** is disabled until corrected. The warning uses the existing label row, keeping card height unchanged. The API applies the same rules.
 
-With collectors running on live UDP, press **RECORD** once to arm booth recording for every rig. The control then reads **ARMED** with a count of the rigs actively writing files. See [Running an Event](/f1-2025/managing-collectors/#recording-telemetry) for the full lifecycle.
+![Invalid name with inline guidance and Ready disabled](/assets/screenshots/f1-2025/v6/name-validation.png)
 
-The Record control is hidden while Playback Mode is enabled.
+A name is required for collection. Editing a name after missing the lights cannot recover the beginning of that race. See [Running an Event](/f1-2025/managing-collectors/).
 
-## Built-in help
+## Top menu
 
-Select **?** in the top-right corner for an operator reference with tabs for Start, Dashboard, Config, Health, and Logs.
+| Button | Use |
+| --- | --- |
+| **Recordings** | Arm recording globally, upload/download files and play a race on an idle rig. |
+| **Collector health** | Inspect Overview, Rigs, HEC, Observability and Queue. |
+| **Logs** | Search and download the current run's activity history. The red badge counts unread warnings/errors. |
+| **Configuration** | Set the event, rigs and destinations. |
+| **?** | Tabbed help for race operation and each menu feature. |
 
-![The built-in help panel](/assets/screenshots/f1-2025/help.png)
+![Tabbed operator help](/assets/screenshots/f1-2025/v6/help.png)
 
 ## Recommended first-use sequence
 
-1. Open **Config**, set the rig count and an **Event Name**, and configure your [destinations](/f1-2025/controller-config/).
-2. Select **Deploy Configuration**.
-3. Turn on **Master Control** and confirm it reads **SYSTEMS LIVE**.
-4. Configure the game using the collector address and the rig's UDP port.
-5. Start a practice session and confirm the card shows **Telemetry live** with real values.
-6. Confirm the destination pills on the card show **✓**.
-
-{{< callout type="default" >}}
-
-**One change at a time**
-
-During setup, first prove UDP ingest, then prove HEC, then prove Observability. Separating the checks makes network and credential problems much easier to identify.
-{{< /callout >}}
+Configure the event and destinations, verify **Listener · On**, configure the game's UDP address/port, then run a complete three-lap test race with a ready driver. Verify the final result and both destination dashboards. There is no Master Control switch in v6; listeners start with the collector.

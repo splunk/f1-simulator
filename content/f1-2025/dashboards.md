@@ -17,7 +17,7 @@ A pre-built F1 2025 dashboard group is available in the repository.
 4. Upload the JSON file and import it.
 5. Open the **F1 2025** dashboard group.
 
-If charts are empty, confirm the rig cards show **O11y ✓** and verify the realm and access token under **Config → Destinations**.
+If charts are empty, check the **Observability** delivery pill and verify the realm/token under **Configuration → Observability**.
 
 ## Splunk Enterprise and Splunk Cloud
 
@@ -37,23 +37,32 @@ The collector does not choose an index. Events land in whatever index the HEC to
 
 ## Session summary events
 
-In addition to the raw parsed packets, the collector emits one `SessionCompleted` event per completed session, carrying that session's fastest lap. It is correlated by rig and the game's session UID, and is the most convenient event to build leaderboards from — it avoids scanning every lap record.
+For each completed attempt, v6 queues a `SessionCompleted` summary alongside the attendee's Final Classification event. It uses `packet_id=97`, `summary_type=fastest_lap`, `completion_source=final_classification` and `final_classification_received=true`. There is no SEND timeout fallback.
 
-Useful fields include `completion_source` and `final_classification_received`, which indicate whether the summary came from the authoritative Final Classification packet or from the 60-second Session Ended fallback.
+HEC fields include `source=f1_2025`, hosts `rig_1`–`rig_4`, `custom_event` (Event Name), `player_name` and `best_lap_time_in_ms`. v6 adds `attempt_id`, `record_id` and `data_mode`. Identical driver names can have separate attempts. Delivery is at least once; deduplicate retries by `record_id`.
+
+Example conference leaderboard (substitute your HEC token's index):
+
+```spl
+index=data_drivers_f1_2025 source=f1_2025 sourcetype=SessionCompleted
+custom_event="Data Drivers" data_mode=live best_lap_time_in_ms>0
+| dedup record_id
+| stats min(best_lap_time_in_ms) as best_lap_ms latest(player_name) as player_name by attempt_id host
+| sort 0 best_lap_ms
+| eval best_lap_seconds=round(best_lap_ms/1000,3)
+| table player_name best_lap_seconds host
+```
+
+## Playback data
+
+Managed playback goes to the configured destinations. HEC events carry `data_mode=playback`; playback Observability metrics add the same dimension. Filter it out of conference results or use a separate test destination. Live Observability dimensions are `f1.hostname`, `f1.gameVersion` and `f1.eventName`.
 
 ## Validate the data first
 
-Before troubleshooting a dashboard, confirm delivery at the collector:
+1. Confirm the driver was Ready before STLG 1 and the card collected the race.
+2. Check the relevant destination pill and health tab.
+3. Verify its queue drains and inspect Logs for errors.
+4. Check the dashboard's index, event, rig and time-range filters.
+5. Confirm Final Classification arrived for a completed-race result.
 
-1. **Master Control** reads **SYSTEMS LIVE**.
-2. The rig card shows **HEC ✓** or **O11y ✓** for the destination you are querying.
-3. The queue pill reads **QUEUE OK**.
-4. The **Logs** panel shows no repeating delivery errors.
-5. The rig is producing live values.
-
-{{< callout type="default" >}}
-
-**Keep dimensions predictable**
-
-Use consistent event names and rig names throughout an activation. This makes filters reusable and prevents one physical rig from appearing as several unrelated time series.
-{{< /callout >}}
+**Connected** is a successful delivery indicator, not a guarantee that a particular dashboard query matches the data. Health exports may be arriving even when no race has been captured.

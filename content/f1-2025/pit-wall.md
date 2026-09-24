@@ -1,40 +1,22 @@
 ---
-title: "Pit Wall"
-linkTitle: "Pit Wall"
+title: "Display Screens"
+linkTitle: "Display Screens"
 weight: 70
 type: "docs"
 ---
 
-The **Pit Wall** at `/pitwall` is a broadcast-style live telemetry view for a single rig. It is designed for a display screen behind the booth rather than for the operator.
-
-![The Pit Wall view during a session](/assets/screenshots/f1-2025/pit-wall.png)
+Keep the collector page open for operators and use the [Splunk or Observability dashboards](/f1-2025/dashboards/) on spectator displays.
 
 ## Using it
 
-1. Open **Pit Wall** from the navigation.
-2. Choose the rig to follow from the selector in the header.
-3. Select **STREAM**.
-
-The driver's name is shown at the top right. **STOP** ends the stream; changing the selected rig switches which car is displayed.
-
-The Pit Wall requires a tablet or desktop browser. On narrow screens it shows a message instead of the layout.
+Open the appropriate dashboard on the display computer. Select the event and rig filters, check the time range, and confirm that the dashboard refreshes as race data arrives.
 
 ## What it shows
 
-| Panel | Contents |
-| --- | --- |
-| **Race Status** | Track name, lap, sector, position, DRS state |
-| Track map | The car's path around the circuit with live sector timing |
-| Speed gauge | Current speed in the configured display unit |
-| **Weather** | Condition, air and track temperature, rain percentage |
-| Car view | Per-corner tyre and brake temperatures |
-| **Engine Temp** / **RPM** | Live bar readouts |
-| **Shift Lights** / **Gear** | Current shift-light state and selected gear |
-| **Speed** / **Throttle** / **Brake** | Rolling charts with current, highest, and average values, plus ERS mode |
-| Lap timing | Current lap, best lap, and S1/S2/S3 sector times |
+The installed dashboard app or group determines the available visualisations. The collector sends the attendee's car telemetry during the race window and a fastest-lap summary when Final Classification arrives.
+
+The operator's four-card view shows driver, lap, lap time, speed, gear and fastest lap. See the [Collector page guide](/f1-2025/configuration/) for the controls.
 
 ## Notes
 
-- The Pit Wall reads the same telemetry stream as the Collector page. It does not change what is delivered to Splunk, and streaming to it is not required for collection.
-- It works identically with [Playback Mode](/f1-2025/controller-config/#playback-mode), which makes it a good way to test a booth display before an event.
-- Speed follows the **Speed Display** setting under [Config → General](/f1-2025/controller-config/#general).
+Exclude playback data from conference leaderboards unless the replay is part of your demonstration. A Connected delivery pill confirms delivery activity, not that a dashboard's search filters match the event.
