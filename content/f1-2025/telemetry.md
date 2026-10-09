@@ -36,7 +36,7 @@ On the racing rig:
 | Your Telemetry | **Restricted** |
 | Show Online IDs | **Off** |
 
-![F1 25 telemetry settings](/assets/screenshots/telemetry.png)
+![F1 25 telemetry settings](../images/telemetry.webp)
 
 ## Multiple rigs
 

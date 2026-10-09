@@ -16,4 +16,4 @@ type: "docs"
 
 3. Return to the **Grand Prix™ Settings** screen by pressing **O**
 
-![Weather](/assets/screenshots/weather.png)
+![Weather](../images/weather.webp)

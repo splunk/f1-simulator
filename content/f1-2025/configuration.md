@@ -5,16 +5,17 @@ weight: 30
 type: "docs"
 ---
 
-The collector page is the operator screen for up to four independent rigs. The footer identifies the installed version. These instructions and screenshots describe **v6.0.5**. Screenshots use an isolated demonstration collector with a mock HEC destination; they do not show production credentials or prove destination availability.
+The collector page is the operator screen for up to four independent rigs. The footer identifies the installed version. These instructions and screenshots describe **v6.0.6**. Screenshots use an isolated demonstration collector with a mock HEC destination; they do not show production credentials or prove destination availability.
 
-![v6 collector with four independent rig cards](/assets/screenshots/f1-2025/v6/collector.png)
+![v6 collector with four independent rig cards](../images/v6/collector.webp)
 
 ## Status bar
 
 | Pill | Meaning |
 | --- | --- |
 | **Event** | Event Name used to identify the event in Splunk. |
-| **IP** | Public internet address. Use the host's LAN address for local rigs. |
+| **Game** | F1 2025, the UDP format this collector accepts. |
+| **IP** | Public internet address. It reads Unavailable when that address cannot be determined. Use the host's LAN address for local rigs. |
 | **Memory** | Collector-process memory, not the entire host or Docker VM. |
 | **HEC / Observability** | Destination delivery status. Click to open that destination's health tab. |
 | **Queue** | Outgoing batches waiting on disk. Click for queue health. |
@@ -41,7 +42,7 @@ Each card shows Rig, Fastest Lap (purple), Lap, Lap Time, Speed and Gear. The cu
 
 ## Entering a driver name
 
-![Ready controls and an assigned driver on v6](/assets/screenshots/f1-2025/v6/driver-name.png)
+![Ready controls and an assigned driver on v6](../images/v6/driver-name.webp)
 
 1. Enter the attendee's display name in **Next driver** on the correct rig.
 2. Select **Ready** before the game starts its lights.
@@ -51,7 +52,7 @@ Names must contain **1–60 characters** using **A–Z, a–z, 0–9, ordinary s
 
 Validation runs as you type. An invalid name stays visible, the label changes to an amber explanation, and **Ready** is disabled until corrected. The warning uses the existing label row, keeping card height unchanged. The API applies the same rules.
 
-![Invalid name with inline guidance and Ready disabled](/assets/screenshots/f1-2025/v6/name-validation.png)
+![Invalid name with inline guidance and Ready disabled](../images/v6/name-validation.webp)
 
 A name is required for collection. Editing a name after missing the lights cannot recover the beginning of that race. See [Running an Event](/f1-2025/managing-collectors/).
 
@@ -65,7 +66,7 @@ A name is required for collection. Editing a name after missing the lights canno
 | **Configuration** | Set the event, rigs and destinations. |
 | **?** | Tabbed help for race operation and each menu feature. |
 
-![Tabbed operator help](/assets/screenshots/f1-2025/v6/help.png)
+![Tabbed operator help](../images/v6/help.webp)
 
 ## Recommended first-use sequence
 

@@ -1,0 +1,94 @@
+baseURL = "https://splunk.github.io/f1-simulator/"
+locale = "en-GB"
+title = "Splunk Data Drivers"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
+# The v6 screenshot note is for editors. It is not a documentation page.
+ignoreFiles = ["images/v6/README\\.md"]
+
+# Once a table header appears, every key after it belongs to that table.
+# Keep top-level Hugo settings above the first table.
+
+[module]
+  [module.hugoVersion]
+    min = "0.165.0"
+  [[module.imports]]
+    path = "github.com/imfing/hextra"
+    # Use our own branding and assets, not the theme's demo images.
+    [[module.imports.mounts]]
+      source = "layouts"
+      target = "layouts"
+    [[module.imports.mounts]]
+      source = "assets"
+      target = "assets"
+    [[module.imports.mounts]]
+      source = "i18n"
+      target = "i18n"
+    [[module.imports.mounts]]
+      source = "data"
+      target = "data"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Hextra Steps and nested shortcodes render HTML from our authored content.
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[[menu.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 1
+[[menu.main]]
+  name = "F1 2025 Collector"
+  pageRef = "/f1-2025"
+  weight = 2
+[[menu.main]]
+  name = "Event Guide"
+  pageRef = "/event_guide"
+  weight = 3
+[[menu.main]]
+  name = "Search"
+  weight = 4
+  [menu.main.params]
+    type = "search"
+[[menu.main]]
+  name = "GitHub"
+  url = "https://github.com/splunk/f1-simulator"
+  weight = 5
+  [menu.main.params]
+    icon = "github"
+
+[params]
+  description = "Set up F1 2025 telemetry, run your racing event, and explore the data with Splunk."
+  [params.theme]
+    default = "dark"
+    displayToggle = false
+  [params.navbar]
+    width = "wide"
+    displayLogo = false
+  [params.page]
+    width = "wide"
+    [params.page.contextMenu]
+      enable = false
+  [params.footer]
+    enable = true
+    displayCopyright = true
+    displayPoweredBy = false
+    width = "wide"
+  [params.search]
+    enable = true
+    type = "flexsearch"
+    [params.search.flexsearch]
+      index = "content"
+  [params.editURL]
+    enable = false
+  [params.highlight]
+    [params.highlight.copy]
+      enable = true
+  [params.imageZoom]
+    enable = true

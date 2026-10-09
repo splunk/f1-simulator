@@ -39,7 +39,7 @@ If the card is saving a received final result, resolve the storage problem and l
 
 ## Recording telemetry
 
-![Global recording control](/assets/screenshots/f1-2025/v6/recording.png)
+![Global recording control](../images/v6/recording.webp)
 
 1. Open **Recordings → Recording** and turn on **Record all rigs** before the next race.
 2. Assign each driver normally. Every rig writes its own file from accepted STLG 1 through matching Final Classification, including both packets.
@@ -50,7 +50,7 @@ Abort, shutdown or a recording failure can leave an incomplete diagnostic file. 
 
 ### Saved files, import and export
 
-![Saved recordings with download and delete icons](/assets/screenshots/f1-2025/v6/saved-files.png)
+![Saved recordings with download and delete icons](../images/v6/saved-files.webp)
 
 In **Recordings → Saved files**, use the **download icon** to export a `.tlm`, or choose a file and select **Upload recording** to import recordings. Only complete first-light-to-final-classification races are playable. Incomplete files remain downloadable for investigation. The trash icon deletes a finished file after confirmation; active files are protected.
 
@@ -60,7 +60,7 @@ Files remain under `/data/recordings` until deleted. Storage settings default to
 
 ## Playback
 
-![Per-rig playback selection](/assets/screenshots/f1-2025/v6/playback.png)
+![Per-rig playback selection](../images/v6/playback.webp)
 
 Open **Recordings → Playback**, choose a saved race, an idle rig and a driver name, then select **Start playback**. The playback driver name uses the [same validation rules](/f1-2025/configuration/#entering-a-driver-name) as live assignment; **Start playback** remains disabled for an empty or invalid name. It plays **once at 1×**, through the configured destinations. Other rigs remain independent. The chosen rig excludes live UDP during playback; playback never creates another recording.
 

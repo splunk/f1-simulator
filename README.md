@@ -28,19 +28,19 @@ of tabs and callouts. Generated output in `public/` is ignored by Git.
 ## Editing documentation
 
 - `content/_index.md`: homepage metadata.
-- `content/f1-2025/`: collector documentation. `_index.md` is the overview.
-- `content/event_guide/`: the seven F1 2025 event setup pages and guide index.
-- `static/assets/`: screenshots and car artwork copied unchanged to the site.
+- `content/f1-2025/`: collector documentation. `_index.md` is the overview. Screenshots are in `images/`, with the current collector UI in `images/v6/`.
+- `content/event_guide/`: the seven F1 2025 event setup pages and guide index. Screenshots are in `images/`.
+- `static/assets/images/`: homepage car artwork copied unchanged to the site.
 - `static/favicon.ico`: the site favicon, published at `/favicon.ico` under the base URL.
 - `layouts/home.html`: the orange landing page and documentation shortcuts.
 - `assets/`: CSS, JavaScript and search data processed by Hugo's asset pipeline.
 - `assets/css/custom.css`: branding and responsive layout overrides.
-- `hugo.yaml`: navigation and theme settings.
+- `hugo.toml`: navigation and theme settings.
 
 Page titles and sidebar order come from `title`, `linkTitle` and `weight` in
 YAML front matter. Use Hugo content paths for internal links, for example
 `[Configuration](/f1-2025/controller-config/#general)`; the theme adds the
-GitHub Pages prefix. Image paths start with `/assets/`.
+GitHub Pages prefix. From a page, reference that section's screenshots with a relative path such as `../images/v6/collector.webp`. The section overview uses `images/v6/collector.webp`.
 
 Use Hextra shortcodes for callouts and tabs:
 
@@ -66,8 +66,7 @@ static mounts. New pages under `content/` and files under `static/` are included
 automatically. Keep only F1 2025 and the current event guide in these directories.
 When adding a page, update the expected page list in `scripts/check_site.py`.
 
-The remaining `archive/mkdocs/` files are retired MkDocs material, excluded from the build
-and search. The imported theme's mounts omit its demo static files so only our
+The imported theme's mounts omit its demo static files so only our
 own images and favicon are published. The previous MkDocs configuration has
 been retired.
 
@@ -95,7 +94,7 @@ For the initial migration, set **Settings → Pages → Build and deployment →
 Source** to **GitHub Actions**. This replaces the former branch-based MkDocs
 deployment when the workflow first runs. The configured public URL is
 `https://splunk.github.io/f1-simulator/`; existing F1 2025 and event-page URLs
-are retained. Change `baseURL` in `hugo.yaml` if deploying somewhere else.
+are retained. Change `baseURL` in `hugo.toml` if deploying somewhere else.
 
 The theme is pinned in `go.mod` and `go.sum`. When updating Hugo or Hextra,
 re-run the build and site check and review the homepage, documentation navigation,
@@ -105,4 +104,4 @@ search data. The small icon helper uses Hugo's current `hugo.Data` API.
 
 ## v6 documentation screenshots
 
-Current collector instructions target v6.0.5. Screenshots are in `static/assets/screenshots/f1-2025/v6/`; see its `README.md` for provenance. Use an isolated collector with demo names and mock destinations when refreshing images. Never capture saved credentials or send documentation replays into a conference leaderboard. Preserve existing page URLs and update instructions against the running version, especially capture boundaries, retention and playback behaviour.
+Current collector instructions target v6.0.6. Screenshots are in `content/f1-2025/images/v6/`; see its `README.md` for provenance. Hugo ignores that note so it is not published as a page. Use an isolated collector with demo names and mock destinations when refreshing images. Never capture saved credentials or send documentation replays into a conference leaderboard. Preserve existing page URLs and update instructions against the running version, especially capture boundaries, retention and playback behaviour.

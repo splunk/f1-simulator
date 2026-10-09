@@ -16,7 +16,7 @@ Set up the track, team and driver before configuring the race settings.
 3. Select **Start new Grand Prix™** and accept the **START NEW GRAND PRIX™** prompt.
 4. Select the **F1® 2025** option.
 
-![Grand Prix](/assets/screenshots/grand_prix.png)
+![Grand Prix](../images/grand_prix.webp)
 
 ## Build the track schedule
 
@@ -24,17 +24,17 @@ Set up the track, team and driver before configuring the race settings.
 2. Select **Highlight To Add Next Track** and add the same track again.
 3. Repeat until all slots are filled with the same track.
 
-![Custom Championship](/assets/screenshots/custom_championship.png)
+![Custom Championship](../images/custom_championship.webp)
 
 ## Choose the team and driver
 
 Select the **McLaren** team.
 
-![Select Team](/assets/screenshots/team.png)
+![Select Team](../images/team.webp)
 
 Select **Lando Norris** as the driver.
 
-![Select Driver](/assets/screenshots/driver.png)
+![Select Driver](../images/driver.webp)
 
 ## Continue to race settings
 

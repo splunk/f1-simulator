@@ -26,4 +26,4 @@ type: "docs"
 
 3. Return to the **Grand Prix™ Settings** screen by pressing **O**
 
-![Assists](/assets/screenshots/assists.png)
+![Assists](../images/assists.webp)

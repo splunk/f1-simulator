@@ -20,7 +20,7 @@ Check game reception, race progress and destination delivery separately. A green
 
 ## Collector Health
 
-![Collector health overview](/assets/screenshots/f1-2025/v6/health.png)
+![Collector health overview](../images/v6/health.webp)
 
 **Collector health** refreshes every five seconds and has one row of tabs:
 
@@ -32,7 +32,7 @@ Check game reception, race progress and destination delivery separately. A green
 | **Observability** | Independent metric delivery status and errors. |
 | **Queue** | Pending batches, oldest age, disk usage/headroom, writer buffer and health exports. |
 
-![Durable delivery queue](/assets/screenshots/f1-2025/v6/queue.png)
+![Durable delivery queue](../images/v6/queue.webp)
 
 **Filtered** means deliberately excluded traffic: no ready driver, before the first light, closed/wrong session, another car or an old/duplicate frame. It is not measured UDP packet loss. **Health samples skipped** means optional health exports were not admitted under pressure; already persisted samples remain queued.
 
@@ -44,7 +44,7 @@ Health export is enabled by default. Per-rig HEC health uses `sourcetype=SplunkD
 
 ## Logs
 
-![Searchable collector activity log](/assets/screenshots/f1-2025/v6/logs.png)
+![Searchable collector activity log](../images/v6/logs.webp)
 
 Open **Logs**, or select a rig status/listener/UDP pill for that rig's history. Filter by rig/destination and severity, or search driver/message text. Use the download icon to export retained entries as JSON.
 

@@ -7,11 +7,11 @@ type: "docs"
 
 Open **Configuration**. The **Event**, **Rigs**, **HEC**, **Observability** and **Queue** tabs share one **Save configuration** button. Settings persist in `/data/config.json`. Use a named Docker volume mounted at `/data` so replacement containers and Watchtower updates reuse them; see [persistent storage](/f1-2025/docker-setup/#verify-persistence).
 
-![v6 Event configuration](/assets/screenshots/f1-2025/v6/config-event.png)
+![v6 Event configuration](../images/v6/config-event.webp)
 
 ## General
 
-Under **Event**, set **Event Name** (shown in the UI and exported as HEC `custom_event`) and **Event ID** (a stable event identifier). Keep the ID fixed throughout the event; use a new ID for a new event.
+Under **Event**, set **Event Name** (shown in the UI and exported as HEC `custom_event`) and **Event ID** (a stable event identifier). Keep the ID fixed throughout the event; use a new ID for a new event. **Game** shows **F1 2025**. Leave it on that setting, and set the same UDP format in the game.
 
 Under **Rigs**, configure one to four rigs with unique IDs and UDP ports. The optional source IP restricts which game host can supply that rig. Standard ports are:
 
@@ -40,7 +40,7 @@ Changing a destination URL sends its retained backlog to the new address with th
 
 ### Splunk Observability Cloud
 
-![Observability realm and token configuration](/assets/screenshots/f1-2025/v6/config-observability.png)
+![Observability realm and token configuration](../images/v6/config-observability.webp)
 
 Enable Observability, select your organization's realm, enter the token, save and test. Supported realms: `au0`, `eu0`, `eu1`, `eu2`, `jp0`, `sg0`, `us0`, `us1`, `us2`. The endpoint is derived as `https://ingest.<realm>.observability.splunkcloud.com/v2/datapoint`; no URL override is needed.
 

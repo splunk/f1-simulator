@@ -21,4 +21,4 @@ type: "docs"
 
 3. Return to the **Grand Prix™ Settings** screen by pressing **O**
 
-![Simulation Settings](/assets/screenshots/simulation_settings.png)
+![Simulation Settings](../images/simulation_settings.webp)

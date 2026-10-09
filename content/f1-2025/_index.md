@@ -9,7 +9,7 @@ cascade: {"type": "docs"}
 
 These guides cover the **v6 F1 2025 collector**: one Go service, up to four independent rigs, and delivery to Splunk Enterprise/Cloud through {{< term "HEC" >}}, Splunk Observability Cloud, or both. v6 is undergoing production field testing; verify your deployment before guests arrive.
 
-![The v6 operator screen](/assets/screenshots/f1-2025/v6/collector.png)
+![The v6 operator screen](images/v6/collector.webp)
 
 Only the attendee's car is exported during the race window: **Ready → first starting light (STLG 1) → Final Classification**. Session Ended (SEND) means wait for the result; it does not complete the heat. Unsent data stays in a disk queue until delivered.
 

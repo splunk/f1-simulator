@@ -18,4 +18,4 @@ type: "docs"
 
 3. Return to the **Grand Prix™ Settings** screen by pressing **O**
 
-![Structure](/assets/screenshots/weekend.png)
+![Structure](../images/weekend.webp)
