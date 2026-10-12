@@ -40,9 +40,6 @@ docker run -d \
   --name f1-2025 \
   --restart always \
   --stop-timeout 120 \
-  --read-only \
-  --cap-drop ALL \
-  --security-opt no-new-privileges:true \
   --mount "type=volume,source=$DATA_VOLUME,target=/data" \
   -p 81:8501/tcp \
   -p 8501:8501/tcp \
@@ -61,6 +58,8 @@ To build locally from the [collector repository](https://github.com/splunk/datad
 ```
 
 Use the exact local tag printed by the build script in place of the published image. Local builds do not publish an image.
+
+Do not add `--cap-drop ALL`. The entrypoint starts as root so it can give `/data` to user `collector`, then it switches to uid 10001. Dropping every capability makes that `chown` fail and the container exit.
 
 Run only one collector on each set of published ports.
 
