@@ -62,11 +62,11 @@ Files remain under `/data/recordings` until deleted. Storage settings default to
 
 ![Per-rig playback selection](../images/v6/playback.webp)
 
-Open **Recordings → Playback**, choose a saved race, an idle rig and a driver name, then select **Start playback**. The playback driver name uses the [same validation rules](/f1-2025/configuration/#entering-a-driver-name) as live assignment; **Start playback** remains disabled for an empty or invalid name. It plays **once at 1×**, through the configured destinations. Other rigs remain independent. The chosen rig excludes live UDP during playback; playback never creates another recording.
+Open **Recordings → Playback**, choose a saved race and an idle rig, then select **Start playback**. With **Continuous playback** off, enter a driver name. It uses the [same validation rules](/f1-2025/configuration/#entering-a-driver-name) as live assignment, and **Start playback** stays disabled for an empty or invalid name. The race plays once at 1×. With **Continuous playback** on, the collector assigns a generated driver name and repeats the race after each saved result. A restart does not resume playback. Playback goes through the configured destinations. Other rigs remain independent. The chosen rig excludes live UDP during playback; playback never creates another recording.
 
 The card shows **Source · Playback** and elapsed/total time in minutes and seconds. **Stop playback** aborts an unfinished replay. If Final Classification has already arrived, stopping preserves the completed result while it saves.
 
-Playback uses fresh session identities and labels output `data_mode=playback`. Existing dashboards include playback unless filtered. Use a test event/destination or exclude playback from conference leaderboards. There is no loop, pause or seek control.
+Playback uses fresh session identities and labels output `data_mode=playback`. Existing dashboards include playback unless filtered. Use a test event/destination or exclude playback from conference leaderboards. There is no pause or seek control. Continuous playback is the only way a race repeats.
 
 ## Adding rigs
 

@@ -41,7 +41,7 @@ Only the attendee's car is exported during the race window: **Ready → first st
 
 Prepare 27 three-lap Grands Prix in the game. For each attendee, enter their name on the correct rig, select Ready, then ask them to start. Capture starts at the first light. After SEND, leave the game running until Final Classification arrives and the result is saved. The card then opens for the next driver. Rigs progress independently.
 
-The container starts listeners automatically; v6 has no Master Control switch. The optional global **Record all rigs** switch saves raw files independently of sending data to Splunk. Per-rig playback runs once at normal speed.
+The container starts listeners automatically; v6 has no Master Control switch. The optional global **Record all rigs** switch saves raw files independently of sending data to Splunk. Per-rig playback runs once at normal speed unless **Continuous playback** is on.
 
 ## Test before guests arrive
 
