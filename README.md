@@ -67,8 +67,7 @@ automatically. Keep only F1 2025 and the current event guide in these directorie
 When adding a page, update the expected page list in `scripts/check_site.py`.
 
 The imported theme's mounts omit its demo static files so only our
-own images and favicon are published. The previous MkDocs configuration has
-been retired.
+own images and favicon are published.
 
 ## Hextra content components
 
@@ -90,9 +89,7 @@ Content is authored and reviewed in this repository; do not import untrusted HTM
 `.github/workflows/docs.yml` builds and validates pull requests. Pushes to `main`
 also deploy the validated `public/` artifact to GitHub Pages.
 
-For the initial migration, set **Settings → Pages → Build and deployment →
-Source** to **GitHub Actions**. This replaces the former branch-based MkDocs
-deployment when the workflow first runs. The configured public URL is
+The configured public URL is
 `https://splunk.github.io/f1-simulator/`; existing F1 2025 and event-page URLs
 are retained. Change `baseURL` in `hugo.toml` if deploying somewhere else.
 
@@ -104,4 +101,4 @@ search data. The small icon helper uses Hugo's current `hugo.Data` API.
 
 ## v6 documentation screenshots
 
-Current collector instructions target v6.0.6. Screenshots are in `content/f1-2025/images/v6/`; see its `README.md` for provenance. Hugo ignores that note so it is not published as a page. Use an isolated collector with demo names and mock destinations when refreshing images. Never capture saved credentials or send documentation replays into a conference leaderboard. Preserve existing page URLs and update instructions against the running version, especially capture boundaries, retention and playback behaviour.
+Current collector instructions target v6.0.9. Screenshots are in `content/f1-2025/images/v6/`; see its `README.md` for provenance. Hugo ignores that note so it is not published as a page. Use an isolated collector with demonstration data and disabled or mock destinations when refreshing images. Never capture saved credentials or send documentation replays into a conference leaderboard. Preserve existing page URLs and update instructions against the running version, especially capture boundaries, retention and playback behaviour.

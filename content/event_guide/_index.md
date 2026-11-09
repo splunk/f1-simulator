@@ -9,7 +9,7 @@ cascade:
   type: docs
 ---
 
-Prepare F1 25 for your next Data Drivers event. Work through these settings in order, then run a complete test race before guests arrive.
+Prepare F1 25 for your Data Drivers event. Follow the steps in order on each rig, then run a complete test race before guests arrive. The button names shown are for a PlayStation controller; use the equivalent controls on other devices.
 
 1. [Start a Grand Prix](/event_guide/grand-prix/) — choose your track, team and driver.
 2. [Set the assists](/event_guide/assists/) — make the simulator approachable for participants.

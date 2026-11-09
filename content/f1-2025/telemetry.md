@@ -11,9 +11,9 @@ Configure every racing rig to send F1 25 {{< term "UDP" >}} telemetry to the col
 
 ## Find the collector address
 
-The collector's public IP address is shown in the status bar of the Collector page, in the **IP** pill.
+Choose the address the game can use to reach the collector. The **IP** pill shows the collector’s public address, which may differ from its local network address.
 
-- **Splunk Show or cloud deployment:** use the public address shown in the status bar.
+- **Splunk Show or cloud deployment:** use the address provided for your deployment, often the public address shown in the status bar.
 - **Local Docker:** use the Docker host's LAN address, not `localhost`, because the game runs on another computer.
 - **Same computer:** `127.0.0.1` can be used only when F1 25 and the collector run on the same machine.
 
@@ -58,15 +58,15 @@ Add the required rigs under **Configuration → Rigs** before testing, then save
 3. Start a three-lap Grand Prix in the game.
 4. Confirm **Collecting** and changing lap, lap time, speed and gear.
 5. Open **Collector health → Rigs** and confirm packet counts increase.
-6. Let the race reach Final Classification, then check the result and your destination dashboards.
+6. Leave the game running through the results screen, then check the saved result and your destination dashboards.
 
-A practice session or UDP arriving before Ready can prove network reception, but does not prove race capture. v6 requires the first starting light and a ready driver.
+A practice session can confirm that game data reaches the collector, but only a complete race tests capture and the saved result.
 
 {{< callout type="default" >}}
 
 **Use the displayed address**
 
-Cloud public addresses can change when an instance is replaced. Read the address from the status bar during event setup rather than copying it from an old runbook.
+A cloud address can change when an instance is replaced. Check it during event setup.
 
 {{< /callout >}}
 

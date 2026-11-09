@@ -5,7 +5,7 @@ weight: 30
 type: "docs"
 ---
 
-1. Select **RULES & FLAGS**
+1. Select **RULES & FLAGS**.
 2. Configure the rules and flags:
 
     | Setting | Value |
@@ -15,7 +15,8 @@ type: "docs"
     | Parc Fermé Rules | **Off** |
     | Pit Stop Experience | **Broadcast** |
 
-
-3. Return to the **Grand Prix™ Settings** screen by pressing **O**
+3. Press **O** to return to **Grand Prix™ Settings**.
 
 ![Rules](../images/rules.webp)
+
+Next: [Set the weekend structure](/event_guide/structure/).

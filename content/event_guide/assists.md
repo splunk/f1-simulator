@@ -5,7 +5,7 @@ weight: 20
 type: "docs"
 ---
 
-1. You are now at the **Grand Prix™ Settings** screen, click on **ASSISTS**
+1. On the **Grand Prix™ Settings** screen, select **ASSISTS**.
 2. Configure the assists:
 
     | Setting | Value |
@@ -23,7 +23,8 @@ type: "docs"
     | ERS Assist | **On** |
     | DRS Assist | **On** |
 
-
-3. Return to the **Grand Prix™ Settings** screen by pressing **O**
+3. Press **O** to return to **Grand Prix™ Settings**.
 
 ![Assists](../images/assists.webp)
+
+Next: [Configure rules and flags](/event_guide/rules/).
