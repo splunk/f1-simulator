@@ -5,7 +5,7 @@ weight: 50
 type: "docs"
 ---
 
-1. Select **SIMULATION SETTINGS**
+1. Select **SIMULATION SETTINGS**.
 2. Configure the simulation settings:
 
     | Setting | Value |
@@ -18,7 +18,8 @@ type: "docs"
     | Car Damage Rate | **Standard** |
     | Collisions | **On** |
 
-
-3. Return to the **Grand Prix™ Settings** screen by pressing **O**
+3. Press **O** to return to **Grand Prix™ Settings**.
 
 ![Simulation Settings](../images/simulation_settings.webp)
+
+Next: [Set the weather and time of day](/event_guide/weather/).

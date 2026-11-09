@@ -20,19 +20,19 @@ Set up the track, team and driver before configuring the race settings.
 
 ## Build the track schedule
 
-1. Select the desired track. Use the track for the next Grand Prix or a short track such as Austria.
+1. Select the track for the event, such as Austria.
 2. Select **Highlight To Add Next Track** and add the same track again.
-3. Repeat until all slots are filled with the same track.
+3. Repeat until all 27 slots are filled with the same track.
 
 ![Custom Championship](../images/custom_championship.webp)
 
 ## Choose the team and driver
 
-Select the **McLaren** team.
+For the standard event setup, select the **McLaren** team.
 
 ![Select Team](../images/team.webp)
 
-Select **Lando Norris** as the driver.
+Select **Lando Norris** as the in-game driver. Attendees’ names are entered separately in the collector.
 
 ![Select Driver](../images/driver.webp)
 

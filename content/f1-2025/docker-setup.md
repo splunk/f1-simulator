@@ -17,7 +17,7 @@ These instructions run **v6** on Docker Desktop or Docker Engine. Splunk Show us
 
 The standard deployment uses the published `ghcr.io/splunk/f1-2025-v6:latest` image. `latest` follows new releases; use a tested version tag or digest if you need to control exactly when an event deployment changes.
 
-Save this as your collector startup script. The **named volume mounted at `/data` is required to retain configuration across container replacements**.
+Save this as a shell script and run it on the Docker host. The **named volume mounted at `/data` retains configuration across container replacements**. The script stops and replaces a container named `f1-2025` if one exists.
 
 If an existing collector was started without a named volume, follow [migration](#migrate-an-existing-collector) **before** running this script. Creating a named volume does not copy the previous volume's contents.
 
@@ -50,7 +50,7 @@ docker run -d \
   "$IMAGE"
 ```
 
-To build locally from the [collector repository](https://github.com/splunk/datadrivers-f1-collector):
+To build locally, clone the [collector repository](https://github.com/splunk/datadrivers-f1-collector), open a terminal in its root directory and run:
 
 ```bash
 ./v6/scripts/build.sh --version keep --tag none --local \
@@ -80,7 +80,7 @@ Open **Configuration**, set the event and rigs, enable HEC and/or Observability,
 
 ## Connect the racing rig
 
-Follow [Game Telemetry Setup](/f1-2025/telemetry/). Enter a test driver and select Ready, then run a three-lap Grand Prix through Final Classification. A practice session without a first-light event does not test v6 race capture.
+Follow [Game Telemetry Setup](/f1-2025/telemetry/). Enter a test driver and select Ready, then run a three-lap Grand Prix through the results screen. A practice session does not test a complete race capture.
 
 ## Persistent files
 
@@ -119,7 +119,7 @@ If starting with an empty volume is intentional, configure destinations once aft
 
 Watchtower replacements must retain the named `/data` mount. Its `--remove-volumes` / `WATCHTOWER_REMOVE_VOLUMES` option targets anonymous volumes, not named volumes. See [Watchtower's volume option](https://github.com/containrrr/watchtower/blob/main/docs/arguments.md#remove-anonymous-volumes) and [Docker volume persistence](https://docs.docker.com/engine/storage/volumes/).
 
-A named volume survives container replacement on the same host. It does not by itself survive deletion of the EC2 disk. For a disposable event host, drain both destination queues and export wanted files before termination. Schedule image updates between races; persistence does not make a container restart transparent to an active race.
+A named volume survives container replacement on the same host. It does not by itself survive deletion of the EC2 disk. For a disposable event host, drain all enabled destination queues and export wanted files before termination. Schedule image updates between races; persistence does not make a container restart transparent to an active race.
 
 ## Useful commands
 
@@ -134,9 +134,7 @@ docker stop --timeout 120 f1-2025
 docker start f1-2025
 ```
 
-For upgrades, finish assigned races, check destination queues, stop gracefully, then replace the container using the same data volume and a tested image. If storage is failing, restore it or extend the stop timeout; forced termination can lose unwritten memory.
-
-Before deleting a volume or terminating EC2, verify both queues are empty and download any recordings/logs you want to keep.
+For upgrades, finish assigned races, check the enabled destination queues, and stop gracefully. Replace the container using the same data volume and a tested image. If storage is failing, restore it or extend the stop timeout; forced termination can lose unsaved data.
 
 ## Network access
 

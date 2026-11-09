@@ -11,9 +11,9 @@ Open **Configuration**. The **Event**, **Rigs**, **HEC**, **Observability** and 
 
 ## General
 
-Under **Event**, set **Event Name** (shown in the UI and exported as HEC `custom_event`) and **Event ID** (a stable event identifier). Keep the ID fixed throughout the event; use a new ID for a new event. **Game** shows **F1 2025**. Leave it on that setting, and set the same UDP format in the game.
+Under **Event**, set **Event Name** (shown in the collector and Splunk) and **Event ID** (a stable identifier for the event). Keep the ID fixed throughout the event; use a new ID for a new event. **Game** shows **F1 2025**. Leave it on that setting, and set the same UDP format in the game.
 
-Under **Rigs**, configure one to four rigs with unique IDs and UDP ports. The optional source IP restricts which game host can supply that rig. Standard ports are:
+Under **Rigs**, add one to four rigs. Give each rig a name and a unique UDP port matching its game settings. Optionally, enter the game machine’s IP address to accept data only from that machine. Standard ports are:
 
 | Rig | UDP port |
 | --- | ---: |
@@ -22,7 +22,15 @@ Under **Rigs**, configure one to four rigs with unique IDs and UDP ports. The op
 | Rig 3 | 20779 |
 | Rig 4 | 20780 |
 
-Save event, rig and destination changes before assigning drivers. Changes affecting assigned rigs are rejected until those attempts finish or are reset. Queue warning, disk limit, health export and health interval can be changed during capture. Listeners start automatically; there is no deploy-then-Master-Control sequence.
+### Optional rig dash screen
+
+![Rig settings with dash screen and rate controls](../images/v6/config-rigs.webp)
+
+For an ESP32 dash, enter its network address and UDP port in **Dash screen (optional, host:port)** for the corresponding rig, for example `192.168.1.50:20788`. Select a **Dash rate** of 10, 20, 30, 40 or 60 Hz; the default is 10 Hz. The display updates only when new game data arrives, so setting a faster rate cannot make the game send data more frequently. Leave the address blank when no dash is used. For hardware setup and testing, see the [ESP32 dash guide](https://github.com/splunk/datadrivers-f1-collector/tree/main/esp32-dash).
+
+Save changes before assigning drivers. Settings affecting an assigned rig cannot be changed until its race finishes or is reset. Queue and health export settings can be changed during a race.
+
+<span id="what-starting-validates"></span>
 
 ## Destinations
 
@@ -36,15 +44,15 @@ Enable HEC, Observability, or both. At least one destination must be configured 
 
 The HEC token determines the index; the collector has no index override. Use `http://` only for an endpoint actually serving plain HTTP. For HTTPS, certificate verification is enabled by default. The **Allow unverified HEC certificates** option supports self-signed/IP-addressed endpoints when required by your deployment. Observability always verifies certificates.
 
-Changing a destination URL sends its retained backlog to the new address with the original event metadata. Disabling a destination pauses its backlog; it does not discard it.
+Changing a destination URL sends its retained backlog to the new address with the original event details. Disabling a destination pauses its backlog; it does not discard it.
 
 ### Splunk Observability Cloud
 
 ![Observability realm and token configuration](../images/v6/config-observability.webp)
 
-Enable Observability, select your organization's realm, enter the token, save and test. Supported realms: `au0`, `eu0`, `eu1`, `eu2`, `jp0`, `sg0`, `us0`, `us1`, `us2`. The endpoint is derived as `https://ingest.<realm>.observability.splunkcloud.com/v2/datapoint`; no URL override is needed.
+Select **Enable Observability**, choose your organization’s realm and enter its token. Save, then select **Test saved connection**.
 
-The collector exports 24 race gauges with the dashboard metric names and dimensions. The **Metric interval** controls the additional sampled gauges, not all race gauges. HEC sends flattened events; Observability sends metrics.
+The **Metric interval** controls additional sampled measurements sent to Observability; it does not change the rate of every race measurement.
 
 ### On Splunk Show
 
@@ -64,8 +72,4 @@ Health export continues between races. Disable it here if unwanted; the local he
 
 ## Playback Mode
 
-Playback is no longer a global configuration mode. Use **Recordings → Playback** for a single 1× replay on an idle rig. See [recording and playback instructions](/f1-2025/managing-collectors/#playback).
-
-## What starting validates
-
-Before selecting Ready, configure an event, valid rig settings and at least one enabled destination. Check listener/storage status and test each saved destination. A destination outage during an event uses the disk queue; it does not require restarting all rigs.
+Use **Recordings → Playback** to replay a saved race on an idle rig, optionally repeated with **Loop**. See [recording and playback instructions](/f1-2025/managing-collectors/#playback).

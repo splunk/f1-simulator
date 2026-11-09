@@ -5,7 +5,7 @@ weight: 40
 type: "docs"
 ---
 
-1. Select **WEEKEND STRUCTURE**
+1. Select **WEEKEND STRUCTURE**.
 2. Configure the weekend structure:
 
     | Setting | Value |
@@ -15,7 +15,8 @@ type: "docs"
     | Qualifying Format | **Off** |
     | Session Length | **Quickfire** |
 
-
-3. Return to the **Grand Prix™ Settings** screen by pressing **O**
+3. Press **O** to return to **Grand Prix™ Settings**.
 
 ![Structure](../images/weekend.webp)
+
+Next: [Configure simulation settings](/event_guide/simulation-settings/).

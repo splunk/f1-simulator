@@ -7,11 +7,11 @@ sidebar: {"open": true}
 cascade: {"type": "docs"}
 ---
 
-These guides cover the **v6 F1 2025 collector**: one Go service, up to four independent rigs, and delivery to Splunk Enterprise/Cloud through {{< term "HEC" >}}, Splunk Observability Cloud, or both. v6 is undergoing production field testing; verify your deployment before guests arrive.
+These guides cover the **v6 F1 2025 collector**. Connect up to four independent rigs and send race data to Splunk Enterprise/Cloud through {{< term "HEC" >}}, Splunk Observability Cloud, or both.
 
 ![The v6 operator screen](images/v6/collector.webp)
 
-Only the attendee's car is exported during the race window: **Ready → first starting light (STLG 1) → Final Classification**. Session Ended (SEND) means wait for the result; it does not complete the heat. Unsent data stays in a disk queue until delivered.
+The collector sends the attendee’s race data to your configured destinations. Select **Ready** before the starting lights, then leave the game running through the results screen until the collector saves the result. If a destination is unavailable, unsent data waits in a queue for delivery.
 
 ## Choose your setup
 
@@ -22,7 +22,7 @@ Only the attendee's car is exported during the race window: **Ready → first st
 2. Check **Configuration → Event** and **Rigs**.
 3. Keep provisioned HEC settings unless your administrator directs otherwise. Add your Observability realm/token if needed.
 4. Save changes and test each saved destination.
-5. Configure each game's UDP address and unique rig port.
+5. Follow [Game Telemetry Setup](/f1-2025/telemetry/) for each rig.
 6. Enter a driver name and select **Ready** before starting the race.
 
 {{< /tab >}}
@@ -39,13 +39,13 @@ Only the attendee's car is exported during the race window: **Ready → first st
 
 ## Event workflow
 
-Prepare 27 three-lap Grands Prix in the game. For each attendee, enter their name on the correct rig, select Ready, then ask them to start. Capture starts at the first light. After SEND, leave the game running until Final Classification arrives and the result is saved. The card then opens for the next driver. Rigs progress independently.
+Use the [Event Guide](/event_guide/) to prepare the game. For each attendee, enter their name on the correct rig and select **Ready** before starting the race. Leave the game on the results screen until the collector saves the result and opens the card for the next driver. Each rig operates independently.
 
-The container starts listeners automatically; v6 has no Master Control switch. The optional global **Record all rigs** switch saves raw files independently of sending data to Splunk. Per-rig playback runs once at normal speed unless **Continuous playback** is on.
+The collector starts its listeners automatically. Optional [recording and playback](/f1-2025/managing-collectors/#recording-telemetry) are available from **Recordings**.
 
 ## Test before guests arrive
 
-Run a full three-lap race on each rig, including the results screen, and verify both destination dashboards. Check queue recovery after an interruption. Empty both queues and export wanted recordings before terminating a disposable host.
+Run a full three-lap race on each rig, including the results screen, and verify each enabled destination’s dashboard. Check that its queue clears. See the [pre-event checklist](/f1-2025/monitoring/#pre-event-checklist).
 
 ## Next steps
 
