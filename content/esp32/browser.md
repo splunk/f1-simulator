@@ -25,4 +25,4 @@ The dot under the dash is the board's LED.
 - A browser that opens the page during a race starts from what the board is showing.
 - The page is read-only plain HTTP with no login. Nothing on it changes the board or the collector.
 
-To turn the page off, see [The dash in a browser](https://github.com/splunk/datadrivers-f1-collector/tree/main/esp32-dash#the-dash-in-a-browser) in the esp32-dash guide.
+To turn the page off, set `WEB_PORT = 0` in the [dashboard settings](https://github.com/splunk/datadrivers-f1-collector/tree/main/esp32-dash#settings) and update the board.
