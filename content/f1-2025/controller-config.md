@@ -26,7 +26,7 @@ Under **Rigs**, add one to four rigs. Give each rig a name and a unique UDP port
 
 ![Rig settings with dash screen and rate controls](../images/v6/config-rigs.webp)
 
-For an ESP32 dash, enter its network address and UDP port in **Dash screen (optional, host:port)** for the corresponding rig, for example `192.168.1.50:20788`. Select a **Dash rate** of 10, 20, 30, 40 or 60 Hz; the default is 10 Hz. The display updates only when new game data arrives, so setting a faster rate cannot make the game send data more frequently. Leave the address blank when no dash is used. For hardware setup and testing, see the [ESP32 dash guide](https://github.com/splunk/datadrivers-f1-collector/tree/main/esp32-dash).
+For an ESP32 dash, enter its network address and UDP port in **Dash screen (optional, host:port)** for the corresponding rig, for example `192.168.1.50:20788`. Select a **Dash rate** of 10, 20, 30, 40 or 60 Hz; the default is 10 Hz. The display updates only when new game data arrives, so setting a faster rate cannot make the game send data more frequently. Leave the address blank when no dash is used. To see what the dash shows, see [ESP32 Dashboard](/esp32/). For hardware setup and testing, see the [ESP32 dash guide](https://github.com/splunk/datadrivers-f1-collector/tree/main/esp32-dash).
 
 Save changes before assigning drivers. Settings affecting an assigned rig cannot be changed until its race finishes or is reset. Queue and health export settings can be changed during a race.
 
