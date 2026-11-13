@@ -11,9 +11,7 @@ The ESP32 dashboard is a small race dash that sits on the rig and shows the driv
 
 ![The race dash on the board's screen](images/hud.webp)
 
-{{< callout type="info" >}}
-This section describes what the dashboard does. To install it on a board, follow the [esp32-dash guide](https://github.com/splunk/datadrivers-f1-collector/tree/main/esp32-dash) in the collector repository.
-{{< /callout >}}
+To install it on a board, see [Set Up a Board](/esp32/setup/).
 
 ## Supported boards
 
@@ -32,7 +30,8 @@ The collector sends one small UDP packet per update to that address while the ri
 
 ## In this section
 
-{{< cards cols="2" >}}
+{{< cards cols="3" >}}
+{{< card link="./setup/" title="Set up a board" subtitle="Install the dashboard and connect it to a rig." >}}
 {{< card link="./screens/" title="Screens and LED" subtitle="The race dash, lap timing and race result screens." >}}
 {{< card link="./browser/" title="Browser view" subtitle="Watch the dash from a phone or laptop." >}}
 {{< /cards >}}

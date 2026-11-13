@@ -45,7 +45,7 @@ def check(directory):
     for section, slugs in {
         "f1-2025": "docker-setup configuration controller-config managing-collectors monitoring pit-wall telemetry dashboards",
         "event_guide": "grand-prix assists rules structure simulation-settings weather go-racing",
-        "esp32": "screens browser",
+        "esp32": "setup screens browser",
     }.items():
         expected.update(f"{section}/{slug}/index.html" for slug in slugs.split())
     if set(pages) != expected:
