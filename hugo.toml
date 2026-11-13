@@ -52,14 +52,18 @@ ignoreFiles = ["images/v6/README\\.md"]
   pageRef = "/event_guide"
   weight = 3
 [[menu.main]]
-  name = "Search"
+  name = "ESP32 Dashboard"
+  pageRef = "/esp32"
   weight = 4
+[[menu.main]]
+  name = "Search"
+  weight = 5
   [menu.main.params]
     type = "search"
 [[menu.main]]
   name = "GitHub"
   url = "https://github.com/splunk/f1-simulator"
-  weight = 5
+  weight = 6
   [menu.main.params]
     icon = "github"
 
