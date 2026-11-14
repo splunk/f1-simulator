@@ -54,7 +54,8 @@ The latest **1,000 entries** are held in memory for the current run; they reset 
 
 | Symptom | Action |
 | --- | --- |
-| **Driver required** or first light missed | Enter the name and select **Ready** before starting. If the lights have passed, use **Abort / reset**, assign the driver and restart the race. |
+| **Driver required** | The race started before a driver was ready. Enter the name, select **Ready** and restart the race. |
+| **Start missed** | The driver was made ready after the first light. Use **Abort / reset**, assign the driver again and restart the race. |
 | **Awaiting result** | Leave the game running through the results screen and wait for the collector to save the result. |
 | **Saving result** / storage error | Check free space, volume writability and Queue health. Let local saving recover; do not force a duplicate heat. |
 | Listener failed | Check for another process using the UDP port, correct Configuration → Rigs and save to retry. |

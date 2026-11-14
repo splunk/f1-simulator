@@ -14,7 +14,7 @@ Prepare the game using the [Event Guide](/event_guide/). The collector handles u
 3. Select **Ready**. The card becomes papaya and shows **Current driver**.
 4. Ask the driver to select **Start Race** in the game.
 
-The collector starts collecting the attendee’s race data at the first starting light. Select **Ready** before the lights appear. Game data arriving before the race or without a ready driver does not count as a captured race.
+The collector starts collecting the attendee’s race data at the first starting light. Select **Ready** before the lights appear. Game data arriving before the race or without a ready driver does not count as a captured race. Data from the results screens or while the next race loads is ignored without a warning; the collector warns only if a race starts with no driver ready.
 
 ## During a session
 
