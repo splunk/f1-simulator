@@ -29,7 +29,7 @@ The collector page is the operator screen for up to four independent rigs. The f
 | Card state | Operator meaning |
 | --- | --- |
 | **Awaiting driver** | Enter the next attendee. No race is being collected. |
-| **Driver required** | The game is sending data, but no driver is ready. Enter a name and select Ready before starting the race. |
+| **Driver required** | A race started with no driver ready, so it isn't being saved. Enter a name, select Ready, then restart the race. |
 | **Ready** (papaya) | Driver assigned; waiting for the first starting light. |
 | **Collecting** (green) | Race telemetry is being accepted. |
 | **Awaiting result** (cyan) | The race has ended. Leave the game running through the results screen while the collector waits for the result. |
