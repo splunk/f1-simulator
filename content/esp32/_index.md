@@ -15,12 +15,13 @@ To install it on a board, see [Set Up a Board](/esp32/setup/).
 
 ## Supported boards
 
-The dashboard runs MicroPython on two Waveshare boards with a 1.47-inch, 320×172 colour screen:
+The dashboard runs MicroPython on three small colour-screen boards:
 
-- **ESP32-C5-LCD-1.47**
-- **ESP32-S3-LCD-1.47B**, which also turns the picture the right way up when the board is turned over.
+- **Waveshare ESP32-S3-LCD-1.47B**, which also turns the picture the right way up when the board is turned over.
+- **Waveshare ESP32-C5-LCD-1.47**
+- **LilyGo T-Display-S3**, the 1.9-inch version without touch.
 
-Both boards have a **BOOT** button, which switches between the race dash and the lap timing view, and an RGB LED that repeats the most important colour on the screen.
+Each board's **BOOT** button switches between the race dash and the lap timing view; on the T-Display-S3 its other button does the same. The Waveshare boards also have an RGB LED that repeats the most important colour on the screen. The T-Display-S3 has no LED.
 
 ## How the collector sends to it
 

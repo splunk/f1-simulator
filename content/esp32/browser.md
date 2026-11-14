@@ -9,7 +9,7 @@ The board also serves its dash as a web page, so a phone, tablet or laptop on th
 
 ![The dash in a browser, race dash in Sharp mode](../images/browser-hud-sharp.webp)
 
-The dot under the dash is the board's LED.
+The dot under the dash shows the LED colour, the same as the Waveshare boards' LED.
 
 ## Controls {#controls}
 

@@ -13,9 +13,9 @@ The dashboard code is in the [datadrivers-f1-collector](https://github.com/splun
 
 ## What you need {#requirements}
 
-- An **ESP32-S3-LCD-1.47B** or **ESP32-C5-LCD-1.47** board and a USB-C data cable.
+- A **Waveshare ESP32-S3-LCD-1.47B**, **Waveshare ESP32-C5-LCD-1.47** or **LilyGo T-Display-S3** board and a USB-C data cable.
 - A Mac with [Homebrew](https://brew.sh) and Git.
-- A Wi-Fi network that the collector can reach. The S3 needs 2.4 GHz; the C5 also supports 5 GHz.
+- A Wi-Fi network that the collector can reach. The S3 boards need 2.4 GHz; the C5 also supports 5 GHz.
 
 {{% steps %}}
 
@@ -46,7 +46,7 @@ tools/flash.sh
 
 The installer asks for the board type, its USB port, your Wi-Fi network and password, the UDP port (default `20788`) and the speed units. It then erases the board and installs MicroPython and the dashboard. Press **Ctrl-]** to leave the console it opens at the end.
 
-On the **S3**, the installer asks you to press buttons twice:
+On the **S3 boards** (the Waveshare S3 and the T-Display-S3), the installer asks you to press buttons twice:
 
 1. To enter download mode, hold **BOOT**, press and release **RESET**, then release **BOOT**.
 2. After MicroPython is written, press **RESET**.
@@ -74,7 +74,8 @@ Add `--scenario complete` to show a finished race.
 ## If it doesn't work {#troubleshooting}
 
 - **Stuck on AWAITING DATA:** check that the rig's **Dash screen** matches the board's address and port exactly, and that the game or a playback is running. The test lap shows whether the board itself works.
-- **WIFI FAILED:** check the network name, which is case-sensitive, and the password, then run the installer again.
+- **WIFI FAILED:** check the network name, which is case-sensitive, and the password, then run the installer again. The S3 boards can't join 5 GHz-only networks.
+- **Blank screen on a T-Display-S3:** run the installer again and choose **LilyGo T-Display-S3** as the board type.
 - **The installer can't read the chip:** put the board in download mode (hold BOOT, press RESET, release BOOT), close any other program using the port, and choose Retry.
 
 The repository's [esp32-dash README](https://github.com/splunk/datadrivers-f1-collector/tree/main/esp32-dash) covers settings, updates and more troubleshooting.

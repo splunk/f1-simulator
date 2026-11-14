@@ -5,7 +5,7 @@ weight: 10
 type: "docs"
 ---
 
-The dashboard has two views of the race, and a few screens for before and after it. Press **BOOT** on the board to switch views.
+The dashboard has two views of the race, and a few screens for before and after it. Press **BOOT** on the board to switch views; on the T-Display-S3 the other button works too.
 
 ## Race dash {#race-dash}
 
@@ -13,7 +13,7 @@ The dashboard has two views of the race, and a few screens for before and after 
 
 - **Rev lights** across the top: green, then red, then purple at the shift point.
 - **Speed** and **RPM** on the left, **gear** in the centre.
-- **Last lap**, **position** and **lap** on the right, with the **ERS** mode and **DRS** state below.
+- **Last lap**, **position** and **lap** on the right, with the **ERS** mode and **DRS** state below. The last lap is purple when it's the driver's best so far, green when slower, and white for the first lap or a lap that didn't count.
 - **Throttle** and **brake** bars along the bottom.
 
 ## Lap timing {#lap-timing}
@@ -28,7 +28,7 @@ The lap timing view shows the current lap time, the last and best laps, and each
 | Yellow | Not faster than that best |
 | White | No comparison yet, or the lap is invalid |
 
-Sector bests are this driver's own: the collector doesn't send other drivers' sectors. They reset when the dash restarts or stops receiving data.
+Sector bests are this driver's own: the collector doesn't send other drivers' sectors. They reset when the next driver is made Ready, when the dash restarts, or when it stops receiving data.
 
 ## Before and after the race {#race-states}
 
@@ -56,8 +56,11 @@ The board stays on the view the driver chose. In the lap timing view, the result
 
 ## LED colours {#led}
 
+The Waveshare boards' LED shows:
+
 | When | LED |
 | --- | --- |
+| Waiting for data | White |
 | Race dash | The colour of the rightmost lit rev light |
 | Lap timing | The colour of the latest completed sector |
 | Awaiting result | Orange. The final sector's colour shows first for three seconds |

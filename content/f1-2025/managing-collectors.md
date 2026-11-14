@@ -20,7 +20,7 @@ The collector starts collecting the attendee’s race data at the first starting
 
 The card becomes green while collecting and shows lap, lap time, speed, gear and fastest valid lap. Recording raw `.tlm` files is optional and separate from normal delivery to Splunk.
 
-If the first light was missed, use **Abort / reset**, assign the driver again, and restart the race.
+If the first light was missed, use **Reset rig**, assign the driver again, and restart the race.
 
 ## Completing a session
 
@@ -32,7 +32,7 @@ A **DNF** keeps the fastest known valid completed lap before retirement. With no
 
 ### If the result does not appear {#if-final-classification-never-arrives}
 
-Leave the game running through its results screen and check **Logs** for a problem. The collector will not automatically complete a race just because the game stopped sending data. If the race has been abandoned and the result will not arrive, select **Abort / reset** and confirm **Abort attempt**. This saves an incomplete outcome rather than a completed result.
+Leave the game running through its results screen and check **Logs** for a problem. The collector will not automatically complete a race just because the game stopped sending data. If the race has been abandoned and the result will not arrive, select **Reset rig** on the rig card and confirm it in the dialog. This saves an incomplete outcome rather than a completed result.
 
 If the card is saving a received final result, resolve the storage problem and let it finish; abort is blocked while completion is being saved. After a restart, follow the displayed recovery state rather than starting the same heat again blindly.
 

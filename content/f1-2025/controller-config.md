@@ -5,7 +5,7 @@ weight: 40
 type: "docs"
 ---
 
-Open **Configuration**. The **Event**, **Rigs**, **HEC**, **Observability** and **Queue** tabs share one **Save configuration** button. Settings persist in `/data/config.json`. Use a named Docker volume mounted at `/data` so replacement containers and Watchtower updates reuse them; see [persistent storage](/f1-2025/docker-setup/#verify-persistence).
+Open **Configuration**. The **Event**, **Rigs**, **HEC**, **Observability** and **Queue & health** tabs share one **Save configuration** button. Settings persist in `/data/config.json`. Use a named Docker volume mounted at `/data` so replacement containers and Watchtower updates reuse them; see [persistent storage](/f1-2025/docker-setup/#verify-persistence).
 
 ![v6 Event configuration](../images/v6/config-event.webp)
 
@@ -66,7 +66,7 @@ These routes enable the HEC-only unverified-certificate setting. Existing Ansibl
 
 ## Queue and health export
 
-The **Queue** tab sets the warning age (default **30 seconds**), disk budget (default **2048 MiB**) and health export (default every **10 seconds**). The warning age never deletes data. At the storage limit, collection reports an error; existing queued batches remain intact.
+The **Queue & health** tab sets the warning age (default **30 seconds**), disk budget (default **2048 MiB**) and health export (default every **10 seconds**). The warning age never deletes data. At the storage limit, collection reports an error; existing queued batches remain intact.
 
 Health export continues between races. Disable it here if unwanted; the local health view still works. Optional health samples may be skipped to reserve capacity for race data.
 
