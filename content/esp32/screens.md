@@ -36,7 +36,7 @@ When no data arrives for two seconds, the dash shows **AWAITING DATA** with its 
 
 ![Awaiting data screen with the network name and the board's address](../images/waiting.webp)
 
-When the driver crosses the line, the top row shows **AWAITING RESULT** until the game classifies the race. It then shows **RACE COMPLETE**, or **DNF – RACE ENDED** if the driver didn't finish. The result stays on screen until the next race starts.
+When the driver crosses the line, the top row shows **AWAITING RESULT** until the game classifies the race. It then shows **RACE COMPLETE**, or **DNF – RACE ENDED** if the driver didn't finish. The result stays on screen until the operator selects **Ready** for the next driver. Both views then clear, and the dash shows AWAITING DATA until the next race sends data.
 
 {{< tabs >}}
 {{< tab name="Awaiting result" >}}
