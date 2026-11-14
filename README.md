@@ -41,6 +41,7 @@ Page titles and sidebar order come from `title`, `linkTitle` and `weight` in
 YAML front matter. Use Hugo content paths for internal links, for example
 `[Configuration](/f1-2025/controller-config/#general)`; the theme adds the
 GitHub Pages prefix. From a page, reference that section's screenshots with a relative path such as `../images/v6/collector.webp`. The section overview uses `images/v6/collector.webp`.
+Capture collector screenshots from the release being documented as 1280×720 WebP, and mask IP addresses, HEC URLs, tokens and driver names before capture.
 
 Use Hextra shortcodes for callouts and tabs:
 
